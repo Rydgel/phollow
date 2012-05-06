@@ -1,0 +1,35 @@
+---
+date: '2009-03-28 23:09:14'
+layout: post
+slug: quand-mes-applis-qt-shabillent-en-gtk
+status: publish
+title: Quand mes applis Qt s'habillent en Gtk...
+wordpress_id: '472'
+categories:
+- linux
+tags:
+- archlinux
+- gtk
+- linux
+- qt
+- thème
+---
+
+<p style="text-align: justify; ">Gtk, Qt, sources d'innombrables trolls, on voit souvent ces 2 là comme les pires ennemis du monde. Les Gnomistes refusant de voir un bout de Qt sur leurs ordis et inversement. J'avous aussi avoir évité le plus possible d'utiliser des apps Qt, pas parce que je les trouve inférieur à Gtk (au contraire même), mais surtout que le style visuel était clairement différent des mes autres apps graphiques et .. ça faisait tâche. Mais la sortie du nouveau framework Qt change tout ça !</p>
+
+<h1>Alors quoi de neuf ?</h1>
+<p style="text-align: justify;">Et bien dans la version 4.5 de Qt les développeurs de chez <a href="http://www.qtsoftware.com/" target="_blank">Trolltech</a> ont donné à leur moteur de pouvoir <em>lire les données Gtk</em>.<span style="color: #888888;"><span style="color: #000000;"> </span></span>Bon ok je simplifie fortement mais pour faire court les applications Qt peuvent maintenant utiliser les thèmes Gtk !</p>
+<p style="text-align: justify;">Il suffit pour cela d'utiliser le style <strong>Gtk</strong> prévu à cet effet.</p>
+
+<h1 style="text-align: justify;">Installation</h1>
+Tout ce dont vous avez besoin ce trouve <a href="http://labs.trolltech.com/page/Projects/Styles/GtkStyle" target="_blank">ici</a>.
+
+Après avoir installé le nouveau style <strong>Gtk</strong>, il faut maintenant le sélectionner dans <strong>qtconfig</strong> :
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/03/qtconfig.png"><img class="alignnone size-medium wp-image-483" title="qtconfig" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/03/qtconfig-300x239.png" alt="qtconfig" width="300" height="239" /></a>
+
+Et.. c'est tout.
+
+Maintenant plus de problèmes graphiques entre Gtk et Qt, pour preuve voici un petit screen :)
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/03/gtkqt.png"><img class="alignnone size-medium wp-image-484" title="gtkqt" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/03/gtkqt-300x187.png" alt="gtkqt" width="300" height="187" /></a>

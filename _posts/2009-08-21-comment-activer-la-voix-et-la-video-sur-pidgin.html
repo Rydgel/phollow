@@ -1,0 +1,47 @@
+---
+date: '2009-08-21 00:22:05'
+layout: post
+slug: comment-activer-la-voix-et-la-video-sur-pidgin
+status: publish
+title: Comment activer la voix et la video sur Pidgin
+wordpress_id: '1372'
+categories:
+- linux
+- tutoriel
+tags:
+- linux
+- pidgin
+---
+
+<p style="text-align: justify;">Apparement vous êtes plusieurs à ne pas avoir réussi à utiliser la vidéo ou la voix sous <a href="http://pidgin.im">Pidgin</a>. Donc j'écris ce petit tuto pour vous montrer comment faire. Je vais essayer de rester le plus général possible, de manière à ce que ça fonctionne sur toutes les distribs Linux.</p>
+
+<h1>Compilation</h1>
+<p style="text-align: justify;">En fait l'astuce c'est de compiler Pidgin avec les bonnes options et d'avoir les dépendances qui vont bien avec. Et pour ça nous avons besoin des dépendances. Voici ce qu'il vous faut :</p>
+
+<ul>
+	<li>Farsight &gt;= 2.0.0.9</li>
+	<li>Libnice &gt;= 0.0.7</li>
+	<li>Libgstreamer-plugins-base0.10-dev</li>
+</ul>
+<p style="text-align: justify;">Bon je vous préviens les noms peuvent légèrement changer suivant les distros.</p>
+<p style="text-align: justify;">Maintenant téléchargez les <a href="http://www.pidgin.im/download/source/">sources de Pidgin</a>.</p>
+
+<pre lang="bash">tar xjvf pidgin-2.6.1.tar.bz2
+cd pidgin-2.6.1
+./configure --prefix=/usr --enable-vv</pre>
+<p style="text-align: justify;">Laisser faire le boulot, puis à la fin du configure regardez bien si vous avez ça : <strong>Build with voice and video.... yes</strong></p>
+<p style="text-align: justify;">Si vous ne l'avez pas c'est qu'il vous manque une dépendance que Pidgin n'a pas trouvé. Si vous l'avez c'est cool on peut compiler tout ça !</p>
+
+<pre lang="bash">make && sudo make install</pre>
+Et voilà votre Pidgin supporte la voix et la vidéo pour le protocole XMPP.
+<h1>Petit test..</h1>
+<p style="text-align: justify;"></p>
+
+
+[caption id="attachment_1379" align="aligncenter" width="595" caption="Featuring Grotaquin"]<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/08/gtalk_test.jpg"><img class="size-medium wp-image-1379" title="gtalk_test" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/08/gtalk_test-595x341.jpg" alt="Featuring Grotaquin" width="595" height="341" /></a>[/caption]
+
+Alors en fait pour tester j'ai ouvert le macbook avec gtalk dessus et j'ai mis la peluche devant. Ensuite sur pidgin j'ai configuré un compte Gmail/Gtalk, ajouté le contact peluche et lancé l'appel audio/vidéo.
+
+Ca s'est mis à sonner sur le macbook, j'ai décroché et j'ai eu la caméra et le son de Linux. Et vice/versa. Ma cam a un rendu tout noir à cause du screenshot je sais pas pourquoi mais elle fonctionnait bien :) Sinon je vous parle même pas des effets Larsen avec les 2 ordis à coté :)))
+
+Bref j'espère que maintenant c'est un peu plus clair pour vous. Si vous avez des questions, j'essairai d'y répondre.

@@ -1,0 +1,46 @@
+---
+date: '2010-02-15 14:00:53'
+layout: post
+slug: un-conky-pour-le-moins-impressionnant
+status: publish
+title: Un conky pour le moins impressionnant
+wordpress_id: '2143'
+categories:
+- customisation
+- linux
+tags:
+- archlinux
+- conky
+- linux
+---
+
+<p style="text-align: justify;">Les dernières versions de Conky permettent des choses incroyables depuis que l'on peut jouer avec cairo et lua. Grâce à ces derniers, on peut générer des formes complexes. Adieu le conky rectangulaire :)</p>
+<p style="text-align: justify;">Le conky de <a href="http://sen7.deviantart.com/" target="_blank">sen</a> s'appelle NightDrive et possède les caractéristiques suivantes : il affiche l'heure, avec un look LCD, la météo avec des pictos, des infos sur les processeurs, RAM, carte graphique, le nombre de mise à jour disponible sur Arch (ben oué on est en rolling release nous ;) ), la bande-passante, la place disponible sur le disque et la musique (MPD) avec les couvertures d'albums.</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/02/Conky___NightDrive_by_sen7.png"><img class="aligncenter size-medium wp-image-2144" title="Conky___NightDrive_by_sen7" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/02/Conky___NightDrive_by_sen7-595x346.png" alt="" width="595" height="346" /></a></p>
+<p style="text-align: justify;">Vous voulez le tester ? Alors assurez-vous d'avoir les pré-requis nécessaire :</p>
+
+<ul>
+	<li>conky &gt;= 1.7.2</li>
+	<li>--enable-imlib2 \</li>
+	<li>--enable-lua \</li>
+	<li>--enable-lua-cairo \</li>
+	<li>--enable-lua-imlib2 \</li>
+	<li>--enable-nvidia \</li>
+	<li>--enable-mpd</li>
+</ul>
+<p style="text-align: justify;">Ça se sont les options de compilations. Faites un <em>conky -v </em>avant. Si vous avez comme résultat :</p>
+
+<pre lang="bash"> Music detection:
+  * MPD
+
+ General:
+  * nvidia
+  * Imlib2
+  * Lua
+
+  Lua bindings:
+   * Cairo
+   * Imlib2</pre>
+Ça veut dire que vous allez pouvoir faire tourner ce bijou. Toutes les infos se retrouvent de toute façon dans le ReadMe du conky.
+
+Allez zou, allez le <a href="http://sen7.deviantart.com/art/Conky-NightDrive-151418309" target="_blank">télécharger</a> si ça vous branche ;)

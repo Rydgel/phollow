@@ -1,0 +1,78 @@
+---
+date: '2008-10-26 00:50:41'
+layout: post
+slug: une-introduction-a-cakephp
+status: publish
+title: Une introduction à CakePHP
+wordpress_id: '7'
+categories:
+- web
+tags:
+- cakePHP
+- php
+- tutoriel
+- web
+---
+
+<p style="text-align: justify;">CakePHP est un framework PHP open-source qui a pour but de rendre le développement, la maintenance et le déploiement  d'applications internet plus facile. Il utilise une architecture de type Modèle - Vue - Contrôleur, une gestion simplifiée de la base de données (objet - relationnel). Inspiré par Ruby on Rails, l'un des premiers frameworks web marquant, il en garde la même philosophie.</p>
+
+<h3 style="text-align: left;">Étape 1: Télécharger le framework</h3>
+<p style="text-align: justify;">Rendez vous sur le <a href="http://cakephp.org/">site de CakePHP</a> pour récupérer la dernière version, à l'heure où j'écris ces lignes la version 1.2 RC3 est sortie. Cliquez sur le large bouton "download". Il y a plusieurs formats différents de paquetages, prenez celui qui convient le mieux à votre ordinateur.</p>
+<p style="text-align: center;"><a href="http://cakephp.org/"><img class="alignnone" title="Télécharger Cake" src="http://farm4.static.flickr.com/3212/2972269607_455f7f20c6_o.jpg" alt="" width="420" height="204" /></a></p>
+
+<h3 style="text-align: left;">Étape 2: Contenu de l'archive</h3>
+<p style="text-align: left;">Une fois que vous avez récupéré l'archive, placez la sur votre serveur web. Votre serveur doit supporter PHP 5 et avoir une base SQL. CakePHP supporte plusieurs type de base de données, dans notre exemple nous prendrons MySQL. Vous devez aussi avoir le mod_rewrite.</p>
+<p style="text-align: left;">L'arborescence des fichiers est le suivant :</p>
+
+<pre lang="bash">/dossier_racine
+	/cake/
+	/docs/
+	/app/
+
+    		config/
+		controllers/
+		models/
+		plugins/
+		tmp/
+		vendors/
+		views/
+		webroot/
+		index.php
+		.htaccess</pre>
+<pre style="text-align: left;">	/vendors/
+        index.php
+       .htaccess</pre>
+Chaque répertoire à un rôle bien précis, que je vais détailler juste après. Il est nécessaire de comprendre à quoi servent ces dossiers pour ne pas se perdre.
+<ul>
+	<li>Le dossier <strong>cake</strong> contient le "moteur" du framework. Vous n'aurez pas besoin d'y toucher.</li>
+	<li>Le dossier <strong>docs</strong> n'est pas vraiment important, vous pouvez le supprimer si vous voulez.</li>
+	<li>Le dossier <strong>app</strong> contiendra le code de votre application, il contient les dossiers suivants :</li>
+	<li><strong>config</strong> contient les fichiers de configuration pour votre application (la base de données, les routes...)</li>
+	<li><strong>models</strong> contiendra vos modèles qui correspondent au comportement de votre application : le traitement des données et les interactions avec la base de données.</li>
+	<li><strong>views</strong> contiendra les vues : c'est votre lien avec l'utilisateur, on y présente les données reçues par le modèle et on met à disposition de l'utilisateur les actions possibles</li>
+	<li><strong>controllers</strong> contiendra les contrôleurs qui serviront de liens entre les vues et les modèles.</li>
+</ul>
+L'utilité des autres dossiers n'est pas importante pour le moment.
+<h3>Étape 3: Configuration de la base de données</h3>
+La configuration de CakePHP est assez simple. Vous avez besoin d'une base de données libre, du nom d'utilisateur et du mot de passe. Ensuite ouvrez le fichier /app/config/database.php.default.
+<pre lang="PHP">class DATABASE_CONFIG {
+
+	var $default = array(
+		'driver' => 'mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'user',
+		'password' => 'password',
+		'database' => 'database_name',
+		'prefix' => '',
+	);
+}</pre>
+Remplissez ce fichier en prenant en compte vos réglages et sauvegardez le sous le nom database.php. Il y a d'autres réglages disponibles dans /app/config/core.php comme le niveau de débuggage, le nom des cookies... Nous verrons ça plus en détails quand nous commencerons à développer notre application.
+<h3>Étape 4: Tester la configuration</h3>
+Ouvrez votre navigateur et pointez sur le dossier racine de cakePHP. Si vous avez ça :
+<code>Your database configuration file is present
+Cake is able to connect to the database</code>
+<p style="text-align: left;">C'est bon</p>
+
+<h3 style="text-align: left;">Conclusion</h3>
+<p style="text-align: left;">Tout est en place pour commencer à créer notre application. Dans le prochain tutoriel sur CakePHP nous allons mettre en place une bibliothèque de films.</p>

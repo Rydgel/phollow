@@ -1,0 +1,75 @@
+---
+date: '2011-03-01 23:54:37'
+layout: post
+slug: facebook-like-methode-de-partage
+status: publish
+title: Facebook Like, méthode de partage
+wordpress_id: '3119'
+categories:
+- bout de codes
+- tutoriel
+- web
+tags:
+- facebook
+---
+
+<p style="text-align: justify;">Facebook a rajouté tout récemment de nouvelles fonctionnalités à son bouton <strong>like</strong>. Ce bouton — <em>un peu le cheval de Troie de Facebook sur le web</em> — devient maintenant une alternative intéressante, et <em>obligatoire</em>, au Facebook Share. Il faut dire qu'avant le partage se limitait à une simple ligne sur le profil du <em>likeur</em>. Voyons ce qui change et comment l'intégrer sur <strong>Wordpress</strong> par exemple.</p>
+<p style="text-align: justify;"><img class="alignnone size-medium wp-image-3146" title="amis-facebook" src="http://s3-eu-west-1.amazonaws.com/phollow/2011/03/amis-facebook-537x314.jpg" alt="" width="537" height="314" /></p>
+<p style="text-align: justify;">Désormais le simple fait de “ liker ” une page, pourra poster sur votre profil tout un tas d'informations. Le titre de la page, une description et pourquoi pas une image. En fait c'est exactement le même modèle de ce que faisait le vieux bouton bleu moche <strong>Facebook Share</strong>.</p>
+<p style="text-align: justify;">Le bouton like fonctionne avec le protocole <strong>Open Graph</strong>. Concrètement ce protocole permet à Facebook de s'insérer dans n'importe quel site web. Dans ce protocole, Facebook a définit certaines balises Meta qui vont contenir la carte d'identité de la page web. Le titre, l'URL, la description, la catégorie etc.</p>
+[cc lang="html" width="537" escaped="true" line_numbers="false" nowrap="false" noborder="true"]
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:og="http://ogp.me/ns#"
+xmlns:fb="http://www.facebook.com/2008/fbml"&gt;
+&lt;head&gt;
+&lt;title&gt;The Rock (1996)&lt;/title&gt;
+&lt;meta property="og:title" content="The Rock"/&gt;
+&lt;meta property="og:type" content="movie"/&gt;
+&lt;meta property="og:url" content="http://www.imdb.com/title/tt0117500/"/&gt;
+&lt;meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/&gt;
+&lt;meta property="og:site_name" content="IMDb"/&gt;
+&lt;meta property="fb:admins" content="USER_ID"/&gt;
+&lt;meta property="og:description" content="A group of U.S. Marines, under command of a renegade general, take over Alcatraz and threaten San Francisco Bay with biological weapons."/&gt;
+...
+&lt;/head&gt;
+...
+&lt;/html&gt;
+[/cc]
+<p style="text-align: justify;">Vous pouvez trouver une liste exhaustive de ces attributs sur la <a href="http://developers.facebook.com/docs/opengraph/" target="_blank">documentation</a> de Facebook.</p>
+<p style="text-align: justify;">Ces éléments sont nécessaires pour profiter à 100% du widget Facebook. Le bouton en lui-même s'insère facilement.</p>
+[cc lang="html" width="537" escaped="true" line_numbers="false" nowrap="false" noborder="true"]
+&lt;script src="http://connect.facebook.net/fr_FR/all.js#xfbml=1"&gt;&lt;/script&gt;
+&lt;fb:like href="http://phollow.fr" show_faces="true" width="450"&gt;&lt;/fb:like&gt;
+[/cc]
+<p style="text-align: justify;">L'attribut <em>href</em>, vous l'avez compris, pointe vers la page à partager. C'est sur cette même page que les balises Open Graph devront être. Maintenant prenant l'exemple d'un blog, sous Wordpress. Chacun de vos articles aura dans le header les balises Meta qui le décriront en gros, et un bouton <em>like</em> présent à la fin du billet pour le partager. Ce qui peut être sympa, c'est de récupérer une image de l'article en question pour l'afficher lors du partage.</p>
+<p style="text-align: justify;">Pour cela il faut modifier un peu le thème du blog. On ouvre functions.php, et on ajoute cette fonction :</p>
+[cc lang="php" width="537" escaped="true" line_numbers="false" nowrap="false" noborder="true"]
+function premiere_image() {
+global $post, $posts;
+$first_img = '';
+ob_start();
+ob_end_clean();
+$output = preg_match_all('//i', $post-&gt;post_content, $matches);
+$first_img = $matches [1] [0];
+
+if(empty($first_img)){ //Si il n'y a pas d'image dans le billet
+$first_img = "/images/default.jpg"; // On en met une par défaut
+}
+return $first_img;
+}
+[/cc]
+<p style="text-align: justify;">Avec cette fonction, on va maintenant éditer le fichier <em>header.php</em> du thème pour modifier les balises meta.</p>
+[cc lang="html" width="537" escaped="true" line_numbers="false" nowrap="false" noborder="true"]
+&lt;meta property="og:type" content="blog" /&gt;
+&lt;meta property="og:site_name" content="&lt;?php bloginfo('name'); ?&gt;" /&gt;
+&lt;meta property="og:country_name" content="French" /&gt;
+&lt;meta property="fb:admins" content="rydgel" /&gt;
+&lt;meta property="fb:app_id" content="101739241646"/&gt;
+&lt;meta property="og:email" content="rydgel@phollow.fr" /&gt;
+&lt;?php if(is_single()) :?&gt;
+&lt;meta property="og:url" content="&lt;?php the_permalink() ?&gt;"/&gt;
+&lt;meta property="og:image" content="&lt;?php echo premiere_image() ?&gt;"/&gt;
+&lt;?php endif; ?&gt;
+[/cc]
+<p style="text-align: justify;">Et voilà ça devrait suffire !</p>
+<p style="text-align: justify;">Maintenant on peut se poser la question de la pertinence de la chose. On avait à la base l'action de partager et l'action d'aimer. Désormais le simple fait d'aimer un truc, nous le fait partager. Admettons. Mais si je veux partager sans aimer ? :)</p>

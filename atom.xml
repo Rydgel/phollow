@@ -1,0 +1,32 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+  <title>Phollow.me</title>
+  <link href="http://phollow.fr/"/>
+  <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://phollow.fr/</id>
+  <author>
+    <name>Jérôme Mahuet</name>
+    <email>rydgel@phollow.fr</email>
+  </author>
+
+  {% for post in site.posts limit: 20 %}
+  <entry>
+    <id>http://phollow.fr{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://phollow.fr{{ post.url }}"/>
+    <title>{{ post.title | xml_escape }}</title>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>Jérôme Mahuet</name>
+      <uri>http://phollow.fr/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+ 
+</feed>

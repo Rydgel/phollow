@@ -1,0 +1,47 @@
+---
+date: '2010-02-28 22:44:05'
+layout: post
+slug: dwm
+status: publish
+title: Dwm
+wordpress_id: '2214'
+categories:
+- linux
+- tutoriel
+tags:
+- archlinux
+- dwm
+---
+
+<p style="text-align: justify;"><strong>Dwm</strong> est le Dynamic Window Manager pour X. Il s'occupe de manipuler les fenêtres en mode mosaïqué (tiling), plein-écran ou flottant. Il est très léger et écrit en C. Son code source fait moins de 2000 lignes de codes, et il est customisable de différentes façons, notamment avec tous les patchs qui sont sortis. Il fonctionne aussi très bien sur du multi-écran, avec xrandr et xinerama. Ce billet à pour intention de vous aider à l'installer et à le personnaliser, pour les gens qui sont curieux, et qui aimeraient bien tester un tiling wm.</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/02/dwm-bg03.png"><img class="aligncenter size-medium wp-image-2218" title="dwm-bg03" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/02/dwm-bg03-595x371.png" alt="" width="595" height="371" /></a></p>
+
+<h1 style="text-align: justify;">Introduction</h1>
+<p style="text-align: justify;">Nous allons installer et configurer Dwm en utilisant <strong>makepkg</strong> et l'<strong>A</strong>rch <strong>B</strong>uild <strong>S</strong>ystem. Ce qui va nous permettre de créer proprement des paquets, et éviter de "salir" le système avec un <strong>make install</strong>. Pour ceux qui n'utilise pas Arch Linux, il y a toujours moyen de faire la même chose avec d'autres outils. Pour tester rapidement dwm :</p>
+
+<pre lang="bash">sudo pacman -S dwm</pre>
+<p style="text-align: justify;">Gardez à l'esprit que si vous l'installez comme ça, vous passez à côté de toute la partie customisation.</p>
+
+<h1 style="text-align: justify;">Préparation</h1>
+<p style="text-align: justify;">Nous allons avoir besoin du paquet<strong> base-devel</strong> pour la compilation et <strong>abs</strong> pour récupérer l'arbre des PKGBUILDs.</p>
+
+<pre lang="bash">sudo pacman -S base-devel abs</pre>
+<p style="text-align: justify;">Récupérons maintenant les PKGBUILDs de tous les programmes installables avec pacman. On va donc pouvoir ensuite récupérer celui de Dwm pour pouvoir le compiler à notre sauce.</p>
+
+<pre lang="bash">sudo abs
+cp -r /var/abs/community/dwm ~/dwm
+</pre>
+<p style="text-align: justify;">Rentrons maintenant avec un cd, dans le dossier dwm fraichement copié dans notre home et lançons la compilation.</p>
+
+<pre lang="bash">makepkg -i</pre>
+<p style="text-align: justify;">Ceci va récupérer les sources, compiler et installer Dwm.</p>
+
+<h1>Configuration</h1>
+<p style="text-align: justify;">Allez faire un petit tour dans le dossier dwm copié dans votre home. Vous y trouverez un fichier <strong>config.h</strong>. C'est dans ce fichier que l'ont va pouvoir configurer Dwm. Une fois ce fichier à jour, il faut recompiler Dwm :</p>
+
+<pre lang="bash">makepkg -efi --skipinteg
+</pre>
+<h1>Conclusion</h1>
+<p style="text-align: justify;">Voilà ce qu'il faut faire pour mettre à jour et configurer Dwm. Je vous laisse faire un tour sur l<a href="http://dwm.suckless.org/">e site officiel</a> pour avoir des infos supplémentaires sur la configuration, avec des exemples et des plugins.</p>
+<p style="text-align: justify;">Sur mon prochain billet je vous montrerai ma configuration avec des exemples précis d'utilisation de dzen2, conky etc.</p>
+<p style="text-align: justify;">Stay tuned.</p>

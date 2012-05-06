@@ -1,0 +1,113 @@
+---
+date: '2011-05-15 20:48:38'
+layout: post
+slug: streaming-twitter-nodejs-socket-io
+status: publish
+title: 'Streaming Twitter: NodeJS & Socket.IO'
+wordpress_id: '3321'
+categories:
+- bout de codes
+- web
+tags:
+- nodejs
+- socket.io
+---
+
+<img class="alignnone size-full wp-image-3324" title="nodejs" src="http://s3-eu-west-1.amazonaws.com/phollow/2011/05/nodejs.jpg" alt="" width="537" height="300" />
+<br>
+<p style="text-align: justify;">Bonjour les enfants. Aujourd'hui on va s'amuser un peu avec <a title="Node.js" href="http://nodejs.org/" target="_blank">Node.js</a> et les Web Sockets. Pour ceux qui vivent encore dans une grotte, <strong>Node.js</strong> est un framework Javascript côté serveur basé sur <strong>V8</strong> (Chrome). L'avantage est qu'il gère les entrées/sorties de manière asynchrone et supporte un modèle de programmation événementiel. En gros il est parfait pour les applications web temps réels (notifications, push serveur, streaming…).</p>
+<p style="text-align: justify;">En quelques lignes de codes on va être capable de faire cette <a title="Twitter streaming - Node.js - Socket.io" href="http://phollow.fr/tweet-stream/tweets.html" target="_blank">petite démo</a>. Tu as besoin d'avoir un navigateur <em>à la pointe de la technologie</em> pour que ça marche mon ami.</p>
+
+<h1 style="text-align: justify;">Installation</h1>
+<p style="text-align: justify;">Pour commencer il nous faut Node.js bien sur. Alors là tu as plusieurs solutions. Tu peux déjà commencer par <a title="Node.js installing manager" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager" target="_blank">regarder</a> si il est disponible sous forme de paquet dans ton OS ou distribution GNU/Linux. Sinon tu vas devoir le compiler, mais c'est pas très difficile: <a href="https://github.com/joyent/node/wiki/Installation" target="_blank">regarde</a>.</p>
+<p style="text-align: justify;">Il est aussi important d'installer <strong>npm</strong> (Node Package Manager), il va nous simplifier la vie quand on voudra installer des extensions à Node.js.</p>
+{% highlight sh %}curl http://npmjs.org/install.sh | sh{% endhighlight %}
+<h1 style="text-align: justify;">Socket.io</h1>
+<p style="text-align: justify;"><img class="alignnone size-full wp-image-3340" title="socket" src="http://s3-eu-west-1.amazonaws.com/phollow/2011/05/socket.jpg" alt="" width="537" height="260" /></p>
+<p style="text-align: justify;"><a href="http://socket.io/" target="_blank">Socket.io</a> est la première extension que l'on va installer pour ce tutorial. Le but de cette librairie est de faciliter le développement d'applications web temps réel dans tous les navigateurs. Parce que tu as certains navigateurs qui gèrent les sockets et d'autres non. Alors cette librairie va décider elle-même quel chemin prendre pour tes échanges parmi ceux-là :</p>
+
+<ul>
+	<li>Websocket</li>
+	<li>Adobe Flash $ocket ©</li>
+	<li>Ajax long polling</li>
+	<li>Multipart XHR</li>
+	<li>Forever iFrame (lol IE)</li>
+	<li>JSONP polling</li>
+</ul>
+{% highlight sh %}npm install socket.io{% endhighlight %}
+<p style="text-align: justify;">Et puisque l'on va jouer avec l'API streaming de Twitter, tu peux aussi installer l'excellent <a href="https://github.com/technoweenie/twitter-node" target="_blank">twitter-node</a> de la même manière.</p>
+
+<h1 style="text-align: justify;">Code serveur</h1>
+{% highlight js %}
+var config      = {user: "pseudo", password: "password", action: "filter", track: ['bieber']},
+sys         = require('sys'),
+server      = require('http').createServer(function(req, res){
+res.writeHead(200, {'Content-Type': 'text/html'});
+res.end('
+<h1>Twitter live stream</h1>
+');
+});
+
+server.listen(8080);
+console.log('Server running at http://127.0.0.1:8080/');
+
+var socket      = require('socket.io').listen(server),
+twitter     = new (require("twitter-node").TwitterNode)(config);
+
+twitter
+.addListener('error', function(error){
+console.log(error.message);
+})
+.addListener('tweet', function(tweet){
+socket.broadcast(JSON.stringify(tweet));
+})
+.addListener('limit', function(limit){
+sys.puts('LIMIT: ' + sys.inspect(limit));
+})
+.addListener('delete', function(del){
+sys.puts('DELETE: ' + sys.inspect(del));
+})
+.addListener('end', function(resp){
+sys.puts('wave goodbye...' + resp.statusCode);
+})
+.stream();
+{% endhighlight %}
+<p style="text-align: justify;">Au début du code on instancie quelques variables, dont la variable config que l'on passera à notre objet twitter-node. Elle contient les accès Twitter, le fait que l'on veut utiliser l'API Twitter en mode filtre et le mot sur lequel on veut filter. On instancie aussi un serveur Node.js, dans mon cas sur le port 8080.</p>
+<p style="text-align: justify;">On attache un objet socket.io sur notre serveur et on instancie un objet twitter-node. On démarre le stream de Twitter en attachant des fonctions aux évènements que l'on peut recevoir.</p>
+<p style="text-align: justify;">L'évènement du nom de “ tweet ” est appelé à chaque fois que l'on reçoit <strong>un</strong> tweet. Les évènements limit et delete sont envoyés par l'API Twitter. Par exemple le cas du delete est important à prendre en compte si on construit un client Twitter sur l'API de streaming. Imaginons que quelqu'un poste un tweet et l'efface 2s après. Vous l'aurez déjà reçu et affiché. Mais 2s après vous allez recevoir un signal DELETE sur ce tweet et votre client pourra gérer sa disparition.</p>
+<p style="text-align: justify;">Quand on passe dans l'évènement Tweet, je demande à Socket.io d'envoyer en <em>broadcast</em> (à toutes les personnes connectées sur mon serveur) d'envoyer un objet JSON du tweet reçu.</p>
+
+<h1 style="text-align: justify;">Côté Client</h1>
+{% highlight html+js %}
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<title>Twitter live stream : NodeJS + Socket.io</title>
+</head>
+<body>
+<ul></ul>
+<script>
+(function(document, window, undefined) {
+var script = document.createElement("script");
+script.src = "http://code.jquery.com/jquery.min.js";
+script.onload = function() {
+$.getScript("http://127.0.0.1:8080/socket.io/socket.io.js", function() {
+var socket = new io.Socket("127.0.0.1", {"port": 8080});
+socket.on("message", function(json) {
+data = JSON.parse(json);
+$("<li></li>").text("@" + data.user.screen_name + " " + data.text).prependTo("ul")
+});
+socket.connect();
+});
+};
+document.getElementsByTagName("head")[0].appendChild(script);
+})(document, window);
+</script>
+</body>
+</html>
+{% endhighlight %}
+<p style="text-align: justify;">Donc là je charge jQuery et une fois que c'est fait je vais chercher le script socket.io.js. Il est automatiquement fournit par le serveur node, donc tu as peut-être le port à changer. Une fois que c'est fait on peut créer un nouveau socket et attacher une fonction à l'évènement <strong>message</strong>. Cet évènement est appelé à chaque fois que le serveur nous envoi quelque chose. Dans notre cas un tweet, donc je l'affiche.</p>
+
+<h1 style="text-align: justify;">Lancement du serveur</h1>
+{% highlight sh %}node serveur.js{% endhighlight %}
+<p style="text-align: justify;">Tu n'as plus qu'a ouvrir la partie cliente dans ton navigateur et ça devrait marcher. Je trouve Node.js vraiment intéressant et je n'avais pas pris le temps de le creuser plus que ça. Mais le développement de ce programme est vraiment rapide et s'améliore de jour en jour. Il existe des wrappers node pour Mysql, mongodb et d'autres base de données. Et d'autres plugins aussi utiles que Twitter-node ou socket.io. Il y a même des frameworks de type MVC et cie. On en trouve une bonne liste sur <a href="https://github.com/joyent/node/wiki/modules" target="_blank">cette page</a>.</p>

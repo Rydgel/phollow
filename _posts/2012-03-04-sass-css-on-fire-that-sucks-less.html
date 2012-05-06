@@ -1,0 +1,186 @@
+---
+date: '2012-03-04 21:30:32'
+layout: post
+slug: sass-css-on-fire-that-sucks-less
+status: publish
+title: Sass – CSS on fire that sucks less
+wordpress_id: '3977'
+categories:
+- web
+tags:
+- compass
+- css
+- sass
+- scss
+---
+
+<figure><figcaption style="top:-130px;"><img src="http://s3-eu-west-1.amazonaws.com/phollow/2012/02/sass.gif" alt="" title="sass" width="217" height="238" class="alignnone size-full wp-image-3985"></figcaption><p class="lettrine" style="margin-bottom:0;">Le <abbr>css</abbr> permet de définir des styles au travers d’un langage déclaratif, de sélecteurs, propriétés et valeurs. Le tout saupoudrée d’une notion d’héritage basique. Ce qui peut amener certains problèmes sur le long terme : répétition de code et complexification du fichier CSS où les relations entres nos éléments du <abbr>DOM</abbr> ne sont pas forcément claires.</p></figure>
+<p style="text-indent:2.3em"><abbr><b>Sass</b></abbr> étend les capacités du <abbr>css</abbr> en rajoutant la possibilité d’utiliser des variables, des fonctions, l’héritage de sélection… Tout un tas de choses qui permet non seulement de simplifier le code mais aussi, selon moi, de rendre plus <em>logique</em> les feuilles de styles. La structure du <abbr>dom</abbr> saute facilement aux yeux.</p>
+<h3>Installation</h3>
+<p>On installe <abbr>sass</abbr> comme n’importe quelle autre gem Ruby.</p>
+<pre><code>gem install sass
+sass --watch default.scss
+>>> Sass is watching for changes. Press Ctrl-C to stop.
+  overwrite default.css
+</code></pre>
+<p>Vous l’avez compris, le fichier est <em>automagiquement</em> compilé en <abbr>css</abbr> à la volée grâce à l’attribut <strong>watch</strong>.</p>
+<h3>Les 2 types de syntaxes</h3>
+<p>Il y a deux syntaxes différentes qui n’influent pas sur les fonctionnalités. On va dire que c’est une question de goût. Il y a une version <em>Python-like</em> (<abbr>sass</abbr>) qui, historiquement, était la première. La seconde (<abbr>scss</abbr> – Sassy <abbr>CSS</abbr>) reprend la syntaxe du <abbr>css</abbr>. L’avantage de celle-ci étant qu’un fichier <abbr>.css</abbr> est aussi un fichier <abbr>.scss</abbr>.<br>La différence se fait par le compilateur sur l’extension.</p>
+
+{% highlight css %}
+/* SASS */
+section
+  margin-bottom: 1em
+  .entry
+    color: red
+{% endhighlight %}
+
+{% highlight css %}
+/* SCSS */
+section {
+  margin-bottom: 1em;
+  .entry {
+    color: red;
+  }
+}
+{% endhighlight %}
+
+<h3>Imbrication</h3>
+<h4>Principe</h4>
+<p>Le meilleur moyen d’éviter la répétition est d’imbriquer les sélecteurs entre eux. Dans la suite de l’article je montrerai le code <abbr>scss</abbr> et l’équivalent compilé en <abbr>css</abbr>.</p>
+
+{% highlight css %}
+/* SCSS */
+table.hl {
+  margin: 2em 0;
+  td.ln {
+    text-align: right;
+  }
+}
+
+article {
+  header, section { margin-top: 1em }
+}
+{% endhighlight %}
+
+{% highlight css %}
+/* CSS */
+table.hl {
+  margin: 2em 0;
+}
+table.hl td.ln {
+  text-align: right;
+}
+
+article header, article section {
+  margin-top: 1em;
+}
+{% endhighlight %}
+
+<h4>Le sélecteur parent</h4>
+<p>Pense juste à <span class="code">self</span> ou <span class="code">this</span> comme dans les langages objets, copain. Dans <abbr>sass</abbr> on utilise le symbole <span class="code">&</span>.</p>
+
+{% highlight css %}
+/* SCSS */
+a {
+  color: #324567;
+  &:hover { color: red }
+  display: inline-block;
+  line-height: 1.6em;
+}
+{% endhighlight %}
+
+{% highlight css %}/* CSS */
+a { color: #324567; display: inline-block;
+    line-height: 1.6em; }
+a:hover { color: red }{% endhighlight %}
+
+<h4>Media queries</h4>
+
+{% highlight css %}/* SCSS */
+#content {
+  margin: 0 2.5em;
+  @media screen and (max-width: 460px) {
+    margin: 0 1.5em;
+  }
+}{% endhighlight %}
+
+{% highlight css %}/* CSS */
+#content { margin: 0 2.5em; }
+@media screen and (max-width: 460px) {
+  #content { margin: 0 1.5em; }
+}{% endhighlight %}
+
+<h3>Les variables</h3>
+<p>J’ai déjà eu la nécessité de changer une ou plusieurs couleurs dans le thème d’un site. C’est donc X lignes que tu dois modifier. Avec les variables on a pas ce problèmes là, il suffit de définir les couleurs une fois seulement. Les variables dans <abbr>sass</abbr> peuvent aussi stocker des tailles, des chaînes de caractères…</p>
+
+{% highlight css %}/* SCSS */
+$link-color: blue;
+$link-hover: red;
+$pad: 3px;
+a {
+  color: $link-color;
+  &:hover { color: $link-hover; }
+  padding: $pad;
+}{% endhighlight %}
+
+{% highlight css %}/* CSS */
+a { color: blue; padding: 3px; }
+a:hover { color: red; }{% endhighlight %}
+
+<h3>@extend</h3>
+<p>Cet attribut permet de spécifier qu’une classe hérite des propriétés d’une autre. Imaginons que vous ayez une classe <span class="code">.button</span> contenant le style de base d’un bouton sur votre site et une classe <span class="code">.button-submit</span> qui lui aura juste une couleur différente. L’attribut <span class="code">@extend</span> vous évite à mettre dans le <abbr>dom</abbr> les 2 classes sur ce bouton mais uniquement la dernière.</p>
+
+{% highlight css %}/* SCSS */
+.button {
+  background: blue; color: white;
+  padding:0.2em 0.8em;
+  border-radius:0.4em;
+}
+.button-submit {
+  @extend .button;
+  background: green;
+}{% endhighlight %}
+
+{% highlight css %}/* CSS */
+.button, .button-submit {
+  background: blue; color: white;
+  padding:0.2em 0.8em;
+  border-radius:0.4em;
+}
+.button-submit { background: green; }{% endhighlight %}
+
+<h3>Mixins</h3>
+<p>Les mixins ce sont des bouts de codes que tu peux rappeler ensuite ailleurs dans tes classes. Utiles pour éviter la duplication de codes encore une fois. Des valeurs peuvent être envoyés en paramètres, et celles-ci sont nommées et peuvent avoir une valeur par défaut.</p>
+
+{% highlight css %}/* SCSS */
+@mixin border-radius($amount: 10px) {
+  border-radius: $amount;
+  -webkit-border-radius: $amount;
+  -moz-border-radius: $amount;
+}
+.msg { @include border-radius(5px); }{% endhighlight %}
+
+{% highlight css %}/* CSS */
+.msg {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}{% endhighlight %}
+<h3>Autres fonctionnalités</h3>
+
+<ul>
+<li>Vous pouvez diviser votre code en plusieurs fichiers et les importer avec <span class="code">@import</span>, ils seront combinés avec la compilation</li>
+<li>Des méthodes de calculs sont supportées, vous pouvez additionner, diviser et jouer avec les tailles, couleurs et autres valeurs.</li>
+<li>Des opérateurs <span class="code">@if</span>, <span class="code">@else</span>, <span class="code">@else if</span>, des opérateurs de logique <span class="code">and</span>, <span class="code">or</span>, <span class="code">=</span>, ainsi que des boucles <span class="code">@for</span>, <span class="code">@while</span> et <span class="code">@each</span> sont supportés. Mais je suis moins fan de ce genre de pratiques dans un fichier de style.</li>
+<li>Des méthodes pour jouer sur les couleurs : plus foncé, plus clair…</li>
+</ul>
+
+<figure>
+<figcaption style="top:37px;"><img src="http://s3-eu-west-1.amazonaws.com/phollow/2012/03/css_sass_compass.jpg" alt="" title="css_sass_compass" width="500" height="360" class="alignnone size-full wp-image-4054" /></figcaption>
+<h3>Conclusion</h3>
+</figure>
+<p><abbr>Sass</abbr> peut rendre l’utilisation du <abbr>css</abbr> plus sympathique. Si vous voulez en savoir plus je vous conseille de vous rendre sur la <a href="http://sass-lang.com/" title="Sass" target="_blank">page officielle</a> de l’application. Vous y trouverez des exemples et de la documentation sur d’autres fonctionnalités non évoquées ici.</p>
+<p style="text-indent:2.3em">Si Ruby vous rebute, il y a une autre application qui s’appelle <a href="http://lesscss.org/" title="LESS CSS" target="_blank">LESS</a> et qui fait en gros la même chose, la syntaxe étant un peu différente.</p>
+<p>En tout cas une chose est sûre, je vais l’utiliser sur mon prochain projet. <em>Reste à trouver le projet.</em></p>
+<p style="text-align:center;font-size: 2em;">❧</p>

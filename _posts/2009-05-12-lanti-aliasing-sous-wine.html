@@ -1,0 +1,32 @@
+---
+date: '2009-05-12 23:25:52'
+layout: post
+slug: lanti-aliasing-sous-wine
+status: publish
+title: L'anti-aliasing sous Wine
+wordpress_id: '691'
+categories:
+- linux
+tags:
+- anti-aliasing
+- anticrénelage
+- linux
+- wine
+---
+
+<p style="text-align: justify;">En ce moment je joue un peu avec <strong><a href="http://www.winehq.org/" target="_blank">Wine</a></strong> en installant des programmes ou des jeux Windows. Et à chaque fois même constat : le rendu des polices est vraiment très mauvais. En me renseignant sur la Toile, j'ai appris que Wine n'utilisait pas l'anti-aliasing sur les polices de tailles inférieures à 13. Génant quand les trois-quarts des polices affichées sont assez petites.</p>
+
+<h2 style="text-align: justify;">Solution</h2>
+Et bien il suffit de dire à Wine qu'on veut toutes nos polices bien lisses. Voici une capture avant/après de l'application <strong>Spotify</strong>, dont <em>Tux-planet</em> nous montre son installation <a href="http://www.tux-planet.fr/installer-spotify-sous-linux/" target="_blank">ici</a>.
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/wine_spotify.png"></a><a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/wine_spotify2.png"><img class="alignnone size-full wp-image-704" title="wine_spotify2" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/wine_spotify2.png" alt="wine_spotify2" width="595" height="250" /></a>
+<p style="text-align: justify;">Il suffit pour ça de modifier un peu la base de registre de wine avec <strong>regedit</strong>.</p>
+
+<pre lang="bash">REGEDIT4
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"FontSmoothing"="2"
+"FontSmoothingType"=dword:00000002
+"FontSmoothingGamma"=dword:00000578
+"FontSmoothingOrientation"=dword:00000001</pre>
+<p style="text-align: justify;">J'ai aussi trouvé sur un <a href="http://wine-review.blogspot.com/2009/03/how-to-enable-font-anti-aliasing-in.html" target="_blank">blog</a> ce petit <a href="http://files.polosatus.ru/winefontssmoothing_en.sh" target="_blank">script</a> qui vous fait ça automatiquement.</p>

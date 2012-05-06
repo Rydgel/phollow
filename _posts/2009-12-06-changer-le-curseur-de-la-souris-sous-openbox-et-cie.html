@@ -1,0 +1,25 @@
+---
+date: '2009-12-06 23:58:54'
+layout: post
+slug: changer-le-curseur-de-la-souris-sous-openbox-et-cie
+status: publish
+title: Changer le curseur de la souris sous Openbox et cie.
+wordpress_id: '1913'
+categories:
+- customisation
+- linux
+tags:
+- openbox
+---
+
+<p style="text-align: justify;">Quand on est sous Gnome ou KDE on a pas vraiment de problèmes pour changer de thème de curseur. Par contre sur les WMs légers du style Openbox il n'y a pas de GUI installé par défaut pour le faire. Il y a plusieurs méthodes pour le faire.</p>
+<p style="text-align: justify;">La plus simple est d'utiliser le fichier .Xdefaults. Ce fichier ce trouve dans votre dossier utilisateur : <strong>/home/rydgel/.Xdefaults</strong>, par exemple. Ouvrez le ou créez le s'il n'existe pas, et mettez dedans :</p>
+
+<pre lang="bash">Xcursor.theme:NOMDUTHEME
+Xcursor.size:  SIZE</pre>
+La taille est un élément facultatif, vous n'êtes pas obliger de mettre cette ligne. Après un redémarrage de X vous devriez voir votre nouvelle souris ;-)
+
+Une seconde méthode consisterai à utiliser une GUI, comme <a href="http://www.gnomefiles.org/app.php/gcursor" target="_blank">Gcursor</a>.
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/12/gcursor7fw.png"><img class="aligncenter size-full wp-image-1918" title="gcursor7fw" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/12/gcursor7fw.png" alt="gcursor7fw" width="424" height="442" /></a>
+<p style="text-align: justify;"></p>

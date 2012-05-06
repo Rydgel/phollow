@@ -1,0 +1,203 @@
+---
+date: '2008-11-23 21:10:22'
+layout: post
+slug: effets-de-menu-avec-mootools
+status: publish
+title: Effets de menu avec Mootools
+wordpress_id: '44'
+categories:
+- ajax
+- tutoriel
+- web
+tags:
+- ajax
+- tutoriel
+- web
+---
+
+<p>Prototype, JQuery, script.aculo.us ... Les frameworks JavaScript sont nombreux et se valent tous plus ou moins. J'ai choisis Mootools pour sa rapidité, sa legereté et sa souplesse. Nous allons voir dans ce billet comment nous pouvons obtenir très facilement un effet simple mais efficace sur un menu.</p>
+
+<h2>Démo et code source !</h2>
+<a href="http://phollow.fr/demos/mootools_menu">Démo</a>
+
+<a href="http://phollow.fr/sources/mootools_menu.zip">Code source</a>
+<h3 style="text-align: left;">Etape 1</h3>
+<p style="text-align: justify;">Commencez par vous rendre sur <a href="http://mootools.net">le site de Mootools</a> pour téléchargez la dernière version du framework, un fichier mootools.js que vous placerez dans votre environnement de travail. Il est préférable de prendre une version non compressée quand on développe pour pouvoir lire le code. Crée un fichier .html comme ceci :</p>
+
+<pre lang="html4strict"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Effets de menu avec Mootools</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="mootools.js"></script>
+		<script type="text/javascript" src="demo.js"></script>
+	</head>
+	<body>
+		<div id="navigation-block">
+            <ul id="sliding-navigation">
+                <li class="sliding-element"><h3>Titre du menu</h3></li>
+                <li class="sliding-element"><a href="#">Lien 1</a></li>
+                <li class="sliding-element"><a href="#">Lien 2</a></li>
+                <li class="sliding-element"><a href="#">Lien 3</a></li>
+                <li class="sliding-element"><a href="#">Lien 4</a></li>
+                <li class="sliding-element"><a href="#">Lien 5</a></li>
+            </ul>
+        </div>
+	</body>
+</html></pre>
+<ul>
+	<li>Nous avons besoin d'un fichier de style CSS appelé style.css</li>
+	<li>D'un fichier demo.js qui contiendra le code pour l'animation du menu</li>
+	<li>Du fichier mootools.js récupéré sur le site web</li>
+</ul>
+<p style="text-align: justify;">Les éléments du menu seront placés dans une liste.</p>
+
+<h3 style="text-align: justify;">Etape 2</h3>
+Rajoutons maintenant un peu de style à notre page, dans le style.css mettez :
+<pre lang="css">body 
+{
+	margin: 0;
+	padding: 0;
+	background: #ffffff;
+	font-family: "Lucida Grande", Verdana, sans-serif;
+	font-size: 100%;
+}
+
+ul#sliding-navigation
+{
+	list-style: none;
+	font-size: .75em;
+	margin: 30px -35px;
+}
+
+ul#sliding-navigation li.sliding-element h3,
+ul#sliding-navigation li.sliding-element a
+{
+	display: block;
+	width: 150px;
+	padding: 5px 15px;
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+ul#sliding-navigation li.sliding-element h3
+{
+	color: #ccc;
+	background: #2c3572;
+	border: 1px solid #1004ff;
+	font-weight: normal;
+}
+
+ul#sliding-navigation li.sliding-element a
+{
+	color: #000;
+	background: #b0c9e7;
+	border: 1px solid #1004ff;
+	text-decoration: none;
+}
+
+ul#sliding-navigation li.sliding-element a:hover { color: #ffff66; }</pre>
+<h3 style="text-align: justify;">Etape 3</h3>
+<p style="text-align: justify;">On va maintenant créer nos animations, dans le demo.js mettez ceci, les explications sont données en commentaires :</p>
+<p style="text-align: justify;"></p>
+
+<pre lang="javascript">window.addEvent('domready', function(){
+	/* On récupère l'élement dont l'id est 'sliding-navigation'*/
+	/* et pour tous les liens "<a>" on fait : */
+	$('sliding-navigation').getElements('a').addEvents({ // on rajoute un événement
+		mouseenter: function(){ //quand la souris est au dessus
+			
+			this.set('morph', { // on change la méthode morph
+				duration: 1500, // on lui donne une durée de 1.5s
+				transition: Fx.Transitions.Elastic.easeOut // et un effet "elastique"
+			}).morph({ // puis on applique la méthode morph sur le menu
+				'padding-left': '30' // on augmente le padding-left de 30px
+									// donc décalage sur la droite de 30px
+			});
+		},
+		mouseleave: function(){
+			// quand la souris quitte le menu
+			this.morph({
+				'padding-left': '15' // on remet la valeur du padding-left initiale
+			});
+		}
+	});
+});</pre>
+<h3>Etape 4</h3>
+On va maintenant donner à notre page un look plus sexy. J'ai crée l'image <a href="http://phollow.fr/demos/mootools_menu/panel.jpg" >suivante</a>
+<p style="text-align: left;">Donc notre fichier html devient comme ceci :</p>
+<pre lang="html4strict"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Effets de menu avec Mootools</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="mootools.js"></script>
+		<script type="text/javascript" src="demo.js"></script>
+	</head>
+	<body>
+		<div id="navigation-block">
+		<img src="panel.jpg" id="hide" />
+            <h2><span>Effets de menu avec Mootools</span></h2>
+            <p>Par J&eacute;r&ocirc;me Mahuet</p>
+            <ul id="sliding-navigation">
+                <li class="sliding-element"><h3>Titre du menu</h3></li>
+                <li class="sliding-element"><a href="#">Lien 1</a></li>
+                <li class="sliding-element"><a href="#">Lien 2</a></li>
+                <li class="sliding-element"><a href="#">Lien 3</a></li>
+                <li class="sliding-element"><a href="#">Lien 4</a></li>
+                <li class="sliding-element"><a href="#">Lien 5</a></li>
+            </ul>
+        </div>
+	</body>
+</html></pre>
+<p style="text-align: left;">Et il faut rajouter ceci au CSS :</p>
+<pre lang="css">h2 	
+{ 
+	color: #999;
+	margin-bottom: 0; 
+	margin-left:13px;
+	background:url(navigation.jpg) no-repeat;
+	height:40px;
+}
+
+h2 span
+{
+	display: none;
+}
+
+p	
+{ 
+	color: #b0c988; 
+	margin-top: .5em;
+	font-size: .75em;
+	padding-left:15px;	
+}
+
+#navigation-block {
+	position:relative;
+	top:200px;
+	left:200px;
+}
+
+#hide {
+	position:absolute;
+	top:33px;
+	left:-190px;
+}
+
+ul#sliding-navigation li.sliding-element h3  
+{  
+	color: #fff;  
+	background:#8193a9;  
+	font-weight: normal;  
+} 
+
+</pre>
+<p style="text-align: left;"></p>
+
+<h3 style="text-align: left;">Fin</h3>
+<a href="http://phollow.fr/demos/mootools_menu">Voir l'effet final.</a>
+
+<a href="http://phollow.fr/sources/mootools_menu.zip">Téléchargez les images/html/css/javascript</a>

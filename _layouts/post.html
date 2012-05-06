@@ -1,0 +1,28 @@
+---
+layout: layout
+---
+
+<div id="container" class="ten columns offset-by-five">
+	<article class="post">
+      <header>
+		<h2 class="entry-title entry-single"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+		<cite class="entry-meta"><time datetime="{{ page.date }}" pubdate class="updated">{{ page.date | date: "%B %e, %Y" }}</time>  •  {{ page.categories | render_category }}  •  </cite>   
+      </header>	
+			<div class="entry single-page">
+				{{ content }}
+			</div>
+			<footer class="share">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ page.title }}" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+			</footer>
+		</article>
+    	<hr>
+		<!-- START: Livefyre Embed -->
+		<script type='text/javascript' src='http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'></script>
+		<script type='text/javascript'>
+		    var fyre = LF({
+				site_id: 287636,
+				article_id: {{ page.wordpress_id }}
+		    });
+		</script>
+		<!-- END: Livefyre Embed -->
+</div>

@@ -1,0 +1,37 @@
+---
+date: '2009-05-11 23:02:49'
+layout: post
+slug: jouons-avec-devilspie-et-lopacite
+status: publish
+title: Jouons avec devilspie et l'opacité
+wordpress_id: '680'
+categories:
+- linux
+tags:
+- devilspie
+- linux
+---
+
+<p style="text-align: justify;"><strong><a href="http://burtonini.com/blog/computers/devilspie" target="_blank">Devilspie</a></strong> est un petit utilitaire très pratique. En effet, son rôle est "d'écouter" les fenêtres qui s'ouvrent et les compare à une série de règles. Si la fenêtre correspond à une des conditions données alors <strong>Devilspie</strong> lui fait subir une série d'actions. Prenons des exemples concrets : Ouvrir le navigateur sur le 2ème bureau en plein écran, faire apparaitre pidgin sur tous les bureaux à la fois, ne pas faire apparaître un programme dans ma barre de tâche ...</p>
+<p style="text-align: justify;">Nous allons voir aujourd'hui comment gérer l'opacité avec <strong>Devilspie</strong>.</p>
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/devilspie.png"><img class="size-medium wp-image-685" title="devilspie" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/devilspie-595x233.png" alt="La transparence facile avec Devilspie" width="595" height="233" /></a>
+<p style="text-align: justify;">Je pars du principe que vous avez déjà un <em>composite manager</em> (<strong>xcompmgr </strong>ou <strong>compiz-fusion</strong>) pour pouvoir gérer la transparence réelle. On aura aussi besoin de<a href="http://transset-df.forchheimer.se/" target="_blank"> <strong>transset-df</strong> </a> (une version améliorée de <strong>transset</strong>) et bien sûr de <a href="http://burtonini.com/blog/computers/devilspie" target="_blank"><strong>devilspie</strong></a>. Je vous laisse voir si vous avez ces paquetages sous vos distributions respectives, en tout cas sur Arch c'est pas compliqué, ils y sont tous :)</p>
+
+<h2 style="text-align: justify;">Devilspie</h2>
+Ok, donc ce que nous voulons c'est de pouvoir ouvrir certains programmes avec une transparence donnée. Par exemple, ouvrir mes terminaux avec une transparence de 75%, un conky avec une transparence de 50% etc. Donc pouvoir mettre une règle par applications.
+
+Les fichiers de configurations de <strong>devilspie</strong> se trouvent dans un dossier <em>~/.devilspie</em> et ont pour extension <em>.ds</em>
+
+<em><strong>urxvt.ds</strong>
+</em>
+<pre lang="bash">(if
+
+(matches (window_class) "URxvt")
+(begin
+    (wintype "dock")
+	(spawn_async (str "transset-df -i " (window_xid) " .75"))
+)
+)</pre>
+<p style="text-align: justify;">Si le processus <strong>devilspie</strong> est lancé alors à l'ouverture de mon terminal <strong>urxvt</strong>, il lancera la commande <strong>transset-df</strong> et mon terminal se retrouvera avec une opacité de 75%</p>
+<p style="text-align: justify;">Vous avez juste besoin de connaître la <em>class</em> du programme que vous voulez écouter. Ici <em>URxvt</em>. Pour connaître une classe facilement utilisez la petite croix magique <strong>xprop</strong>.</p>

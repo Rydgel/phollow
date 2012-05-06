@@ -1,0 +1,52 @@
+---
+date: '2009-07-06 00:12:36'
+layout: post
+slug: serveur-debian-lenny-apache-mysql-php
+status: publish
+title: Serveur Debian Lenny - Apache, MySQL & PHP
+wordpress_id: '987'
+categories:
+- featured articles
+- serveur
+- tutoriel
+tags:
+- apache
+- debian
+- lenny
+- linux
+- mysql
+- php
+---
+
+<p style="text-align: justify;">Je commence une toute nouvelle série de billets, sur l'installation et la configuration des serveurs dédiés. Étant donné que j'ai bougé ce blog sur une <strong>Debian Lenny</strong> il y peu de temps, <a href="http://colibri.servhome.org/" target="_blank">Dhoko</a> et d'autres personnes m'ont fait remarqué que ça pourrait être sympa d'en faire des billets. Donc c'est parti</p>
+<p style="text-align: justify;">Aujourd'hui nous allons attaquer l'installation d'un environnement <strong>LAMP</strong>, c'est à dire avec <strong>Apache</strong>, <strong>MySQL</strong> et <strong>PHP</strong>. Ces explications pourront egalement s'appliquer à une Ubuntu, il ne devrais pas y avoir trop de changement.</p>
+
+<h2 style="text-align: justify;">Apache</h2>
+<p style="text-align: justify;">Il y a deux modèles pour utiliser PHP au sein d'Apache. La méthode classique consiste à l'embarquer à l'intérieur d'Apache en tant que <strong>module</strong>, c'est cette méthode que nous verrons dans ce billet. Ou alors on peut utiliser <strong>FastCGI</strong> dans lequel PHP et Apache sont deux processus distincts, j'héberge ce blog de cette façon mais cette méthode est plus compliquée et plus longue à mettre en place, j'en parlerai donc dans un autre billet en présentant les avantages de cette autre méthode.</p>
+<p style="text-align: justify;">Logguez vous sur votre beau serveur tout neuf en root, on va mettre la base de données des paquets à jour :</p>
+
+<pre lang="bash">apt-get update</pre>
+<p style="text-align: justify;">Et ensuite on va mettre à jour les paquets installés :</p>
+
+<pre lang="bash">apt-get upgrade</pre>
+<p style="text-align: justify;">Histoire de bien partir. Maintenant nous allons pouvoir installer <strong>Apache 2 </strong>et <strong>PHP5</strong> :</p>
+
+<pre lang="bash">apt-get install apache2 php5 libapache2-mod-php5</pre>
+<p style="text-align: justify;">Apache se lancera automatiquement après l'installation, on peut tout de suite tester si PHP fonctionne, en créant un fichier dans <em>/var/www/phpinfo.php</em> avec comme contenu :</p>
+
+Ouvrez le navigateur et pointez l'url sur <em>http://ip.de.votre.serveur/phpinfo.php</em> pour vérifier que PHP est interprété.
+<h2>MySQL</h2>
+<p style="text-align: justify;"><strong>MySQL 5</strong> s'installe facilement aussi :</p>
+
+<pre lang="bash">apt-get install mysql-server mysql-client php5-mysql</pre>
+<p style="text-align: justify;">La création du mot de passe root (le root de mysql) vous sera demandée lors de l'installation. Nous allons maintenant vérifier que notre base de données fonctionne bien avec <strong>phpmyadmin</strong>.</p>
+
+<h2 style="text-align: justify;">Phpmyadmin</h2>
+<pre lang="bash">apt-get install phpmyadmin</pre>
+<p style="text-align: justify;">Il vous demandera quel serveur vous voulez automatiquement configurer, nous devons répondre dans notre cas <strong>apache2</strong>.</p>
+<p style="text-align: justify;">On peut maintenant aller sur <em>http://ip.de.votre.serveur/phpmyadmin</em> et se logguer avec les identifiants crées lors de l'installation de Mysql. Une fois à l'intérieur de phpmyadmin, on peut rajouter des bases de données et des utilisateurs.</p>
+
+<h2 style="text-align: justify;">Ah suivre..</h2>
+<p style="text-align: justify;">L'installation de votre nom de domaine et de votre serveur DNS. Ensuite viendront l'installation d'un serveur FTP, l'installation des VirtualHosts et bien d'autres choses.</p>
+<p style="text-align: justify;">Stay tuned !</p>
+<p style="text-align: justify;">Ps: Si vous avez des remarques pouvant améliorer cette partie, n'hésitez surtout pas ;)</p>

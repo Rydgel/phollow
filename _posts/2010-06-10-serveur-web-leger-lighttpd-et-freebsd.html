@@ -1,0 +1,107 @@
+---
+date: '2010-06-10 23:16:31'
+layout: post
+slug: serveur-web-leger-lighttpd-et-freebsd
+status: publish
+title: Serveur web léger Lighttpd et FreeBSD
+wordpress_id: '2351'
+categories:
+- serveur
+- web
+tags:
+- freeBSD
+- lighttpd
+---
+
+<p style="text-align: justify;">Dans cet article je vais vous parler de la configuration actuelle de ce serveur, celui qui permet d'afficher ces pages. J'en avais un peu parlé dans un billet précédent, ce serveur tourne sous FreeBSD 8.0. Pourquoi FreeBSD ? Parce qu'avant tout je voulais apprendre un système que je connaissais pas du tout, et l'arbre des ports permet de compiler mes logiciels facilement, tout en ayant une liberté maximale sur les options de compîlation.</p>
+<p style="text-align: justify;">Je vais traité ici l'installation d'un serveur PHP (en l'occurence lighty). Il y a en gros deux parties distinctes : premièrement l'installation de PHP à proprement parlé, puis ensuite du serveur et sa configuration. Je ne parlerai pas de l'installation d'un serveur de base de données, sauf si ça vous branche :)</p>
+<p style="text-align: justify;">Personnellement je n'installe mes logiciels que par compilation (ce n'est pas obligatoire sous FreeBSD). J'utilise pour cela des utilitaires tels que <strong>portmaster</strong> et <strong>portsnap</strong>. Si vous n'avez jamais utilisé les ports sur FreeBSD vous devez commencer par un petit :</p>
+
+<pre lang="bash">portsnap fetch extract</pre>
+<p style="text-align: justify;">Cette commande va tout simplement télécharger les ports et les extraire dans /usr/ports. À faire une fois seulement, après ce n'est plus nécessaire.</p>
+
+<h1>PHP 5.3</h1>
+<p style="text-align: justify;">On commence par mettre nos ports à jour :</p>
+
+<pre lang="bash">portsnap fetch update</pre>
+<p style="text-align: justify;">Et ensuite c'est partie pour compiler le coeur de PHP :</p>
+
+<pre lang="bash">portmaster lang/php5</pre>
+<p style="text-align: justify;">On vous proposera surement des choix pour la configuration de PHP, sélectionnez seulement ce qui vous est nécessaire. Le but de la compilation étant de pouvoir optimiser :)</p>
+<p style="text-align: justify;">Ensuite on va pouvoir construire les extensions de PHP. Comme par exemple curl ou gd pour les images. Idem, il y a forcément des extensions que vous n'utiliserai pas, donc ne cochez pas tout comme des bourrins (lol). Pensez à sélectionner celle de votre base de données (mysql, mysqli, postgre...)</p>
+
+<pre lang="bash">portmaster lang/php5-extensions</pre>
+Et hop c'est terminé. Vous pouvez vérifier que PHP est bien installé, en lançant un petit <em>php --version</em> dans le shell.
+<h1>Lighttpd</h1>
+<p style="text-align: justify;">Lighttpd ou Lighty est un serveur web très léger et assez flexible. Optimisé pour être soumis à de fortes demandes, il est de nature plus scalable qu'Apache. Il en a d'ailleurs rien à envier, et il est capable de pas mal de choses (FastCGI, CGI, Http Auth, Compression, Url rewriting...).</p>
+<p style="text-align: justify;">Donc installons le :</p>
+
+<pre lang="bash">portmaster www/lighttpd</pre>
+<p style="text-align: justify;">Maintenant on va dire à FreeBSD de le démarrer après le boot, pour cela on édite donc /etc/rc.conf : en ajoutant cette ligne :</p>
+
+<pre lang="bash">lighttpd_enable="YES"</pre>
+<p style="text-align: justify;">Et pour le démarrer/redémarrer/stoper :</p>
+
+<pre lang="bash">/usr/local/etc/rc.d/lighttpd start|restart|stop</pre>
+<h3>Fichiers de configurations de Lighttpd:</h3>
+<ul>
+	<li>Par défaut le webroot se trouve dans <strong>/usr/local/www/data</strong></li>
+	<li>L'utilisateur par défaut du serveur est <strong>www</strong></li>
+	<li>Et la configuration se fait dans ce fichier : <strong>/usr/local/etc/lighttpd.conf</strong></li>
+</ul>
+<p style="text-align: justify;">Nous allons configurer un virtual host, avec un nom de domaine et son propre répertoire dans le webroot. Nous allons aussi compresser les pages pour économiser de la bande passante et activer l'url rewriting pour faire fonctionner wordpress. Ouvrez le fichier de configuration. Nous allons modifier certaines lignes pour notre configuration.</p>
+<p style="text-align: justify;">Commençons par les modules à charger, pour ma part j'ai besoin de :</p>
+
+<pre lang="bash">server.modules              = (
+                               "mod_rewrite",
+                               "mod_redirect",
+                               "mod_alias",
+                               "mod_access",
+                               "mod_auth",
+                               "mod_fastcgi",
+                               "mod_simple_vhost",
+                               "mod_compress",
+                               "mod_expire",
+                               "mod_accesslog",
+			       "mod_magnet"
+)</pre>
+<p style="text-align: justify;">On vérifie le webroot :</p>
+
+<pre lang="bash">server.document-root        = "/usr/local/www/data/"</pre>
+<p style="text-align: justify;">On active la compression :</p>
+
+<pre lang="bash">compress.cache-dir         = "/var/cache/lighttpd/compress/"
+compress.filetype          = ("text/plain", "text/html", "text/css", "text/xml", "text/javascript")</pre>
+<p style="text-align: justify;">www doit pouvoir écrire et lire dans ce répertoire bien sur.</p>
+<p style="text-align: justify;">Maintenant il faut dire à Lighty comment on veut qu'il gère les scripts PHP. Donc nous allons utiliser du FastCGI :</p>
+
+<pre lang="bash">fastcgi.server             = ( ".php" =>
+                               ( "localhost" =>
+                                 (
+                                   "socket" => "/tmp/php-fastcgi.socket",
+                                   "bin-path" => "/usr/local/bin/php-cgi",
+				                           "max-procs" => 6,
+				                           "bin-environment" => (
+				   	                         "PHP_FCGI_CHILDREN" => "5",
+				   	                         "PHP_FCGI_MAX_REQUESTS" => "1000"
+			                               ),
+				                             "bin-copy-environment" => (
+					                             "PATH", "SHELL", "USER"
+ 				                               ),
+				                           "broken-scriptfilename" => "enable"
+                                 )
+                               )
+                            )</pre>
+<p style="text-align: justify;">Et pour finir le virtual host :</p>
+<pre lang="bash">$HTTP["host"] == "phollow.fr" {
+  server.document-root = "/usr/local/www/data/phollow.fr"
+  compress.cache-dir = "/tmp/phollow.fr/"
+  url.rewrite = (
+        "^/(wp-.+).*/?" => "$0",
+        "^/(sitemap.xml)" => "$0",
+        "^/(xmlrpc.php)" => "$0",
+        "^/(.+)/?$" => "/index.php/$1"
+  )
+
+}</pre>
+<p style="text-align: justify;">Et voilà ça devrait suffire à faire tourner votre site web. Si vous avez des questions n'hésitez pas et surtout allez faire un tour sur la documentation officielle de <a href="http://redmine.lighttpd.net/wiki/1">lighttpd</a>.</p>

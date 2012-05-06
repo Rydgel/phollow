@@ -1,0 +1,37 @@
+---
+date: '2009-05-16 23:35:30'
+layout: post
+slug: utiliser-spotify-a-100-sous-wine
+status: publish
+title: Utiliser Spotify à 100% sous wine
+wordpress_id: '709'
+categories:
+- linux
+tags:
+- linux
+- spotify
+- wine
+---
+
+<p style="text-align: justify;">J'utilise depuis quelques temps, <a href="http://www.spotify.com/en/" target="_blank"><strong>Spotify</strong></a>, au travers de <strong><a href="http://www.winehq.org/" target="_blank">Wine</a></strong> sous mon sytème. Il n'existe pas de client Linux pour ce logiciel, mais par chance le client windows tourne très bien quand même. Très bien sauf deux petites fonctions très utiles : l'ouverture des liens <em>spotify://</em> dans le navigateur et les liens à l'intérieur du logiciel qui ne fonctionnaient pas. Peut être que d'autres ont les mêmes problèmes, voici comment j'ai pu les résoudre.</p>
+
+<h2 style="text-align: justify;">Installation</h2>
+D'autres l'ont fait avant moi et très bien. Je vous renvois vers le billet de<strong> <a href="http://www.tux-planet.fr/installer-spotify-sous-linux/" target="_blank">Tux-planet</a></strong> si vous n'avez pas encore essayé <strong>Spotify</strong>.
+<h2>Les liens Spotify://</h2>
+<p style="text-align: justify;">La méthode décrite dans le wiki de Spotify n'a pas fonctionnée pour moi, j'ai donc fait comme ceci :</p>
+<p style="text-align: justify;">Il faut créer un script <em>browser2spotify</em> et le rendre executable (chmod +x) :</p>
+
+<pre lang="bash">#! /bin/sh
+exec wine "C:/Program Files/Spotify/spotify.exe" /uri "$@"</pre>
+<p style="text-align: justify;">Ensuite à l'intérieur de Firefox, dans <em>about:config</em>, on met ces deux options :</p>
+
+<pre lang="bash">network.protocol-handler.external.spotify       True
+network.protocol-handler.app.spotify    ~/browser2spotify</pre>
+<p style="text-align: justify;">Mais ça n'a pas été suffisant pour moi, j'ai du aller ensuite dans <em>editer/préférences/applications</em> sous Firefox et lier manuellement spotify à mon script.</p>
+
+<h2>Les liens dans Wine</h2>
+<p style="text-align: justify;">Les liens qui étaient à l'intérieur de spotify ne fonctionnaient pas, voilà ce que j'ai changé :</p>
+<p style="text-align: justify;">Ouvrez regedit, puis faites une recherche avec le mot <em>winebrowser.exe</em>, et pour les quatre ou cinq valeurs de clefs, mettez :</p>
+
+<pre lang="bash">C:\windows\system32\winebrowser.exe -nohome %1</pre>
+<p style="text-align: justify;">Et là normalement les liens s'ouvrent maintenant dans votre navigateur.</p>

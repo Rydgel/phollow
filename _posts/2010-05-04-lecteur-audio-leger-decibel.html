@@ -1,0 +1,101 @@
+---
+date: '2010-05-04 13:03:58'
+layout: post
+slug: lecteur-audio-leger-decibel
+status: publish
+title: 'Lecteur audio léger : Decibel'
+wordpress_id: '2301'
+categories:
+- linux
+- musique
+tags:
+- archlinux
+- audio
+- gnome
+- gtk
+- lecteur
+- léger
+- linux
+---
+
+<p style="text-align: justify;">Decibel Audio Player est, comme son nom l'indique, un lecteur de fichiers audio plutôt léger. Il est vraiment simple d'utilisation et son interface est plutôt pas mal. Codé en Gtk+ et Python, il s'intègre bien dans Gnome et dans tous les environnements légers. Il est pour moi un bon compromis entres des clients lourds tel que Amarok, Banshee et des clients ultra-légers comme moc ou ncmpc.</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/decibel.png"><img class="aligncenter size-medium wp-image-2305" title="decibel" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/decibel-595x382.png" alt="" width="595" height="382" /></a></p>
+<p style="text-align: justify;">Il possède pas mal de petites fonctionnalités intéressantes comme : la possibilité de lire les fichiers audio sur le disque sans passer par la création d'une librairie, le support des albums covers, du scrobbling vers last.fm, la lecture d'un cd audio, génération d'un fichier avec comme contenu la lecture en cours (pour l'afficher dans conky par exemple), le statut sur votre messagerie instantanée et j'en passe..</p>
+
+<h2>Benchmarks</h2>
+<table border="1" cellpadding="10px" width="90%" align="center">
+<tbody>
+<tr>
+<th align="left">Player</th>
+<th align="center">Version</th>
+<th align="center">Startup Time</th>
+<th align="center">RAM Usage</th>
+<th align="center">CPU Usage</th>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://amarok.kde.org">Amarok</a></td>
+<td align="center">2.0.2</td>
+<td align="center">3.3 seconds</td>
+<td align="center">73.6 MB</td>
+<td align="center"><strong>21.78 seconds</strong></td>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://banshee-project.org">Banshee</a></td>
+<td align="center">1.4.3</td>
+<td align="center">3.1 seconds</td>
+<td align="center">51.5 MB</td>
+<td align="center">47.05 seconds</td>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://decibel.silent-blade.org">Decibel Audio Player</a></td>
+<td align="center">1.01</td>
+<td align="center"><strong>1.1 seconds</strong></td>
+<td align="center"><strong>28.1 MB</strong></td>
+<td align="center">36.55 seconds</td>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://exaile.org">Exaile</a></td>
+<td align="center">0.2.99.3</td>
+<td align="center">3.7 seconds</td>
+<td align="center">64.9 MB</td>
+<td align="center">47.03 seconds</td>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://www.listen-project.org">Listen</a></td>
+<td align="center">0.5</td>
+<td align="center">6.5 seconds</td>
+<td align="center">115 MB</td>
+<td align="center">44.02 seconds</td>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://code.google.com/p/quodlibet">Quod Libet</a></td>
+<td align="center">2.0</td>
+<td align="center">3.9 seconds</td>
+<td align="center">60.9 MB</td>
+<td align="center">40.38 seconds</td>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://projects.gnome.org/rhythmbox">Rhythmbox</a></td>
+<td align="center">0.12.0</td>
+<td align="center">2.5 seconds</td>
+<td align="center">39.9 MB</td>
+<td align="center">39.09 seconds</td>
+</tr>
+<tr>
+<td align="left"><a rel="nofollow" href="http://getsongbird.com">Songbird</a></td>
+<td align="center">1.2.0</td>
+<td align="center">4.2 seconds</td>
+<td align="center">74.5 MB</td>
+<td align="center">1 mn 31 seconds</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">Comme on peut le voir sur ces tests de performances (tiré du <a href="http://decibel.silent-blade.org/index.php?n=Main.Benchmark" target="_blank">site officiel</a>), c'est le plus rapide et le plus léger en ram. Amarok étant le moins gourmand en CPU. Le test a été réalisé avec une musique au format Ogg d'environ 4,4Mo.</p>
+
+<h2>Screenshots</h2>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/main-playlist.png"><img class="aligncenter size-medium wp-image-2309" title="main-playlist" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/main-playlist-486x499.png" alt="" width="486" height="499" /></a></p>
+<p style="text-align: justify;"></p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/modules.png"><img class="aligncenter size-medium wp-image-2310" title="modules" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/modules-400x500.png" alt="" width="400" height="500" /></a></p>
+
+<h2>Installation</h2>
+<p style="text-align: justify;">Si vous avez la curiosité de le tester, vous trouverez sur <a href="http://decibel.silent-blade.org/index.php?n=Main.Download" target="_blank">cette page</a> divers paquets pour les distributions les plus courantes et des instructions pour le compiler le cas échéant. :-)</p>

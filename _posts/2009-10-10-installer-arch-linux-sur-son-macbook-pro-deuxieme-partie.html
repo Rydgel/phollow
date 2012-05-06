@@ -1,0 +1,75 @@
+---
+date: '2009-10-10 23:37:45'
+layout: post
+slug: installer-arch-linux-sur-son-macbook-pro-deuxieme-partie
+status: publish
+title: Installer Arch Linux sur son Macbook Pro - Deuxième partie
+wordpress_id: '1567'
+categories:
+- apple
+- linux
+- tutoriel
+tags:
+- archlinux
+- linux
+- macbook
+---
+
+<p style="text-align: justify;"><strong><a href="http://phollow.fr/2009/10/installer-arch-linux-sur-son-macbook-pro-premiere-partie/" target="_blank">Dans la première partie</a></strong> nous avons vu comment mettre en place un dual-boot avec <strong>rEFIT</strong>. Dans cette partie je parlerai essentiellement de l'installation d'<strong>Arch Linux</strong> sous le <strong>Macbook Pro unibody (5.5)</strong>. Je ne couvrirai pas une installation entière, le wiki étant parfait pour cela. Mais je parlerai des points qui concernent les Macbooks, comme l'activation du son ou du wifi..</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/10/8529_1219022445640_1531276027_30599512_4574408_n.jpg"><img class="aligncenter size-full wp-image-1583" title="8529_1219022445640_1531276027_30599512_4574408_n" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/10/8529_1219022445640_1531276027_30599512_4574408_n.jpg" alt="8529_1219022445640_1531276027_30599512_4574408_n" width="604" height="452" /></a></p>
+<p style="text-align: justify;">Donc vous devriez avoir à ce moment précis une installation minimale d'Arch Linux fonctionnelle. Avec le choix entre OS X et Arch Linux au démarrage du Macbook Pro.</p>
+
+<h1 style="text-align: justify;">Modèle du clavier sous tty</h1>
+<p style="text-align: justify;">Il n'y a pas de modèle pour mac par défaut sous Arch Linux. Pour y remédier, téléchargez <a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/10/mac-fr-ext_new.map.gz">ce petit fichier</a> et placez le dans <em>/usr/share/kbd/keymaps/mac/all</em> . Ensuite dans le rc.conf :</p>
+
+<pre lang="bash">KEYMAP="mac-fr-ext_new"
+CONSOLEFONT="lat9w-16"</pre>
+<h1>Installation du son</h1>
+<p style="text-align: justify;">Le son ne fonctionnait pas du tout chez moi après l'installation normal d'alsa. En cherchant sur internet je suis tombé sur un forum d'<a href="http://ubuntuforums.org/showpost.php?p=7627817&amp;postcount=98" target="_blank">Ubuntu</a> qui indique qu'il faut utiliser les derniers drivers d'alsa unstable.</p>
+
+<pre lang="bash">wget ftp://ftp.kernel.org/pub/linux/kernel/people/tiwai/snapshot/alsa-driver-unstable-snapshot.tar.gz
+tar xf alsa-driver-unstable-snapshot.tar.gz
+cd alsa-driver-unstable
+sudo ./configure --enable-dynamic-minors  --without-oss --with-cards="hda-intel"
+sudo make
+sudo make install</pre>
+<p style="text-align: justify;">Et pour les beaux gosses qui ont Arch Linux un beau PKGBUILD :</p>
+
+<pre lang="bash">pkgname=alsa-snapshot
+pkgver=1
+pkgrel=1
+pkgdesc="Alsa snapshot (rentre en conflit avec alsa du kernel)"
+arch=(x86_64)
+url="http://ubuntuforums.org/showpost.php?p=7627817&amp;postcount=98"
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+source=(ftp://ftp.kernel.org/pub/linux/kernel/people/tiwai/snapshot/alsa-driver-unstable-snapshot.tar.gz)
+md5sums=('504b779d3dd9a2ec96b043ed83210d59')
+
+build() {
+  cd "$srcdir/alsa-driver-unstable"
+
+  ./configure --prefix=/usr --enable-dynamic-minors --without-oss --with-cards="hda-intel"
+  make || return 1
+  make DESTDIR="$pkgdir/" install
+}</pre>
+<p style="text-align: justify;">Après l'installation, lancez un petit alsaconf pour initialiser votre carte son. Et ça devrait être bon. Néanmoins à l'heure actuelle le driver ne supporte pas totalement la carte. Je n'ai du son que d'un côté. Il est aussi possible que cette opération doit être recommencée à chaque mise à jour du kernel.</p>
+
+<h1 style="text-align: justify;">Pommed</h1>
+<p style="text-align: justify;">Ce démon s'occupe par exemple du rétro-éclairage de votre clavier et de la luminosité de l'écran. Le nom du paquet est <strong>pommed</strong>, rajoutez le démon dans le <em>rc.conf</em>.</p>
+
+<h1 style="text-align: justify;">Wifi</h1>
+<p style="text-align: justify;">La carte est une Broadcom et elle utilise le driver <strong>broadcom-wl</strong> disponible dans AUR. Installez le et ensuite dans le rc.conf :</p>
+
+<pre lang="bash">MODULES=(lib80211_crypt_tkip wl !b43 !ssb)</pre>
+<h1>iSight</h1>
+<p style="text-align: justify;">La carte fonctionne après l'installation du firmware, via AUR :</p>
+
+<pre lang="bash">yaourt -S isight-firmware-tools</pre>
+<p style="text-align: justify;">Je n'ai pas rencontré d'autres problèmes pendant l'installation, le plus gros problème ayant été le son. Dans une troisième partie nous verrons la configuration du Mac dans un environnement de bureau, la gestion du clavier dans X, du touchpad et des touches multimédia :)</p>

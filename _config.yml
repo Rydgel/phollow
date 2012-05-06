@@ -1,0 +1,10 @@
+markdown: rdiscount
+pygments: true
+permalink: /:year/:month/:title
+auto: true
+category_dir: category
+category_title_prefix: "Articles sous la catégorie : "
+url: http://phollow.fr
+exclude: ['Rakefile', 'readme.markdown', 'CNAME']
+rdiscount:
+  extensions: [smart]

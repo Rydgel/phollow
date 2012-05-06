@@ -1,0 +1,33 @@
+---
+date: '2009-05-31 17:53:21'
+layout: post
+slug: previsualiser-son-site-web-avec-internet-explorer-sous-linux
+status: publish
+title: Prévisualiser son site web avec Internet Explorer sous Linux
+wordpress_id: '795'
+categories:
+- linux
+- web
+tags:
+- ie
+- internet
+- internet explorer
+- web
+- wine
+---
+
+<p style="text-align: justify;">Les développeurs web sont tous confrontés au même problème : il existe plusieurs navigateurs qui n'ont pas le même rendu visuel du code. Il est donc nécessaire de tester son site sur les navigateurs les plus populaires. Et parmi eux.. <strong>Internet Explorer</strong>. <a href="http://www.tatanka.com.br/ies4linux/page/Main_Page" target="_blank"><strong>Ies4linux</strong></a> est un logiciel qui va nous permettre d'installer plusieurs version d'<strong>Internet Explorer</strong> sur Linux.</p>
+<p style="text-align: justify;">Je vous avourai que pour des sites web perso, je ne m'occupe pas du tout d'IE. Si ça passe mal dessus, tant pis. De toute manière je n'ai pas ce problème ici : depuis le lancement du blog vous n'êtes que 4% à utiliser internet explorer :)</p>
+<p style="text-align: justify;">Mais d'un point de vue professionnel, quand on vous paye pour développer des sites internet, votre produit doit être fonctionnel et avoir le même rendu sur tous les navigateurs. Sur Linux on peut facilement tester sur Firefox, Opera et sur des navigateurs basé sur webkit (<a href="http://phollow.fr/2009/05/bientot-chrome-2-sur-linux/" target="_blank"><strong>Chromium</strong></a>, <strong><a href="http://phollow.fr/2009/05/midori-un-navigateur-ultra-leger/" target="_blank">Midori</a></strong>..), mais pour IE il faut soit installé un OS microsoft virtuel (VirtualBox), ou alors utiliser Wine.</p>
+<p style="text-align: justify;">N'ayant pas envi d'acheter une license windows, j'ai penché pour la deuxième solution.</p>
+
+<h2 style="text-align: justify;">Installation</h2>
+Avant tout nous avons besoin de <strong>Wine</strong> et <strong>cabextract</strong> (pour les fichiers d'installation des IEs)
+<pre lang="bash">wget http://www.tatanka.com.br/ies4linux/downloads/ies4linux-latest.tar.gz
+tar zxvf ies4linux-latest.tar.gz
+cd ies4linux-*
+./ies4linux</pre>
+<p style="text-align: justify;">Laissez vous guider par le script d'installation. Vous avez le choix entre plusieurs versions d'Internet Explorer.</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/ie6.png"><img class="alignnone size-medium wp-image-807" title="ie6" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/ie6-595x255.png" alt="ie6" width="595" height="255" /></a></p>
+<p style="text-align: justify;">Bref je sais que c'est pas la joie d'avoir ce navigateur sur nos bécanes mais je suis surement pas le seul développeur web à travailler sous Linux. Il y a une version de ce script pour les Mac <a href="http://www.tatanka.com.br/ies4linux/news/51" target="_blank">ici</a>.</p>
+<p style="text-align: justify;"><strong>PS:</strong> Tout ça m'a fait pensé à un billet d'un ami sur un <a href="http://antoine.guiral.info/2009/05/27/html-css-hack-ie6-le-meilleur-de-tous/" target="_blank"><strong>hack ie6</strong></a>. Nan sérieux j'ai jamais vu un hack aussi con lol. Ça se passe<strong> <a href="http://antoine.guiral.info/2009/05/27/html-css-hack-ie6-le-meilleur-de-tous/" target="_blank">ici</a></strong>.</p>

@@ -1,0 +1,24 @@
+---
+date: '2010-01-09 18:44:14'
+layout: post
+slug: ouvrir-les-dmg-sous-linux
+status: publish
+title: Ouvrir les .dmg sous Linux
+wordpress_id: '1976'
+categories:
+- linux
+- tutoriel
+tags:
+- apple
+- dmg
+- linux
+---
+
+<p style="text-align: justify;">Sur GNU/Linux on peut ouvrir à peu près n'importe quel format, dont les fichiers .dmg. Ce sont des images disques sur Mac utilisées principalement pour installer des logiciels.</p>
+<p style="text-align: justify;">Ces fichiers sont au format HFS+, il nous faut donc les outils nécessaires pour manipuler ce format. Le nom des paquets changeant suivant les distributions, faites une recherche sur le mot <strong>hfsplus</strong> dans votre gestionnaire de paquet.</p>
+<p style="text-align: justify;">Dans une console en mode root, il suffit de taper :</p>
+
+<pre lang="bash">mount -o loop -t hfsplus image.dmg /dans/votre/repertoire</pre>
+Soyez sur que le répertoire de destination existe avant de faire la manip.
+
+<p>De la même manière on peut ouvrir des partitions OS X. Utile pour ceux qui ont installé Linux sur leur Mac comme moi.</p>

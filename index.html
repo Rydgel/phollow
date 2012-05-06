@@ -1,0 +1,43 @@
+---
+layout: layout
+title: "Phollow.me"
+---
+
+<section id="claim-home" class="one-third column">
+  <h1>Créateur de pixels <em>&amp;</em> codeur, <em>depuis</em> 1986.</h2>
+  <hr>
+  <p>T’es bonne ? Je fais des photos. Développeur web <em>&amp;</em> iPhone accessoirement.</p>
+  <p>Tu peux aussi suivre mes aventures <em>palpitantes</em> ailleurs si tu as le coeur bien accroché.</p>
+  <p><a href="https://twitter.com/phollow" class="twitter-follow-button" data-lang="fr">Suivre @phollow</a></p>
+</section>
+
+<div id="container-home-1" class="one-third column">
+{% for post in site.posts limit: 3 %}
+	<article class="post">
+    	<header>
+  			<h2 class="entry-title"><a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a></h2>
+			<cite class="entry-meta"><time datetime="{{ post.date }}" pubdate class="updated">{{ post.date | date: "%B %e, %Y" }}</time>  •  {{ post.categories | render_category }}  •  </cite>
+        </header>
+		<p>{{ post.content | strip_html | truncate: 170 }}</p>
+  	</article>
+  	{% unless forloop.last %}
+    	<hr>
+    {% endunless %}
+{% endfor %}
+</div>
+
+<div id="container-home-2" class="one-third column">
+{% for post in site.posts limit: 3 offset: 3 %}
+	<article class="post">
+        <header>
+  			<h2 class="entry-title"><a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a></h2>
+			<cite class="entry-meta"><time datetime="{{ post.date }}" pubdate class="updated">{{ post.date | date: "%B %e, %Y" }}</time>  •  {{ post.categories | render_category }}  •  </cite>
+        </header>	
+		<p>{{ post.content | strip_html | truncate: 170 }}</p>
+
+  	</article>
+  	{% unless forloop.last %}
+    	<hr>
+    {% endunless %}
+{% endfor %}
+</div>

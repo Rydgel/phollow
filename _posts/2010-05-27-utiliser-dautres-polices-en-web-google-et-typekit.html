@@ -1,0 +1,35 @@
+---
+date: '2010-05-27 00:12:44'
+layout: post
+slug: utiliser-dautres-polices-en-web-google-et-typekit
+status: publish
+title: 'Utiliser d''autres polices en web : google et typekit'
+wordpress_id: '2337'
+categories:
+- web
+tags:
+- fonts
+- google
+- polices
+- typekit
+---
+
+<p style="text-align: justify;">Si vous vous intéressez un peu au développement web, vous devriez connaître l'attribut CSS <strong>@font-face</strong>. Elle permet tout simplement d'utiliser une fonte de son choix dans la page, même si l'utilisateur qui visitera votre site ne la possède pas. Contrairement aux idées reçues ce n'est pas une nouveauté de la norme CSS3. Pour info elle a été proposée dans la norme CSS2 et Internet Explorer 5 fût le premier à pouvoir s'en servir. Oui 5 :)</p>
+<p style="text-align: justify;">Encore une fois les différents navigateurs ne sont pas d'accord sur la norme. Parce exemple Internet Explorer ne reconnait que les fontes au format openType (EOT), d'autres gèrent les TTF ou alors les SVG. Voilà à quoi peut ressembler le code CSS pour en utiliser une :</p>
+
+<pre lang="css"><code>@font-face {
+  font-family: "Vegur";
+  src: url("type/vegur.eot");
+  src: local("☺"),
+    url("type/vegur.woff") format("woff"),
+    url("type/vegur.otf") format("opentype"),
+    url("type/vegur.svg#vegur") format("svg");
+  }
+h1 { font-family: "Vegur", Helvetica, serif; }</code></pre>
+Ce qui implique malheureusement d'avoir 3 versions de la police. L'autre problème se situe plutôt au niveau des droits d'utilisation. Pas de problème avec des fontes open-sources, mais qu'en est-il des polices payantes ? Quand un utilisateur de votre site télécharge votre page web, les polices que vous déclarez dans @font-face sont stockées dans le cache de l'ordinateur, et facilement récupérables. Il faut donc bien vérifier les droits d'auteurs :)
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/Capture-d’écran-2010-05-24-à-18.15.44.jpg"><img class="aligncenter size-medium wp-image-2345" title="Capture d’écran 2010-05-24 à 18.15.44" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/05/Capture-d’écran-2010-05-24-à-18.15.44-595x365.jpg" alt="" width="595" height="365" /></a>
+<p style="text-align: justify;">Et c'est là où un service comme <a href="http://typekit.com">Typekit</a> est plutôt sympa. Une liste de polices juste énormes qui augmentent chaque jour, on choisit celle(s) que l'on veut pour son site, on inclut un fichier javascript et hop utilisable directement dans votre CSS. Et compatible tout navigateur/OS. Et là pas besoin de se soucier des droits d'auteur, le service rémunère les designers. Je l'utilise sur ce blog. Vous pouvez le tester gratuitement, il y a aussi des comptes premium pour utiliser plus de fonts, sur plus de sites etc.</p>
+<p style="text-align: justify;">Et tout récemment Google a sorti un service du même acabit avec que des fonts open-sources. Ça s'appelle <a href="http://code.google.com/webfonts" target="_blank">Google Webfonts</a>. Bon la liste est vraiment petite pour l'instant mais je ne doute pas qu'elle va s'élargir. Et en plus c'est totalement gratuit :)</p>
+<p style="text-align: justify;">D'ailleurs Google et Typekit ont <a href="http://blog.typekit.com/2010/05/19/typekit-and-google/" target="_blank">annoncé</a> une collaboration pour produire un "loader" de fontes open-source appelé WebFont Loader.</p>
+<p style="text-align: justify;">Ne vous retenez plus, c'est maintenant des milliers de polices qui peuvent être utilisées dans le web facilement.</p>

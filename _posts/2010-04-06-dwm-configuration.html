@@ -1,0 +1,290 @@
+---
+date: '2010-04-06 13:26:03'
+layout: post
+slug: dwm-configuration
+status: publish
+title: Dwm - Configuration
+wordpress_id: '2259'
+categories:
+- customisation
+- linux
+- ma dernière config
+tags:
+- config
+- dwm
+- linux
+---
+
+<p style="text-align: justify;">Bon maintenant que je suis enfin satisfait avec mon installation de <a href="http://dwm.suckless.org/">Dwm</a>, je vais pouvoir la partager avec vous. Dwm est aussi un tiling Wm comme Xmonad, Awesome etc. Mais il est assez léger et ne nécessite pas de dépendances énormes (il est écrit en C).</p>
+<p style="text-align: justify;">J'avais déjà parlé sur un précédent billet, de l'<a href="http://phollow.fr/2010/02/dwm/">installation et de la personnalisation de Dwm</a>. Là aujourd'hui je vous propose la config qui tourne en ce moment sur mon poste. Histoire de mettre en pratique le tuto. C'est aussi plus facile de partir d'un exemple concret quand on veut s'essayer à un nouveau Wm, pas vrai ?</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234429_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2266" title="2010-04-05-234429_1440x900_scrot" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234429_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
+<p style="text-align: justify;"><!--more--><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-233640_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2268" title="2010-04-05-233640_1440x900_scrot" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-233640_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
+<p style="text-align: center;"><em>Featuring le <a href="http://frederic.bezies.free.fr/blog/">blog</a> de Frederic Bezies. En plus il est fan de NIИ donc bon.. ;) </em></p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234207_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2267" title="2010-04-05-234207_1440x900_scrot" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234207_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
+<p style="text-align: justify;">Ne vous inquiétez pas, la configuration simple de Dwm ne nécessite pas de grandes connaissances en C. Après si vous voulez aller plus loin et hacker le logiciel dans ce cas oui il faut avoir quelques bases ;)</p>
+
+<h1>Première étape</h1>
+<p style="text-align: justify;">Si c'est la première fois que vous touchez à Dwm, je vous conseille dans un premier temps de faire mon petit tuto. De changer quelques valeurs du config.h, de le recompiler et de voir les différences.</p>
+
+<h1>Deuxième étape</h1>
+<p style="text-align: justify;">À ce moment là, on a une bonne base pour travailler. Du coup on va pouvoir modifier un peu plus le config.h et rajouter d'autres fichiers. Je vous poste mon config.h ici :</p>
+
+<pre lang="C"><code>/* See LICENSE file for copyright and license details. */
+
+/* appearance */
+#define BOTTOM_MARGIN_HEIGHT 0
+static const char font[]            = "-*-nu-*-*-*-*-12-*-*-*-*-*-*-*";
+static const char normbordercolor[] = "#212121";
+static const char normbgcolor[]     = "#000000";
+static const char normfgcolor[]     = "#a1b5cd";
+static const char selbordercolor[]  = "#696969";
+static const char selbgcolor[]      = "#000000";
+static const char selfgcolor[]      = "#97b26b";
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int snap      = 8;        /* snap pixel */
+static const Bool showbar           = True;     /* False means no bar */
+static const Bool topbar            = True;     /* False means bottom bar */
+
+static const int shade              = 90;
+static const unsigned int gappx     = 5;
+static const int nmaster            = 2;
+
+/* tagging */
+static const char *tags[] = { "web", "term", "dev", "chat", "video", "misc" };
+
+static const Rule rules[] = {
+	/* class         instance    title       tags mask     isfloating   monitor */
+        { "Firefox",     NULL,       NULL,       1 << 0,       False,       -1 },
+        { "Uzbl",        NULL,       NULL,       1 << 0,       False,       -1 },
+        { "Skype",       NULL,       NULL,       1 << 3,       True,        -1 },
+        { "Pidgin",      NULL,       NULL,       1 << 3,       True         -1 }
+};
+
+/* layout(s) */
+static const float mfact      = 0.60;  /*  factor of master area size [0.05..0.95]         */
+static const Bool resizehints = False; /*  True means respect size hints in tiled resizals */
+
+#include "bstack.c"
+#include "push.c"
+//#include "nmaster-sym.c"
+#include "nbalanced.c"
+//#include "cycle.c"
+
+static const Layout layouts[] = {
+	/* symbol     arrange function */
+        { "[T]",      tile },
+	{ "[M]",      monocle },      /* first entry is default */
+	{ "[F]",      NULL },         /* no layout = floating   */
+        { "[S]",      bstack },
+        { "x]=",      ntile },
+        { "TxT",      nbstack },
+};
+
+/*  key definitions  */
+#define MODKEY Mod4Mask
+#define TAGKEYS(KEY,TAG) \
+	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 <<; TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+
+/*   helper for spawning shell commands in the pre dwm-5.0 fashion     */
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+/* commands */
+static const char *dmenucmd[]  = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]   = { "urxvt", NULL };
+static const char *xtermcmd[]  = { "xterm", NULL };
+static const char *webcmd[]    = { "firefox", NULL };
+static const char *mailcmd[]   = { "thunderbird", NULL };
+static const char *lockcmd[]   = { "xscreensaver-command", "--lock", NULL };
+static const char *rebootcmd[] = { "sudo", "shutdown", "-r", "now", NULL };
+static const char *quitcmd[]   = { "sudo", "shutdown", "-h", "now", NULL };
+
+#include "cycle.c"
+static Key keys[] = {
+	/*   modifier                   key        function        argument        */
+	{ 0,                            XK_Menu,   spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+        { MODKEY,                       XK_c,      spawn,          {.v = webcmd } },
+        { MODKEY,                       XK_m,      spawn,          {.v = mailcmd } },
+        { MODKEY,                       XK_l,      spawn,          {.v = lockcmd } },
+        { MODKEY,                       XK_r,      spawn,          {.v = rebootcmd } },
+        { MODKEY,                       XK_q,      spawn,          {.v = quitcmd } },
+	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+        { MODKEY|ControlMask,           XK_j,      pushdown,       {0} },
+        { MODKEY|ControlMask,           XK_k,      pushup,         {0} },
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+        { MODKEY,                       XK_a,      incnmaster,     {.i = +1 } },
+        { MODKEY,                       XK_z,      incnmaster,     {.i = -1 } },
+        { MODKEY,                       XK_x,      setnmaster,     {.i = 2 } },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },
+        { MODKEY,                       XK_n,      setlayout,      {.v = &layouts[4]} },
+        { MODKEY,                       XK_o,      setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+        { MODKEY,                       XK_Left,   cycle,          {.i = -1 } },
+        { MODKEY,                       XK_Right,  cycle,          {.i = +1 } },
+        { MODKEY|ControlMask,           XK_Left,   tagcycle,       {.i = -1 } },
+        { MODKEY|ControlMask,           XK_Right,  tagcycle,       {.i = +1 } },
+	TAGKEYS(                        XK_1,                      0)
+	TAGKEYS(                        XK_2,                      1)
+	TAGKEYS(                        XK_3,                      2)
+	TAGKEYS(                        XK_4,                      3)
+	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+};
+
+/* button definitions */
+/* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+static Button buttons[] = {
+	/* click                event mask      button          function        argument */
+	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkTagBar,            0,              Button1,        view,           {0} },
+	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
+	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+};</code></pre>
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/config.h">config.h</a>
+<p style="text-align: justify;">J'ai inclus trois fichiers .c pour rajouter des fonctionnalités, tel que d'autres layouts (placement des fenêtres). Je vous les upload ici aussi :</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/bstack.c">bstack.c</a></p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/push.c">push.c</a></p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/nbalanced.c">nbalanced.c</a></p>
+<p style="text-align: justify;">Ensuite (pas obligatoire) on peut rajouter un petit patch, pour avoir ce petit espace entre les fenêtres (c'est la variable gappx dans le code source du config.h). Ce patch est à appliquer au fichier dwm.c</p>
+
+<pre lang="diff"><code>--- a/dwm.c	2009-09-28 03:20:23.000000000 +0800
++++ b/dwm.c	2010-03-10 01:55:42.507801441 +0800
+@@ -200,6 +200,7 @@
+ static void propertynotify(XEvent *e);
+ static void quit(const Arg *arg);
+ static void resize(Client *c, int x, int y, int w, int h, Bool interact);
++static void resize2(Client *c, int x, int y, int w, int h, Bool interact);
+ static void resizemouse(const Arg *arg);
+ static void restack(Monitor *m);
+ static void run(void);
+@@ -1228,7 +1229,7 @@
+ 					togglefloating(NULL);
+ 			}
+ 			if(!selmon->lt[selmon->sellt]->arrange || c->isfloating)
+-				resize(c, nx, ny, c->w, c->h, True);
++				resize2(c, nx, ny, c->w, c->h, True);
+ 			break;
+ 		}
+ 	} while(ev.type != ButtonRelease);
+@@ -1300,6 +1301,23 @@
+ 	XWindowChanges wc;
++	Monitor *m = c->mon;
+
+ 	if(applysizehints(c, &x, &y, &w, &h, interact)) {
++		c->;x = wc.x = x + gappx;
++		c->y = wc.y = y + gappx;
++		c->w = wc.width = w - (x + w + (borderpx * 2) == m->;mw ? 2 : 1) * gappx;
++		c->h = wc.height = h - (y + h + (borderpx * 2) == m->mh ? 2 : 1) * gappx;
++		wc.border_width = c->bw;
++		XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
++		configure(c);
++		XSync(dpy, False);
++	}
++}
++
++void
++resize2(Client *c, int x, int y, int w, int h, Bool interact) {
++	XWindowChanges wc;
++
++	if(applysizehints(c, &x, &y, &w, &h, interact)) {
+ 		c->x = wc.x = x;
+ 		c->;y = wc.y = y;
+ 		c->w = wc.width = w;
+@@ -1347,7 +1364,7 @@
+ 					togglefloating(NULL);
+ 			}
+ 			if(!selmon->lt[selmon->sellt]->arrange || c->isfloating)
+-				resize(c, c->x, c->;y, nw, nh, True);
++				resize2(c, c->x, c->y, nw, nh, True);
+ 			break;
+ 		}
+ 	} while(ev.type != ButtonRelease);</code></pre>
+<p style="text-align: justify;">gap.diff</p>
+<p style="text-align: justify;">Les couleurs du terminal sont spécifiés dans le fichier .Xdefaults (dans votre ~)</p>
+
+<pre lang="bash"><code>*foreground:    rgb:aa/aa/aa
+*background:    rgb:00/00/00
+*color0:        rgb:30/34/30
+*color1:        rgb:bf/79/79
+*color2:        rgb:97/b2/6b
+*color3:        rgb:cd/cd/c1
+*color4:        rgb:86/a2/be
+*color5:        rgb:d9/b7/98
+*color6:        rgb:a1/b5/cd
+*color7:        rgb:ff/ff/ff
+*color8:        rgb:cd/b5/cd
+*color9:        rgb:f4/a4/5f
+*color10:       rgb:c5/f7/79
+*color11:       rgb:ff/ff/ef
+*color12:       rgb:98/af/d9
+*color13:       rgb:d7/d9/98
+*color14:       rgb:a1/b5/cd
+*color15:       rgb:de/de/de</code></pre>
+<p style="text-align: justify;">Ce que vous voyez en haut à droite, c'est conky pipé dans dzen. (donc oui il vous faut dzen d'installer, et le conky_cli d'AUR ira bien aussi avec). Voilà le .conkyrc :</p>
+
+<pre lang="bash"><code>background no
+out_to_console yes
+update_interval 2
+total_run_times 0
+use_spacer none
+double_buffer yes
+
+TEXT
+${if_empty ${exec awk '{print $2}' /proc/acpi/ac_adapter/ACAD/state | grep 'on-line'}}^i(/home/rydgel/dwm/dzen/bat_full_01.xpm)${else}^i(/home/rydgel/dwm/dzen/ac_01.xpm)${endif} ${battery_percent BAT1}%  ^i(/home/rydgel/dwm/dzen/cpu.xpm) ${cpu cpu1}% ^i(/home/rydgel/dwm/dzen/mem.xpm) ${memperc}%  ^i(/home/rydgel/dwm/dzen/temp.xpm) ${acpitemp}°C ^i(/home/rydgel/dwm/dzen/fs_01.xpm) sda ${fs_used_perc /}% sdb ${fs_used_perc /home}%  ^i(/home/rydgel/dwm/dzen/arch.xpm) ${execpi 900 ~/scripts/pacman-up.pl} • ${if_existing /proc/net/route wlan0}^i(/home/rydgel/dwm/dzen/wifi_01.xpm) ^i(/home/rydgel/dwm/dzen/net_down_03.xpm) ${downspeedf wlan0} ^i(/home/rydgel/dwm/dzen/net_up_03.xpm) ${upspeedf wlan0}${else}${if_existing /proc/net/route eth0}^i(/home/rydgel/dwm/dzen/wired.xpm) ^i(/home/rydgel/dwm/dzen/net_down_03.xpm) ${downspeedf eth0} ^i(/home/rydgel/dwm/dzen/net_up_03.xpm) ${upspeedf eth0}${endif}${endif} • ^fg(\#E0E0E0)${time %H:%M}^fg()</code></pre>
+À vous de modifier un peu le code pour que ça marche chez vous bien sûr. Si vous voulez les petites icônes, je les upload ici :
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/dzen-icons.zip">dzen-icons.zip</a>
+<p style="text-align: justify;">Vous avez besoin du programme <strong>dmenu</strong> pour lancer les programmes.</p>
+<p style="text-align: justify;">Ah et enfin voici mon .xinitrc, qui est le petit script qui va s'occuper de lancer Dwm et ses copains à l'ouverture de X :</p>
+
+<pre lang="bash"><code>#!/bin/bash
+#
+# ~/.xinitrc
+
+ enable restart X
+setxkbmap -option terminate:ctrl_alt_bksp &
+# disable CapsLock & map to Escape
+setxkbmap -option caps:escape &
+
+# set wallpaper
+nitrogen --restore &
+
+# start the screensaver
+xscreensaver -no-splash &
+
+# Dzen & conky
+(sleep 3s && conky | dzen2 -x '950' -e '' -fg '#737373' -bg '#262626' -w '490' -h '14' -ta r -fn '-*-fixed-medium-r-*-*-12-*-*-*-*-*-iso8859-*' -p ) &
+# Start dwm
+exec ck-launch-session ~/scripts/dwm-start
+#exec openbox</code></pre>
+<p>Voilà je pense que c'est à peu près tout, si vous avez des remarques, laissez un petit commentaire :)</p>

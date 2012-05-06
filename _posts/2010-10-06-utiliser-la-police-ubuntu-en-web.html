@@ -1,0 +1,34 @@
+---
+date: '2010-10-06 12:01:10'
+layout: post
+slug: utiliser-la-police-ubuntu-en-web
+status: publish
+title: Utiliser la police Ubuntu en web
+wordpress_id: '2855'
+categories:
+- libre
+- typographie
+- web
+tags:
+- css
+- font
+- police
+- ubuntu
+---
+
+<p style="text-align: justify;">La dernière version d'Ubuntu en date (10.10) inclut une nouvelle <a href="http://font.ubuntu.com/">police</a>, appelé avec originalité Ubuntu. La <a href="http://font.ubuntu.com/ufl/FAQ.html">licence</a> est assez permissive et prévois la possibilité de l'inclure dans vos documents. Et donc dans une page web. C'est ce que je vais vous montrer aujourd'hui.</p>
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/10/ubuntu-font.jpg"><img class="alignnone size-full wp-image-2878" title="ubuntu-font" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/10/ubuntu-font.jpg" alt="" width="537" height="350" /></a>
+<h3>Ubuntu font</h3>
+<p style="text-align: justify;">Pour cela on va d'abord commencer par récupérer les fonts sur le site <a href="http://font.ubuntu.com/">officiel</a>. Pour l'instant il n'y a que 4 familles disponibles (Regular, Bold, Regular Italic <span style="font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif; font-style: italic;">&amp;</span> Bold Italic). D'après ce que je vois sur le site, il semblerai que d'autres familles puissent voir le jour (Light, Medium, Condensed, Monospace...).</p>
+<p style="text-align: justify;">Il y a une archive sur le site qui contient ses .tff. Elle est régulièrement mise à jour, à l'heure où j'écris ces lignes on en est à la version 0.68.</p>
+
+<h3>Générateur de font-face</h3>
+<p style="text-align: justify;"><strong>@font-face</strong> est une propriété CSS qui permet d'inclure n'importe quelle font dans votre document web. L'inconvénient c'est qu'il n'y a pas (encore ?) de format officiel, et donc les navigateurs font un peu ce qu'ils veulent à ce niveau là. C'est là où notre outil rentre en jeu : il va automatiquement, à partir de nos .tff, générer tous les formats pour tous les navigateurs supportant <strong>@font-face</strong>.</p>
+<p style="text-align: justify;">Concrètement il suffit d'aller sur cette page (<a href="http://www.fontsquirrel.com/fontface/generator">fontsquirrel</a>), et d'uploader nos 4 ttfs. Prenez le mode expert et laissez tout par défaut, sauf la fonction <em>Style Linking</em> qu'il faut cocher. Car nous avons 4 styles de .ttfs et c'est plus simple de les lier en une seule famille et ensuite de jouer sur <em>font-weight <span style="font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif; font-style: italic;">&amp;</span> font-style</em>.</p>
+<p style="text-align: justify;">Le site vous génère donc une archive avec les fichiers fonts nécéssaires et une page html avec un CSS modèle.</p>
+
+<h3>Démo</h3>
+<p style="text-align: justify;"><a href="http://phollow.fr/wp-content/ubuntu-font/demo.html" target="_blank">Lien vers la démo.</a></p>
+
+<h3>Conclusion</h3>
+<p style="text-align: justify;">Je pense que la font principale de mon blog va devenir celle-ci quand elle aura d'autres familles dont j'ai besoin (light, condensed <span style="font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif; font-style: italic;">&amp;</span> monospace). Pour l'instant je reste avec Proxima Nova Condensed ;)</p>

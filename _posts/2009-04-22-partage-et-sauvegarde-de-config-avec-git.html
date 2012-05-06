@@ -1,0 +1,56 @@
+---
+date: '2009-04-22 22:34:30'
+layout: post
+slug: partage-et-sauvegarde-de-config-avec-git
+status: publish
+title: Partage et sauvegarde de config avec GIT
+wordpress_id: '525'
+categories:
+- linux
+- tutoriel
+tags:
+- dotfiles
+- git
+- linux
+---
+
+Quelle est la meilleur façon de sauvegarder ses fichiers de configurations, de les mettre à jour facilement et de pouvoir les récuperer en une fois ?
+
+Réponse : Avec un logiciel de versioning tel que <strong>Git</strong>.
+
+Je vais vous montrer une manière de garder tout vos réglages et aussi de pouvoir les partager facilement, car ne l'oublions pas : Le Libre c'est avant tout Partager.
+
+Son xorg.conf, son fstab.. c'est bien de pouvoir les garder dans un coin et de pouvoir les récupérer de n'importe où. Pareil pour tous ces petits fichiers de configurations d'applications tel qu'Apache, MPD et j'en passe. Au final on peut se retrouver avec une centaine de fichiers.
+
+Voilà un moyen efficace de gérer tout ça :
+<h1>Git</h1>
+Git est un logiciel de versioning, ceux qui connaissent Svn auront compris le principe. Il a été crée par Linus Torvald pour déployer le code source du kernel Linux. Vous trouverez d'autres infos sur Git <a href="http://fr.wikipedia.org/wiki/Git" target="_blank">ici</a>.
+
+Le principe est donc de mettre tous ces fichiers de conf dans un dépôt Git.
+
+<a href="http://github.com" target="_blank">Github.com</a> propose gratuitement d'en utiliser. Dans un premier temps, inscrivez vous et créez votre premier dépôt.
+
+La page suivant vous montre des commandes pour initialiser un dépôt sur votre machine, executer seulement les deux premières, la suite change un peu dans notre cas.
+
+Ensuite plaçons nous dans notre ~ et executons :
+<pre>git init</pre>
+Ensuite on ajoute les fichiers, dossiers que l'on veut :
+<pre>git add .Xdefaults
+git add .config/openbox
+git add .vimrc</pre>
+On réalise notre premier commit :
+<pre>git commit -m 'Mon tout premier commit !'</pre>
+Et on envoi tout ça sur le serveur : (changez les commandes par celle qui correspondent à votre compte Github)
+<pre>git remote add origin git@github.com:Rydgel/test.git
+git push origin master</pre>
+Et c'est tout vos fichiers sont maintenant sur Github.
+<pre>git add  # rajoute un fichier/dossier au dépôt
+git delete # le contraire
+git commit # sauvegarde les changements
+git push # on envoi ca sur le dépôt distant
+git clone # on récupère les données du serveur chez nous</pre>
+Il y a bien sur d'autres commandes, mais celles la sont suffisantes pour l'usage que j'en fais :
+
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/04/git.png"><img class="alignnone size-medium wp-image-531" title="git" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/04/git-595x464.png" alt="git" width="595" height="464" /></a>
+
+Adresse de mes configs : <a href="http://github.com/Rydgel/archlinux/tree" target="_blank">http://github.com/Rydgel/archlinux/tree</a>

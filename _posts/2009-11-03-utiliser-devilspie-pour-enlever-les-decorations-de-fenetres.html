@@ -1,0 +1,27 @@
+---
+date: '2009-11-03 20:55:42'
+layout: post
+slug: utiliser-devilspie-pour-enlever-les-decorations-de-fenetres
+status: publish
+title: Utiliser devilspie pour enlever les décorations de fenêtres
+wordpress_id: '1746'
+categories:
+- linux
+- tutoriel
+tags:
+- devilspie
+- linux
+---
+
+<p style="text-align: justify;">Personnellement je préfère mes consoles sans aucune décoration, j'avais l'habitude avant de configurer mes WM pour que ça soit le cas. Mais le problème c'est que je devais recommencer la procédure pour un autre WM. La solution est d'utiliser devilspie. On le configure qu'une seule fois et ça sera valable sur tous les environnements de bureau qu'on utilise.</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/11/devilspie.png"><img class="aligncenter size-full wp-image-1748" title="devilspie" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/11/devilspie.png" alt="devilspie" width="558" height="339" /></a></p>
+<p style="text-align: justify;">Voici le fichier urxvt.ds utilisé pour ma console (urxvt-unicode) :</p>
+
+<pre lang="bash">(if
+
+(matches (window_class) "URxvt")
+  (begin
+    (undecorate)
+  )
+)</pre>
+<p style="text-align: justify;">Devilspie c'est magique, on peut faire plein de trucs, comme <a href="http://phollow.fr/2009/05/jouons-avec-devilspie-et-lopacite/">jouer avec la transparence</a>.</p>

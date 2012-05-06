@@ -1,0 +1,57 @@
+---
+date: '2011-08-28 18:44:28'
+layout: post
+slug: un-exercice-sur-le-responsive-web-design
+status: publish
+title: Un exercice sur le Responsive Web Design
+wordpress_id: '3441'
+categories:
+- featured articles
+- wordpress
+tags:
+- phollow
+- responsive web design
+- thème
+- wordpress
+---
+
+<p>Mon blog est maintenant <em>responsive</em>. Terme que l'on peut traduire à l'arrache par <em>qui répond bien</em>. Le thème et le contenu va automatiquement s'adapter à la taille de l'écran. Le concept est intéressant et plus pratique que de faire un thème normal + un thème mobile par exemple. À l'heure actuelle les sites internets ne sont plus seulement affichés sur un ordinateur mais de plus en plus souvent sur des appareils de type mobile, smartphones ou tablettes.</p>
+
+<h3>S'adapter</h3>
+
+<p>Au début on avait pas énormément d'appareils <em>exotiques</em> en dehors du desktop. On voyait souvent un sous-domaine dédié à l'affichage d'un site sous iPhone, avec un thème propre. D'un point de vue conception on était tranquille, le thème mobile était indépendant du thème principal, et on connaissait les contraintes de l'iPhone. Mais maintenant on a beaucoup plus de smartphones et même des tablettes, chaque appareil possédant sa propre résolution. Et là on se rend compte que faire un thème dédié pour chacun de ces appareils est une idée complètement idiote. Donc le site web doit <strong>s'adapter</strong>.</p>
+
+<h3>Bonjour media query</h3>
+
+<p>Vous les avez déjà utilisées. Mais si, <span class="code">media="print"</span> pour avoir un CSS dédié à l'impression par exemple. C'est pas nouveau, ça date de la norme CSS 2.1. Ce qui est nouveau se sont les ajouts de la norme CSS3. Des ajouts nous permettant de tester la résolution de l'écran, le type de <em>device</em> etc.</p>
+
+<span class="code">&lt;link rel="stylesheet" type="text/css" media="screen and (max-device-width: 480px)" href="mobile.css"/&gt;</span>
+
+<p>Si l'appareil à une résolution inférieure ou égale à 480px en largeur, le fichier mobile.css sera lu. L'attribut <span class="code">@media</span> du CSS permet de faire la même chose sans avoir à le faire dans la balise <span class="code">&lt;link&gt;</span>.</p>
+
+<p>Par exemple sur ce site quand la résolution devient petite, j'enlève la sidebar sur la gauche pour la placer en dessous du contenu. C'est ce que permettent de faire les <strong>media queries</strong>. On peut imaginer faire disparaître certains éléments qui n'auraient par leur place sur un petit écran, avec un <span class="code">display:none;</span> par exemple.</p>
+
+<p>Les media queries de ce type ne fonctionnent que sur les navigateurs récents et sur la plupart des navigateurs mobiles (webkit, opera). Il y a donc un script js que j'utilise pour certains navigateurs (<em>Oh hai, Internet Explorer</em>). Vous pouvez le trouver sur <a title="respond.js" href="https://github.com/scottjehl/respond" target="_blank">cette page</a>.</p>
+
+<h3>Responsive Grid</h3>
+
+<p>Pour me faciliter le travail j'ai utilisé une Grid CSS réactive. Construite sur les media queries, les différents blocs peuvent se ré-agencer suivant la taille de l'écran. Voici une liste non-exhaustive</p>
+<ul>
+	<li><a title="Less Framework 4" href="http://lessframework.com/" target="_blank">Less Framework 4</a></li>
+	<li><a title="Less+ Framework" href="http://www.angrycreative.se/projekt/less-framework/" target="_blank">Less+ Framework</a></li>
+	<li><a title="Skeleton" href="http://www.getskeleton.com/" target="_blank">Skeleton</a></li>
+	<li><a title="320 and up" href="http://stuffandnonsense.co.uk/projects/320andup/" target="_blank">320 and up</a></li>
+</ul>
+
+<h3>FitText</h3>
+
+<div><img class="alignnone size-medium wp-image-3487" title="Capture d’écran 2011-09-06 à 11.23.57" src="http://s3-eu-west-1.amazonaws.com/phollow/2011/08/Capture-d’écran-2011-09-06-à-11.23.57-832x415.jpg" alt="" width="832" height="415" /></div>
+&nbsp;
+
+<p><a title="FitText.js" href="http://fittextjs.com/" target="_blank">FitText.js</a> est un plugin jQuery permettant de rendre les tailles de polices flexibles. Je l'utilise pour certains headers. Ce plugin va les redimensionner par rapport à la taille du conteneur. Pratique.</p>
+
+<h3>Thème Phollow</h3>
+
+<p>Je met en ligne la source du thème Wordpress actuel sur Github pour les personnes intéressées. Vous pouvez le trouver sur <a title="Phollow Wordpress Theme" href="https://github.com/Rydgel/Phollow3-Theme" target="_blank">cette adresse</a>. Les forks sont fortement encouragés.<p>
+
+<p>Pour moi il est maintenant obligatoire de travailler sur des sites qui fonctionnent sur <em>n'importe quelles</em> resolutions que sur des sites qui fonctionnent sur les résolutions des appareils actuels.</p>

@@ -1,0 +1,38 @@
+---
+date: '2011-10-10 23:59:14'
+layout: post
+slug: les-cesures-dans-le-web
+status: publish
+title: Les césures dans le web
+wordpress_id: '3541'
+categories:
+- typographie
+- web
+tags:
+- césures
+- hyphenation
+- wordpress
+---
+
+<p>En typographie, la <strong>césure</strong> est l'art de couper un mot de telle manière à ce qu'il entre dans la justification. Cette pratique est utilisée dans les livres et depuis peu de temps possible aussi sur le web.</p>
+<p>On a inventé ce système pour pouvoir mettre plus de mots sur une page donc économiser du papier à l'imprimerie et améliorer la justification. Même si on n'utilise pas de papier sur le web, on peut toujours gagner de la place et améliorer l'aspect général de la typographie.</p>
+<p>Parfois les textes justifiés sont vraiment horribles sur les pages web, avec des <em>rivières</em> monstrueuses. Les <strong>césures</strong> améliorent nettement ça, donc passons maintenant au code.</p>
+<p><img src="http://s3-eu-west-1.amazonaws.com/phollow/2011/10/books-900x600.jpg" alt="" title="books" width="900" height="600" class="alignnone size-large wp-image-3563" /></p>
+<h3>Nouvelle méthode CSS3</h3>
+<pre>
+<code>
+p {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+}
+</code>
+</pre>
+<p>À l'heure où j'écris ces lignes, les navigateurs supportant ces propriétés sont <strong>Firefox</strong> 6+ et <strong>Safari</strong> 5.1+. Pour les désactiver il suffit de passer <span class="code">auto</span> en <span class="code">manual</span>. En mode manuel, les <span class="code">&amp;shy;</span> sont néanmoins toujours respectés.</p>
+<p>Les césures ont des règles strictes d'utilisation, règles changeant suivant la langue. Le navigateur doit savoir dans quelle langue vous écrivez, donc vous devez la renseigner. Un <span class="code">lang="fr"</span> dans la balise <span class="code">&lt;html&gt;</span> suffit par exemple.</p>
+<h3>Hyphenator</h3>
+<p>Cette bibliothèque javascript permet d'activer les césures sur tous les navigateurs supportant le « <em>trait d'union conditionnel</em> ». Ce caractère <span class="code">&amp;shy;</span> est invisible quand on le place mais il sert à déterminer l'endroit où une césure peut avoir lieu.</p>
+<p>L'avantage de ce script est qu'il privilégie l'utilisation de la méthode CSS3 sur les navigateurs la supportant.</p>
+<p><a href="http://code.google.com/p/hyphenator/" title="hyphenator.js" target="_blank">http://code.google.com/p/hyphenator/</a></p>
+<h3>Examples</h3>
+<p>Les paragraphes de mon blog devraient maintenant tous fonctionner avec ce système de césures — <em>depuis la mise à jour du thème en fait</em> — et donc vous devriez les voir sur cet article (et les autres) — à condition d'avoir un navigateur assez récent, mais je ne me fais pas de soucis pour vous.</p>

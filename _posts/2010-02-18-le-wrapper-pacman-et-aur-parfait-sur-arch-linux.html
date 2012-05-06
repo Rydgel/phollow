@@ -1,0 +1,33 @@
+---
+date: '2010-02-18 13:54:40'
+layout: post
+slug: le-wrapper-pacman-et-aur-parfait-sur-arch-linux
+status: publish
+title: Le wrapper pacman et AUR parfait sur Arch Linux
+wordpress_id: '2153'
+categories:
+- linux
+tags:
+- archlinux
+- linux
+- pacman
+---
+
+<p style="text-align: justify;">Arch Linux possède en gros deux sortes de dépôts pour l'installation des logiciels. Le dépôt officiel contient les binaires de la grande majorité des programmes, installables avec <strong>pacman</strong> (ou alors en les compilant avec le système ABS et l'arbre des PKGBUILDs). De l'autre côté il y a le dépôt géré par la communauté qu'on appelle AUR. Généralement il faut télécharger le PKGBUILD du logiciel sur <strong>http://aur.archlinux.org </strong> et le compiler.</p>
+<p style="text-align: justify;">Du coup des personnes se sont mis à développer des wrappers (des sur-couches), pour pacman et AUR. <strong>Yaourt</strong> en est un par exemple. Je vais donc vous présenter la crème de la crème pour moi : <a href="http://github.com/bruenig/packer" target="_blank"><strong>packer</strong></a>.</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/02/archlinux-official-gradient.jpg"><img class="aligncenter size-medium wp-image-2158" title="archlinux-official-gradient" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/02/archlinux-official-gradient-595x197.jpg" alt="" width="595" height="197" /></a></p>
+<p style="text-align: justify;">Je n'en pouvais plus de yaourt. Trop lourd, trop lent et pas vraiment bien codé. De plus son développement à l'air d'être stoppé. Il ne supporte pas les champs <strong>provide</strong> des PKGBUILD, ce qui m'a valu une belle boucle infinie en voulant installer des dépendances pour Xmonad et Haskell. Donc j'en ai eu ma claque et j'ai craqué.</p>
+<p style="text-align: justify;">Je suis alors tombé un sur la <a href="http://bbs.archlinux.org/viewtopic.php?id=88115&amp;p=1" target="_blank">présentation</a> de <strong>packer</strong> dans le forum officiel d'Arch Linux. Et depuis je ne pourrai plus m'en passer. Quand yaourt mettait au moins 5 min à parser tous les programmes installés sur ma bécane pour faire une update, packer met seulement quelques secondes. Les commandes principales sont :</p>
+
+<ul>
+	<li><em>packer -Syu</em> : Tout mettre à jour (dépôts off. + AUR)</li>
+	<li><em>packer -Syu --auronly</em> (idem mais seulement AUR)</li>
+	<li><em>packer -Syu --devel</em> (mettre à jour les programmes installés depuis GIT,SVN,BZR,HG....) -&gt; très utile pour moi ;)</li>
+	<li><em>packer -Ss</em> (recherche)</li>
+	<li><em>packer -S</em> (installation)</li>
+</ul>
+Et j'en passe.. Si vous les voulez tous, allez lire le fucking manual ;)
+
+Ah et packer est en couleur si on installe pacman-color. Packer est en développement intensif et de nouvelles fonctionnalités sont rajoutées très souvent. Pour l'installer c'est <a href="http://aur.archlinux.org/packages.php?ID=33378" target="_blank">ici</a>.
+
+Exit le gros yaourt ;)

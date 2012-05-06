@@ -1,0 +1,40 @@
+---
+date: '2009-03-08 16:45:57'
+layout: post
+slug: augmenter-les-possibilites-de-pypanel
+status: publish
+title: Augmenter les possibilités de Pypanel !
+wordpress_id: '438'
+categories:
+- linux
+- tutoriel
+tags:
+- archlinux
+- linux
+- open source
+- pypanel
+---
+
+<p style="text-align: justify;">Pypanel est une barre des tâches écrite en Python et en C. Très légère, elle est facile à personnaliser. Elle est très utilisé  dans les bureaux "minimalistes" style Openbox, PekWM, FVWM ...</p>
+<p style="text-align: justify;">La version finale 2.4 est sortie au mois de Juillet 2005 et depuis son développement est arrêté.</p>
+<p style="text-align: justify;">Mais pourtant pypanel continu d'évoluer grâce à des personnes qui lui écrivent des patchs.</p>
+<p style="text-align: justify;">Un des patchs que je trouve le plus intéressant est celui qui permet à Pypanel d'avoir des marges, pour ne pas être collé au bord de l'écran. Une image vaut bien plus que des mots :</p>
+<p style="text-align: justify;"><a href="http://phollow.fr/wp-content/uploads/2009/03/pyp.jpg"><img class="alignnone size-medium wp-image-446" title="pyp" src="http://phollow.fr/wp-content/uploads/2009/03/pyp-300x187.jpg" alt="pyp" width="300" height="187" /></a></p>
+
+<h2 style="text-align: justify;">Installation</h2>
+<ol>
+	<li>Il faut que pypanel soit installé sur votre système</li>
+	<li>Il faut récupérer le patch à cette <a href="http://de.pastebin.ca/568668" target="_blank">adresse</a> et sauvegarder le contenu dans un fichier pypanel.patch que vous allez mettre dans un dossier patch dans vos documents par exemple</li>
+	<li>On fait une sauvegarde de sécurité de /usr/bin/pypanel (dans un dossier backup par exemple)</li>
+	<li>On fait une copie de /usr/bin/pypanel dans notre dossier patch ( à côté du fichier pypanel.patch donc)</li>
+	<li>On ouvre un terminal, on "cd patch/" pour être dans le répertoire</li>
+	<li>On applique le patch : "patch -Np1 &lt; pypanel.patch"</li>
+	<li>On copie le nouveau pypanel à la place du premier dans /usr/bin</li>
+</ol>
+Il faut ensuite rajouter 4 nouveaux arguments (qui correspondent aux marges haute, basse, droite et gauche) dans votre .pypanelrc :
+<code>P_L_BUFF	= 20
+P_R_BUFF	= 20
+P_T_BUFF	= 0
+P_B_BUFF	= 10</code>
+
+Et voilà :)

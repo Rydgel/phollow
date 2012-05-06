@@ -1,0 +1,68 @@
+---
+date: '2009-05-07 21:48:48'
+layout: post
+slug: bashrun-un-lanceur-simple-et-efficace
+status: publish
+title: 'Bashrun: un lanceur simple et efficace'
+wordpress_id: '659'
+categories:
+- linux
+tags:
+- bashrun
+- linux
+- openbox
+- pekwm
+---
+
+<p style="text-align: justify;"><strong>Bashrun</strong> est un lanceur d'applications intelligent que j'utilise sous <a href="http://phollow.fr/2009/01/openbox-le-guide/" target="_blank"><strong>Openbox</strong></a> et <a href="http://phollow.fr/2009/05/pekwm-le-guide/" target="_blank"><strong>Pekwm</strong></a>. Il est très léger et utilise Xterm et bash (ou n'importe quel autre terminal, comme par exemple urxvt). Et grâce à ça il supporte l'auto-complétition et il sauvegarde tout dans un historique. Il est facile de configurer son gestionnaire de fenêtres pour l'utiliser avec un raccourcis. C'est ce que nous allons voir dans ce billet.</p>
+<p style="text-align: justify;"></p>
+
+
+[caption id="attachment_662" align="alignnone" width="595" caption="bashrun"]<a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/bashrun1.png"><img class="size-medium wp-image-662" title="bashrun" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/05/bashrun1-595x183.png" alt="bashrun" width="595" height="183" /></a>[/caption]
+
+Ce programme a été écrit par <a href="mailto:h.bekel@googlemail.com" target="_blank">Henning Bekel</a> et posté dans le <a href="http://bbs.archlinux.org/viewtopic.php?id=56283" target="_blank">forum</a> d'Archlinux. Il a tout de suite été adopté :D
+<h2 style="text-align: justify;">Installation</h2>
+<p style="text-align: justify;">Rendez vous dans la <a href="http://bashrun.sourceforge.net/" target="_blank">sourceforge</a> du projet et téléchargez la source. L'installation est simple :</p>
+
+<pre lang="bash">$ tar vxf bashrun-0.11.tar.gz
+$ cd bashrun-0.11/
+$ su -c 'sh install.sh'</pre>
+Les utilisateurs d'Archlinux peuvent installer le paquet depuis le dépôt.
+<h2>Configuration</h2>
+<p style="text-align: justify;">La configuration du logiciel se fait dans <em>~/.config/bashrun/rc</em> . Vous pouvez y définir le terminal à utiliser, le nom du fichier historique etc. Configurons le maintenant pour <strong>Openbox</strong> et <strong>Pekwm</strong>.</p>
+
+<h3 style="text-align: justify;">Openbox</h3>
+<h4 style="text-align: justify;">Mise en place du raccourci clavier</h4>
+<p style="text-align: justify;">À l'intérieur du fichier <em>rc.xml</em> après la balise &lt;keyboard&gt; on met ceci pour lancer bashrun avec Alt+F2 :</p>
+<pre lang="bash"><keybind key="A-F2">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>bashrun</name>
+        </startupnotify>
+        <command>bashrun</command>
+      </action>
+    </keybind></pre>
+<h4 style="text-align: justify;">Si vous voulez enlever les décorations de fenêtre de bashrun</h4>
+<p style="text-align: justify;">À l'intérieur du fichier <em>rc.xml</em> après la balise &lt;applications&gt; on met ceci :</p>
+<pre lang="bash"><application name="bashrun">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <skip_pager>yes</skip_pager>
+      <layer>above</layer>
+    </application>
+</pre>
+<h3 style="text-align: justify;">Pekwm</h3>
+<h4 style="text-align: justify;">Mise en place du raccourci clavier</h4>
+<p style="text-align: justify;">La manip' se fait dans le fichier <em>~/.pekwm/keys</em>, pour lancer l'application avec Super+R par exemple, mettez après<em> Global {</em></p>
+
+<pre lang="bash">KeyPress = "Mod4 R" { Actions = "Exec bashrun" }</pre>
+<h4>Si vous voulez enlever les décorations de fenêtre de bashrun</h4>
+<p style="text-align: justify;">La manip' se fait dans le fichier <em>~/.pekwm/autoproperties</em>, mettez ceci :</p>
+
+<pre lang="bash"> Property = "^bashrun,^XTerm" {
+ 	ApplyOn = "Start New"
+ 	Border = "False"; Titlebar = "False"
+ 	Sticky = "True"
+ }</pre>
+<p style="text-align: justify;">Si vous n'utilisez pas Xterm pour bashrun, changer le code en conséquence.</p>

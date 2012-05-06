@@ -1,0 +1,96 @@
+---
+date: '2009-08-30 13:04:01'
+layout: post
+slug: serveur-debian-lenny-les-dns
+status: publish
+title: Serveur Debian Lenny - Les DNS
+wordpress_id: '1408'
+categories:
+- featured articles
+- serveur
+- tutoriel
+tags:
+- debian
+- dns
+- lenny
+- serveur
+---
+
+<p style="text-align: justify;">Ce guide a pour but de vous montrer comment configurer vos noms de domaines sur votre dédié. On utilisera donc <strong>Bind</strong> <strong>9</strong> sur une <strong>Debian Lenny</strong>. Vous avez, bien sur, besoin d'un nom de domaine. Vous pouvez en enregistrer un sur <a href="http://www.gandi.net/" target="_blank">Gandi</a> par exemple.</p>
+<p style="text-align: justify;">On commence par installer <strong>bind9</strong> et les outils nécessaires :</p>
+
+<pre lang="bash">apt-get install bind9 dnsutils</pre>
+<p style="text-align: justify;">Ensuite on commence par éditer le fichier <em>/etc/bind/named.conf.options</em> :</p>
+
+<pre lang="bash">options {
+        directory "/var/cache/bind";
+
+        forwarders {
+                213.251.188.140;  # Serveur DNS d'OVH, notre serveur secondaire (sdns1.ovh.net)
+        };
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { ::1; };
+        listen-on { any; };
+        allow-recursion { 127.0.0.1; 213.251.188.140;};
+        notify yes;
+};</pre>
+<p style="text-align: justify;">On rajoute ensuite une nouvelle zone, dans ce tuto je vais prendre l'exemple de mon nom de domaine. Il faut créer le fichier <em>/etc/bind/db.phollow.fr</em> :</p>
+
+<pre lang="bash">$ttl 86400
+phollow.fr.     IN      SOA     r24041.ovh.net. votre.adresse.mail.com. (
+                                2009052218    #un id unique qu'il faut changer après chaque modif du fichier, généralement la date
+                                21600
+                                3600
+                                604800
+                                86400 )
+phollow.fr.     IN      NS      r24041.ovh.net.    # Mon serveur (qui fera le DNS primaire)
+phollow.fr.     IN      NS      sdns1.ovh.net.      # DNS secondaire
+phollow.fr.     IN      A       87.98.162.48        # l'IP de mon serveur en tant qu'alias
+www             IN      CNAME   r24041.ovh.net.  # pour www.phollow.fr
+mail            IN      CNAME   r24041.ovh.net. # pour mail.phollow.fr etc.</pre>
+<p style="text-align: justify;">Noter bien les points après chaque nom de domaine, ils sont importants.</p>
+<p style="text-align: justify;">Ensuite il faut rajouter cette zone dans le <em>/etc/bind/named.conf</em> :</p>
+
+<pre lang="bash">include "/etc/bind/named.conf.options";
+
+// prime the server with knowledge of the root servers
+zone "." {
+        type hint;
+        file "/etc/bind/db.root";
+};
+
+// be authoritative for the localhost forward and reverse zones, and for
+// broadcast zones as per RFC 1912
+
+zone "localhost" {
+        type master;
+        file "/etc/bind/db.local";
+};
+
+zone "127.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.127";
+};
+
+zone "0.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.0";
+};
+
+zone "255.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.255";
+};
+
+zone "phollow.fr" {
+        type master;
+        file "/etc/bind/db.phollow.fr";
+};</pre>
+<p style="text-align: justify;">Après ça devrait être bon, vous pouvez vérifier la syntaxe de vos fichiers de configuration avec la commande :</p>
+
+<pre lang="bash">named-checkconf -z</pre>
+<p style="text-align: justify;">Si il n'y a pas d'erreur, alors on redémarre le démon <strong>bind</strong> :</p>
+
+<pre lang="bash">/ect/init.d/bind9 restart</pre>
+<p style="text-align: justify;">Ensuite il reste seulement à indiquer à votre fournisseur de noms de domaine que les DNS primaires et secondaires sont respectivement <strong>r24041.ovh.net</strong> et <strong>sdns1.ovh.net</strong> (dans mon cas).</p>
