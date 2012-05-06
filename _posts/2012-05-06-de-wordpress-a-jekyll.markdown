@@ -72,7 +72,7 @@ Diverses variables utilisées pour la configuration, comme les permalinks, le mo
 
 #### __includes
 
-Généralement des _partials_ que vous pouvez utiliser dans vos templates. Si vous avez plusieurs bouts de HTML qui se répète un peu partout dans vos pages, c’est bon de les factorises ici.
+Généralement des _partials_ que vous pouvez utiliser dans vos templates. Si vous avez plusieurs bouts de HTML qui se répète un peu partout dans vos pages, c’est bon de les factoriser ici.
 
 #### _layouts
 
