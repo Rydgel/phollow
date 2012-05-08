@@ -15,9 +15,9 @@
 # site, and generate an entry in sitemap.xml for each one.
 
 require 'pathname'
+require 'zlib'
 
 module Jekyll
-
 
   # Monkey-patch an accessor for a page's containing folder, since 
   # we need it to generate the sitemap.
@@ -26,7 +26,6 @@ module Jekyll
       @dir
     end
   end
-  
 
   # Sub-class Jekyll::StaticFile to allow recovery from unimportant exception 
   # when writing the sitemap file.
@@ -36,13 +35,12 @@ module Jekyll
       true
     end
   end
-  
-  
+
   # Generates a sitemap.xml file containing URLs of all pages and posts.
   class SitemapGenerator < Generator
     safe true
-    priority :low
-    
+    priority :lowest
+
     # Generates the sitemap.xml file.
     #
     #  +site+ is the global Site object.
@@ -53,7 +51,7 @@ module Jekyll
         p = Pathname.new(site_folder)
         p.mkdir
       end
-      
+
       # Write the contents of sitemap.xml.
       File.open(File.join(site_folder, 'sitemap.xml'), 'w') do |f|
         f.write(generate_header())
@@ -61,28 +59,36 @@ module Jekyll
         f.write(generate_footer())
         f.close
       end
-      
+
+      # GZip the sitemap
+      File.open(File.join(site_folder, 'sitemap.xml.gz'), 'w') do |f|
+        gz = ::Zlib::GzipWriter.new(f)
+        gz.write IO.binread(File.join(site_folder, 'sitemap.xml'))
+        gz.close
+      end
+
       # Add a static file entry for the zip file, otherwise Site::cleanup will remove it.
       site.static_files << Jekyll::StaticSitemapFile.new(site, site.dest, '/', 'sitemap.xml')
+      site.static_files << Jekyll::StaticSitemapFile.new(site, site.dest, '/', 'sitemap.xml.gz')
     end
 
-    private
-    
+  private
+
     # Returns the XML header.
     def generate_header
       "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"
     end
-    
+
     # Returns a string containing the the XML entries.
     #
     #  +site+ is the global Site object.
     def generate_content(site)
-      result   = ''
-      
-      # First, try to find any stand-alone pages.      
-      site.pages.each{ |page|
+      result = ''
+
+      # First, try to find any stand-alone pages.
+      site.pages.each { |page|
         path     = page.subfolder + '/' + page.name
-        mod_date = File.mtime(site.source + path)
+        mod_date = (File.exists?(site.source + path) ? File.mtime(site.source + path) : Time.now)
 
         # Use the user-specified permalink if one is given.
         if page.permalink
@@ -92,14 +98,14 @@ module Jekyll
           path.gsub!(/.md$/, ".html")
         end
 
-        # Ignore SASS, SCSS, and CSS files
-        if path=~/.(sass|scss|css)$/
+        # Ignore SASS, SCSS, CSS and YML files
+        if path=~/.(sass|scss|css|yml)$/
           next
         end
 
         # Remove the trailing 'index.html' if there is one, and just output the folder name.
         if path=~/\/index.html$/
-            path = path[0..-11]
+            path = path[0..-12]
         end
 
         if page.data.has_key?('changefreq')
@@ -148,7 +154,7 @@ module Jekyll
       
       "
   <url>
-      <loc>#{baseurl}#{path}</loc>
+      <loc>#{site.config['domain']}#{baseurl}#{path}</loc>
       <lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>#{if changefreq.length > 0
           "\n      <changefreq>#{changefreq}</changefreq>" end}
   </url>"

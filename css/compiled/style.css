@@ -235,7 +235,7 @@ a.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:ho
   color: #F4F4F4;
 }
 
-blockquote, blockquote p {
+blockquote {
   font-size: 1em;
   font-style: italic;
   border: none;
@@ -247,7 +247,7 @@ blockquote, blockquote p {
   margin-bottom: 20px;
 }
 
-blockquote p:before {
+blockquote:before {
   content: "“";
   position: relative;
   left: -0.3em;
@@ -257,7 +257,7 @@ blockquote p:before {
   top: 0.2em;
 }
 
-blockquote p:after {
+blockquote:after {
   content: "”";
   font-weight: normal;
   position: relative;
