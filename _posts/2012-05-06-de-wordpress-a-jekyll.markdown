@@ -12,16 +12,17 @@ tags:
 - jekyll
 ---
 
-Cela fait plusieurs mois que j’en avait envie, je l’ai finalement fait ce week-end : une migration _complète_ de mon blog Wordpress vers Jekyll. Vous ne devriez pas voir énormément de différences… Non, la différence est surtout pour moi, l’écriture et la gestion du site.
+<div>
+<figure><figcaption style="top:-135px;"><img src="http://s3-eu-west-1.amazonaws.com/phollow/2012/05/dr_jekyll_mr_hyde_low.jpg" title="jekyll" class="alignnone size-full"></figcaption>
+</figure>
+</div>
+
+<p class="lettrine">Cela fait plusieurs mois que j’en avait envie, je l’ai finalement fait ce week-end : une migration _complète_ de mon blog Wordpress vers Jekyll. Vous ne devriez pas voir énormément de différences… Non, la différence est surtout pour moi, l’écriture et la gestion du site.</p>
 
 Je n’étais pas vraiment malheureux avec Wordpress, non. Seulement embêté par certaines _fonctionnalités_. Par exemple l’édition d’articles est juste infâme, je finissais souvent par utiliser l’éditeur HTML en fait. La performance de Wordpress est minable sans plugin externe (cache), car il fait les mêmes requêtes SQL à chaque pages vues. _On ne sait jamais, peut-être que l’article change toutes les 5 minutes ?_
 
 Bref, je m’égare en trollant, parlons un peu de cette migration.
 
-<div>
-<figure><figcaption style="top:-485px;"><img src="http://s3-eu-west-1.amazonaws.com/phollow/2012/05/dr_jekyll_mr_hyde_low.jpg" title="jekyll" class="alignnone size-full"></figcaption>
-</figure>
-</div>
 
 ### Jekyll
 

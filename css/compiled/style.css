@@ -23,12 +23,13 @@ Version: 3
 
 body {
   background: url('/images/paper.png') repeat #FFFDF9;
-  font-family: ff-quadraat-web, Georgia, serif;
+  font-family: skolar, Georgia, serif;
   color: #4A473A;
   /*text-rendering: optimizeLegibility;*/
   -webkit-font-smoothing: subpixel-antialiased;
   font-size: 100%;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-weight: 300;
 }
 
 div[role="wrapper"] {
@@ -61,17 +62,7 @@ border-image: initial;
 border-width: 1px 0 0;
 }
 
-pre > code {
-	font-family:  anonymous-pro, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	background: rgba(0, 0, 0, .02);
-	margin-bottom: 18px;
-	padding: 0.6em;
-	display: block;
-	font-size: 0.724em;
-	word-wrap: break-word;
-}
-
-span.code {
+span.code, article code {
   font-family: anonymous-pro, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   background-color: #FEE9CC;
   font-size: 0.824em;
@@ -85,10 +76,22 @@ span.code {
   padding: 1px 3px;
   color: rgba(0,0,0,0.75);
   line-height: 1em;
+  display: inline-block;
+}
+
+article pre > code {
+	font-family:  anonymous-pro, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	background: rgba(0, 0, 0, .02);
+	margin-bottom: 18px;
+	padding: 0.6em;
+	display: block;
+	font-size: 0.724em;
+	word-wrap: break-word;
+  line-height: 1.48em;
 }
 
 a.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
-  font-family: ff-quadraat-web, Georgia, serif;
+  font-family: inherit;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -167,13 +170,13 @@ figure {
 article figure figcaption {
   color: #99968A;
   font-size: 0.882em;
-  left: -63%;
+  left: -43%;
   line-height: 1.5em;
   padding: 0 0 0 10%;
   position: absolute;
   top: .5em;
-  width: 47%;
-  font-family: ff-quadraat-web, Georgia, serif;
+  width: 30%;
+  font-family: inherit;
   margin-bottom: 20px;
 }
 
@@ -525,9 +528,9 @@ blockquote:after {
 cite.entry-meta {
   color: #99968A;
   letter-spacing: 0px;
-  font-size: 0.882em;
+  /*font-size: 0.882em;*/
   display: block;
-  font-family: ff-quadraat-web, Georgia, serif;
+  font-family: inherit;
   margin-bottom: 20px;
 }
 
@@ -677,7 +680,7 @@ cite.entry-meta a:hover {
   color: #99968A;
   font-size: 0.765em;
   text-transform: uppercase;
-  font-family: ff-quadraat-web, Georgia, serif;
+  font-family: inherit;
   letter-spacing: 2px;
 }
 #sidebar a {
@@ -746,7 +749,7 @@ cite.entry-meta a:hover {
 
 .copyright {
   letter-spacing: 2px;
-  font-family: ff-quadraat-web, Georgia, serif;
+  font-family: inherit;
   color: #99968A;
   font-size: 0.824em;
   text-transform: uppercase;
@@ -916,7 +919,7 @@ span.says, .comment-edit-link {
 .comment-meta {
   color: #99968A;
   text-transform: uppercase;
-  font-family: ff-quadraat-web, Georgia, serif;
+  font-family: inherit;
   letter-spacing: 0px;
   font-size: 0.647em;
   margin-bottom: 10px;
@@ -1057,15 +1060,15 @@ span.says, .comment-edit-link {
 }
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body {
-  font-size: 0.941em !important;
+  font-size: 1em !important;
 }
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body label {
-  font-size: 0.941em !important;
+  font-size: 1em !important;
 }
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body p {
-  /*line-height: 1.5em !important;*/
+  line-height: 1.6 !important;
 }
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body a {
@@ -1160,10 +1163,15 @@ abbr {
     max-height: none;
   }
 
+  ##livefyre {
+    max-width: none;
+  }
+
+
 	article figure figcaption {
   	padding: 0 0 0.5em 0;
   	position: static;
-        text-align: left;
+    text-align: left;
   	width: auto;
 	}
     
