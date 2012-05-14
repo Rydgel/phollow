@@ -23,13 +23,14 @@ Version: 3
 
 body {
   background: url('/images/paper.png') repeat #FFFDF9;
-  font-family: skolar, Georgia, serif;
+  font-family:"Skolar Light", Georgia, serif; 
+  font-weight:200;
+  font-style:normal;
   color: #4A473A;
   /*text-rendering: optimizeLegibility;*/
   -webkit-font-smoothing: subpixel-antialiased;
   font-size: 100%;
   line-height: 1.6;
-  font-weight: 300;
 }
 
 div[role="wrapper"] {
@@ -63,8 +64,8 @@ border-width: 1px 0 0;
 }
 
 span.code, article code {
-  font-family: anonymous-pro, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  background-color: #FEE9CC;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  background-color: #FDF6E3;
   font-size: 0.824em;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -74,14 +75,13 @@ span.code, article code {
   -webkit-hyphens: none;
   -moz-hyphens: none;
   padding: 1px 3px;
-  color: rgba(0,0,0,0.75);
+  color: #93A1A1;
   line-height: 1em;
-  display: inline-block;
 }
 
 article pre > code {
-	font-family:  anonymous-pro, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	background: rgba(0, 0, 0, .02);
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	background: #FDF6E3;
 	margin-bottom: 18px;
 	padding: 0.6em;
 	display: block;
@@ -98,10 +98,22 @@ a.button, button, input[type="submit"], input[type="reset"], input[type="button"
 
 h1, h2, h3, h4, h5, h6 {
   color: #4A473A;
-  font-family: adelle, "Georgia", "Times New Roman", serif;
+  font-family: "Skolar", "Georgia", "Times New Roman", serif;
   font-weight: 500;
   letter-spacing: 0px;
   line-height: 1.3;
+}
+
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+  font-family: "Skolar Italic", "Georgia", "Times New Roman", serif;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+  font-family: "Skolar Bold", "Georgia", "Times New Roman", serif;
+}
+
+.pagetitle em b {
+  font-family: "Skolar Bold Italic", "Georgia", "Times New Roman", serif;
 }
 
 h2 {
@@ -123,12 +135,12 @@ p {
   -moz-hyphens: auto;
 }
 
-article p + p {
+/*article p + p {
 	margin-top: -20px;
 	text-indent: 2.3em;
-}
+}*/
 
-p.lettrine:first-letter {
+/*p.lettrine:first-letter {
   float: left;
   font-size: 4em;
   line-height: 1;
@@ -140,7 +152,7 @@ article p:first-child:first-letter {
     font-size: 4em;
     line-height: 1;
     margin-right: 0.2em;
-}
+}*/
 
 .footnotes li {
 	list-style: none !important;
@@ -159,6 +171,24 @@ article b, article strong, article em, article i {
   color: inherit;
 }
 
+article b, article strong {
+  font-family:"Skolar Bold", Georgia, serif;
+  font-weight:bold;
+  font-style:normal;
+}
+
+article em, article i {
+  font-family:"Skolar Light Italic", Georgia, serif;
+  font-weight:200;
+  font-style:italic;
+}
+
+article em strong, article strong em {
+  font-family:"Skolar Bold Italic", Georgia, serif;
+  font-weight:bold;
+  font-style:italic
+}
+
 p {
   margin: 0 0 20px 0;
 }
@@ -169,35 +199,31 @@ figure {
 
 article figure figcaption {
   color: #99968A;
-  font-size: 0.882em;
+  font-size: 0.720em;
   left: -43%;
   line-height: 1.5em;
   padding: 0 0 0 10%;
   position: absolute;
   top: .5em;
-  width: 30%;
+  width: 28%;
   font-family: inherit;
   margin-bottom: 20px;
 }
 
 article.post figure figcaption a {
   color: #99968A;
-  border-bottom: 1px dashed #99968A;
 }
 
 article.post figure figcaption a:hover {
   color: #FF6000;
-  border-bottom: 1px dashed #FF6000;
 }
 
 article.post figure figcaption:hover a {
   color: #61acdb;
-  border-bottom: 1px dashed #61acdb;
 }
 
 article.post figure figcaption:hover a:hover {
   color: #FF6000;
-  border-bottom: 1px dashed #FF6000;
 }
 
 article figure figcaption strong {
@@ -205,7 +231,7 @@ article figure figcaption strong {
 }
 
 .single-page {
-  font-size: 1.176em;
+  font-size: 1.215em;
   /*font-size: 1.235em;*/
 }
 
@@ -240,7 +266,6 @@ a.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:ho
 
 blockquote {
   font-size: 1em;
-  font-style: italic;
   border: none;
   margin: 0;
   padding: 0;
@@ -248,6 +273,9 @@ blockquote {
   color: #99968A;
   padding-right: 37px;
   margin-bottom: 20px;
+  font-family:"Skolar Light Italic", Georgia, serif;
+  font-weight:200;
+  font-style:italic;
 }
 
 blockquote:before {
@@ -258,6 +286,9 @@ blockquote:before {
   line-height: 1px;
   font-size: 1.764em;
   top: 0.2em;
+  font-family:"Skolar Light Italic", Georgia, serif;
+  font-weight:200;
+  font-style:italic;
 }
 
 blockquote:after {
@@ -268,6 +299,9 @@ blockquote:after {
   font-size: 1.764em;
   line-height: 0px;
   top: 0.2em;
+  font-family:"Skolar Light Italic", Georgia, serif;
+  font-weight:200;
+  font-style:italic;
 }
 
 #header-site {
@@ -348,7 +382,7 @@ blockquote:after {
 }
 
 #nav-header {
-  font-family: adelle, 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-family: "Skolar", Georgia, serif;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: 100;
@@ -382,7 +416,7 @@ blockquote:after {
 
 
 #nav-header2 {
-  font-family: adelle, 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-family: "Skolar", Georgia, serif;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: 100;
@@ -432,7 +466,7 @@ blockquote:after {
 
 #claim-home h1 {
   /*font-size: 2.177em;*/
-  font-size: 2.277em;
+  font-size: 2.377em;
   line-height: 1.4;
   margin-bottom: 20px;
 }
@@ -536,13 +570,11 @@ cite.entry-meta {
 
 cite.entry-meta a {
   color: #99968A;
-  border-bottom: 1px dashed #99968A;
 }
 
 cite.entry-meta a:hover {
   color: #4A473A;
   background-color: transparent;
-  border-bottom: 1px dashed #4A473A;
 }
 
 .comment-reply-link {
@@ -761,7 +793,6 @@ cite.entry-meta a:hover {
   color: #99968A;
   text-transform: none;
   letter-spacing: 0;
-  border-bottom: 1px dashed;
 }
 
 .copyright a:hover {
@@ -782,7 +813,6 @@ footer[role="contentinfo"] nav ul li {
         font-size: 0.824em;
 	}
 footer[role="contentinfo"] nav ul li a{
-	border-bottom: 1px dashed;
         text-decoration: none;
         color: #99968A;
 	}
@@ -1020,7 +1050,7 @@ span.says, .comment-edit-link {
   font-size: 1.176em;
   font-style: none;
   text-decoration: none;
-  font-family: adelle, georgia, serif;
+  font-family: "Skolar", Georgia, serif;
 }
 
 .archives-comments {
