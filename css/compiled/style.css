@@ -7,8 +7,55 @@ Author URI: http://phollow.fr
 Version: 3
 */
 	
-/* #Site Styles
-================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+time,
+pre,
+small,
+dl,
+span,
+img,
+footer,
+figcaption,
+cite {
+  opacity: 1;
+  -webkit-transition: opacity 0.24s ease-in-out;
+  -moz-transition: opacity 0.24s ease-in-out;
+  -ms-transition: opacity 0.24s ease-in-out;
+  transition: opacity 0.24s ease-in-out;
+  visibility: visible;
+}
+
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading h4,
+.wf-loading h5,
+.wf-loading h6,
+.wf-loading span,
+.wf-loading p,
+.wf-loading li,
+.wf-loading time,
+.wf-loading pre,
+.wf-loading small,
+.wf-loading dl,
+.wf-loading img,
+.wf-loading footer,
+.wf-loading figcaption,
+.wf-loading cite {
+  text-rendering: optimizeSpeed;
+  opacity: 0;
+}
+
+.wf-loading div[role="wrapper"] {
+  background: url(data:image/gif;base64,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)center 200px no-repeat;
+}
 
 .clearfix:after {
 	visibility: hidden;
@@ -23,8 +70,7 @@ Version: 3
 
 body {
   background: url('/images/paper.png') repeat #FFFDF9;
-  font-family:"Skolar Light", Georgia, serif; 
-  font-weight:200;
+  font-family:"Skolar", Georgia, serif; 
   font-style:normal;
   color: #4A473A;
   /*text-rendering: optimizeLegibility;*/
@@ -178,7 +224,7 @@ article b, article strong {
 }
 
 article em, article i {
-  font-family:"Skolar Light Italic", Georgia, serif;
+  font-family:"Skolar Italic", Georgia, serif;
   font-weight:200;
   font-style:italic;
 }
@@ -273,7 +319,7 @@ blockquote {
   color: #99968A;
   padding-right: 37px;
   margin-bottom: 20px;
-  font-family:"Skolar Light Italic", Georgia, serif;
+  font-family:"Skolar Italic", Georgia, serif;
   font-weight:200;
   font-style:italic;
 }
@@ -286,7 +332,7 @@ blockquote:before {
   line-height: 1px;
   font-size: 1.764em;
   top: 0.2em;
-  font-family:"Skolar Light Italic", Georgia, serif;
+  font-family:"Skolar Italic", Georgia, serif;
   font-weight:200;
   font-style:italic;
 }
@@ -299,7 +345,7 @@ blockquote:after {
   font-size: 1.764em;
   line-height: 0px;
   top: 0.2em;
-  font-family:"Skolar Light Italic", Georgia, serif;
+  font-family:"Skolar Italic", Georgia, serif;
   font-weight:200;
   font-style:italic;
 }
@@ -323,63 +369,6 @@ blockquote:after {
 
 }
 
-#nav {
-  position: fixed;
-  height: 50px;
-  background-image: url('/images/noise-header.png');
-  background-repeat: repeat;
-  color: #FFF;
-  width: 100%;
-  z-index: 30000;
-  top: -50px;
-}
-
-#logo2 a {
-  width: 97px;
-  height: 49px;
-  display: block;
-  text-indent: -999em;
-  background-image: url('/images/phollow-logo2.png');
-  background-repeat: no-repeat;
-  margin-left: 7px;
-}
-
-@-webkit-keyframes cssAnim {
-    0% { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    10% { -webkit-transform: rotate(-10deg) scale(1) skew(0deg) translate(0px); }
-    20% { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    30% { -webkit-transform: rotate(10deg) scale(1) skew(0deg) translate(0px); }
-    40% { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    50% { -webkit-transform: rotate(-10deg) scale(1) skew(0deg) translate(0px); }
-    60% { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-}
-
-@-moz-keyframes cssAnim {
-    0% { -moz-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    10% { -moz-transform: rotate(-10deg) scale(1) skew(0deg) translate(0px); }
-    20% { -moz-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    30% { -moz-transform: rotate(10deg) scale(1) skew(0deg) translate(0px); }
-    40% { -moz-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    50% { -moz-transform: rotate(-10deg) scale(1) skew(0deg) translate(0px); }
-    60% { -moz-transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-}
-
-@keyframes cssAnim {
-    0% { transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    10% { transform: rotate(-10deg) scale(1) skew(0deg) translate(0px); }
-    20% { transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    30% { transform: rotate(10deg) scale(1) skew(0deg) translate(0px); }
-    40% { transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-    50% { transform: rotate(-10deg) scale(1) skew(0deg) translate(0px); }
-    60% { transform: rotate(0deg) scale(1) skew(0deg) translate(0px); }
-}
-
-
-#logo a:hover {
-  /*-webkit-animation: cssAnim 0.5s 1 ease-in-out;
-  -moz-animation: cssAnim 0.5s 1 ease-in-out;
-  animation: cssAnim 0.5s 1 ease-in-out;*/
-}
 
 #nav-header {
   font-family: "Skolar", Georgia, serif;
@@ -612,6 +601,7 @@ cite.entry-meta a:hover {
 
 .post ul li {
   list-style: disc outside;
+  margin-bottom: 20px;
 }
 
 .post ol {
@@ -1099,6 +1089,7 @@ span.says, .comment-edit-link {
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body p {
   line-height: 1.6 !important;
+  margin: 0 0 15px 0;
 }
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body a {
@@ -1143,6 +1134,10 @@ abbr {
   font-family: ff-scala-sc-web;
 }
 
+.fullsizestuff {
+  margin-left: -37%;
+}
+
 /* #Media Queries
 ================================================== */
 	
@@ -1153,6 +1148,10 @@ abbr {
 	
 	/* Mobile/Browser */
 	@media only screen and (max-width: 768px) {
+    .fullsizestuff {
+      margin-left: 0;
+    }
+
 	  #livefyre #lf_fyre_head {
 	    min-width: 280px !important;
 	    padding: 0 !important;	

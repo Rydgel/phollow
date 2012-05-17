@@ -1,165 +1,311 @@
-# Jekyll sitemap page generator.
-# http://recursive-design.com/projects/jekyll-plugins/
+# Sitemap.xml Generator is a Jekyll plugin that generates a sitemap.xml file by
+# traversing all of the available posts and pages.
+# 
+# How To Use:
+#   1) Copy source file into your _plugins folder within your Jekyll project.
+#   2) Change modify the url variable in _config.yml to reflect your domain name.
+#   3) Run Jekyll: jekyll --server to re-generate your site.
 #
-# Version: 0.1.8 (201108151628)
+# Variables:
+#   * Change SITEMAP_FILE_NAME if you want your sitemap to be called something
+#     other than sitemap.xml.
+#   * Change the PAGES_INCLUDE_POSTS list to include any pages that are looping
+#     through your posts (e.g. "index.html", "archive.html", etc.). This will
+#     ensure that right after you make a new post, the last modified date will
+#     be updated to reflect the new post.
+#   * A sitemap.xml should be included in your _site folder.
+#   * If there are any files you don't want included in the sitemap, add them
+#     to the EXCLUDED_FILES list. The name should match the name of the source
+#     file.
+#   * If you want to include the optional changefreq and priority attributes,
+#     simply include custom variables in the YAML Front Matter of that file.
+#     The names of these custom variables are defined below in the
+#     CHANGE_FREQUENCY_CUSTOM_VARIABLE_NAME and PRIORITY_CUSTOM_VARIABLE_NAME
+#     constants.
 #
-# Copyright (c) 2010 Dave Perrett, http://recursive-design.com/
-# Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
+# Notes:
+#   * The last modified date is determined by the latest from the following:
+#     system modified date of the page or post, system modified date of
+#     included layout, system modified date of included layout within that
+#     layout, ...
+# 
+# Author: Michael Levin
+# Site: http://www.kinnetica.com
+# Distributed Under A Creative Commons License
+#   - http://creativecommons.org/licenses/by/3.0/
+# 
+# Modified for Octopress by John W. Long
 #
-# A generator that creates a sitemap.xml page for jekyll sites, suitable for submission to 
-# google etc. 
-#
-# To use it, simply drop this script into the _plugins directory of your Jekyll site.
-#
-# When you compile your jekyll site, this plugin will loop through the list of pages in your 
-# site, and generate an entry in sitemap.xml for each one.
-
-require 'pathname'
-require 'zlib'
+require 'rexml/document'
+require 'fileutils'
 
 module Jekyll
 
-  # Monkey-patch an accessor for a page's containing folder, since 
-  # we need it to generate the sitemap.
-  class Page
-    def subfolder
-      @dir
+  # Change SITEMAP_FILE_NAME if you would like your sitemap file
+  # to be called something else
+  SITEMAP_FILE_NAME = "sitemap.xml"
+
+  # Any files to exclude from being included in the sitemap.xml
+  EXCLUDED_FILES = ["atom.xml"]
+
+  # Any files that include posts, so that when a new post is added, the last
+  # modified date of these pages should take that into account
+  PAGES_INCLUDE_POSTS = ["index.html", "archives/index.html"]
+
+  # Custom variable names for changefreq and priority elements
+  # These names are used within the YAML Front Matter of pages or posts
+  # for which you want to include these properties
+  CHANGE_FREQUENCY_CUSTOM_VARIABLE_NAME = "change_frequency"
+  PRIORITY_CUSTOM_VARIABLE_NAME = "priority"
+
+  class Post
+    attr_accessor :name
+
+    def full_path_to_source
+      File.join(@base, @name)
+    end
+
+    def location_on_server
+      "#{site.config['url']}#{url}"
     end
   end
 
-  # Sub-class Jekyll::StaticFile to allow recovery from unimportant exception 
-  # when writing the sitemap file.
-  class StaticSitemapFile < StaticFile
+  class Page
+    attr_accessor :name
+
+    def full_path_to_source
+      File.join(@base, @dir, @name)
+    end
+
+    def location_on_server
+      location = "#{site.config['url']}#{@dir}#{url}"
+      location.gsub(/index.html$/, "")
+    end
+  end
+
+  class Layout
+    def full_path_to_source
+      File.join(@base, @name)
+    end
+  end
+
+  # Recover from strange exception when starting server without --auto
+  class SitemapFile < StaticFile
     def write(dest)
-      super(dest) rescue ArgumentError
+      begin
+        super(dest)
+      rescue
+      end
+
       true
     end
   end
 
-  # Generates a sitemap.xml file containing URLs of all pages and posts.
   class SitemapGenerator < Generator
-    safe true
-    priority :lowest
 
-    # Generates the sitemap.xml file.
+    # Valid values allowed by sitemap.xml spec for change frequencies
+    VALID_CHANGE_FREQUENCY_VALUES = ["always", "hourly", "daily", "weekly",
+      "monthly", "yearly", "never"]
+
+    # Goes through pages and posts and generates sitemap.xml file
     #
-    #  +site+ is the global Site object.
+    # Returns nothing
     def generate(site)
-      # Create the destination folder if necessary.
-      site_folder = site.config['destination']
-      unless File.directory?(site_folder)
-        p = Pathname.new(site_folder)
-        p.mkdir
-      end
+      sitemap = REXML::Document.new << REXML::XMLDecl.new("1.0", "UTF-8")
 
-      # Write the contents of sitemap.xml.
-      File.open(File.join(site_folder, 'sitemap.xml'), 'w') do |f|
-        f.write(generate_header())
-        f.write(generate_content(site))
-        f.write(generate_footer())
-        f.close
-      end
+      urlset = REXML::Element.new "urlset"
+      urlset.add_attribute("xmlns",
+        "http://www.sitemaps.org/schemas/sitemap/0.9")
 
-      # GZip the sitemap
-      File.open(File.join(site_folder, 'sitemap.xml.gz'), 'w') do |f|
-        gz = ::Zlib::GzipWriter.new(f)
-        gz.write IO.binread(File.join(site_folder, 'sitemap.xml'))
-        gz.close
-      end
+      @last_modified_post_date = fill_posts(site, urlset)
+      fill_pages(site, urlset)
 
-      # Add a static file entry for the zip file, otherwise Site::cleanup will remove it.
-      site.static_files << Jekyll::StaticSitemapFile.new(site, site.dest, '/', 'sitemap.xml')
-      site.static_files << Jekyll::StaticSitemapFile.new(site, site.dest, '/', 'sitemap.xml.gz')
+      sitemap.add_element(urlset)
+
+      # File I/O: create sitemap.xml file and write out pretty-printed XML
+      unless File.exists?(site.dest)
+        FileUtils.mkdir_p(site.dest)
+      end
+      file = File.new(File.join(site.dest, SITEMAP_FILE_NAME), "w")
+      formatter = REXML::Formatters::Pretty.new(4)
+      formatter.compact = true
+      formatter.write(sitemap, file)
+      file.close
+
+      # Keep the sitemap.xml file from being cleaned by Jekyll
+      site.static_files << Jekyll::SitemapFile.new(site, site.dest, "/", SITEMAP_FILE_NAME)
     end
 
-  private
-
-    # Returns the XML header.
-    def generate_header
-      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"
-    end
-
-    # Returns a string containing the the XML entries.
+    # Create url elements for all the posts and find the date of the latest one
     #
-    #  +site+ is the global Site object.
-    def generate_content(site)
-      result = ''
-
-      # First, try to find any stand-alone pages.
-      site.pages.each { |page|
-        path     = page.subfolder + '/' + page.name
-        mod_date = (File.exists?(site.source + path) ? File.mtime(site.source + path) : Time.now)
-
-        # Use the user-specified permalink if one is given.
-        if page.permalink
-          path = page.permalink
-        else
-          # Be smart about the output filename.
-          path.gsub!(/.md$/, ".html")
+    # Returns last_modified_date of latest post
+    def fill_posts(site, urlset)
+      last_modified_date = nil
+      site.posts.each do |post|
+        if !excluded?(post.name)
+          url = fill_url(site, post)
+          urlset.add_element(url)
         end
 
-        # Ignore SASS, SCSS, CSS and YML files
-        if path=~/.(sass|scss|css|yml)$/
-          next
-        end
-
-        # Remove the trailing 'index.html' if there is one, and just output the folder name.
-        if path=~/\/index.html$/
-            path = path[0..-12]
-        end
-
-        if page.data.has_key?('changefreq')
-          changefreq = page.data["changefreq"]
-        else
-          changefreq = ""
-        end
-        
-        unless path =~/error/
-          result += entry(path, mod_date, changefreq, site)
-        end
-      }
-      
-      # Next, find all the posts.
-      posts = site.site_payload['site']['posts']
-      for post in posts do
-        if post.data.has_key?('changefreq')
-          changefreq = post.data["changefreq"]
-        else
-          changefreq = "never"
-        end
-        url = post.url
-        url = url[0..-11] if url=~/\/index.html$/
-        result += entry(url, post.date, changefreq, site)
+        path = post.full_path_to_source
+        date = File.mtime(path)
+        last_modified_date = date if last_modified_date == nil or date > last_modified_date
       end
-      
-        result
+
+      last_modified_date
     end
 
-    # Returns the XML footer.
-    def generate_footer
-      "\n</urlset>"
-    end
-    
-    # Creates an XML entry from the given path and date.
+    # Create url elements for all the normal pages and find the date of the
+    # index to use with the pagination pages
     #
-    #  +path+ is the URL path to the page.
-    #  +date+ is the date the file was modified (in the case of regular pages), or published (for blog posts).
-    #  +changefreq+ is the frequency with which the page is expected to change (this information is used by
-    #    e.g. the Googlebot). This may be specified in the page's YAML front matter. If it is not set, nothing
-    #    is output for this property.
-    def entry(path, date, changefreq, site)
-      # Remove the trailing slash from the baseurl if it is present, for consistency.
-      baseurl = site.config['baseurl']
-      baseurl = baseurl[0..-2] if baseurl=~/\/$/
-      
-      "
-  <url>
-      <loc>#{site.config['domain']}#{baseurl}#{path}</loc>
-      <lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>#{if changefreq.length > 0
-          "\n      <changefreq>#{changefreq}</changefreq>" end}
-  </url>"
+    # Returns last_modified_date of index page
+    def fill_pages(site, urlset)
+      site.pages.each do |page|
+        if !excluded?(page.name)
+          path = page.full_path_to_source
+          if File.exists?(path)
+            url = fill_url(site, page)
+            urlset.add_element(url)
+          end
+        end
+      end
     end
 
+    # Fill data of each URL element: location, last modified,
+    # change frequency (optional), and priority.
+    #
+    # Returns url REXML::Element
+    def fill_url(site, page_or_post)
+      url = REXML::Element.new "url"
+
+      loc = fill_location(page_or_post)
+      url.add_element(loc)
+
+      lastmod = fill_last_modified(site, page_or_post)
+      url.add_element(lastmod) if lastmod
+
+      if (page_or_post.data[CHANGE_FREQUENCY_CUSTOM_VARIABLE_NAME])
+        change_frequency =
+          page_or_post.data[CHANGE_FREQUENCY_CUSTOM_VARIABLE_NAME].downcase
+
+        if (valid_change_frequency?(change_frequency))
+          changefreq = REXML::Element.new "changefreq"
+          changefreq.text = change_frequency
+          url.add_element(changefreq)
+        else
+          puts "ERROR: Invalid Change Frequency In #{page_or_post.name}"
+        end
+      end
+
+      if (page_or_post.data[PRIORITY_CUSTOM_VARIABLE_NAME])
+        priority_value = page_or_post.data[PRIORITY_CUSTOM_VARIABLE_NAME]
+        if valid_priority?(priority_value)
+          priority = REXML::Element.new "priority"
+          priority.text = page_or_post.data[PRIORITY_CUSTOM_VARIABLE_NAME]
+          url.add_element(priority)
+        else
+          puts "ERROR: Invalid Priority In #{page_or_post.name}"
+        end
+      end
+
+      url
+    end
+
+    # Get URL location of page or post
+    #
+    # Returns the location of the page or post
+    def fill_location(page_or_post)
+      loc = REXML::Element.new "loc"
+      loc.text = page_or_post.location_on_server
+
+      loc
+    end
+
+    # Fill lastmod XML element with the last modified date for the page or post.
+    #
+    # Returns lastmod REXML::Element or nil
+    def fill_last_modified(site, page_or_post)
+      path = page_or_post.full_path_to_source
+
+      lastmod = REXML::Element.new "lastmod"
+      date = File.mtime(path)
+      latest_date = find_latest_date(date, site, page_or_post)
+
+      if @last_modified_post_date == nil
+        # This is a post
+        lastmod.text = latest_date.iso8601
+      else
+        # This is a page
+        if posts_included?(page_or_post.name)
+          # We want to take into account the last post date
+          final_date = greater_date(latest_date, @last_modified_post_date)
+          lastmod.text = final_date.iso8601
+        else
+          lastmod.text = latest_date.iso8601
+        end
+      end
+      lastmod
+    end
+
+    # Go through the page/post and any implemented layouts and get the latest
+    # modified date
+    #
+    # Returns formatted output of latest date of page/post and any used layouts
+    def find_latest_date(latest_date, site, page_or_post)
+      layouts = site.layouts
+      layout = layouts[page_or_post.data["layout"]]
+      while layout
+        path = layout.full_path_to_source
+        date = File.mtime(path)
+
+        latest_date = date if (date > latest_date)
+
+        layout = layouts[layout.data["layout"]]
+      end
+
+      latest_date
+    end
+
+    # Which of the two dates is later
+    #
+    # Returns latest of two dates
+    def greater_date(date1, date2)
+      if (date1 >= date2)
+        date1
+      else
+        date2
+      end
+    end
+
+    # Is the page or post listed as something we want to exclude?
+    #
+    # Returns boolean
+    def excluded?(name)
+      EXCLUDED_FILES.include? name
+    end
+
+    def posts_included?(name)
+      PAGES_INCLUDE_POSTS.include? name
+    end
+
+    # Is the change frequency value provided valid according to the spec
+    #
+    # Returns boolean
+    def valid_change_frequency?(change_frequency)
+      VALID_CHANGE_FREQUENCY_VALUES.include? change_frequency
+    end
+
+    # Is the priority value provided valid according to the spec
+    #
+    # Returns boolean
+    def valid_priority?(priority)
+      begin
+        priority_val = Float(priority)
+        return true if priority_val >= 0.0 and priority_val <= 1.0
+      rescue ArgumentError
+      end
+
+      false
+    end
   end
-  
 end
