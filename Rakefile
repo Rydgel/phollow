@@ -22,7 +22,8 @@ end
 
 desc 'Build and deploy'
 task :deploy => :build do
-  sh 'rsync -rtzh --progress --delete _site/ root@direct.phollow.fr:/srv/http/phollow/'
+  # sh 'rsync -rtzh --progress --delete _site/ root@direct.phollow.fr:/srv/http/phollow/'
+  sh 'git push heroku master'
 end
 
 def jekyll(opts = '')
