@@ -4,13 +4,97 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-05-19T23:05:24+02:00</updated>
+  <updated>2012-05-20T01:33:03+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
     <email>rydgel@phollow.fr</email>
   </author>
 
+  
+  <entry>
+    <id>http://phollow.fr/2012/05/jekyll-heroku-et-mon-blog</id>
+    <link type="text/html" rel="alternate" href="http://phollow.fr/2012/05/jekyll-heroku-et-mon-blog"/>
+    <title>Jekyll, Heroku et mon blog</title>
+    <published>2012-05-20T01:30:22+02:00</published>
+    <updated>2012-05-20T01:30:22+02:00</updated>
+    <author>
+      <name>Jérôme Mahuet</name>
+      <uri>http://phollow.fr/</uri>
+    </author>
+    <content type="html">&lt;div&gt;
+&lt;figure&gt;
+&lt;figcaption style=&quot;top:-135px;&quot;&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;La migration du blog vers Jekyll était une première étape nécessaire pour une migration complète vers une solution gratuite – &lt;em&gt;ou presque&lt;/em&gt;. Quand le site web n’est plus qu’une collection de fichiers statiques, l’hébergement devient vraiment simple.&lt;/p&gt;
+
+&lt;h3&gt;Heroku&lt;/h3&gt;
+
+&lt;p&gt;Heroku est une plate-forme &lt;em&gt;cloud&lt;/em&gt; qui peut faire tourner des applications Python, Ruby, Scala etc. Le déploiement d’une app n’est pas plus compliqué qu’un &lt;code&gt;git push heroku master&lt;/code&gt;. J’utilise la solution gratuite qui est amplement suffisante pour ce blog. Et si un jour ce blog devient extraordinairement populaire, je pourrai &lt;em&gt;scaler&lt;/em&gt; simplement avec &lt;code&gt;ps:scale web=x&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Amazon S3&lt;/h3&gt;
+
+&lt;p&gt;J’en avais déjà parlé sur l’article précédent, les images et les uploads divers des articles sont tous stockés sur Amazon S3. C’était pour préparer la migration sur Heroku, car on est limité à 100Mo pour une application donné. Une application dont le code source fait 100Mo, c’est déjà énorme je trouve. Et généralement personne ne stocke les uploads d’une app. web dans un sous-dossier de l’application elle-même.&lt;/p&gt;
+
+&lt;p&gt;Du coup ça peut me permettre de stocker des trucs vraiment énormes sans avoir de limite (sauf les limites de mon porte-monnaie évidemment). D’un point de vue argent justement, S3 est la seule chose que je paie pour héberger ce blog, et pour info j’en suis à $0.03 depuis le début du mois.&lt;/p&gt;
+
+&lt;h3&gt;Sinatra&lt;/h3&gt;
+
+&lt;p&gt;Heroku ne permet pas de déployer juste un tas de fichiers statiques, par contre rien ne nous empêche de développer une application proxy, ici Sinatra, servant seulement à servir ces fichiers. Le code de l’application est simple :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# encoding: utf-8&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;sinatra&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;configure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:public_folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Last modification time for browser cache&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@last_mod_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;X-UA-Compatible&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;IE=Edge,chrome=1&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;expires&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:public&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:must_revalidate&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;last_modified&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@last_mod_time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;send_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;_site/index.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/*&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;file_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;_site/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:splat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/index.html&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FileTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exist?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;send_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;halt&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;not_found&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;send_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;_site/404.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Le code de l’application a été mise à jour sur le &lt;a href=&quot;https://github.com/Rydgel/phollow&quot;&gt;dépôt Github du blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Autres solutions&lt;/h3&gt;
+
+&lt;p&gt;Heroku n’est pas la seule manière d’héberger votre blog à moindre coût. On peut utiliser entre autre :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Les pages Github &lt;a href=&quot;http://pages.github.com/&quot;&gt;http://pages.github.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Mettre le site en entier dans Amazon S3&lt;/li&gt;
+&lt;li&gt;Dropbox&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
   
   <entry>
     <id>http://phollow.fr/2012/05/css3-et-polices-opentype</id>
@@ -1262,22 +1346,6 @@ La liste n'est pas complète. En terme de prix il y a une &lt;a href=&quot;https
 &lt;p style=&quot;text-align: justify;&quot;&gt;Et voilà ça devrait suffire !&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Maintenant on peut se poser la question de la pertinence de la chose. On avait à la base l'action de partager et l'action d'aimer. Désormais le simple fait d'aimer un truc, nous le fait partager. Admettons. Mais si je veux partager sans aimer ?&lt;/p&gt;
 </content>
-  </entry>
-  
-  <entry>
-    <id>http://phollow.fr/2011/02/wanted-beta-testers-dead-or-alive</id>
-    <link type="text/html" rel="alternate" href="http://phollow.fr/2011/02/wanted-beta-testers-dead-or-alive"/>
-    <title>Wanted ! Beta Testers Dead or Alive !</title>
-    <published>2011-02-01T01:38:20+01:00</published>
-    <updated>2011-02-01T01:38:20+01:00</updated>
-    <author>
-      <name>Jérôme Mahuet</name>
-      <uri>http://phollow.fr/</uri>
-    </author>
-    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3103&quot; title=&quot;SONY DSC&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/01/5026546131_0853288738_b-804x537.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;537&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Mais si possible vivants.. Pour tester l'application iPhone que j'ai développé. Concrètement il s'agit d'une extension mobile du blog, avec la possibilité de voir tous les billets, de poster un commentaire, de partager.. de la manière la plus simple possible (du moins je le crois).&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;L'application du blog a été un prétexte ou plutôt un entrainement pour apprendre l'Objective-C. Je me sens maintenant à l'aise avec ce type de programmation, et rien de mieux que la pratique pour apprendre.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Ce que je vous propose, c'est de tester cette application avant que je la soumette à l'Apple Store. Donc si ça vous intéresse, envoyez moi un &lt;a href=&quot;mailto:rydgel@phollow.fr&quot;&gt;mail&lt;/a&gt; avec votre matos + version d'iOS (iPhone, iPad, iPod, peu importe..). Et moi je vous envoi les accès :)&lt;/p&gt;</content>
   </entry>
   
  
