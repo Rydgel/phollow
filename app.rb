@@ -8,6 +8,10 @@ configure do
   @last_mod_time = Time.now
 end
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 before do
   headers "X-UA-Compatible" => "IE=Edge,chrome=1"
   expires 300, :public, :must_revalidate
