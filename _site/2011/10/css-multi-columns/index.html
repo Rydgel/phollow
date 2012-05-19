@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>CSS Multi-Columns</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="CSS Multi-Columns">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+  <meta property="og:title" content="CSS Multi-Columns">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="CSS Multi-Columns"> 
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="stylesheet" href="/css/compiled/global.css?v=4">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script>
+  WebFontConfig = {
+    fontdeck: {
+      id: '19429'
+    }
+  };
+
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +   
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  </script>
+</head>
+<body>
+  <div class="container" role="wrapper">  
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">Phollow.me</a>
+      </h1>
+      <nav id="nav-header" class="twelve columns omega">
+        <ul>
+          <li><a title="Phollow Archives" href="/archives/">Archives</a></li>
+          <li><a target="_blank" title="about" href="http://jrm.li">Myself</a></li>
+          <li><a target="_blank" title="@phollow" href="http://twitter.com/@phollow">Twitter</a></li>
+          <li><a target="_blank" title="Phollow.fr RSS Feed" href="http://feeds2.feedburner.com/phollow/iuEO" target="_blank">RSS feed</a></li>
+        </ul>
+      </nav>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
+    </header>
+
+<div id="container" class="twelve columns offset-by-four">
+	<article class="post">
+      <header>
+		<h2 class="entry-title entry-single"><a href="/2011/10/css-multi-columns">CSS Multi-Columns</a></h2>
+		<cite class="entry-meta"><time datetime="2011-10-07 00:28:43 +0200" pubdate class="updated">October  7, 2011</time>  •  <a href="/category/typographie" rel="category tag">typographie</a>, <a href="/category/web" rel="category tag">web</a>  •  </cite>   
+      </header>	
+			<div class="entry single-page">
+				<img style="margin-top:0;" class="alignnone size-full wp-image-3503" title="css" src="http://s3-eu-west-1.amazonaws.com/phollow/2011/10/css.png" alt="" width="832" height="300" />
+<h3>Qu'est-ce que c'est ?</h3>
+<p>Le module CSS <em>multi-colums</em> permet de diviser un long flux de texte en plusieurs colonnes de manière automatique. Et donc nous n'avons pas besoin, par exemple, pour 3 colonnes de créer 3 conteneurs. Cette technique est beaucoup utilisée dans les journaux ou les magazines mais encore très peu sur le web.</p>
+
+<p>Ainsi de larges blocs de texte peuvent être divisés facilement en sous-colonnes pour offrir une meilleure lecture et améliorer l'esthétisme d'un site. C'est un avantage aussi d'un point de vue sémantique, car on se passe de balises supplémentaires nécessaires pour avoir le même rendu sans CSS3.</p>
+
+<p>D'un autre côté la lisibilité d'un site peut être complètement ruinée avec une mauvaise utilisation de ce module. Un site web n'étant pas forcément statique comme le serait la page d'un magazine. Par exemple l'utilisateur ne doit pas avoir à scroller quand il lit la fin de la colonne et passe à la suivante.</p>
+
+<h3>Compatibilité des navigateurs</h3>
+<ul>
+	<li>Opera 11.10+, Opera Mobile 11.10+</li>
+	<li>IE 10+</li>
+	<li>Firefox 3.6+</li>
+	<li>Safari 3.2+</li>
+	<li>Chrome 10+</li>
+</ul>
+
+<h3>Utilisation</h3>
+
+<p>Il y a deux façons de créer des colonnes, on peut d'une part spécifier un nombre fixe de colonnes à l'aide de la propriété <span class="code">column-count</span> ou alors spécifier la largeur des colonnes à l'aide de <span class="code">column-width</span> (pixels ou ems, mais pas de pourcentage…). Les deux propriétés peuvent être cumulées, mais le navigateur choisira l'une ou l'autre suivant les cas. Il existe bien sur d'autre propriétés :</p>
+<ul>
+	<li><span class="code">column-gap</span> pour gérer l'espacement entres les colonnes</li>
+	<li><span class="code">column-rule</span>, <span class="code">column-rule-width</span>, <span class="code">column-rule-style</span>, <span class="code">column-rule-color</span> pour gérer l'apparence de la séparation des colonnes</li>
+	<li><span class="code">break-before</span>, <span class="code">break-after</span>, <span class="code">break-inside</span> permet par exemple de forcer le passage d'un élément sur la colonne suivante. Plus d'infos sur le site du <a title="w3c" href="http://www.w3.org/TR/css3-multicol/#column-breaks" target="_blank">w3c</a>.</li>
+</ul>
+
+<h3>Exemples</h3>
+<h4>Séparation en deux colonnes</h4>
+
+<div style="font-size: 80%; column-count: 2; column-gap: 20px; -moz-column-count: 2; -moz-column-gap: 20px; -o-column-count: 2; -o-column-gap: 20px; -webkit-column-count: 2; -webkit-column-gap: 20px; text-align: justify;">
+
+<p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
+
+<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</p>
+
+<p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
+
+<p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
+
+<p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
+
+<p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
+
+</div>
+<h4>Code</h4>
+<div class="highlight"><pre><code class="css"><span class="nt">div</span><span class="nc">.twocol</span> <span class="p">{</span>
+  <span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">2</span><span class="p">;</span>
+  <span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">2</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">2</span><span class="p">;</span>
+  <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">2</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4>Séparation en trois colonnes + style</h4>
+<div style="font-size: 75%; column-count: 3; column-gap: 10px; column-rule-color: #ccc; column-rule-style: dotted; column-rule-width: 2px; -moz-column-count: 3; -moz-column-gap: 10px; -moz-column-rule-color: #ccc; -moz-column-rule-style: dotted; -moz-column-rule-width: 2px; -o-column-count: 3; -o-column-gap: 10px; -o-column-rule-color: #ccc; -o-column-rule-style: dotted; -o-column-rule-width: 2px; -webkit-column-count: 3; -webkit-column-gap: 10px; -webkit-column-rule-color: #ccc; -webkit-column-rule-style: dotted; -webkit-column-rule-width: 2px; text-align: justify;">
+
+<p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p>
+
+<p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
+
+<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.</p>
+
+<p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
+
+<p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
+
+<p>Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.</p>
+
+</div>
+&nbsp;
+<h4>Code</h4>
+<div class="highlight"><pre><code class="css"><span class="nt">div</span><span class="nc">.threecol</span> <span class="p">{</span>
+	<span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">3</span><span class="p">;</span>
+	<span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+	<span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+	<span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="k">dotted</span><span class="p">;</span>
+	<span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">3</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="k">dotted</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+	<span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">3</span><span class="p">;</span>
+	<span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+	<span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+	<span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="k">dotted</span><span class="p">;</span>
+	<span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">3</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">gap</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="k">dotted</span><span class="p">;</span>
+	<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3>Conclusion</h3>
+<p>La propriété CSS <em>multi-columns</em> se dégrade assez naturellement sur les navigateurs qui ne supporte pas encore la spécification. On voit simplement qu'une seule colonne. Pouvoir gérer ce genre de layout sans avoir recours à des scripts quelconque est vraiment pratique. À l'heure où les designers donnent de plus en plus d'importance à la lisibilité du contenu, je pense qu'on en verra un peu plus d'ici quelques temps.</p>
+
+<p>P.S. : Vous avez reconnu les citations des exemples ?</p>
+
+<p>Réf. : <a href="http://www.w3.org/TR/css3-multicol/" target="_blank">Spécifications</a></p>
+			</div>
+			<footer class="share">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-text="CSS Multi-Columns" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+			</footer>
+		</article>
+    	<hr>
+		<!-- START: Livefyre Embed -->
+		<script type='text/javascript' src='http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'></script>
+		<script type='text/javascript'>
+		    var fyre = LF({
+				site_id: 287636,
+				article_id: 3490
+		    });
+		</script>
+		<!-- END: Livefyre Embed -->
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>    
+  <span class="copyright">Copyright © 2011 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.rackspace.com/">Rackspace US, Inc.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=2"></script>
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<script src="/js/compiled/DOMAssistantCompressed-2.8.js"></script>
+<script src="/js/compiled/selectivizr-1.0.1.js"></script>
+<script src="/js/compiled/respond.min.js"></script>
+<![endif]-->
+
+<script>
+      (function(){
+        var twitterWidgets = document.createElement('script');
+        twitterWidgets.type = 'text/javascript';
+        twitterWidgets.async = true;
+        twitterWidgets.src = '//platform.twitter.com/widgets.js';
+        document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+      })();
+</script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+
+ 

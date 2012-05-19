@@ -1,0 +1,157 @@
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Installer Wine sur OS X</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Installer Wine sur OS X">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+  <meta property="og:title" content="Installer Wine sur OS X">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Installer Wine sur OS X"> 
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="stylesheet" href="/css/compiled/global.css?v=4">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script>
+  WebFontConfig = {
+    fontdeck: {
+      id: '19429'
+    }
+  };
+
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +   
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  </script>
+</head>
+<body>
+  <div class="container" role="wrapper">  
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">Phollow.me</a>
+      </h1>
+      <nav id="nav-header" class="twelve columns omega">
+        <ul>
+          <li><a title="Phollow Archives" href="/archives/">Archives</a></li>
+          <li><a target="_blank" title="about" href="http://jrm.li">Myself</a></li>
+          <li><a target="_blank" title="@phollow" href="http://twitter.com/@phollow">Twitter</a></li>
+          <li><a target="_blank" title="Phollow.fr RSS Feed" href="http://feeds2.feedburner.com/phollow/iuEO" target="_blank">RSS feed</a></li>
+        </ul>
+      </nav>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
+    </header>
+
+<div id="container" class="twelve columns offset-by-four">
+	<article class="post">
+      <header>
+		<h2 class="entry-title entry-single"><a href="/2010/01/installer-wine-sur-os-x">Installer Wine sur OS X</a></h2>
+		<cite class="entry-meta"><time datetime="2010-01-08 02:13:36 +0100" pubdate class="updated">January  8, 2010</time>  •  <a href="/category/apple" rel="category tag">apple</a>, <a href="/category/libre" rel="category tag">libre</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>  •  </cite>   
+      </header>	
+			<div class="entry single-page">
+				<p style="text-align: justify;">On ne présente plus <a href="http://www.winehq.org/">Wine</a>, ce logiciel qui permet de lancer des binaires Windows sur d'autres OS. Wine tourne sur à peu près toutes les plate-formes y compris sur Mac OS X.</p>
+<p style="text-align: justify;">Alors.. oui il existe déjà des implémentations de Wine sur Mac. Comme par exemple CrossOver, mais celui est payant et non libre. Je m'ennuyais un peu et je m'étais dit que ça serait marrant de compiler Wine sous OS X (ouais on s'éclate comme on peut). Du coup je vais vous partager la façon de faire.</p>
+
+<h1>Pré-requis</h1>
+<p style="text-align: justify;">Cette manipulation ne peut pas fonctionner sur toutes les configurations.</p>
+
+<h3>Intel</h3>
+<p style="text-align: justify;">Il vous faut un Mac avec un processeur Intel. Les derniers Mac le sont tous. Pour vérifier il suffit d'aller dans le menu pomme et de choisir "À propos de ce Mac" pour vérifier votre processeur.</p>
+
+<h3>Xcode</h3>
+<p style="text-align: justify;">On aura besoin des outils de compilation traditionnels (make, gcc etc.). Pour les avoir il suffit d'installer Xcode. Vous le trouverez sur cette <a href="http://developer.apple.com/tools/xcode/">page</a>.</p>
+
+<h3>Macports</h3>
+<p style="text-align: justify;">Les macports simplifieront l'installation de Wine et de ses dépendances. Pour son installation et son utilisation, je montre quelques exemples sur un <a href="http://phollow.fr/2009/08/les-macports/" target="_blank">précédent billet</a>.</p>
+<a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/01/17275_396939685244_627600244_10686498_3388835_n.jpg"><img class="aligncenter size-medium wp-image-1971" title="17275_396939685244_627600244_10686498_3388835_n" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/01/17275_396939685244_627600244_10686498_3388835_n-375x500.jpg" alt="" width="375" height="500" /></a>
+<h1>Installation</h1>
+<p style="text-align: justify;">Avec les Macports c'est tout facile :)</p>
+
+<pre lang="bash">sudo port install wine-devel +universal</pre>
+<p style="text-align: justify;">Le flag +universal permet de compiler Wine et ses dépendances en 32 bits (car Wine ne fonctionne pas en 64 bits). Si on ne rajoute pas ce flag, le compilateur sous Snow Leopard essaiera de compiler Wine en 64 bits (ce qui ne peut pas fonctionner).</p>
+<p style="text-align: justify;">Et voilàààà</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/01/Capture-d’écran-2010-01-08-à-00.07.46.jpg"><img class="aligncenter size-medium wp-image-1973" title="Capture d’écran 2010-01-08 à 00.07.46" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/01/Capture-d’écran-2010-01-08-à-00.07.46-595x455.jpg" alt="" width="595" height="455" /></a></p>
+			</div>
+			<footer class="share">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-text="Installer Wine sur OS X" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+			</footer>
+		</article>
+    	<hr>
+		<!-- START: Livefyre Embed -->
+		<script type='text/javascript' src='http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'></script>
+		<script type='text/javascript'>
+		    var fyre = LF({
+				site_id: 287636,
+				article_id: 1955
+		    });
+		</script>
+		<!-- END: Livefyre Embed -->
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>    
+  <span class="copyright">Copyright © 2011 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.rackspace.com/">Rackspace US, Inc.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=2"></script>
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<script src="/js/compiled/DOMAssistantCompressed-2.8.js"></script>
+<script src="/js/compiled/selectivizr-1.0.1.js"></script>
+<script src="/js/compiled/respond.min.js"></script>
+<![endif]-->
+
+<script>
+      (function(){
+        var twitterWidgets = document.createElement('script');
+        twitterWidgets.type = 'text/javascript';
+        twitterWidgets.async = true;
+        twitterWidgets.src = '//platform.twitter.com/widgets.js';
+        document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+      })();
+</script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+
+ 

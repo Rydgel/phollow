@@ -1,0 +1,470 @@
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Booster le démarrage d'Archlinux</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Booster le démarrage d'Archlinux">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+  <meta property="og:title" content="Booster le démarrage d'Archlinux">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Booster le démarrage d'Archlinux"> 
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="stylesheet" href="/css/compiled/global.css?v=4">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script>
+  WebFontConfig = {
+    fontdeck: {
+      id: '19429'
+    }
+  };
+
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +   
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  </script>
+</head>
+<body>
+  <div class="container" role="wrapper">  
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">Phollow.me</a>
+      </h1>
+      <nav id="nav-header" class="twelve columns omega">
+        <ul>
+          <li><a title="Phollow Archives" href="/archives/">Archives</a></li>
+          <li><a target="_blank" title="about" href="http://jrm.li">Myself</a></li>
+          <li><a target="_blank" title="@phollow" href="http://twitter.com/@phollow">Twitter</a></li>
+          <li><a target="_blank" title="Phollow.fr RSS Feed" href="http://feeds2.feedburner.com/phollow/iuEO" target="_blank">RSS feed</a></li>
+        </ul>
+      </nav>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
+    </header>
+
+<div id="container" class="twelve columns offset-by-four">
+	<article class="post">
+      <header>
+		<h2 class="entry-title entry-single"><a href="/2009/04/booster-le-demarrage-darchlinux">Booster le démarrage d'Archlinux</a></h2>
+		<cite class="entry-meta"><time datetime="2009-04-30 22:59:47 +0200" pubdate class="updated">April 30, 2009</time>  •  <a href="/category/linux" rel="category tag">linux</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>  •  </cite>   
+      </header>	
+			<div class="entry single-page">
+				<p style="text-align: justify;">Mon Arch boot environ en 15s, du grub au bureau. Je n'ai jamais pu atteindre un score pareil avec mes anciennes distributions, qui elles mettaient entre 30s (Debian) et 2min (OpenSuse). Le seul challenger valable est le Mac OS X du bureau qui lui boot en une vingtaine de secondes. Dans cet article je vais vous détailler ce que j'ai essayé et modifié pour parvenir à ce score. Nous sommes d'accord que la vitesse de démarrage n'est pas un facteur critique, mais j'en ai appris beaucoup sur la façon dont Arch et Linux démarrent et j'aimerais vous le partager.</p>
+<p style="text-align: justify;"><strong>Attention:</strong> J'ai écris ce guide pour les personnes qui aiment bidouiller leur système, qui sont à la recherche de la moindre optimisation et surtout <em>qui ne pleurent pas quand quelquechose se passe mal</em>. Je pars du principe que vous êtes confortable avec la ligne de commande. Ce billet est un récapitulatif de mes recherches sur le sujet, je m'inspire du <a href="http://wiki.archlinux.org/" target="_blank">wiki</a> d'Archlinux ainsi que de son <a href="http://bbs.archlinux.org/" target="_blank">forum</a>. Ah et important : <strong>faites une sauvegarde de chaque fichier modifié</strong>.</p>
+
+<h2 style="text-align: justify;">Utiliser un système de fichiers plus rapide</h2>
+<p style="text-align: justify;">Il y en a beaucoup, avec leurs avantages et leurs inconvénients, dont certains plus rapide que d'autres. <a href="http://fr.wikipedia.org/wiki/JFS" target="_blank">JFS</a> à l'air pas mal, il est rapide, journalisé, stable et n'utilise pas beaucoup de ressouces CPU. <a href="http://fr.wikipedia.org/wiki/ReiserFS" target="_blank">ReiserFS </a>et <a href="http://fr.wikipedia.org/wiki/Ext4" target="_blank">Ext4</a> ne sont pas mauvais non plus. Je n'ai pas eu le courage de migrer, donc je suis resté sous <a href="http://fr.wikipedia.org/wiki/Ext3" target="_blank">Ext3</a>, mais si jamais j'ai l'occasion de formater un jour alors je choisirai <a href="http://fr.wikipedia.org/wiki/JFS" target="_blank">JFS</a>.</p>
+
+<h2 style="text-align: justify;">/etc/mkinitcpio.conf</h2>
+<p style="text-align: justify;">Ce fichier de configuration va servir à créer un initrd qui sera chargé au démarrage et qui va servir à charger tous les modules pour votre matériel et monter les disques, ensuite il donne la main au kernel. Il est donc important de rendre ce fichier le plus petit possible. Par exemple j'ai retiré <strong>usbinput</strong> car je n'ai pas de clavier usb etc.. Allez faire un tour sur <a href="http://wiki.archlinux.org/index.php/Mkinitcpio" target="_blank">cette page</a> du wiki d'Archlinux, la nature des différents hooks est expliquée. Dans mon cas le <strong>mkinitcpio</strong> ressemble à ça :</p>
+
+<pre lang="bash">MODULES=""
+BINARIES=""
+FILES=""
+HOOKS="autodetect base udev sata filesystems"</pre>
+Penser à regénerer les .img du kernel (pacman -S kernel26)
+<h2>/etc/inittab</h2>
+Accelère légérement le démarrage :
+<pre lang="bash">#
+# /etc/inittab
+#
+
+# Démarrage sur console
+id:3:initdefault:
+
+# once à la place de wait
+rc::sysinit:/etc/rc.sysinit
+rs:S1:once:/etc/rc.single
+rm:2345:once:/etc/rc.multi
+rh:06:once:/etc/rc.shutdown
+su:S:once:/sbin/sulogin -p
+
+# moins de TTY
+c1:2345:respawn:/sbin/agetty -8 38400 vc/1 linux
+c2:2345:respawn:/sbin/agetty -8 38400 vc/2 linux
+ca::ctrlaltdel:/sbin/shutdown -t3 -r now</pre>
+<h2 style="text-align: justify;">/etc/rc.sysinit</h2>
+<p style="text-align: justify;">Le plus gros est fait ici. Le support des RAID, LVM et disques cryptés ont été enlevés. Les reglages de l'horloge, de la langue, de la disposition du clavier et du nom d'hôte ont été placés dans ce fichier comme ça plus besoin de charger le /etc/rc.conf pour charger ces valeurs. On peut aussi faire que certains programme se lance en arriere plan pour que la suite se charge sans attendre la fin du premier (grace à l'opérateur <strong>&amp;</strong>) et ainsi gagné quelques secondes.</p>
+
+<pre lang="bash"><code>#!/bin/bash
+#
+# /etc/rc.sysinit
+#
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+echo " "
+printhl "Arch Linux\n"
+printhl "${C_H2}<a class="external free" title="http://www.archlinux.org" rel="nofollow" href="http://www.archlinux.org/">http://www.archlinux.org</a>"
+printhl "Copyright 2002-2007 Judd Vinet"
+printhl "Copyright 2007-2008 Aaron Griffin"
+printhl "Distributed under the GNU General Public License (GPL)"
+printsep
+
+# mount /proc, /sys and our RAM /dev
+/bin/mount -n -t ramfs none /dev
+/bin/mount -n -t proc none /proc
+/bin/mount -n -t sysfs none /sys
+
+# Create our default nodes that minilogd may need
+/bin/mknod /dev/null c 1 3
+/bin/mknod /dev/zero c 1 5
+/bin/mknod /dev/console c 5 1
+
+# More initial /dev setup that udev doesn't do
+/bin/ln -snf /proc/self/fd /dev/fd
+/bin/ln -snf /proc/self/fd/0 /dev/stdin
+/bin/ln -snf /proc/self/fd/1 /dev/stdout
+/bin/ln -snf /proc/self/fd/2 /dev/stderr
+/bin/ln -snf /proc/kcore /dev/core
+/bin/mkdir /dev/pts
+/bin/mkdir /dev/shm
+
+# start up our mini logger until syslog takes over
+/sbin/minilogd
+
+# anything more serious than KERN_WARNING goes to the console
+# 'verbose' cmdline parameter enables more messages
+if /bin/grep -q " verbose" /proc/cmdline; then
+        /bin/dmesg -n 8
+else
+        /bin/dmesg -n 3
+fi
+
+# enable rtc access
+/sbin/modprobe rtc-cmos &gt;/dev/null 2&gt;&amp;1
+RTC_MAJOR=$(/bin/grep -w rtc /proc/devices 2&gt;/dev/null); RTC_MAJOR="${RTC_MAJOR%% *}"
+if [ -n "$RTC_MAJOR" ]; then
+        /bin/mkdir /dev/misc/
+        /bin/mknod /dev/misc/rtc0 c $RTC_MAJOR 0
+        /bin/ln -s /dev/misc/rtc0 /dev/rtc
+fi
+
+# Set clock early to fix some bugs with filesystem checks
+# Clock is set again later to match rc.conf
+if [ -f /etc/localtime ]; then
+        /sbin/hwclock --hctosys --localtime --directisa --noadjfile
+fi
+
+echo &gt; /proc/sys/kernel/hotplug
+
+if [ -x /sbin/udevadm -a -d /sys/block ]; then
+        # We have udev and /sys appears to be mounted, use UDev
+        stat_busy "Starting UDev Daemon"
+        /sbin/udevd --daemon
+    /sbin/udevadm trigger &amp;
+    udevstart="$(/bin/date +%s%0N)"
+        stat_done
+else
+        # Static /dev, our last resort
+        status "Using static /dev filesystem" true
+fi
+
+# Load modules from the MODULES array defined in rc.conf
+if ! [ "$load_modules" = "off" ]; then
+        if [ -f /proc/modules ]; then
+                stat_busy "Loading Modules"
+                for mod in "${MODULES[@]}"; do
+                        if [ "$mod" = "${mod#!}" ]; then
+                                /sbin/modprobe $mod &amp;
+                        fi
+                done
+                stat_done
+        fi
+        if [ -d /proc/acpi ]; then
+                stat_busy "Loading standard ACPI modules"
+                ACPI_MODULES="ac battery button fan processor thermal"
+                k="$(echo $BLACKLIST ${MOD_BLACKLIST[@]} | /bin/sed 's|-|_|g')"
+                j="$(echo ${MODULES[@]} | /bin/sed 's|-|_|g')"
+                #add disabled MODULES (!) to blacklist - much requested feature
+                for m in ${j}; do
+                        [ "$m" != "${m#!}" ] &amp;&amp; k="${k} ${m#!}"
+                done
+                # add disablemodules= from commandline to blacklist
+                k="${k} $(echo ${disablemodules} | /bin/sed 's|-|_|g' | /bin/sed 's|,| |g')"
+                for n in ${ACPI_MODULES}; do
+                        if ! echo ${k} | /bin/grep "\&lt;$n\&gt;" 2&gt;&amp;1 &gt;/dev/null; then
+                                /sbin/modprobe $n &gt; /dev/null 2&gt;&amp;1 &amp;
+                        fi
+                done
+                stat_done
+        fi
+fi
+
+# run udev uevents
+if /bin/pidof -o %PPID /sbin/udevd &gt;/dev/null; then
+        stat_busy "Loading UDev uevents"
+        /sbin/udevadm settle
+        stat_done
+        udevend="$(/bin/date +%s%0N)"
+        printhl "   UDev uevent processing time: $((($udevend-$udevstart)/1000000))ms"
+fi
+
+# bring up the loopback interface
+if [ -d /sys/class/net/lo ]; then
+        stat_busy "Bringing up loopback interface"
+        /sbin/ifconfig lo 127.0.0.1 up &amp;
+        if [ $? -ne 0 ]; then
+                stat_fail
+        else
+                stat_done
+        fi
+fi
+
+status "Mounting Root Read-only" /bin/mount -n -o remount,ro /
+
+FORCEFSCK=
+[ -f /forcefsck ] &amp;&amp; FORCEFSCK="-- -f"
+NETFS="nonfs,nonfs4,nosmbfs,nocifs,nocodafs,noncpfs,nosysfs,noshfs,nofuse,nofuseblk"
+
+if [ -x /sbin/fsck ]; then
+        stat_busy "Checking Filesystems"
+        if /bin/grep -qw quiet /proc/cmdline; then
+                /sbin/fsck -A -T -C -a -t $NETFS $FORCEFSCK &gt;/dev/null 2&gt;&amp;1
+        else
+                /sbin/fsck -A -T -C -a -t $NETFS $FORCEFSCK 2&gt;/dev/null
+        fi
+        fsckret=$?
+        if [ ${fsckret} -gt 1 ]; then
+                stat_fail
+                if [ $((${fsckret}&amp;2)) -eq 2 ]; then
+                        echo
+                        echo "********************** REBOOT REQUIRED *********************"
+                        echo "*                                                          *"
+                        echo "* The system will be rebooted automatically in 15 seconds. *"
+                        echo "*                                                          *"
+                        echo "************************************************************"
+                        echo
+                        /bin/sleep 15
+                else
+                        echo
+                        echo "*****************  FILESYSTEM CHECK FAILED  ****************"
+                        echo "*                                                          *"
+                        echo "*  Please repair manually and reboot. Note that the root   *"
+                        echo "*  file system is currently mounted read-only. To remount  *"
+                        echo "*  it read-write type: mount -n -o remount,rw /            *"
+                        echo "*  When you exit the maintenance shell the system will     *"
+                        echo "*  reboot automatically.                                   *"
+                        echo "*                                                          *"
+                        echo "************************************************************"
+                        echo
+                        /sbin/sulogin -p
+                fi
+                echo "Automatic reboot in progress..."
+                /bin/umount -a
+                /bin/mount -n -o remount,ro /
+                /sbin/reboot -f
+                exit 0
+        fi
+        stat_done
+fi
+
+stat_busy "Mounting Local Filesystems"
+/bin/mount -n -o remount,rw /
+/bin/rm -f /etc/mtab*
+# make sure / gets written to /etc/mtab
+/bin/mount -o remount,rw /
+# Write /proc, /sys and /dev to /etc/mtab
+if [ -e /proc/mounts ]; then
+        /bin/grep -e "/proc " -e "/sys " -e "/dev " /proc/mounts &gt;&gt; /etc/mtab
+fi
+# now mount all the local filesystems
+/bin/mount -a -t $NETFS
+stat_done
+
+status "Activating Swap" /sbin/swapon -a &amp;
+
+stat_busy "Configuring System Clock"
+if [ ! -f /var/lib/hwclock/adjtime ]; then
+        echo "0.0 0 0.0" &gt; /var/lib/hwclock/adjtime &amp;
+fi
+
+/bin/rm -f /etc/localtime
+/bin/cp "/usr/share/zoneinfo/Europe/Brussels" /etc/localtime
+/sbin/hwclock --hctosys --localtime --directisa
+stat_done
+
+if [ -f /var/run/random-seed ]; then
+        stat_busy "Initializing Random Seed"
+        /bin/cat /var/run/random-seed &gt;/dev/urandom &amp;
+        stat_done
+fi
+
+stat_busy "Removing Leftover Files"
+/bin/rm -f /etc/nologin &amp;&gt;/dev/null &amp;
+/bin/rm -f /etc/shutdownpid &amp;&gt;/dev/null &amp;
+/bin/rm -f /var/lock/* &amp;&gt;/dev/null &amp;
+/bin/rm -rf /tmp/* /tmp/.* &amp;&gt;/dev/null &amp;
+/bin/rm -f /forcefsck &amp;&gt;/dev/null &amp;
+(cd /var/run &amp;&amp; /usr/bin/find . ! -type d -exec /bin/rm -f -- {} \; )
+: &gt; /var/run/utmp &amp;
+# Keep {x,k,g}dm happy with xorg
+/bin/mkdir /tmp/.ICE-unix &amp;&amp; /bin/chmod 1777 /tmp/.ICE-unix
+/bin/mkdir /tmp/.X11-unix &amp;&amp; /bin/chmod 1777 /tmp/.X11-unix
+stat_done
+
+#status "Updating Shared Library Links" /sbin/ldconfig
+#status "Updating Module Dependencies" /sbin/depmod -A &amp;
+
+status "Setting Hostname: Pinguin" /bin/hostname "Pinguin" &amp;
+
+# Flush old locale settings
+: &gt;/etc/profile.d/locale.sh
+/bin/chmod 755 /etc/profile.d/locale.sh
+# Set user defined locale
+[ -z "$LOCALE" ] &amp;&amp; LOCALE="en_US"
+stat_busy "Setting Locale: en_US"
+echo "export LANG=en_US" &gt;&gt;/etc/profile.d/locale.sh
+stat_done
+
+stat_busy "Setting Consoles to UTF-8 mode"
+# UTF-8 consoles are default since 2.6.24 kernel
+# this code is needed not only for older kernels,
+# but also when user has set vt.default_utf8=0 but LOCALE is *.UTF-8.
+for i in $(/usr/bin/seq 0 63); do
+        usr/bin/kbd_mode -u &lt; /dev/vc/${i}
+        printf "\e%%G" &gt; /dev/vc/${i}
+done
+# the $CONSOLE check helps us avoid this when running scripts from cron
+echo 'if [ "$CONSOLE" = "" -a "$TERM" = "linux" -a -t 1 ]; then printf "\e%%G"; fi' &gt;&gt;/etc/profile.d/locale.sh
+stat_done
+
+status "Loading Keyboard Map: be-latin1" /bin/loadkeys -q -u "be-latin1" &amp;
+
+# Adding persistent network/cdrom generated rules
+if [ -f "/dev/.udev/tmp-rules--70-persistent-cd.rules" ]; then
+        stat_busy "Adding persistent cdrom udev rules"
+        /bin/cat /dev/.udev/tmp-rules--70-persistent-cd.rules &gt;&gt; /etc/udev/rules.d/70-persistent-cd.rules
+        stat_done
+fi
+if [ -f "/dev/.udev/tmp-rules--70-persistent-net.rules" ]; then
+        stat_busy "Adding persistent network udev rules"
+        /bin/cat /dev/.udev/tmp-rules--70-persistent-net.rules &gt;&gt; /etc/udev/rules.d/70-persistent-net.rules
+        stat_done
+fi
+
+# Save our dmesg output from this boot
+if [ -f /var/log/dmesg.log ]; then
+        /bin/rm /var/log/dmesg.log
+fi
+/bin/dmesg &gt; /var/log/dmesg.log &amp;</code></pre>
+<h2>/etc/rc.conf</h2>
+<p style="text-align: justify;">On peut enlever tout ce qu'on a mis en dur dans le fichier d'au dessus. Le but est de ne pas mettre les modules  et daemons qu'on n'utilise pas. Charger les daemons en asynchrone ( @ ). Au niveau des modules il y a deux solutions : la première est de désactiver le MOD_AUTOLOAD et de charger les modules "à la main". La commande <em>hwdetect --show-modules-order</em> vous en donnera une liste.</p>
+
+<pre lang="bash">#
+# /etc/rc.conf
+#
+
+MOD_AUTOLOAD="no"
+
+MODULES=(ac battery button processor thermal video wmi agpgart intel-agp dcdbas hid usbhid i2c-i801 i2c-core evdev
+ff-memless joydev pcspkr psmouse serio_raw led-class mmc_core ricoh_mmc sdhci-pci sdhci rtc-cmos rtc-core rtc-lib
+output iTCO_vendor_support iTCO_wdt snd-mixer-oss snd-pcm-oss snd-hwdep snd-page-alloc snd-pcm snd-timer snd snd-hda-
+intel soundcore pata_acpi ata_generic ahci ata_piix sky2 mac80211 rfkill usb-storage usbhid usbcore ehci-hcd uhci-hcd
+vboxdrv vboxnetflt)
+
+DAEMONS=(syslog-ng @hal @fam @crond @alsa)</pre>
+<p style="text-align: justify;">La deuxième solution est de laisser le MOD_AUTOLOAD tout charger. La deuxième solution est plus rapide chez moi mais pas forcément chez tout le monde.</p>
+
+<pre lang="bash">MOD_AUTOLOAD="yes"
+MODULES=()
+DAEMONS=(syslog-ng @hal @fam @crond @alsa)</pre>
+<h2 style="text-align: justify;">Forcer l'utilisation de modprobe pour charger les modules</h2>
+<pre lang="bash">#!/bin/sh
+#
+# /lib/udev/load-modules.sh
+#
+
+/sbin/modprobe $1 &amp;</pre>
+<h2>Recompiler le Kernel</h2>
+<p style="text-align: justify;">J'étudis encore ce principe. Je ferais un billet dédier à cela car l'optimisation ne touche pas uniquement le démarrage mais l'ordinateur tout entier.</p>
+
+<h2 style="text-align: justify;">Conclusion</h2>
+Voilà j'espère que ce billet a été instructif pour vous autant que ces manipulations l'ont été pour moi :)
+
+Comme d'habitude si vous avez des questions vous savez où me joindre.
+			</div>
+			<footer class="share">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-text="Booster le démarrage d'Archlinux" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+			</footer>
+		</article>
+    	<hr>
+		<!-- START: Livefyre Embed -->
+		<script type='text/javascript' src='http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'></script>
+		<script type='text/javascript'>
+		    var fyre = LF({
+				site_id: 287636,
+				article_id: 545
+		    });
+		</script>
+		<!-- END: Livefyre Embed -->
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>    
+  <span class="copyright">Copyright © 2011 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.rackspace.com/">Rackspace US, Inc.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=2"></script>
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<script src="/js/compiled/DOMAssistantCompressed-2.8.js"></script>
+<script src="/js/compiled/selectivizr-1.0.1.js"></script>
+<script src="/js/compiled/respond.min.js"></script>
+<![endif]-->
+
+<script>
+      (function(){
+        var twitterWidgets = document.createElement('script');
+        twitterWidgets.type = 'text/javascript';
+        twitterWidgets.async = true;
+        twitterWidgets.src = '//platform.twitter.com/widgets.js';
+        document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+      })();
+</script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+
+ 

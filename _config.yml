@@ -7,6 +7,6 @@ category_title_prefix: "Articles sous la catégorie : "
 tag_dir: tag
 tag_title_prefix: "Article sous le tag : "
 url: http://phollow.fr
-exclude: ['Rakefile', 'readme.markdown', 'CNAME']
+exclude: ['Rakefile', 'readme.markdown', 'CNAME', 'app.rb', 'Gemfile', 'Procfile', 'config']
 rdiscount:
   extensions: [smart]

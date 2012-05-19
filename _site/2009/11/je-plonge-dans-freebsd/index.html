@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Je plonge dans FreeBSD</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Je plonge dans FreeBSD">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+  <meta property="og:title" content="Je plonge dans FreeBSD">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Je plonge dans FreeBSD"> 
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="stylesheet" href="/css/compiled/global.css?v=4">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script>
+  WebFontConfig = {
+    fontdeck: {
+      id: '19429'
+    }
+  };
+
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +   
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  </script>
+</head>
+<body>
+  <div class="container" role="wrapper">  
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">Phollow.me</a>
+      </h1>
+      <nav id="nav-header" class="twelve columns omega">
+        <ul>
+          <li><a title="Phollow Archives" href="/archives/">Archives</a></li>
+          <li><a target="_blank" title="about" href="http://jrm.li">Myself</a></li>
+          <li><a target="_blank" title="@phollow" href="http://twitter.com/@phollow">Twitter</a></li>
+          <li><a target="_blank" title="Phollow.fr RSS Feed" href="http://feeds2.feedburner.com/phollow/iuEO" target="_blank">RSS feed</a></li>
+        </ul>
+      </nav>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
+    </header>
+
+<div id="container" class="twelve columns offset-by-four">
+	<article class="post">
+      <header>
+		<h2 class="entry-title entry-single"><a href="/2009/11/je-plonge-dans-freebsd">Je plonge dans FreeBSD</a></h2>
+		<cite class="entry-meta"><time datetime="2009-11-29 01:31:24 +0100" pubdate class="updated">November 29, 2009</time>  •  <a href="/category/libre" rel="category tag">libre</a>, <a href="/category/serveur" rel="category tag">serveur</a>  •  </cite>   
+      </header>	
+			<div class="entry single-page">
+				<p style="text-align: justify;">Je ne sais pas trop ce qui m'a poussé à tester FreeBSD. Surement un mélange d'ennui, de curiosité et une envie de changement. FreeBSD est un autre OS libre, qui est, je trouve, encore assez méconnu. Pourtant les qualités ne manquent pas. FreeBSD et ses cousins (openBSD, netBSD ...) sont des alternatives intéressantes à GNU/Linux.</p>
+<p style="text-align: justify;">FreeBSD est un système d'exploitation basé sur <em>Berkeley Software Distribution </em>qui est une modification de l'UNIX propriétaire d'AT&amp;T. Le kernel, les drivers, et tous les outils sont développé par FreeBSD. Alors que sous GNU/Linux tous ces composants sont développés séparément et rassemblés sous la forme de distributions.</p>
+<p style="text-align: justify;">GNU/Linux a été crée à partir de zéro pour ressembler à un système UNIX. FreeBSD est quant à lui l'évolution d'un système UNIX existant.</p>
+<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2009/11/sexy-bsd1.jpg"><img class="aligncenter size-medium wp-image-1855" title="sexy-bsd" src="http://s3-eu-west-1.amazonaws.com/phollow/2009/11/sexy-bsd1-595x476.jpg" alt="sexy-bsd" width="595" height="476" /></a></p>
+
+<h1>Différences et similarités</h1>
+<h4>Kernel</h4>
+<p style="text-align: justify;">Les deux kernels possèdent des similarités : On peut par exemple charger un nouveau module dans le noyau sans avoir besoin de redémarrer ou de le recompiler. Sur linux on peut charger un module avec la commande <em>modprobe</em>. Voir la liste des modules chargés en mémoire avec <em>lsmod</em> et en déchargé un avec <em>rmmod</em>. Sur FreeBSD ces commandes sont remplacées par <em>kldload</em>, <em>kldstat</em> et <em>kldunload</em>.</p>
+<p style="text-align: justify;">Il est facile comme sous Linux de recompiler son propre kernel pour l'optimiser etc.</p>
+
+<h4>Installation de logiciels</h4>
+<p style="text-align: justify;">Les logiciels tiers sont installés soit avec des binaires ou alors à partir des sources. Sous GNU/Linux les distributions possèdent leurs propres système de paquets pré-compilés le plus souvent (ou pas cf. Gentoo). Par exemple Debian utilise des paquets .<em>deb</em> et des outils comme <em>apt</em> ou <em>dpkg</em> pour ordonner tout ça et gérer les dépendances.</p>
+<p style="text-align: justify;">FreeBSD offre deux perspectives pour l'installation de logiciels :</p>
+<p style="text-align: justify;"><em><strong>Paquets</strong></em></p>
+<p style="text-align: justify;">Ce sont des archives contenant le logiciel pré-compilé, à la manière d'un .deb ou .rpm. On utilise les outils <strong>pkg_add</strong>, <strong>pkg_delete</strong> et <strong>pkg_info</strong> pour travailler avec. Par exemple pour installer Gimp il suffit d'un :</p>
+
+<pre lang="bash">pkg_add -r gimp</pre>
+<strong><em>Ports</em></strong>
+<p style="text-align: justify;">Un port est un ensemble de fichier qui automatise la compilation et l'installation d'un logiciel. Cette méthode d'installation est intéressante pour avoir un contrôle complet de la configuration et de l'installation d'un logiciel. Par exemple on peut compiler Apache seulement avec les modules que l'ont choisit.</p>
+<p style="text-align: justify;">Arch Linux a adopté la même philosophie avec des binaires (pacman) et des PKGBUILD.</p>
+<p style="text-align: justify;">Les ports sont tous le temps à jour.</p>
+
+<h4>Shell</h4>
+<p style="text-align: justify;">Le shell par défaut sous GNU/Linux est bash. Sous FreeBSD c'est csh. Mais il est possible d'installer bash, ou même zsh qui est beaucoup mieux :)</p>
+
+<h4>Configuration</h4>
+<p style="text-align: justify;">FreeBSD possède un fichier de configuration global rc.conf ou l'ont choisit les démons qui seront lancés au démarrage, les modules à charger etc. On a pas à chercher dans 36 fichiers différents. Arch Linux a aussi adopté l'utilisation du rc.conf.</p>
+
+<h4>Conclusion</h4>
+<p style="text-align: justify;">J'utilise freeBSD sur un serveur dédié sur lequel je vais migrer le blog dans peu de temps. Je suis vraiment impressionné par la simplicité d'utilisation. Recompiler son kernel en ajoutant deux lignes dans un fichier de .conf et une commande c'est le bonheur. La documentation est tout simplement énorme. Je vais aussi l'installer sur mon netbook et jouer un peu en mode graphique avec lui.</p>
+<p style="text-align: justify;">Je conseille à tous les curieux de l'essayer, en plus la version 8.0-RELEASE vient de sortir. Plus d'infos sur <a href="http://www.freebsd.org/">le site officiel</a>.</p>
+			</div>
+			<footer class="share">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-text="Je plonge dans FreeBSD" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+			</footer>
+		</article>
+    	<hr>
+		<!-- START: Livefyre Embed -->
+		<script type='text/javascript' src='http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js'></script>
+		<script type='text/javascript'>
+		    var fyre = LF({
+				site_id: 287636,
+				article_id: 1778
+		    });
+		</script>
+		<!-- END: Livefyre Embed -->
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>    
+  <span class="copyright">Copyright © 2011 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.rackspace.com/">Rackspace US, Inc.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=2"></script>
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<script src="/js/compiled/DOMAssistantCompressed-2.8.js"></script>
+<script src="/js/compiled/selectivizr-1.0.1.js"></script>
+<script src="/js/compiled/respond.min.js"></script>
+<![endif]-->
+
+<script>
+      (function(){
+        var twitterWidgets = document.createElement('script');
+        twitterWidgets.type = 'text/javascript';
+        twitterWidgets.async = true;
+        twitterWidgets.src = '//platform.twitter.com/widgets.js';
+        document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+      })();
+</script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+
+ 
