@@ -4,6 +4,8 @@ permalink: /:year/:month/:title
 auto: true
 category_dir: category
 category_title_prefix: "Articles sous la catégorie : "
+tag_dir: tag
+tag_title_prefix: "Article sous le tag : "
 url: http://phollow.fr
 exclude: ['Rakefile', 'readme.markdown', 'CNAME']
 rdiscount:

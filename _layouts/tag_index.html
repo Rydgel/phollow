@@ -8,7 +8,7 @@ layout: layout
 </section>
 <div id="container" class="sixteen columns">
  <ul class="archives-list">
-    {% for post in site.categories[page.category] %}
+    {% for post in site.tags[page.tag] %}
     <li>
       <time class="archives-date three columns">
         {{ post.date | date: "%B %e, %Y" }}

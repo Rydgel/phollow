@@ -648,7 +648,7 @@ border-width: 1px 0 0;
 span.code, article code {
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   background-color: #FDF6E3;
-  font-size: 0.824em;
+  font-size: 0.724em;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -659,6 +659,7 @@ span.code, article code {
   padding: 1px 3px;
   color: #93A1A1;
   line-height: 1em;
+  border: 1px solid #FAE7B3;
 }
 
 article pre > code {
@@ -1625,7 +1626,7 @@ span.says, .comment-edit-link {
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body p {
   line-height: 1.6 !important;
-  margin: 0 0 15px 0;
+  margin: 10px 0 0 0 !important;
 }
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body a {
