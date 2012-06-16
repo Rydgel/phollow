@@ -4,13 +4,109 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-06-16T04:07:03+02:00</updated>
+  <updated>2012-06-17T00:39:03+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
     <email>rydgel@phollow.fr</email>
   </author>
 
+  
+  <entry>
+    <id>http://phollow.fr/2012/06/sur-levolution-du-css-et-pourquoi-ne-pas-attendre</id>
+    <link type="text/html" rel="alternate" href="http://phollow.fr/2012/06/sur-levolution-du-css-et-pourquoi-ne-pas-attendre"/>
+    <title>Sur l’évolution du CSS et pourquoi ne pas attendre</title>
+    <published>2012-06-17T00:36:00+02:00</published>
+    <updated>2012-06-17T00:36:00+02:00</updated>
+    <author>
+      <name>Jérôme Mahuet</name>
+      <uri>http://phollow.fr/</uri>
+    </author>
+    <content type="html">&lt;p&gt;&lt;figure&gt;
+&lt;figcaption style=&quot;top:-96px;&quot;&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;Les variables CSS sont apparues il y a quelques jours dans le dépôt &lt;a href=&quot;http://trac.webkit.org/changeset/120154&quot;&gt;Webkit&lt;/a&gt; et devraient être utilisables dans les dernières &lt;em&gt;nightlies&lt;/em&gt; de Safari. La norme CSS continue de se doter de fonctionnalités permettant d’avoir un code plus facilement maintenable.&lt;/p&gt;
+
+&lt;h3&gt;Don’t repeat yourself they said&lt;/h3&gt;
+
+&lt;p&gt;À l’heure actuelle, sans variables, la duplication de code est inévitable sur des projets de taille moyenne ou plus. Imaginons une palette de 5 couleurs sur un site, si on vous demande d’en changer une sur les 5, vous devez faire un rechercher/remplacer sur les fichiers .css. Alors qu’avec les variables vous n’avez qu’une ligne à éditer.&lt;/p&gt;
+
+&lt;h3&gt;Syntaxe de la spécification&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;-webkit-var-foreground: red;
+-webkit-var-background: rgb(255, 255, 255);
+-webkit-var-fontsize: 1.5em;
+
+color: -webkit-var(foreground);
+background-color: -webkit-var(background);
+font-size: -webkit-var(fontsize);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;La syntaxe est encore trop verbeuse à mon goût—et les préfixes webkit n’aidant pas non plus—on est loin de ce que propose un pré-processeur type &lt;strong&gt;Sass&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$foreground: red;
+$background: rgb(255,255,255);
+$fontsize: 1.5em;
+
+color: $foreground;
+background-color: $background;
+font-size: $fontsize;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;D’autres améliorations sur les sélecteurs&lt;/h3&gt;
+
+&lt;p&gt;Les sélecteurs CSS v4 sont en cours de &lt;a href=&quot;http://www.w3.org/TR/selectors4/&quot;&gt;draft&lt;/a&gt; et devraient permettre eux aussi des choses assez sympathiques. Notamment pouvoir &lt;a href=&quot;http://www.w3.org/TR/selectors4/#subject&quot;&gt;styler le parent&lt;/a&gt; d’un sélecteur bien précis.&lt;/p&gt;
+
+&lt;h3&gt;Ne pas attendre&lt;/h3&gt;
+
+&lt;p&gt;Le problème c’est qu’il va falloir attendre plusieurs années afin de pouvoir utiliser les spécifications natives sur nos navigateurs courants. Personnellement j’en ai un peu marre de coder du CSS &lt;em&gt;comme dans les années 2000&lt;/em&gt;, et si je peux profiter d’ores et déjà d’une aide non négligeable, alors pourquoi pas ?&lt;/p&gt;
+
+&lt;p&gt;Je parle bien-sûr des pré-processeurs du type &lt;a href=&quot;http://sass-lang.com&quot;&gt;Sass&lt;/a&gt;, &lt;a href=&quot;http://lesscss.org&quot;&gt;Less&lt;/a&gt; ou &lt;a href=&quot;http://learnboost.github.com/stylus/&quot;&gt;Stylus&lt;/a&gt; parmi d’autres. Je ne vais pas faire un billet sur leur fonctionnement, j’en ai déjà fait un &lt;a href=&quot;http://phollow.fr/2012/03/sass-css-on-fire-that-sucks-less&quot;&gt;ici&lt;/a&gt;, mais plutôt vous faire part de ce que j’en pense, après avoir utilisé Sass &amp;amp; Compass sur un &lt;a href=&quot;http://fakeimg.pl&quot;&gt;projet perso&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;With great power comes great responsibility&lt;/h3&gt;
+
+&lt;p&gt;Le reproche que l’on fait souvent à ce type d’outils est la qualité du code produit. Les pré-processeurs ne sont seulement &lt;strong&gt;que&lt;/strong&gt; des outils et ne produisent que ce qu’on leur demande de produire. Si vous lui demandez effectivement de produire de la merde, c’est ce qu’il fera. Il y a deux choses importantes à retenir :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Je ne conseille pas ces outils à des débutants ou à de mauvais intégrateurs. Ou aux psycho-rigides.&lt;/li&gt;
+&lt;li&gt;Il faut avoir une idée de ce que telle fonction est susceptible de produire, pour ça il suffit de lire la documentation. &lt;strong&gt;RTFM&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Si vous êtes plutôt mauvais côté intégration, ces outils ne vous aideront pas, au contraire. Par contre je pense que ça peut rendre quelqu’un beaucoup plus efficace, s’il l’est déjà.&lt;/p&gt;
+
+&lt;h3&gt;Fausses idées et ignorance&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;“ J’ai pas envie de rajouter du JS pour interpréter LESS sur mes pages et les alourdir. Hurr durr derp. ”&lt;/em&gt; ← Aucun script .js n’est nécessaire en prod, tu compiles un .css et tu utilises le .css, point barre. Le .js est utile (dans le cas de Less) lors du développement pour ne pas avoir à compiler à la main à chaque changements. Et uniquement en développement.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;“ J’ai parfois envie de modifier le code .css en live en production ”&lt;/em&gt; ← Sérieusement ?&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;“ En équipe les autres doivent être aussi formés ”&lt;/em&gt; ← Je suis d’accord. Il n’y a pas grand chose à apprendre non plus, il suffit de jouer une petite après-midi avec.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Il faut savoir que la plupart de ces fausses idées proviennent de personnes qui n’ont jamais testé l’outil. Un &lt;a href=&quot;http://blog.kaelig.fr/post/24877648508/preprocesseurs-css-renoncer-par-choix-ou-par&quot;&gt;billet&lt;/a&gt; intéressant sur ça justement.&lt;/p&gt;
+
+&lt;h3&gt;Retour sur mon utilisation&lt;/h3&gt;
+
+&lt;p&gt;J’ai décidé d’intégrer &lt;a href=&quot;http://fakeimg.pl&quot;&gt;Fake Images Please?&lt;/a&gt; en utilisant justement Sass+Compass pour me faire une opinion dessus.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;J’ai changé plusieurs fois de palettes de couleurs, de largeur de colonnes pour la grille, de familles de polices… Les variables sont vraiment un gain de temps.&lt;/li&gt;
+&lt;li&gt;Échelle typographique avec Compass super simple. On définit une taille de base en pixel, avec le line-height associé. Tout est recalculé en ems (taille relative des headings, margin, padding, etc.). Ça c’est ce que je faisais à la main en CSS.&lt;/li&gt;
+&lt;li&gt;Utilisation d’une grille CSS simplifiée aussi. Dans le sens où au lieu de prendre un framework CSS existant où le nombre et la largeur des colonnes sont souvent pré-définies, ici j’ai utilisé &lt;a href=&quot;http://susy.oddbird.net/tutorial/&quot;&gt;Susy&lt;/a&gt;. Tu définis le nombre de colonnes, la taille et cette grid s’adapte à ton DOM (et pas l’inverse qui t’oblige à utiliser leurs classes).&lt;/li&gt;
+&lt;li&gt;Compilation automatique à chaque changement dans le fichier, donc pas de perte de temps à ce niveau là. Mon fichier .css lui link uniquement le fichier .css compilé final.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;TL;DR&lt;/h3&gt;
+
+&lt;p&gt;Je dirais juste à essayer (essayer concrètement) avant de dire que l’on aime pas. Ces fonctionnalités arriveront tôt ou tard dans la norme CSS. Et il y a beaucoup de temps à gagner si on sait utiliser les pré-processeurs.&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;font-size: 2em;&quot;&gt;❧&lt;/p&gt;
+
+</content>
+  </entry>
   
   <entry>
     <id>http://phollow.fr/2012/05/jekyll-heroku-et-mon-blog</id>
@@ -44,7 +140,7 @@
 
 &lt;h3&gt;Sinatra&lt;/h3&gt;
 
-&lt;p&gt;Heroku ne permet pas de déployer juste un tas de fichiers statiques, par contre rien ne nous empêche de développer une application proxy, ici Sinatra, servant seulement à servir ces fichiers. Le code de l’application est simple :&lt;/p&gt;
+&lt;p&gt;Heroku ne permet pas de déployer juste un tas de fichiers statiques, par contre rien ne nous empêche de développer une application proxy, ici Sinatra, servant seulement à servir ces fichiers. Le code de l’application est simple&amp;thinsp;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# encoding: utf-8&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
@@ -229,7 +325,7 @@ fleurs, fille, off.
 
 &lt;p&gt;Diverses variables utilisées pour la configuration, comme les permalinks, le moteur de rendu Markdown et d’autres choses.&lt;/p&gt;
 
-&lt;h4&gt;__includes&lt;/h4&gt;
+&lt;h4&gt;_includes&lt;/h4&gt;
 
 &lt;p&gt;Généralement des &lt;em&gt;partials&lt;/em&gt; que vous pouvez utiliser dans vos templates. Si vous avez plusieurs bouts de HTML qui se répète un peu partout dans vos pages, c’est bon de les factoriser ici.&lt;/p&gt;
 
@@ -522,7 +618,7 @@ sass --watch default.scss
 &lt;p&gt;Ne pas hésiter à utiliser des interlignes amples dans vos textes. En utilisant la propriété &lt;abbr&gt;css&lt;/abbr&gt; &lt;span class=&quot;code&quot;&gt;line-height&lt;/span&gt; avec un coefficient sans unité. Par exemple 1.5 est une bonne base, à ajuster suivant la police.&lt;/p&gt;
 &lt;p&gt;Les nouveaux paragraphes doivent être bien marqués. On peut utiliser des lettrines, de l’indentation, un pied-de-mouche (❡) ou simplement un saut de ligne.&lt;/p&gt;
 &lt;p&gt;Éviter la justification sur des colonnes de textes minces. Mais généralement la justification sur le web ne &lt;em&gt;fonctionne pas&lt;/em&gt;. À cause du support des &lt;a href=&quot;http://phollow.fr/2011/10/les-cesures-dans-le-web/&quot; title=&quot;césures&quot;&gt;césures&lt;/a&gt; encore aléatoire, du manque de crénage (kerning) automatique et des ligatures (on y vient avec Firefox &lt;sup style=&quot;height: 0;line-height: 1;vertical-align: baseline;position: relative;bottom:0.5ex;&quot;&gt;†&lt;/sup&gt;).&lt;/p&gt;
-&lt;p style=&quot;text-indent: 2.3em;&quot;&gt;Enfin les polices &lt;strong&gt;serifs&lt;/strong&gt; facilitent la lecture. Boudées pendant un temps à cause des résolutions assez basses de nos écrans, elles sont parfaitement &lt;a href=&quot;http://phollow.fr/2011/10/mes-polices-web-preferees-serifs/&quot; title=&quot;serifs&quot;&gt;utilisables&lt;/a&gt; de nos jours.&lt;/p&gt;
+&lt;p&gt;Enfin les polices &lt;strong&gt;serifs&lt;/strong&gt; facilitent la lecture. Boudées pendant un temps à cause des résolutions assez basses de nos écrans, elles sont parfaitement &lt;a href=&quot;http://phollow.fr/2011/10/mes-polices-web-preferees-serifs/&quot; title=&quot;serifs&quot;&gt;utilisables&lt;/a&gt; de nos jours.&lt;/p&gt;
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Voilà pourquoi j’ai augmenté la taille du texte ici. Si votre navigateur à une taille de police de 16px par défaut, alors ce texte devrait faire 20px. Et si vous avez lu mon article jusque ici, j’aurai gagné une partie de mon pari.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Et promis j’arrête de vous faire chier avec la typographie avant un bout de temps.&lt;/em&gt;&lt;/p&gt;
@@ -1268,85 +1364,6 @@ La liste n'est pas complète. En terme de prix il y a une &lt;a href=&quot;https
 &lt;h3 style=&quot;text-align: justify;&quot;&gt;Pratique !&lt;/h3&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Pouvoir choisir les paquets à installer dans un groupe — &lt;em&gt;au lieu d'être obligé d'installer tout le groupe&lt;/em&gt; — est revenu dans cette version.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Au final les développeurs d'Arch Linux ont encore fait du bon boulot en allégeant pas mal le moteur de pacman. Vous pouvez voir la liste complète des nouveautés dans le &lt;a href=&quot;http://projects.archlinux.org/pacman.git/tree/NEWS?id=v3.5.0&quot; target=&quot;_blank&quot;&gt;changelog&lt;/a&gt;, et aussi dans le &lt;a href=&quot;http://projects.archlinux.org/pacman.git/tree/README?id=v3.5.0&quot; target=&quot;_blank&quot;&gt;readme&lt;/a&gt;.&lt;/p&gt;</content>
-  </entry>
-  
-  <entry>
-    <id>http://phollow.fr/2011/03/facebook-like-methode-de-partage</id>
-    <link type="text/html" rel="alternate" href="http://phollow.fr/2011/03/facebook-like-methode-de-partage"/>
-    <title>Facebook Like, méthode de partage</title>
-    <published>2011-03-01T23:54:37+01:00</published>
-    <updated>2011-03-01T23:54:37+01:00</updated>
-    <author>
-      <name>Jérôme Mahuet</name>
-      <uri>http://phollow.fr/</uri>
-    </author>
-    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;Facebook a rajouté tout récemment de nouvelles fonctionnalités à son bouton &lt;strong&gt;like&lt;/strong&gt;. Ce bouton — &lt;em&gt;un peu le cheval de Troie de Facebook sur le web&lt;/em&gt; — devient maintenant une alternative intéressante, et &lt;em&gt;obligatoire&lt;/em&gt;, au Facebook Share. Il faut dire qu'avant le partage se limitait à une simple ligne sur le profil du &lt;em&gt;likeur&lt;/em&gt;. Voyons ce qui change et comment l'intégrer sur &lt;strong&gt;Wordpress&lt;/strong&gt; par exemple.&lt;/p&gt;
-&lt;img class=&quot;alignnone size-medium wp-image-3146&quot; title=&quot;amis-facebook&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/03/amis-facebook-537x314.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;314&quot; /&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Désormais le simple fait de “ liker ” une page, pourra poster sur votre profil tout un tas d'informations. Le titre de la page, une description et pourquoi pas une image. En fait c'est exactement le même modèle de ce que faisait le vieux bouton bleu moche &lt;strong&gt;Facebook Share&lt;/strong&gt;.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Le bouton like fonctionne avec le protocole &lt;strong&gt;Open Graph&lt;/strong&gt;. Concrètement ce protocole permet à Facebook de s'insérer dans n'importe quel site web. Dans ce protocole, Facebook a définit certaines balises Meta qui vont contenir la carte d'identité de la page web. Le titre, l'URL, la description, la catégorie etc.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;xmlns:og=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://ogp.me/ns#&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;xmlns:fb=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.facebook.com/2008/fbml&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;The Rock (1996)&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:title&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;The Rock&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:type&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;movie&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:url&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.imdb.com/title/tt0117500/&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:image&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://ia.media-imdb.com/rock.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:site_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;IMDb&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fb:admins&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;USER_ID&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:description&amp;quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;A group of U.S. Marines, under command of a renegade general, take over Alcatraz and threaten San Francisco Bay with biological weapons.&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-...
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-...
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: justify;&quot;&gt;Vous pouvez trouver une liste exhaustive de ces attributs sur la &lt;a href=&quot;http://developers.facebook.com/docs/opengraph/&quot; target=&quot;_blank&quot;&gt;documentation&lt;/a&gt; de Facebook.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Ces éléments sont nécessaires pour profiter à 100% du widget Facebook. Le bouton en lui-même s'insère facilement.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://connect.facebook.net/fr_FR/all.js#xfbml=1&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;fb:like&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://phollow.fr&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;show_faces=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;true&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;450&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/fb:like&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: justify;&quot;&gt;L'attribut &lt;em&gt;href&lt;/em&gt;, vous l'avez compris, pointe vers la page à partager. C'est sur cette même page que les balises Open Graph devront être. Maintenant prenant l'exemple d'un blog, sous Wordpress. Chacun de vos articles aura dans le header les balises Meta qui le décriront en gros, et un bouton &lt;em&gt;like&lt;/em&gt; présent à la fin du billet pour le partager. Ce qui peut être sympa, c'est de récupérer une image de l'article en question pour l'afficher lors du partage.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Pour cela il faut modifier un peu le thème du blog. On ouvre functions.php, et on ajoute cette fonction :&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;function premiere_image() {&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;global $post, $posts;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$first_img = &amp;#39;&amp;#39;;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;ob_start();&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;ob_end_clean();&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$output = preg_match_all(&amp;#39;//i&amp;#39;, $post-&amp;gt;post_content, $matches);&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$first_img = $matches [1] [0];&lt;/span&gt;
-
-&lt;span class=&quot;x&quot;&gt;if(empty($first_img)){ //Si il n&amp;#39;y a pas d&amp;#39;image dans le billet&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;$first_img = &amp;quot;/images/default.jpg&amp;quot;; // On en met une par défaut&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;return $first_img;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: justify;&quot;&gt;Avec cette fonction, on va maintenant éditer le fichier &lt;em&gt;header.php&lt;/em&gt; du thème pour modifier les balises meta.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:type&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:site_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;?php bloginfo(&amp;#39;name&amp;#39;); ?&amp;gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:country_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;French&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fb:admins&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;rydgel&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fb:app_id&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;101739241646&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:email&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;rydgel@phollow.fr&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php if(is_single()) :?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:url&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;?php the_permalink() ?&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;og:image&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;?php echo premiere_image() ?&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php endif; ?&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: justify;&quot;&gt;Et voilà ça devrait suffire !&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Maintenant on peut se poser la question de la pertinence de la chose. On avait à la base l'action de partager et l'action d'aimer. Désormais le simple fait d'aimer un truc, nous le fait partager. Admettons. Mais si je veux partager sans aimer ?&lt;/p&gt;
-</content>
   </entry>
   
  

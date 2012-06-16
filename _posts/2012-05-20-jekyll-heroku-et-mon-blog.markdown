@@ -35,7 +35,7 @@ Du coup ça peut me permettre de stocker des trucs vraiment énormes sans avoir 
 
 ### Sinatra
 
-Heroku ne permet pas de déployer juste un tas de fichiers statiques, par contre rien ne nous empêche de développer une application proxy, ici Sinatra, servant seulement à servir ces fichiers. Le code de l’application est simple :
+Heroku ne permet pas de déployer juste un tas de fichiers statiques, par contre rien ne nous empêche de développer une application proxy, ici Sinatra, servant seulement à servir ces fichiers. Le code de l’application est simple&thinsp;:
 
 {% highlight ruby %}
 # encoding: utf-8
