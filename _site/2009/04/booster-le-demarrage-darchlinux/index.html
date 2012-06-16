@@ -59,13 +59,13 @@
     </header>
 
 <div id="container" class="twelve columns offset-by-four">
-	<article class="post">
+  <article class="post">
       <header>
-		<h2 class="entry-title entry-single"><a href="/2009/04/booster-le-demarrage-darchlinux">Booster le démarrage d'Archlinux</a></h2>
-		<cite class="entry-meta"><time datetime="2009-04-30 22:59:47 +0200" pubdate class="updated">April 30, 2009</time>  •  <a href="/category/linux" rel="category tag">linux</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>  •  </cite>   
-      </header>	
-			<div class="entry single-page">
-				<p style="text-align: justify;">Mon Arch boot environ en 15s, du grub au bureau. Je n'ai jamais pu atteindre un score pareil avec mes anciennes distributions, qui elles mettaient entre 30s (Debian) et 2min (OpenSuse). Le seul challenger valable est le Mac OS X du bureau qui lui boot en une vingtaine de secondes. Dans cet article je vais vous détailler ce que j'ai essayé et modifié pour parvenir à ce score. Nous sommes d'accord que la vitesse de démarrage n'est pas un facteur critique, mais j'en ai appris beaucoup sur la façon dont Arch et Linux démarrent et j'aimerais vous le partager.</p>
+    <h2 class="entry-title entry-single"><a href="/2009/04/booster-le-demarrage-darchlinux">Booster le démarrage d'Archlinux</a></h2>
+    <cite class="entry-meta"><time datetime="2009-04-30 22:59:47 +0200" pubdate class="updated">April 30, 2009</time>  •  <a href="/category/linux" rel="category tag">linux</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>  •  </cite>   
+      </header>
+      <div class="entry single-page">
+        <p style="text-align: justify;">Mon Arch boot environ en 15s, du grub au bureau. Je n'ai jamais pu atteindre un score pareil avec mes anciennes distributions, qui elles mettaient entre 30s (Debian) et 2min (OpenSuse). Le seul challenger valable est le Mac OS X du bureau qui lui boot en une vingtaine de secondes. Dans cet article je vais vous détailler ce que j'ai essayé et modifié pour parvenir à ce score. Nous sommes d'accord que la vitesse de démarrage n'est pas un facteur critique, mais j'en ai appris beaucoup sur la façon dont Arch et Linux démarrent et j'aimerais vous le partager.</p>
 <p style="text-align: justify;"><strong>Attention:</strong> J'ai écris ce guide pour les personnes qui aiment bidouiller leur système, qui sont à la recherche de la moindre optimisation et surtout <em>qui ne pleurent pas quand quelquechose se passe mal</em>. Je pars du principe que vous êtes confortable avec la ligne de commande. Ce billet est un récapitulatif de mes recherches sur le sujet, je m'inspire du <a href="http://wiki.archlinux.org/" target="_blank">wiki</a> d'Archlinux ainsi que de son <a href="http://bbs.archlinux.org/" target="_blank">forum</a>. Ah et important : <strong>faites une sauvegarde de chaque fichier modifié</strong>.</p>
 
 <h2 style="text-align: justify;">Utiliser un système de fichiers plus rapide</h2>
@@ -400,24 +400,24 @@ DAEMONS=(syslog-ng @hal @fam @crond @alsa)</pre>
 Voilà j'espère que ce billet a été instructif pour vous autant que ces manipulations l'ont été pour moi :)
 
 Comme d'habitude si vous avez des questions vous savez où me joindre.
-			</div>
-			<footer class="share">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-text="Booster le démarrage d'Archlinux" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
-			</footer>
-		</article>
-    	<hr>
-		  <div id="disqus_thread"></div>
-		  <script>
-		      var disqus_shortname = 'phollowfr';
-		      var disqus_identifier = 'http://phollow.fr/2009/04/booster-le-demarrage-darchlinux/';
-		      var disqus_url = 'http://phollow.fr/2009/04/booster-le-demarrage-darchlinux/';
-		      
-		      (function() {
-		          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		      })();
-		  </script>
+      </div>
+      <footer class="share">
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="Booster le démarrage d'Archlinux" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2009/04/booster-le-demarrage-darchlinux/';
+          var disqus_url = 'http://phollow.fr/2009/04/booster-le-demarrage-darchlinux/';
+
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
 </div>
 
 
@@ -431,7 +431,10 @@ Comme d'habitude si vous avez des questions vous savez où me joindre.
       <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
     </ul>
   </nav>    
-  <span class="copyright">Copyright © 2011 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.rackspace.com/">Rackspace US, Inc.</a></span>
+  <span class="copyright">Copyright © 2011 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
 <a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
 </footer>
 

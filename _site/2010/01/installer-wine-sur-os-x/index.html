@@ -59,13 +59,13 @@
     </header>
 
 <div id="container" class="twelve columns offset-by-four">
-	<article class="post">
+  <article class="post">
       <header>
-		<h2 class="entry-title entry-single"><a href="/2010/01/installer-wine-sur-os-x">Installer Wine sur OS X</a></h2>
-		<cite class="entry-meta"><time datetime="2010-01-08 02:13:36 +0100" pubdate class="updated">January  8, 2010</time>  •  <a href="/category/apple" rel="category tag">apple</a>, <a href="/category/libre" rel="category tag">libre</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>  •  </cite>   
-      </header>	
-			<div class="entry single-page">
-				<p style="text-align: justify;">On ne présente plus <a href="http://www.winehq.org/">Wine</a>, ce logiciel qui permet de lancer des binaires Windows sur d'autres OS. Wine tourne sur à peu près toutes les plate-formes y compris sur Mac OS X.</p>
+    <h2 class="entry-title entry-single"><a href="/2010/01/installer-wine-sur-os-x">Installer Wine sur OS X</a></h2>
+    <cite class="entry-meta"><time datetime="2010-01-08 02:13:36 +0100" pubdate class="updated">January  8, 2010</time>  •  <a href="/category/apple" rel="category tag">apple</a>, <a href="/category/libre" rel="category tag">libre</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>  •  </cite>   
+      </header>
+      <div class="entry single-page">
+        <p style="text-align: justify;">On ne présente plus <a href="http://www.winehq.org/">Wine</a>, ce logiciel qui permet de lancer des binaires Windows sur d'autres OS. Wine tourne sur à peu près toutes les plate-formes y compris sur Mac OS X.</p>
 <p style="text-align: justify;">Alors.. oui il existe déjà des implémentations de Wine sur Mac. Comme par exemple CrossOver, mais celui est payant et non libre. Je m'ennuyais un peu et je m'étais dit que ça serait marrant de compiler Wine sous OS X (ouais on s'éclate comme on peut). Du coup je vais vous partager la façon de faire.</p>
 
 <h1>Pré-requis</h1>
@@ -87,24 +87,24 @@
 <p style="text-align: justify;">Le flag +universal permet de compiler Wine et ses dépendances en 32 bits (car Wine ne fonctionne pas en 64 bits). Si on ne rajoute pas ce flag, le compilateur sous Snow Leopard essaiera de compiler Wine en 64 bits (ce qui ne peut pas fonctionner).</p>
 <p style="text-align: justify;">Et voilàààà</p>
 <p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/01/Capture-d’écran-2010-01-08-à-00.07.46.jpg"><img class="aligncenter size-medium wp-image-1973" title="Capture d’écran 2010-01-08 à 00.07.46" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/01/Capture-d’écran-2010-01-08-à-00.07.46-595x455.jpg" alt="" width="595" height="455" /></a></p>
-			</div>
-			<footer class="share">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-text="Installer Wine sur OS X" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
-			</footer>
-		</article>
-    	<hr>
-		  <div id="disqus_thread"></div>
-		  <script>
-		      var disqus_shortname = 'phollowfr';
-		      var disqus_identifier = 'http://phollow.fr/2010/01/installer-wine-sur-os-x/';
-		      var disqus_url = 'http://phollow.fr/2010/01/installer-wine-sur-os-x/';
-		      
-		      (function() {
-		          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		      })();
-		  </script>
+      </div>
+      <footer class="share">
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="Installer Wine sur OS X" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2010/01/installer-wine-sur-os-x/';
+          var disqus_url = 'http://phollow.fr/2010/01/installer-wine-sur-os-x/';
+
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
 </div>
 
 
@@ -118,7 +118,10 @@
       <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
     </ul>
   </nav>    
-  <span class="copyright">Copyright © 2011 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.rackspace.com/">Rackspace US, Inc.</a></span>
+  <span class="copyright">Copyright © 2011 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
 <a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
 </footer>
 

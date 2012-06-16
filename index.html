@@ -15,31 +15,31 @@ title: "Phollow.me"
 
 <div id="container-home-1" class="one-third column">
 {% for post in site.posts limit: 3 %}
-	<article class="post">
-    	<header>
-  			<h2 class="entry-title"><a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a></h2>
-			<cite class="entry-meta"><time datetime="{{ post.date }}" pubdate class="updated">{{ post.date | date: "%B %e, %Y" }}</time>  •  {{ post.categories | render_category }}  •  </cite>
+  <article class="post">
+      <header>
+        <h2 class="entry-title"><a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a></h2>
+      <cite class="entry-meta"><time datetime="{{ post.date }}" pubdate class="updated">{{ post.date | date: "%B %e, %Y" }}</time>  •  {{ post.categories | render_category }}  •  </cite>
         </header>
-		<p>{{ post.content | strip_html | truncate: 170 }}</p>
-  	</article>
-  	{% unless forloop.last %}
-    	<hr>
+    <p>{{ post.content | strip_html | truncate: 170 }}</p>
+    </article>
+    {% unless forloop.last %}
+      <hr>
     {% endunless %}
 {% endfor %}
 </div>
 
 <div id="container-home-2" class="one-third column">
 {% for post in site.posts limit: 3 offset: 3 %}
-	<article class="post">
+  <article class="post">
         <header>
-  			<h2 class="entry-title"><a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a></h2>
-			<cite class="entry-meta"><time datetime="{{ post.date }}" pubdate class="updated">{{ post.date | date: "%B %e, %Y" }}</time>  •  {{ post.categories | render_category }}  •  </cite>
-        </header>	
-		<p>{{ post.content | strip_html | truncate: 170 }}</p>
+        <h2 class="entry-title"><a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a></h2>
+      <cite class="entry-meta"><time datetime="{{ post.date }}" pubdate class="updated">{{ post.date | date: "%B %e, %Y" }}</time>  •  {{ post.categories | render_category }}  •  </cite>
+        </header> 
+    <p>{{ post.content | strip_html | truncate: 170 }}</p>
 
-  	</article>
-  	{% unless forloop.last %}
-    	<hr>
+    </article>
+    {% unless forloop.last %}
+      <hr>
     {% endunless %}
 {% endfor %}
 </div>

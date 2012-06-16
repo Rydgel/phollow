@@ -3,29 +3,29 @@ layout: layout
 ---
 
 <div id="container" class="twelve columns offset-by-four">
-	<article class="post">
+  <article class="post">
       <header>
-		<h2 class="entry-title entry-single"><a href="{{ page.url }}">{{ page.title }}</a></h2>
-		<cite class="entry-meta"><time datetime="{{ page.date }}" pubdate class="updated">{{ page.date | date: "%B %e, %Y" }}</time>  •  {{ page.categories | render_category }}  •  </cite>   
-      </header>	
-			<div class="entry single-page">
-				{{ content }}
-			</div>
-			<footer class="share">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ page.title }}" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
-			</footer>
-		</article>
-    	<hr>
-		  <div id="disqus_thread"></div>
-		  <script>
-		      var disqus_shortname = 'phollowfr';
-		      var disqus_identifier = 'http://phollow.fr{{ page.url }}/';
-		      var disqus_url = 'http://phollow.fr{{ page.url }}/';
-		      
-		      (function() {
-		          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		      })();
-		  </script>
+    <h2 class="entry-title entry-single"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+    <cite class="entry-meta"><time datetime="{{ page.date }}" pubdate class="updated">{{ page.date | date: "%B %e, %Y" }}</time>  •  {{ page.categories | render_category }}  •  </cite>   
+      </header>
+      <div class="entry single-page">
+        {{ content }}
+      </div>
+      <footer class="share">
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ page.title }}" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr{{ page.url }}/';
+          var disqus_url = 'http://phollow.fr{{ page.url }}/';
+
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
 </div>

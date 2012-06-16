@@ -59,13 +59,13 @@
     </header>
 
 <div id="container" class="twelve columns offset-by-four">
-	<article class="post">
+  <article class="post">
       <header>
-		<h2 class="entry-title entry-single"><a href="/2009/07/un-petit-essai-de-moblin-2-0">Un petit essai de Moblin 2.0</a></h2>
-		<cite class="entry-meta"><time datetime="2009-07-26 00:17:23 +0200" pubdate class="updated">July 26, 2009</time>  •  <a href="/category/linux" rel="category tag">linux</a>  •  </cite>   
-      </header>	
-			<div class="entry single-page">
-				<p style="text-align: justify;">Toujours en train de jouer avec mon netbook, cela fait déjà plusieurs jours qu'il tourne sous <a href="http://moblin.org" target="_blank"><strong>Moblin</strong></a> après avoir essayé FreeBSD.  Moblin est un OS spécialement conçu pour les netbooks. Faut dire que c'est la mode en ce moment entre <a href="http://phollow.fr/2009/07/google-et-son-os-chrome/" target="_blank">Google OS</a>, <a href="http://phollow.fr/2009/07/jolicloud-sur-mon-eeepc/" target="_self">Jolicloud</a> etc. Je l'ai donc essayé un petit peu et je dois dire qu'il me plaît beaucoup.</p>
+    <h2 class="entry-title entry-single"><a href="/2009/07/un-petit-essai-de-moblin-2-0">Un petit essai de Moblin 2.0</a></h2>
+    <cite class="entry-meta"><time datetime="2009-07-26 00:17:23 +0200" pubdate class="updated">July 26, 2009</time>  •  <a href="/category/linux" rel="category tag">linux</a>  •  </cite>   
+      </header>
+      <div class="entry single-page">
+        <p style="text-align: justify;">Toujours en train de jouer avec mon netbook, cela fait déjà plusieurs jours qu'il tourne sous <a href="http://moblin.org" target="_blank"><strong>Moblin</strong></a> après avoir essayé FreeBSD.  Moblin est un OS spécialement conçu pour les netbooks. Faut dire que c'est la mode en ce moment entre <a href="http://phollow.fr/2009/07/google-et-son-os-chrome/" target="_blank">Google OS</a>, <a href="http://phollow.fr/2009/07/jolicloud-sur-mon-eeepc/" target="_self">Jolicloud</a> etc. Je l'ai donc essayé un petit peu et je dois dire qu'il me plaît beaucoup.</p>
 <p style="text-align: justify;">Commençons par l'installation. On commence par télécharger le fichier .img sur le <a href="http://moblin.org" target="_blank">site officiel</a> et on met ça sur une clef USB :</p>
 
 <pre lang="bash">sudo dd bs=4096 if=moblin.img of=/dev/sdb</pre>
@@ -91,24 +91,24 @@
 <p style="text-align: justify;"></p>
 <p style="text-align: justify;">Moblin est en plein développement et souffre encore de quelques manques mais je dois dire qu'il m'a beaucoup plût. Je vais le suivre de très prés :)</p>
 <p style="text-align: justify;">Maintenant je m'en vais essayer Jolicloud ;)</p>
-			</div>
-			<footer class="share">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-text="Un petit essai de Moblin 2.0" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
-			</footer>
-		</article>
-    	<hr>
-		  <div id="disqus_thread"></div>
-		  <script>
-		      var disqus_shortname = 'phollowfr';
-		      var disqus_identifier = 'http://phollow.fr/2009/07/un-petit-essai-de-moblin-2-0/';
-		      var disqus_url = 'http://phollow.fr/2009/07/un-petit-essai-de-moblin-2-0/';
-		      
-		      (function() {
-		          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		      })();
-		  </script>
+      </div>
+      <footer class="share">
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="Un petit essai de Moblin 2.0" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2009/07/un-petit-essai-de-moblin-2-0/';
+          var disqus_url = 'http://phollow.fr/2009/07/un-petit-essai-de-moblin-2-0/';
+
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
 </div>
 
 
@@ -122,7 +122,10 @@
       <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
     </ul>
   </nav>    
-  <span class="copyright">Copyright © 2011 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.rackspace.com/">Rackspace US, Inc.</a></span>
+  <span class="copyright">Copyright © 2011 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
 <a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
 </footer>
 
