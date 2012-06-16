@@ -718,6 +718,14 @@ p {
   -moz-hyphens: auto;
 }
 
+a, a:active {
+  color:#61acdb;
+}
+
+a:hover {
+  color:#FF6000;
+}
+
 /*article p + p {
 	margin-top: -20px;
 	text-indent: 2.3em;
