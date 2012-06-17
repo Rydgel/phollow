@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-06-17T00:39:03+02:00</updated>
+  <updated>2012-06-17T17:01:42+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -95,7 +95,7 @@ font-size: $fontsize;
 &lt;li&gt;J’ai changé plusieurs fois de palettes de couleurs, de largeur de colonnes pour la grille, de familles de polices… Les variables sont vraiment un gain de temps.&lt;/li&gt;
 &lt;li&gt;Échelle typographique avec Compass super simple. On définit une taille de base en pixel, avec le line-height associé. Tout est recalculé en ems (taille relative des headings, margin, padding, etc.). Ça c’est ce que je faisais à la main en CSS.&lt;/li&gt;
 &lt;li&gt;Utilisation d’une grille CSS simplifiée aussi. Dans le sens où au lieu de prendre un framework CSS existant où le nombre et la largeur des colonnes sont souvent pré-définies, ici j’ai utilisé &lt;a href=&quot;http://susy.oddbird.net/tutorial/&quot;&gt;Susy&lt;/a&gt;. Tu définis le nombre de colonnes, la taille et cette grid s’adapte à ton DOM (et pas l’inverse qui t’oblige à utiliser leurs classes).&lt;/li&gt;
-&lt;li&gt;Compilation automatique à chaque changement dans le fichier, donc pas de perte de temps à ce niveau là. Mon fichier .css lui link uniquement le fichier .css compilé final.&lt;/li&gt;
+&lt;li&gt;Compilation automatique à chaque changement dans le fichier, donc pas de perte de temps à ce niveau là. Mon fichier .html lui link uniquement le fichier .css compilé final.&lt;/li&gt;
 &lt;/ul&gt;
 
 
