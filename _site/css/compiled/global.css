@@ -721,7 +721,7 @@ p {
 }
 
 a, a:active {
-  color:#61acdb;
+  color:#FD584D;
 }
 
 a:hover {
@@ -812,7 +812,7 @@ article.post figure figcaption a:hover {
 }
 
 article.post figure figcaption:hover a {
-  color: #61acdb;
+  color: #FD584D;
 }
 
 article.post figure figcaption:hover a:hover {
@@ -824,7 +824,7 @@ article figure figcaption strong {
 }
 
 .single-page {
-  font-size: 1.215em;
+  font-size: 1.313em;
   /*font-size: 1.235em;*/
 }
 
@@ -1050,7 +1050,7 @@ blockquote:after {
 
 .post a {
   text-decoration: none;
-  color: #61acdb;
+  color: #FD584D;
   transition: all .5s ease-in-out;
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
@@ -1149,7 +1149,7 @@ cite.entry-meta a:hover {
 
 .post ul li {
   list-style: disc outside;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .post ol {
@@ -1160,6 +1160,7 @@ cite.entry-meta a:hover {
 
 .post ol li {
   list-style: decimal outside;
+  margin-bottom: 30px;
 }
 
 .post li {
@@ -1265,7 +1266,7 @@ cite.entry-meta a:hover {
 }
 
 #sidebar:hover a {
-  color: #61acdb;
+  color: #FD584D;
 }
 
 #sidebar a:hover {
@@ -1413,7 +1414,7 @@ a img {
 
 #contact-comments a {
   text-decoration: none;
-  color: #61acdb;
+  color: #FD584D;
   transition: all .5s ease-in-out;
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
@@ -1642,7 +1643,7 @@ span.says, .comment-edit-link {
 }
 
 #livefyre .lf_comment_container .lf_comment .lf_comment_body a {
-  color: #61acdb !important;
+  color: #FD584D !important;
   text-decoration: none;
 }
 
