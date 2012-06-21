@@ -1330,6 +1330,7 @@ cite.entry-meta a:hover {
 .copyright a {
   text-decoration: none;
   font-weight: bold;
+  font-family:"Skolar Bold", Georgia, serif;
   color: #99968A;
   text-transform: none;
   letter-spacing: 0;
@@ -1349,6 +1350,7 @@ footer[role="contentinfo"] nav ul li {
 	margin: 0 10px 0 0;
 	padding: 0 10px 0 0;
 	font-weight: bold;
+	font-family:"Skolar Bold", Georgia, serif;
 	border-right: 1px solid #ccc;
         font-size: 0.824em;
 	}
@@ -1453,6 +1455,7 @@ textarea {
   display: block;
   margin-bottom: 2px;
   font-weight: bold;
+  font-family:"Skolar Bold", Georgia, serif;
 }
 
 .commentlist cite a {
@@ -1539,6 +1542,7 @@ span.says, .comment-edit-link {
 
 .pagetitle b {
   font-weight: bold;
+  font-family:"Skolar Bold", Georgia, serif;
 }
 
 .entry div {
@@ -1675,6 +1679,7 @@ span.says, .comment-edit-link {
 
 article.post strong, article.post b  {
   font-weight: bold;
+  font-family:"Skolar Bold", Georgia, serif;
 }
 
 abbr {
