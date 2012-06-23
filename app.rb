@@ -1,6 +1,7 @@
 # encoding: utf-8
 require 'rubygems'
 require 'sinatra'
+require 'digest/md5'
 
 configure do
   set :public_folder, Proc.new { File.join(root, "_site") }
@@ -17,8 +18,9 @@ before do
   redirect request.url.sub(/www\./, ''), 301 if request.host =~ /^www/
   # cache headers
   headers "X-UA-Compatible" => "IE=Edge,chrome=1"
-  expires 300, :public, :must_revalidate
-  last_modified(@last_mod_time)
+  cache_control :public, :must_revalidate, :max_age => 86400
+  last_modified @last_mod_time
+  etag Digest::MD5.hexdigest(request.url)
 end
 
 get '/' do
