@@ -665,7 +665,7 @@ span.code, article code {
 article pre > code {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	background: #FDF6E3;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 	padding: 0.6em;
 	display: block;
 	font-size: 0.724em;
@@ -709,7 +709,7 @@ h3 {
 
 .post h3, .post h4 {
   margin-bottom: 30px;
-  margin-top: 40px;
+  margin-top: 30px;
   font-weight: bold;
   font-family:"Skolar Bold", Georgia, serif;
 }
