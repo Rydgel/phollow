@@ -8,9 +8,9 @@ configure do
   @last_mod_time = Time.now
 end
 
-#configure :production do
-#  require 'newrelic_rpm'
-#end
+configure :production do
+  require 'newrelic_rpm'
+end
 
 before do
   # www.phollow.fr -> phollow.fr
