@@ -824,8 +824,8 @@ article figure figcaption strong {
 }
 
 .single-page {
-  font-size: 1.313em;
-  /*font-size: 1.235em;*/
+  /*font-size: 1.313em;*/
+  font-size: 1.188em;
 }
 
 a.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
@@ -1072,7 +1072,9 @@ blockquote:after {
 }
 
 .entry-title {
-  margin-bottom:20px;
+  margin-bottom: 20px;
+  font-family: "Skolar Bold", Georgia, serif;
+  font-weight: bold;
 }
 
 #container-home-1 .entry-title, #container-home-2 .entry-title {
@@ -1095,10 +1097,13 @@ blockquote:after {
   background-color: transparent;
 }
 
+.entry-single {
+  font-size: 6em;
+  margin-bottom: .5em;
+}
+
 cite.entry-meta {
   color: #99968A;
-  letter-spacing: 0px;
-  /*font-size: 0.882em;*/
   display: block;
   font-family: inherit;
   margin-bottom: 20px;
@@ -1555,11 +1560,7 @@ span.says, .comment-edit-link {
 
 .share {
   position: relative;
-}
-
-.fb_like {
-  position: absolute;
-  top: -5px;
+  clear: both;
 }
 
 #meta {
@@ -1690,7 +1691,7 @@ abbr {
 }
 
 .fullsizestuff {
-  margin-left: -37%;
+  margin-left: -36%;
 }
 
 /* #Media Queries

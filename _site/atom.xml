@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-06-22T00:28:04+02:00</updated>
+  <updated>2012-06-24T01:38:23+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -22,9 +22,12 @@
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p&gt;&lt;figure&gt;
-&lt;figcaption style=&quot;top:-96px;&quot;&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;/p&gt;
+    <content type="html">&lt;div&gt;
+&lt;figure&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+
 
 &lt;p&gt;Les variables CSS sont apparues il y a quelques jours dans le dépôt &lt;a href=&quot;http://trac.webkit.org/changeset/120154&quot;&gt;Webkit&lt;/a&gt; et devraient être utilisables dans les dernières &lt;em&gt;nightlies&lt;/em&gt; de Safari. La norme CSS continue de se doter de fonctionnalités permettant d’avoir un code plus facilement maintenable.&lt;/p&gt;
 
@@ -120,7 +123,7 @@ font-size: $fontsize;
     </author>
     <content type="html">&lt;div&gt;
 &lt;figure&gt;
-&lt;figcaption style=&quot;top:-135px;&quot;&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
@@ -208,7 +211,7 @@ font-size: $fontsize;
 
 &lt;p&gt;Prenons par exemple les ligatures. C’est une des choses que je voulais depuis longtemps et qui est maintenant possible sur une page web. Le but d’une ligature est de rendre le texte plus lisible et plus beau aussi, comme en évitant une transition grossière entre un &lt;em&gt;f&lt;/em&gt; et un &lt;em&gt;i&lt;/em&gt;. Les ligatures fusionnent deux caractères et le résultat est vraiment considéré comme un seul.&lt;/p&gt;
 
-&lt;p class=&quot;fullsizestuff&quot; style='font-size: 135px; text-rendering: optimizelegibility; -moz-font-feature-settings:&quot;liga=1, dlig=1&quot;; -ms-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -o-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -webkit-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;;'&gt;
+&lt;p class=&quot;fullsizestuff&quot; style='font-size: 112px; text-rendering: optimizelegibility; -moz-font-feature-settings:&quot;liga=1, dlig=1&quot;; -ms-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -o-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -webkit-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;;'&gt;
 fleurs, fille, off.
 &lt;/p&gt;
 
@@ -264,7 +267,7 @@ fleurs, fille, off.
       <uri>http://phollow.fr/</uri>
     </author>
     <content type="html">&lt;div&gt;
-&lt;figure&gt;&lt;figcaption style=&quot;top:-135px;&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/05/dr_jekyll_mr_hyde_low.jpg&quot; title=&quot;jekyll&quot; class=&quot;alignnone size-full&quot;&gt;&lt;/figcaption&gt;
+&lt;figure&gt;&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/05/dr_jekyll_mr_hyde_low.jpg&quot; title=&quot;jekyll&quot; class=&quot;alignnone size-full&quot;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 
@@ -382,7 +385,14 @@ fleurs, fille, off.
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;figure&gt;&lt;figcaption style=&quot;top:-130px;&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/02/sass.gif&quot; alt=&quot;&quot; title=&quot;sass&quot; width=&quot;217&quot; height=&quot;238&quot; class=&quot;alignnone size-full wp-image-3985&quot;&gt;&lt;/figcaption&gt;&lt;p class=&quot;lettrine&quot;&gt;Le &lt;abbr&gt;css&lt;/abbr&gt; permet de définir des styles au travers d’un langage déclaratif, de sélecteurs, propriétés et valeurs. Le tout saupoudrée d’une notion d’héritage basique. Ce qui peut amener certains problèmes sur le long terme : répétition de code et complexification du fichier CSS où les relations entres nos éléments du &lt;abbr&gt;DOM&lt;/abbr&gt; ne sont pas forcément claires.&lt;/p&gt;&lt;/figure&gt;
+    <content type="html">&lt;div&gt;
+&lt;figure&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/02/sass.gif&quot; title=&quot;sass&quot; class=&quot;alignnone size-full&quot;&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+
+Le &lt;abbr&gt;css&lt;/abbr&gt; permet de définir des styles au travers d’un langage déclaratif, de sélecteurs, propriétés et valeurs. Le tout saupoudrée d’une notion d’héritage basique. Ce qui peut amener certains problèmes sur le long terme : répétition de code et complexification du fichier CSS où les relations entres nos éléments du &lt;abbr&gt;DOM&lt;/abbr&gt; ne sont pas forcément claires.&lt;/p&gt;
 &lt;p&gt;&lt;abbr&gt;&lt;b&gt;Sass&lt;/b&gt;&lt;/abbr&gt; étend les capacités du &lt;abbr&gt;css&lt;/abbr&gt; en rajoutant la possibilité d’utiliser des variables, des fonctions, l’héritage de sélection… Tout un tas de choses qui permet non seulement de simplifier le code mais aussi, selon moi, de rendre plus &lt;em&gt;logique&lt;/em&gt; les feuilles de styles. La structure du &lt;abbr&gt;dom&lt;/abbr&gt; saute facilement aux yeux.&lt;/p&gt;
 &lt;h3&gt;Installation&lt;/h3&gt;
 &lt;p&gt;On installe &lt;abbr&gt;sass&lt;/abbr&gt; comme n’importe quelle autre gem Ruby.&lt;/p&gt;
@@ -576,8 +586,6 @@ sass --watch default.scss
 &lt;li&gt;Des méthodes pour jouer sur les couleurs : plus foncé, plus clair…&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure&gt;
-&lt;figcaption style=&quot;top:37px;&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/03/css_sass_compass.jpg&quot; alt=&quot;&quot; title=&quot;css_sass_compass&quot; width=&quot;500&quot; height=&quot;360&quot; class=&quot;alignnone size-full wp-image-4054&quot; /&gt;&lt;/figcaption&gt;
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;abbr&gt;Sass&lt;/abbr&gt; peut rendre l’utilisation du &lt;abbr&gt;css&lt;/abbr&gt; plus sympathique. Si vous voulez en savoir plus je vous conseille de vous rendre sur la &lt;a href=&quot;http://sass-lang.com/&quot; title=&quot;Sass&quot; target=&quot;_blank&quot;&gt;page officielle&lt;/a&gt; de l’application. Vous y trouverez des exemples et de la documentation sur d’autres fonctionnalités non évoquées ici.&lt;/p&gt;
@@ -597,9 +605,12 @@ sass --watch default.scss
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;figure&gt;
-&lt;figcaption style=&quot;top:-96px;&quot;&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/02/necroscope.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
+    <content type="html">&lt;div&gt;
+&lt;figure&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/02/necroscope.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;/div&gt;
+
 &lt;p class=&quot;lettrine&quot;&gt;Rien à voir avec les spams de Viagra. Non. Sous ce titre un peu malicieux, je tenais à vous parler d’une chose que je ne supporte plus : les tailles de texte minuscules dans les pages &lt;abbr&gt;html&lt;/abbr&gt;. Cette impression d’avoir sous les yeux le dictionnaire Édition Larousse en &lt;em&gt;lisant&lt;/em&gt; un article de blog.&lt;/p&gt;
 &lt;p&gt;Pourtant je ne pense pas qu’il soit plus difficile de lire sur un écran que de lire un livre. Il suffit de &lt;em&gt;copier&lt;/em&gt; la façon dont les livres mettent en page le texte.&lt;/p&gt;
 &lt;p&gt;Pour être un peu plus précis, le problème se situe souvent sur le nombre de caractères que contient une ligne de texte. La taille de la police sera donc à priori proportionnelle à la largeur de son conteneur.&lt;/p&gt;

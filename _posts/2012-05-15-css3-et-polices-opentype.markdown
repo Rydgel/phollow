@@ -20,7 +20,7 @@ Les polices au format OpenType ont pour avantage de prendre en charge un jeu de 
 
 Prenons par exemple les ligatures. C’est une des choses que je voulais depuis longtemps et qui est maintenant possible sur une page web. Le but d’une ligature est de rendre le texte plus lisible et plus beau aussi, comme en évitant une transition grossière entre un _f_ et un _i_. Les ligatures fusionnent deux caractères et le résultat est vraiment considéré comme un seul.
 
-<p class="fullsizestuff" style='font-size: 135px; text-rendering: optimizelegibility; -moz-font-feature-settings:"liga=1, dlig=1"; -ms-font-feature-settings:"liga", "dlig"; -o-font-feature-settings:"liga", "dlig"; -webkit-font-feature-settings:"liga", "dlig"; font-feature-settings:"liga", "dlig";'>
+<p class="fullsizestuff" style='font-size: 112px; text-rendering: optimizelegibility; -moz-font-feature-settings:"liga=1, dlig=1"; -ms-font-feature-settings:"liga", "dlig"; -o-font-feature-settings:"liga", "dlig"; -webkit-font-feature-settings:"liga", "dlig"; font-feature-settings:"liga", "dlig";'>
 fleurs, fille, off.
 </p>
 

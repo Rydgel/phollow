@@ -13,7 +13,7 @@ tags:
 ---
 
 <div>
-<figure><figcaption style="top:-135px;"><img src="http://s3-eu-west-1.amazonaws.com/phollow/2012/05/dr_jekyll_mr_hyde_low.jpg" title="jekyll" class="alignnone size-full"></figcaption>
+<figure><figcaption><img style="margin-top: 0;" src="http://s3-eu-west-1.amazonaws.com/phollow/2012/05/dr_jekyll_mr_hyde_low.jpg" title="jekyll" class="alignnone size-full"></figcaption>
 </figure>
 </div>
 

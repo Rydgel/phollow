@@ -2,15 +2,21 @@
 layout: layout
 ---
 
-<div id="container" class="twelve columns offset-by-four">
+<div id="container" class="sixteen columns">
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="{{ page.url }}">{{ page.title }}</a></h2>
-    <cite class="entry-meta"><time datetime="{{ page.date }}" pubdate class="updated">{{ page.date | date: "%B %e, %Y" }}</time>  •  {{ page.categories | render_category }}  •  </cite>   
       </header>
-      <div class="entry single-page">
+      <div class="entry single-page ten columns offset-by-three alpha">
         {{ content }}
       </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="{{ page.date }}" pubdate class="updated">
+            {{ page.date | date: "%B %e, %Y" }}</time>
+            <br>
+          {{ page.categories | render_category }}</p>
+        </cite>
       <footer class="share">
       <a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ page.title }}" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
       </footer>

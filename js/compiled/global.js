@@ -40,7 +40,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
 })( jQuery );
 
 $(function() {
-  $('h2.entry-title').fitText(1.3);
+  $('h2.entry-title').fitText(1);
   $('h2, h3, h4').fitText(1.3);
   $('.fullsizestuff').fitText(0.65);
 });

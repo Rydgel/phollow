@@ -20,7 +20,7 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=9">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=10">
   <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
   <script src="/js/compiled/modernizr.min.js"></script>
   <script>
@@ -58,13 +58,12 @@
       <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
     </header>
 
-<div id="container" class="twelve columns offset-by-four">
+<div id="container" class="sixteen columns">
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2009/05/lanti-aliasing-sous-wine">L'anti-aliasing sous Wine</a></h2>
-    <cite class="entry-meta"><time datetime="2009-05-12 23:25:52 +0200" pubdate class="updated">May 12, 2009</time>  •  <a href="/category/linux" rel="category tag">linux</a>  •  </cite>   
       </header>
-      <div class="entry single-page">
+      <div class="entry single-page ten columns offset-by-three alpha">
         <p style="text-align: justify;">En ce moment je joue un peu avec <strong><a href="http://www.winehq.org/" target="_blank">Wine</a></strong> en installant des programmes ou des jeux Windows. Et à chaque fois même constat : le rendu des polices est vraiment très mauvais. En me renseignant sur la Toile, j'ai appris que Wine n'utilisait pas l'anti-aliasing sur les polices de tailles inférieures à 13. Génant quand les trois-quarts des polices affichées sont assez petites.</p>
 
 <h2 style="text-align: justify;">Solution</h2>
@@ -82,6 +81,13 @@ Et bien il suffit de dire à Wine qu'on veut toutes nos polices bien lisses. Voi
 "FontSmoothingOrientation"=dword:00000001</pre>
 <p style="text-align: justify;">J'ai aussi trouvé sur un <a href="http://wine-review.blogspot.com/2009/03/how-to-enable-font-anti-aliasing-in.html" target="_blank">blog</a> ce petit <a href="http://files.polosatus.ru/winefontssmoothing_en.sh" target="_blank">script</a> qui vous fait ça automatiquement.</p>
       </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="2009-05-12 23:25:52 +0200" pubdate class="updated">
+            May 12, 2009</time>
+            <br>
+          <a href="/category/linux" rel="category tag">linux</a></p>
+        </cite>
       <footer class="share">
       <a href="http://twitter.com/share" class="twitter-share-button" data-text="L'anti-aliasing sous Wine" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
       </footer>
@@ -120,7 +126,7 @@ Et bien il suffit de dire à Wine qu'on veut toutes nos polices bien lisses. Voi
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=2"></script>
+<script src="/js/compiled/global.js?v=3"></script>
 
 <!--[if (lt IE 9) & (!IEMobile)]>
 <script src="/js/compiled/DOMAssistantCompressed-2.8.js"></script>

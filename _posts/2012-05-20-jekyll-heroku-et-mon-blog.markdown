@@ -16,7 +16,7 @@ tags:
 
 <div>
 <figure>
-<figcaption style="top:-135px;"><img src="https://s3-eu-west-1.amazonaws.com/phollow/2012/05/heroku.jpeg" title="heroku" class="alignnone size-full">
+<figcaption><img style="margin-top: 0;" src="https://s3-eu-west-1.amazonaws.com/phollow/2012/05/heroku.jpeg" title="heroku" class="alignnone size-full">
 </figcaption>
 </figure>
 </div>

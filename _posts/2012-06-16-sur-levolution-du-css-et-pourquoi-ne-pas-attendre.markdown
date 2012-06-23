@@ -15,9 +15,11 @@ tags:
 - stylus
 ---
 
+<div>
 <figure>
-<figcaption style="top:-96px;"><img style="margin-top:0;" src="https://s3-eu-west-1.amazonaws.com/phollow/2012/06/Compass.jpg" alt="" title="necroscope" width="580" height="773" class="alignnone size-full wp-image-3898"></figcaption>
+<figcaption><img style="margin-top:0;" src="https://s3-eu-west-1.amazonaws.com/phollow/2012/06/Compass.jpg" alt="" title="necroscope" width="580" height="773" class="alignnone size-full wp-image-3898"></figcaption>
 </figure>
+</div>
 
 Les variables CSS sont apparues il y a quelques jours dans le dépôt [Webkit](http://trac.webkit.org/changeset/120154) et devraient être utilisables dans les dernières _nightlies_ de Safari. La norme CSS continue de se doter de fonctionnalités permettant d’avoir un code plus facilement maintenable. 
 

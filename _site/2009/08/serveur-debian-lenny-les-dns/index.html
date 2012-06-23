@@ -20,7 +20,7 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=9">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=10">
   <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
   <script src="/js/compiled/modernizr.min.js"></script>
   <script>
@@ -58,13 +58,12 @@
       <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
     </header>
 
-<div id="container" class="twelve columns offset-by-four">
+<div id="container" class="sixteen columns">
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2009/08/serveur-debian-lenny-les-dns">Serveur Debian Lenny - Les DNS</a></h2>
-    <cite class="entry-meta"><time datetime="2009-08-30 13:04:01 +0200" pubdate class="updated">August 30, 2009</time>  •  <a href="/category/featured articles" rel="category tag">featured articles</a>, <a href="/category/serveur" rel="category tag">serveur</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>  •  </cite>   
       </header>
-      <div class="entry single-page">
+      <div class="entry single-page ten columns offset-by-three alpha">
         <p style="text-align: justify;">Ce guide a pour but de vous montrer comment configurer vos noms de domaines sur votre dédié. On utilisera donc <strong>Bind</strong> <strong>9</strong> sur une <strong>Debian Lenny</strong>. Vous avez, bien sur, besoin d'un nom de domaine. Vous pouvez en enregistrer un sur <a href="http://www.gandi.net/" target="_blank">Gandi</a> par exemple.</p>
 <p style="text-align: justify;">On commence par installer <strong>bind9</strong> et les outils nécessaires :</p>
 
@@ -144,6 +143,13 @@ zone "phollow.fr" {
 <pre lang="bash">/ect/init.d/bind9 restart</pre>
 <p style="text-align: justify;">Ensuite il reste seulement à indiquer à votre fournisseur de noms de domaine que les DNS primaires et secondaires sont respectivement <strong>r24041.ovh.net</strong> et <strong>sdns1.ovh.net</strong> (dans mon cas).</p>
       </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="2009-08-30 13:04:01 +0200" pubdate class="updated">
+            August 30, 2009</time>
+            <br>
+          <a href="/category/featured articles" rel="category tag">featured articles</a>, <a href="/category/serveur" rel="category tag">serveur</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a></p>
+        </cite>
       <footer class="share">
       <a href="http://twitter.com/share" class="twitter-share-button" data-text="Serveur Debian Lenny - Les DNS" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
       </footer>
@@ -182,7 +188,7 @@ zone "phollow.fr" {
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=2"></script>
+<script src="/js/compiled/global.js?v=3"></script>
 
 <!--[if (lt IE 9) & (!IEMobile)]>
 <script src="/js/compiled/DOMAssistantCompressed-2.8.js"></script>
