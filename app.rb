@@ -20,7 +20,7 @@ before do
   headers "X-UA-Compatible" => "IE=Edge,chrome=1"
   cache_control :public, :must_revalidate, :max_age => 86400
   last_modified @last_mod_time
-  etag Digest::MD5.hexdigest(request.url)
+  etag Digest::MD5.hexdigest("#{request.url};#{@last_mod_time}")
 end
 
 get '/' do
