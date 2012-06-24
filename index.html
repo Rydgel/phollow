@@ -16,7 +16,6 @@ title: "Phollow.me"
   <article class="post">
       <header>
         <h2 class="entry-title"><a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a></h2>
-      <cite class="entry-meta"><time datetime="{{ post.date }}" pubdate class="updated">{{ post.date | date: "%B %e, %Y" }}</time>  •  {{ post.categories | render_category }}  •  </cite>
         </header>
     <p>{{ post.content | strip_html | truncate: 170 }}</p>
     </article>
