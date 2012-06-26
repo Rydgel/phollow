@@ -12,13 +12,13 @@ layout: layout
       </div>
       <cite class="omega three columns entry-meta">
         <p>
-          <time datetime="{{ page.date }}" pubdate class="updated">
-            {{ page.date | date: "%B %e, %Y" }}</time>
-            <br>
-          {{ page.categories | render_category }}</p>
+          <time datetime="{{ page.date }}" pubdate class="updated ss-globe">{{ page.date | date: "%B %e, %Y" }}</time>
+          <br>
+          <span class="ss-tag">{{ page.categories | render_category }}</span>
+        </p>
         </cite>
       <footer class="share alpha twelve columns offset-by-three">
-      <a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ page.title }}" data-count="horizontal" data-via="phollow" data-lang="fr">Tweet</a>
+      <a id="tweet" href="http://twitter.com/?status={{ page.title | url_encode }}%20http%3A%2F%2Fphollow.fr{{ page.url | url_encode }}%20via%20%40phollow" class="ss-twitter twitter-button">&nbsp;Partager</a>
       </footer>
     </article>
       <hr>
