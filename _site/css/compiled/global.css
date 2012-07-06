@@ -645,8 +645,8 @@ article figure figcaption strong {
 }
 
 .single-page {
-  /*font-size: 1.313em;*/
-  font-size: 1.188em;
+  font-size: 1.313em;
+  /*font-size: 1.188em;*/
 }
 
 a.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
