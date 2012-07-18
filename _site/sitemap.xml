@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://phollow.fr/2008/10/une-introduction-a-cakephp</loc>
-        <lastmod>2012-07-18T14:27:36+02:00</lastmod>
+        <lastmod>2012-07-18T20:04:04+02:00</lastmod>
     </url>
     <url>
         <loc>http://phollow.fr/2008/11/un-exemple-dutilisation-de-chroot-reinstaller-grub</loc>
@@ -728,7 +728,7 @@
     </url>
     <url>
         <loc>http://phollow.fr/2012/06/sur-levolution-du-css-et-pourquoi-ne-pas-attendre</loc>
-        <lastmod>2012-07-18T19:30:01+02:00</lastmod>
+        <lastmod>2012-07-18T20:06:53+02:00</lastmod>
     </url>
     <url>
         <loc>http://phollow.fr/404.html</loc>
@@ -736,10 +736,10 @@
     </url>
     <url>
         <loc>http://phollow.fr/archives/</loc>
-        <lastmod>2012-07-18T19:30:01+02:00</lastmod>
+        <lastmod>2012-07-18T20:06:53+02:00</lastmod>
     </url>
     <url>
         <loc>http://phollow.fr/</loc>
-        <lastmod>2012-07-18T19:30:01+02:00</lastmod>
+        <lastmod>2012-07-18T20:06:53+02:00</lastmod>
     </url>
 </urlset>

@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-07-18T20:00:51+02:00</updated>
+  <updated>2012-07-18T20:07:07+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -24,7 +24,7 @@
     </author>
     <content type="html">&lt;div&gt;
 &lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;https://static.phollow.fr/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://static.phollow.fr/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 
