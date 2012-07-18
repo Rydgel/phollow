@@ -17,10 +17,10 @@ tags:
 
 <p style="text-align: justify;">Bon maintenant que je suis enfin satisfait avec mon installation de <a href="http://dwm.suckless.org/">Dwm</a>, je vais pouvoir la partager avec vous. Dwm est aussi un tiling Wm comme Xmonad, Awesome etc. Mais il est assez léger et ne nécessite pas de dépendances énormes (il est écrit en C).</p>
 <p style="text-align: justify;">J'avais déjà parlé sur un précédent billet, de l'<a href="http://phollow.fr/2010/02/dwm/">installation et de la personnalisation de Dwm</a>. Là aujourd'hui je vous propose la config qui tourne en ce moment sur mon poste. Histoire de mettre en pratique le tuto. C'est aussi plus facile de partir d'un exemple concret quand on veut s'essayer à un nouveau Wm, pas vrai ?</p>
-<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234429_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2266" title="2010-04-05-234429_1440x900_scrot" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234429_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
-<p style="text-align: justify;"><!--more--><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-233640_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2268" title="2010-04-05-233640_1440x900_scrot" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-233640_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
+<p style="text-align: justify;"><a href="http://static.phollow.fr/2010/04/2010-04-05-234429_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2266" title="2010-04-05-234429_1440x900_scrot" src="http://static.phollow.fr/2010/04/2010-04-05-234429_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
+<p style="text-align: justify;"><!--more--><a href="http://static.phollow.fr/2010/04/2010-04-05-233640_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2268" title="2010-04-05-233640_1440x900_scrot" src="http://static.phollow.fr/2010/04/2010-04-05-233640_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
 <p style="text-align: center;"><em>Featuring le <a href="http://frederic.bezies.free.fr/blog/">blog</a> de Frederic Bezies. En plus il est fan de NIИ donc bon.. ;) </em></p>
-<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234207_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2267" title="2010-04-05-234207_1440x900_scrot" src="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/2010-04-05-234207_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
+<p style="text-align: justify;"><a href="http://static.phollow.fr/2010/04/2010-04-05-234207_1440x900_scrot.jpg"><img class="aligncenter size-medium wp-image-2267" title="2010-04-05-234207_1440x900_scrot" src="http://static.phollow.fr/2010/04/2010-04-05-234207_1440x900_scrot-595x371.jpg" alt="" width="595" height="371" /></a></p>
 <p style="text-align: justify;">Ne vous inquiétez pas, la configuration simple de Dwm ne nécessite pas de grandes connaissances en C. Après si vous voulez aller plus loin et hacker le logiciel dans ce cas oui il faut avoir quelques bases ;)</p>
 
 <h1>Première étape</h1>
@@ -170,11 +170,11 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };</code></pre>
-<a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/config.h">config.h</a>
+<a href="http://static.phollow.fr/2010/04/config.h">config.h</a>
 <p style="text-align: justify;">J'ai inclus trois fichiers .c pour rajouter des fonctionnalités, tel que d'autres layouts (placement des fenêtres). Je vous les upload ici aussi :</p>
-<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/bstack.c">bstack.c</a></p>
-<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/push.c">push.c</a></p>
-<p style="text-align: justify;"><a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/nbalanced.c">nbalanced.c</a></p>
+<p style="text-align: justify;"><a href="http://static.phollow.fr/2010/04/bstack.c">bstack.c</a></p>
+<p style="text-align: justify;"><a href="http://static.phollow.fr/2010/04/push.c">push.c</a></p>
+<p style="text-align: justify;"><a href="http://static.phollow.fr/2010/04/nbalanced.c">nbalanced.c</a></p>
 <p style="text-align: justify;">Ensuite (pas obligatoire) on peut rajouter un petit patch, pour avoir ce petit espace entre les fenêtres (c'est la variable gappx dans le code source du config.h). Ce patch est à appliquer au fichier dwm.c</p>
 
 <pre lang="diff"><code>--- a/dwm.c	2009-09-28 03:20:23.000000000 +0800
@@ -263,7 +263,7 @@ TEXT
 ${if_empty ${exec awk '{print $2}' /proc/acpi/ac_adapter/ACAD/state | grep 'on-line'}}^i(/home/rydgel/dwm/dzen/bat_full_01.xpm)${else}^i(/home/rydgel/dwm/dzen/ac_01.xpm)${endif} ${battery_percent BAT1}%  ^i(/home/rydgel/dwm/dzen/cpu.xpm) ${cpu cpu1}% ^i(/home/rydgel/dwm/dzen/mem.xpm) ${memperc}%  ^i(/home/rydgel/dwm/dzen/temp.xpm) ${acpitemp}°C ^i(/home/rydgel/dwm/dzen/fs_01.xpm) sda ${fs_used_perc /}% sdb ${fs_used_perc /home}%  ^i(/home/rydgel/dwm/dzen/arch.xpm) ${execpi 900 ~/scripts/pacman-up.pl} • ${if_existing /proc/net/route wlan0}^i(/home/rydgel/dwm/dzen/wifi_01.xpm) ^i(/home/rydgel/dwm/dzen/net_down_03.xpm) ${downspeedf wlan0} ^i(/home/rydgel/dwm/dzen/net_up_03.xpm) ${upspeedf wlan0}${else}${if_existing /proc/net/route eth0}^i(/home/rydgel/dwm/dzen/wired.xpm) ^i(/home/rydgel/dwm/dzen/net_down_03.xpm) ${downspeedf eth0} ^i(/home/rydgel/dwm/dzen/net_up_03.xpm) ${upspeedf eth0}${endif}${endif} • ^fg(\#E0E0E0)${time %H:%M}^fg()</code></pre>
 À vous de modifier un peu le code pour que ça marche chez vous bien sûr. Si vous voulez les petites icônes, je les upload ici :
 
-<a href="http://s3-eu-west-1.amazonaws.com/phollow/2010/04/dzen-icons.zip">dzen-icons.zip</a>
+<a href="http://static.phollow.fr/2010/04/dzen-icons.zip">dzen-icons.zip</a>
 <p style="text-align: justify;">Vous avez besoin du programme <strong>dmenu</strong> pour lancer les programmes.</p>
 <p style="text-align: justify;">Ah et enfin voici mon .xinitrc, qui est le petit script qui va s'occuper de lancer Dwm et ses copains à l'ouverture de X :</p>
 

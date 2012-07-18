@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-07-15T21:28:53+02:00</updated>
+  <updated>2012-07-18T20:00:51+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -24,7 +24,7 @@
     </author>
     <content type="html">&lt;div&gt;
 &lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;https://static.phollow.fr/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 
@@ -123,7 +123,7 @@ font-size: $fontsize;
     </author>
     <content type="html">&lt;div&gt;
 &lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;https://static.phollow.fr/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
@@ -216,7 +216,7 @@ fleurs, fille, off.
 &lt;/p&gt;
 
 
-&lt;p&gt;Vous devriez voir trois ligatures ci-dessus si votre navigateur supporte ces réglages, sinon vous pouvez toujours allez voir sur cette &lt;a href=&quot;https://s3-eu-west-1.amazonaws.com/phollow/2012/05/ligatures.png&quot; title=&quot;ligatures-phollow&quot;&gt;image&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vous devriez voir trois ligatures ci-dessus si votre navigateur supporte ces réglages, sinon vous pouvez toujours allez voir sur cette &lt;a href=&quot;https://static.phollow.fr/2012/05/ligatures.png&quot; title=&quot;ligatures-phollow&quot;&gt;image&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;font-feature-settings&lt;/h3&gt;
 
@@ -267,7 +267,7 @@ fleurs, fille, off.
       <uri>http://phollow.fr/</uri>
     </author>
     <content type="html">&lt;div&gt;
-&lt;figure&gt;&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/05/dr_jekyll_mr_hyde_low.jpg&quot; title=&quot;jekyll&quot; class=&quot;alignnone size-full&quot;&gt;&lt;/figcaption&gt;
+&lt;figure&gt;&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://static.phollow.fr/2012/05/dr_jekyll_mr_hyde_low.jpg&quot; title=&quot;jekyll&quot; class=&quot;alignnone size-full&quot;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 
@@ -387,7 +387,7 @@ fleurs, fille, off.
     </author>
     <content type="html">&lt;div&gt;
 &lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/02/sass.gif&quot; title=&quot;sass&quot; class=&quot;alignnone size-full&quot;&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://static.phollow.fr/2012/02/sass.gif&quot; title=&quot;sass&quot; class=&quot;alignnone size-full&quot;&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
@@ -607,7 +607,7 @@ sass --watch default.scss
     </author>
     <content type="html">&lt;div&gt;
 &lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2012/02/necroscope.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://static.phollow.fr/2012/02/necroscope.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 
@@ -655,38 +655,38 @@ sass --watch default.scss
 &lt;p&gt;Aujourd’hui je vais donc vous montrer quelques polices sans empattements que je trouve plutôt cool. Donc si vous en avez un peu marre &lt;em&gt;d’Helvetica&lt;/em&gt; ou &lt;em&gt;d’Arial&lt;/em&gt;, n’hésitez pas à les tester. Ces fonts ont été trouvés, à l’image de l’article précédent, sur &lt;a title=&quot;Typekit&quot; href=&quot;http://typekit.com&quot;&gt;Typekit&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;LFT Etica Web &amp;amp; PT Sans&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;LFT Etica Web&lt;/strong&gt; est une police moins froide que ces consoeurs, presque de type humaniste. Elle se décline sous 16 graisses/styles différents et peut être utilisée pour du texte ou des &lt;em&gt;headings&lt;/em&gt;.&lt;/p&gt;
-&lt;img style=&quot;margin-bottom: 20px;&quot;  src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/LFTEtica_0-640x285.gif&quot; alt=&quot;&quot; title=&quot;LFTEtica_0&quot; width=&quot;640&quot; height=&quot;285&quot; class=&quot;alignnone size-medium wp-image-3788&quot;&gt;
+&lt;img style=&quot;margin-bottom: 20px;&quot;  src=&quot;http://static.phollow.fr/2011/11/LFTEtica_0-640x285.gif&quot; alt=&quot;&quot; title=&quot;LFTEtica_0&quot; width=&quot;640&quot; height=&quot;285&quot; class=&quot;alignnone size-medium wp-image-3788&quot;&gt;
 &lt;p&gt;&lt;strong&gt;PT Sans&lt;/strong&gt; est une font au look moderne et humaniste. Là encore, elle possède plusieurs familles et styles et peut donc s’adapter à l’usage. Par exemple la famille &lt;em&gt;caption&lt;/em&gt; sera utilisée pour les petits textes.&lt;/p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-29-à-13.27.532.jpg&quot; alt=&quot;&quot; title=&quot;Capture d’écran 2011-11-29 à 13.27.53&quot; class=&quot;alignnone size-full wp-image-3793&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-29-à-13.27.532.jpg&quot; alt=&quot;&quot; title=&quot;Capture d’écran 2011-11-29 à 13.27.53&quot; class=&quot;alignnone size-full wp-image-3793&quot;&gt;
 &lt;figure&gt;
-&lt;p&gt;&lt;a href=&quot;http://jonikorpi.com&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-29-à-13.06.37-640x463.jpg&quot; alt=&quot;&quot; title=&quot;Joni Korpi&quot; width=&quot;640&quot; height=&quot;463&quot; class=&quot;alignnone size-medium wp-image-3782&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://jonikorpi.com&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-29-à-13.06.37-640x463.jpg&quot; alt=&quot;&quot; title=&quot;Joni Korpi&quot; width=&quot;640&quot; height=&quot;463&quot; class=&quot;alignnone size-medium wp-image-3782&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figcaption&gt;Sur le site web de Joni Korpi, on peut voir l’utilisation de ces deux polices. Avec LFT Etica Web pour les titres et PT Sans pour le corps de texte.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;h3&gt;Proxima Nova&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Proxima Nova&lt;/strong&gt; (2005) est une refonte complète de Sans Proxima (1994). Les six polices originales (trois poids avec italique) ont été élargies à 42 polices OpenType complet. Proxima Nova chevauche l'écart entre les fontes comme Futura et Akzidenz Grotesk. Le résultat est un hybride combinant des proportions humanistes avec un aspect un peu géométrique.&lt;/p&gt;
 &lt;figure&gt;
-&lt;a href=&quot;http://sparrowmailapp.com/&quot; title=&quot;Sparrow Mail&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-29-à-13.36.23-640x297.jpg&quot; alt=&quot;&quot; title=&quot;Proxima Nova&quot; width=&quot;640&quot; height=&quot;297&quot; class=&quot;alignnone size-medium wp-image-3797&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;http://sparrowmailapp.com/&quot; title=&quot;Sparrow Mail&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-29-à-13.36.23-640x297.jpg&quot; alt=&quot;&quot; title=&quot;Proxima Nova&quot; width=&quot;640&quot; height=&quot;297&quot; class=&quot;alignnone size-medium wp-image-3797&quot;&gt;&lt;/a&gt;
 
-&lt;a href=&quot;http://penguincreative.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-30-à-00.42.44-640x380.jpg&quot; alt=&quot;&quot; title=&quot;Capture d’écran 2011-11-30 à 00.42.44&quot; width=&quot;640&quot; height=&quot;380&quot; class=&quot;alignnone size-medium wp-image-3817&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;http://penguincreative.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-30-à-00.42.44-640x380.jpg&quot; alt=&quot;&quot; title=&quot;Capture d’écran 2011-11-30 à 00.42.44&quot; width=&quot;640&quot; height=&quot;380&quot; class=&quot;alignnone size-medium wp-image-3817&quot;&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;h3&gt;FF Dagny Web Pro&lt;/h3&gt;
 &lt;p&gt;En 2002, le journal suédois Dagens Nyheter (DN) a migré du format broadsheet vers un format tabloïde. Le changement au format tabloïde a rendu le cadre plus compact et Pangea a été mandaté pour produire un correspondant sans-serif pour le journal Suédois. Cela est devenu DN Grotesk, qui a maintenant évolué en &lt;strong&gt;FF Dagny&lt;/strong&gt;. Conçu par Örjan Nordling et Söderström Göran.&lt;/p&gt;
 &lt;figure&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.thedesigncubicle.com/&quot; title=&quot;The Design Cubicle&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-30-à-00.37.09-640x515.jpg&quot; alt=&quot;&quot; title=&quot;The Design Cubicle&quot; width=&quot;640&quot; height=&quot;515&quot; class=&quot;alignnone size-medium wp-image-3815&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.thedesigncubicle.com/&quot; title=&quot;The Design Cubicle&quot;&gt;&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-30-à-00.37.09-640x515.jpg&quot; alt=&quot;&quot; title=&quot;The Design Cubicle&quot; width=&quot;640&quot; height=&quot;515&quot; class=&quot;alignnone size-medium wp-image-3815&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;h3&gt;Myriad Pro&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Myriad Pro&lt;/strong&gt;, un grand classique d‘Adobe est aussi disponible sur Typekit. 10 fonts au total (5 graisses différentes).&lt;/p&gt;
 &lt;figure&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.warbyparker.com/&quot; title=&quot;Warby Parker&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-30-à-00.50.48-640x355.jpg&quot; alt=&quot;&quot; title=&quot;Warby Parker&quot; width=&quot;640&quot; height=&quot;355&quot; class=&quot;alignnone size-medium wp-image-3820&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.warbyparker.com/&quot; title=&quot;Warby Parker&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-30-à-00.50.48-640x355.jpg&quot; alt=&quot;&quot; title=&quot;Warby Parker&quot; width=&quot;640&quot; height=&quot;355&quot; class=&quot;alignnone size-medium wp-image-3820&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figcaption&gt;Principalement utilisée sur ce site pour le corps de texte et quelques &lt;em&gt;headlines&lt;/em&gt;.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h3&gt;Ratio&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Ratio&lt;/strong&gt; est disponible en 6 graisses allant de minces à lourdes avec les italiques pour chaques. Que ce soit sur ​​papier ou sur écran, Ratio ajoute un niveau de sophistication et de polyvalence qui fait ressortir le meilleur dans n’importe quel design.&lt;/p&gt;
 &lt;figure&gt;
-&lt;p&gt;&lt;a href=&quot;http://cargocollective.com/pstype#39674/Ratio&quot; title=&quot;Ratio&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-30-à-01.00.40.jpg&quot; alt=&quot;&quot; title=&quot;Ratio&quot; width=&quot;640&quot; height=&quot;564&quot; class=&quot;alignnone size-full wp-image-3822&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://cargocollective.com/pstype#39674/Ratio&quot; title=&quot;Ratio&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-30-à-01.00.40.jpg&quot; alt=&quot;&quot; title=&quot;Ratio&quot; width=&quot;640&quot; height=&quot;564&quot; class=&quot;alignnone size-full wp-image-3822&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figcaption&gt;Disponible aussi sur Typekit, avec la variante &lt;a href=&quot;http://cargocollective.com/pstype#197264/Ratio-Display-new&quot; title=&quot;Ratio Display&quot; target=&quot;_blank&quot;&gt;Ratio Display&lt;/a&gt;.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;Et voilà. Ce n’est qu’un petit échantillon des polices disponibles pour &lt;em&gt;font-face&lt;/em&gt;, à l’heure où j’écris ces lignes, je compte plus de 140 sans-serifs sur Typekit. Pour le prochain article, je prépare une collection de &lt;strong&gt;slab-serifs&lt;/strong&gt;.&lt;/p&gt;</content>
@@ -708,7 +708,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;h3&gt;320 and up&lt;/h3&gt;
 &lt;figure&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-21-à-12.57.571-822x450.jpg&quot; alt=&quot;&quot; title=&quot;320-and-up&quot; width=&quot;822&quot; height=&quot;450&quot; class=&quot;alignnone size-medium wp-image-3729&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-21-à-12.57.571-822x450.jpg&quot; alt=&quot;&quot; title=&quot;320-and-up&quot; width=&quot;822&quot; height=&quot;450&quot; class=&quot;alignnone size-medium wp-image-3729&quot;&gt;
 &lt;/p&gt;
 &lt;figcaption&gt;
 &lt;strong&gt;320 and up&lt;/strong&gt; est un template basé sur &lt;strong&gt;HTML5 Boilerplate&lt;/strong&gt; et la grid de &lt;strong&gt;Less Framework 4&lt;/strong&gt;. 
@@ -718,7 +718,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;h3&gt;1140 CSS Grid&lt;/h3&gt;
 &lt;figure&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-21-à-13.08.58-832x376.jpg&quot; alt=&quot;&quot; title=&quot;1140&quot; width=&quot;832&quot; height=&quot;376&quot; class=&quot;alignnone size-medium wp-image-3739&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-21-à-13.08.58-832x376.jpg&quot; alt=&quot;&quot; title=&quot;1140&quot; width=&quot;832&quot; height=&quot;376&quot; class=&quot;alignnone size-medium wp-image-3739&quot;&gt;
 &lt;/p&gt;
 &lt;figcaption&gt;
 &lt;strong&gt;1140 CSS Grid&lt;/strong&gt; se base sur la résolution d’un moniteur de 1280 de large, et se réduit de manière &lt;strong&gt;fluide&lt;/strong&gt; sur les plus petites résolutions.
@@ -728,7 +728,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;h3&gt;Less Framework 4&lt;/h3&gt;
 &lt;figure&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-21-à-13.15.03-832x399.jpg&quot; alt=&quot;&quot; title=&quot;Less Framework 4&quot; width=&quot;832&quot; height=&quot;399&quot; class=&quot;alignnone size-medium wp-image-3742&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-21-à-13.15.03-832x399.jpg&quot; alt=&quot;&quot; title=&quot;Less Framework 4&quot; width=&quot;832&quot; height=&quot;399&quot; class=&quot;alignnone size-medium wp-image-3742&quot;&gt;
 &lt;/p&gt;
 &lt;figcaption&gt;
 &lt;strong&gt;Less Framework 4&lt;/strong&gt; permet de construire des sites web qui s’adaptent aux différents devices grâce à 4 templates et 3 pré-réglages typographiques.
@@ -738,7 +738,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;h3&gt;Mobile Boilerplate&lt;/h3&gt;
 &lt;figure&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-21-à-13.21.14-832x442.jpg&quot; alt=&quot;&quot; title=&quot;Mobile Boilerplate&quot; width=&quot;832&quot; height=&quot;442&quot; class=&quot;alignnone size-medium wp-image-3745&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-21-à-13.21.14-832x442.jpg&quot; alt=&quot;&quot; title=&quot;Mobile Boilerplate&quot; width=&quot;832&quot; height=&quot;442&quot; class=&quot;alignnone size-medium wp-image-3745&quot;&gt;
 &lt;/p&gt;
 &lt;figcaption&gt;
 &lt;strong&gt;Mobile Boilerplate&lt;/strong&gt; est une collection de CSS, HTML et diverses bibliothèques Javascript permettant de bien démarrer un projet web mobile.
@@ -748,7 +748,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;h3&gt;Skeleton&lt;/h3&gt;
 &lt;figure&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-21-à-13.24.19-750x450.jpg&quot; alt=&quot;&quot; title=&quot;Skeleton&quot; width=&quot;750&quot; height=&quot;450&quot; class=&quot;alignnone size-medium wp-image-3747&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-21-à-13.24.19-750x450.jpg&quot; alt=&quot;&quot; title=&quot;Skeleton&quot; width=&quot;750&quot; height=&quot;450&quot; class=&quot;alignnone size-medium wp-image-3747&quot;&gt;
 &lt;/p&gt;
 &lt;figcaption&gt;
 &lt;strong&gt;Skeleton&lt;/strong&gt; contient une grille CSS et un style de base (typographie, formulaire, boutons…) pour commencer un projet.
@@ -758,7 +758,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;h3&gt;Golden Grid System&lt;/h3&gt;
 &lt;figure&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-21-à-13.28.08-832x344.jpg&quot; alt=&quot;&quot; title=&quot;Golden Grid System&quot; width=&quot;832&quot; height=&quot;344&quot; class=&quot;alignnone size-medium wp-image-3750&quot; /&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-21-à-13.28.08-832x344.jpg&quot; alt=&quot;&quot; title=&quot;Golden Grid System&quot; width=&quot;832&quot; height=&quot;344&quot; class=&quot;alignnone size-medium wp-image-3750&quot; /&gt;
 &lt;/p&gt;
 &lt;figcaption&gt;
 &lt;strong&gt;Golden Grid System&lt;/strong&gt; : Pour moi une des grilles adaptatives les plus propres. L’avantage de celle-ci est qu’elle conserve plusieurs colonnes tout le temps, même au format mobile.
@@ -768,7 +768,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;h3&gt;The Semantic Grid System&lt;/h3&gt;
 &lt;figure&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/Capture-d’écran-2011-11-21-à-13.36.24-832x386.jpg&quot; alt=&quot;&quot; title=&quot;The Semantic Grid System&quot; width=&quot;832&quot; height=&quot;386&quot; class=&quot;alignnone size-medium wp-image-3754&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-21-à-13.36.24-832x386.jpg&quot; alt=&quot;&quot; title=&quot;The Semantic Grid System&quot; width=&quot;832&quot; height=&quot;386&quot; class=&quot;alignnone size-medium wp-image-3754&quot;&gt;
 &lt;/p&gt;
 &lt;figcaption&gt;
 &lt;strong&gt;The Semantic Grid System&lt;/strong&gt; est intéressante dans le sens où c’est vous qui choisissez le nombres de colonnes, la taille des marges etc.
@@ -790,7 +790,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;img style=&quot;margin-top:0; margin-bottom: 20px;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/formula.png&quot; alt=&quot;&quot; title=&quot;formula&quot; width=&quot;700&quot; height=&quot;300&quot; class=&quot;alignnone size-full wp-image-3677&quot;&gt;
+    <content type="html">&lt;img style=&quot;margin-top:0; margin-bottom: 20px;&quot; src=&quot;http://static.phollow.fr/2011/11/formula.png&quot; alt=&quot;&quot; title=&quot;formula&quot; width=&quot;700&quot; height=&quot;300&quot; class=&quot;alignnone size-full wp-image-3677&quot;&gt;
 &lt;p&gt;Quand on a pris la &lt;strong&gt;bonne&lt;/strong&gt; habitude de travailler sous un environnement Unix, il y a certains outils qui vous manquent &lt;em&gt;cruellement&lt;/em&gt; quand on se retrouve par exemple sur Mac OS/X. Ce système d’exploitation ne possède pas de gestionnaire de paquet comme &lt;span class=&quot;code&quot;&gt;apt-get&lt;/span&gt; sous Debian ou &lt;span class=&quot;code&quot;&gt;yum&lt;/span&gt; sous CentOS. Il existe heureusement des solutions, comme par exemple &lt;strong&gt;Macports&lt;/strong&gt;. J’en avais parlé &lt;a href=&quot;http://phollow.fr/2009/08/les-macports/&quot; title=&quot;Macports&quot;&gt;sur ce billet&lt;/a&gt; il y a quelques temps déjà.&lt;/p&gt;
 &lt;p&gt;Aujourd’hui j’utilise un autre gestionnaire de paquet s'appelant &lt;strong&gt;Homebrew&lt;/strong&gt;. Il se veut plus simple que Macports et diffère un peu dans sa manière de faire. Pour faire simple Homebrew va toujours essayer d'utiliser les librairies déjà sur le système pour compiler nos paquets. Cette manière de procéder possède des avantages et des inconvénients. L'avantage c'est que pour compiler un paquet, on ne va pas devoir compiler X librairies avant. L'inconvénient c'est que nos exécutables risquent grandement de planter après une mise à jour de l’OS ; les librairies de Mac OS/X étant mises à jour.&lt;/p&gt;
 &lt;p&gt;C'est donc un choix à faire. Et j’ai choisit Homebrew car je n'ai pas non plus 50 paquets à maintenir, une vingtaine tout au plus, et je ne mets pas mon système d’exploitation à jour tous les quatre matins.&lt;/p&gt;
@@ -801,7 +801,7 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
 &lt;pre&gt;&lt;code&gt;/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.github.com/gist/323731)&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Il va faire son &lt;em&gt;nid&lt;/em&gt; dans &lt;span class=&quot;code&quot;&gt;/usr/local&lt;/span&gt;, ce qui nous permettra d’installer des paquets sans passer par &lt;strong&gt;sudo&lt;/strong&gt;. De plus cet endroit est assez indépendant du système, on pourra donc facilement tout enlever si besoin. Il est bien sûr toujours possible de mettre tout ça ailleurs si vous préférez.&lt;/p&gt;
 &lt;h3&gt;Et ensuite on peut RTFM&lt;/h3&gt;
-&lt;figure&gt;&lt;p&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/11/RTFM.jpg&quot; alt=&quot;&quot; title=&quot;RTFM&quot; width=&quot;700&quot; height=&quot;464&quot; class=&quot;alignnone size-full wp-image-3704&quot; /&gt;&lt;/p&gt;&lt;figcaption&gt;J'admets avoir la flemme de tout vous expliquer, mais franchement il suffit de lire.&lt;/figcaption&gt;&lt;figure&gt;
+&lt;figure&gt;&lt;p&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://static.phollow.fr/2011/11/RTFM.jpg&quot; alt=&quot;&quot; title=&quot;RTFM&quot; width=&quot;700&quot; height=&quot;464&quot; class=&quot;alignnone size-full wp-image-3704&quot; /&gt;&lt;/p&gt;&lt;figcaption&gt;J'admets avoir la flemme de tout vous expliquer, mais franchement il suffit de lire.&lt;/figcaption&gt;&lt;figure&gt;
 &lt;p&gt;Pour avoir la liste complète de ce qu’il est possible d’installer, on peut se rendre sur GitHub, sur &lt;a href=&quot;https://github.com/mxcl/homebrew/tree/master/Library/Formula/&quot; title=&quot;Homebrew Formula List&quot; target=&quot;_blank&quot;&gt;cette page&lt;/a&gt;. À savoir que vous pouvez créer vos propres formules et la proposer à la communauté si vous voyez un manque. Homebrew m’a servi pour installer quelques paquets toujours pratiques comme &lt;span class=&quot;code&quot;&gt;git&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;ffmpeg&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;x264&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;mongodb&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;redis&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;htop&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;wget&lt;/span&gt;…
 &lt;p&gt;&lt;a href=&quot;http://mxcl.github.com/homebrew/&quot; title=&quot;Homebrew&quot; target=&quot;_blank&quot;&gt;Site web de Homebrew&lt;/a&gt;.&lt;/p&gt;</content>
   </entry>
@@ -824,25 +824,25 @@ J'ai donc décidé dans cet article de vous présenter ma série de polices web 
 &lt;h3&gt;FF Meta Serif Web Pro&lt;/h3&gt;
 &lt;p&gt;Cette police a été créee en partant de la version sans-serif de base (FF Meta). Elle a été développée en 3 ans par 3 designers Erik Spiekermann, Christian Schwartz &lt;em&gt;&amp;amp;&lt;/em&gt; Kris Sowersby.&lt;/p&gt;
 
-&lt;figure&gt;&lt;a title=&quot;Trent Walton&quot; href=&quot;http://trentwalton.com/info/&quot; target=&quot;_blank&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3607&quot; title=&quot;Trent Walton&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/10/Capture-d’écran-2011-10-23-à-19.34.42.jpg&quot; alt=&quot;Trent Walton&quot; width=&quot;700&quot; height=&quot;339&quot; /&gt;&lt;/a&gt;
+&lt;figure&gt;&lt;a title=&quot;Trent Walton&quot; href=&quot;http://trentwalton.com/info/&quot; target=&quot;_blank&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3607&quot; title=&quot;Trent Walton&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-19.34.42.jpg&quot; alt=&quot;Trent Walton&quot; width=&quot;700&quot; height=&quot;339&quot; /&gt;&lt;/a&gt;
 
 &lt;figcaption&gt;&lt;strong&gt;Fig. 1:&lt;/strong&gt; Le blog personnel de Trent Walton utilise cette police à 100%. Elle rend bien à n'importe quelle taille que ça soit pour les paragraphes ou les headings grâce notamment à son « x-height » élevé.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;Adobe Minion Pro&lt;/h3&gt;
 &lt;p&gt;Une police Adobe désignée par Robert Slimbach dans les années 90. Elle a le style des polices utilisées dans les livres pendant la Renaissance. Minion est élégante et très lisible.&lt;/p&gt;
 
-&lt;figure&gt;&lt;a href=&quot;http://robweychert.com/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3616&quot; title=&quot;http://robweychert.com/&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/10/Capture-d’écran-2011-10-23-à-20.00.43.jpg&quot; alt=&quot;http://robweychert.com/&quot; width=&quot;701&quot; height=&quot;465&quot; /&gt;&lt;/a&gt;
+&lt;figure&gt;&lt;a href=&quot;http://robweychert.com/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3616&quot; title=&quot;http://robweychert.com/&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-20.00.43.jpg&quot; alt=&quot;http://robweychert.com/&quot; width=&quot;701&quot; height=&quot;465&quot; /&gt;&lt;/a&gt;
 
 &lt;figcaption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Le blog de Rob Weychert l'utilise dans ces paragraphes.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;FF Tisa Web Pro&lt;/h3&gt;
 &lt;p&gt;Dessinée par Mitja Miklavčič pour l'usage dans des magazines modernes. Un &lt;em&gt;« x-height »&lt;/em&gt; large et des serifs prononcés améliorent la lisibilité. Et je trouve vraiment la version italique jolie.&lt;/p&gt;
 
-&lt;figure&gt;&lt;a href=&quot;http://simplebits.com/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3621&quot; title=&quot;Simplebits&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/10/Capture-d’écran-2011-10-23-à-20.23.03.jpg&quot; alt=&quot;Simplebits&quot; width=&quot;700&quot; height=&quot;340&quot; /&gt;&lt;/a&gt;
+&lt;figure&gt;&lt;a href=&quot;http://simplebits.com/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3621&quot; title=&quot;Simplebits&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-20.23.03.jpg&quot; alt=&quot;Simplebits&quot; width=&quot;700&quot; height=&quot;340&quot; /&gt;&lt;/a&gt;
 
 &lt;figcaption&gt;&lt;strong&gt;Fig. 3:&lt;/strong&gt; Dan Cederholm l'utilise dans les paragraphes de ces articles.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;Skolar Web&lt;/h3&gt;
 &lt;p&gt;Skolar, la police primée conçue par David Březina, est une serif qui a été désignée à l'origine pour des publications savantes et multilingues. La police maintient sa crédibilité tout en incorporant un style subtil personnel.&lt;/p&gt;
 
-&lt;figure&gt;&lt;a href=&quot;http://elliotjaystocks.com/about/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3626&quot; title=&quot;http://elliotjaystocks.com/about/&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/10/Capture-d’écran-2011-10-23-à-20.39.34.jpg&quot; alt=&quot;http://elliotjaystocks.com/about/&quot; width=&quot;700&quot; height=&quot;345&quot; /&gt;&lt;/a&gt;
+&lt;figure&gt;&lt;a href=&quot;http://elliotjaystocks.com/about/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3626&quot; title=&quot;http://elliotjaystocks.com/about/&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-20.39.34.jpg&quot; alt=&quot;http://elliotjaystocks.com/about/&quot; width=&quot;700&quot; height=&quot;345&quot; /&gt;&lt;/a&gt;
 
 &lt;figcaption&gt;&lt;strong&gt;Fig. 4:&lt;/strong&gt; Elliot Jay Stocks utilise cette police à toutes les sauces. Dans les paragraphes ou les titres en majuscules avec un letter-spacing etc.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;FF Scala Web&lt;/h3&gt;
@@ -868,7 +868,7 @@ Toutes ces &lt;em&gt;fonts&lt;/em&gt; sont disponibles sur &lt;a title=&quot;Typ
     <content type="html">&lt;p&gt;En typographie, la &lt;strong&gt;césure&lt;/strong&gt; est l'art de couper un mot de telle manière à ce qu'il entre dans la justification. Cette pratique est utilisée dans les livres et depuis peu de temps possible aussi sur le web.&lt;/p&gt;
 &lt;p&gt;On a inventé ce système pour pouvoir mettre plus de mots sur une page donc économiser du papier à l'imprimerie et améliorer la justification. Même si on n'utilise pas de papier sur le web, on peut toujours gagner de la place et améliorer l'aspect général de la typographie.&lt;/p&gt;
 &lt;p&gt;Parfois les textes justifiés sont vraiment horribles sur les pages web, avec des &lt;em&gt;rivières&lt;/em&gt; monstrueuses. Les &lt;strong&gt;césures&lt;/strong&gt; améliorent nettement ça, donc passons maintenant au code.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/10/books-900x600.jpg&quot; alt=&quot;&quot; title=&quot;books&quot; width=&quot;900&quot; height=&quot;600&quot; class=&quot;alignnone size-large wp-image-3563&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.phollow.fr/2011/10/books-900x600.jpg&quot; alt=&quot;&quot; title=&quot;books&quot; width=&quot;900&quot; height=&quot;600&quot; class=&quot;alignnone size-large wp-image-3563&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;Nouvelle méthode CSS3&lt;/h3&gt;
 &lt;pre&gt;
 &lt;code&gt;
@@ -899,7 +899,7 @@ p {
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;img style=&quot;margin-top:0;&quot; class=&quot;alignnone size-full wp-image-3503&quot; title=&quot;css&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/10/css.png&quot; alt=&quot;&quot; width=&quot;832&quot; height=&quot;300&quot; /&gt;
+    <content type="html">&lt;img style=&quot;margin-top:0;&quot; class=&quot;alignnone size-full wp-image-3503&quot; title=&quot;css&quot; src=&quot;http://static.phollow.fr/2011/10/css.png&quot; alt=&quot;&quot; width=&quot;832&quot; height=&quot;300&quot; /&gt;
 &lt;h3&gt;Qu'est-ce que c'est ?&lt;/h3&gt;
 &lt;p&gt;Le module CSS &lt;em&gt;multi-colums&lt;/em&gt; permet de diviser un long flux de texte en plusieurs colonnes de manière automatique. Et donc nous n'avons pas besoin, par exemple, pour 3 colonnes de créer 3 conteneurs. Cette technique est beaucoup utilisée dans les journaux ou les magazines mais encore très peu sur le web.&lt;/p&gt;
 
@@ -1048,7 +1048,7 @@ p {
 
 &lt;h3&gt;FitText&lt;/h3&gt;
 
-&lt;div&gt;&lt;img class=&quot;alignnone size-medium wp-image-3487&quot; title=&quot;Capture d’écran 2011-09-06 à 11.23.57&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/Capture-d’écran-2011-09-06-à-11.23.57-832x415.jpg&quot; alt=&quot;&quot; width=&quot;832&quot; height=&quot;415&quot; /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;img class=&quot;alignnone size-medium wp-image-3487&quot; title=&quot;Capture d’écran 2011-09-06 à 11.23.57&quot; src=&quot;http://static.phollow.fr/2011/08/Capture-d’écran-2011-09-06-à-11.23.57-832x415.jpg&quot; alt=&quot;&quot; width=&quot;832&quot; height=&quot;415&quot; /&gt;&lt;/div&gt;
 &amp;nbsp;
 
 &lt;p&gt;&lt;a title=&quot;FitText.js&quot; href=&quot;http://fittextjs.com/&quot; target=&quot;_blank&quot;&gt;FitText.js&lt;/a&gt; est un plugin jQuery permettant de rendre les tailles de polices flexibles. Je l'utilise pour certains headers. Ce plugin va les redimensionner par rapport à la taille du conteneur. Pratique.&lt;/p&gt;
@@ -1072,22 +1072,22 @@ p {
     </author>
     <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;Wallpapers of the Week : 8 août 2011.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;span id=&quot;title_div5055987677&quot; class=&quot;upper&quot; style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://www.flickr.com/photos/22890143@N04/5055987677/in/photostream/&quot; target=&quot;_blank&quot;&gt;NY state of mind vs LA state of mind&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3415&quot; title=&quot;5055987677_6e9166ddc1_b&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/5055987677_6e9166ddc1_b-804x554.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;554&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3415&quot; title=&quot;5055987677_6e9166ddc1_b&quot; src=&quot;http://static.phollow.fr/2011/08/5055987677_6e9166ddc1_b-804x554.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;554&quot; /&gt;&lt;/p&gt;
 &lt;!--more--&gt;
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://liqui.deviantart.com/art/green-ish-244638331&quot;&gt;green...ish?&lt;/a&gt; &lt;small&gt;by ~&lt;a href=&quot;http://liqui.deviantart.com/&quot;&gt;liqui&lt;/a&gt;&lt;/small&gt;&lt;/span&gt;
-&lt;img class=&quot;alignnone size-medium wp-image-3416&quot; title=&quot;green___ish__by_liqui-d41ng57&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/green___ish__by_liqui-d41ng57-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;
+&lt;img class=&quot;alignnone size-medium wp-image-3416&quot; title=&quot;green___ish__by_liqui-d41ng57&quot; src=&quot;http://static.phollow.fr/2011/08/green___ish__by_liqui-d41ng57-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;
 
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://zim2687.deviantart.com/art/Grape-Leaves-214266009&quot;&gt;Grape Leaves&lt;/a&gt; &lt;small&gt;by ~&lt;a href=&quot;http://zim2687.deviantart.com/&quot;&gt;Zim2687&lt;/a&gt;&lt;/small&gt;&lt;/span&gt;
 
-&lt;img class=&quot;alignnone size-medium wp-image-3420&quot; title=&quot;2560x1440 Grape Leaves by Zim2687&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/2560x1440-Grape-Leaves-by-Zim2687-537x302.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;302&quot; /&gt;
+&lt;img class=&quot;alignnone size-medium wp-image-3420&quot; title=&quot;2560x1440 Grape Leaves by Zim2687&quot; src=&quot;http://static.phollow.fr/2011/08/2560x1440-Grape-Leaves-by-Zim2687-537x302.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;302&quot; /&gt;
 
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://irvinggfm.deviantart.com/art/Icewind-Dale-215409803&quot;&gt;Icewind Dale&lt;/a&gt; &lt;small&gt;by *&lt;a href=&quot;http://irvinggfm.deviantart.com/&quot;&gt;IrvingGFM&lt;/a&gt;&lt;/small&gt;&lt;/span&gt;
 
-&lt;img class=&quot;alignnone size-medium wp-image-3422&quot; title=&quot;Icewind Dale 1440 x 900&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/Icewind-Dale-1440-x-900-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;
+&lt;img class=&quot;alignnone size-medium wp-image-3422&quot; title=&quot;Icewind Dale 1440 x 900&quot; src=&quot;http://static.phollow.fr/2011/08/Icewind-Dale-1440-x-900-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;
 
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://katz93.deviantart.com/art/Suong-Dem-212784766&quot;&gt;Suong Dem&lt;/a&gt; &lt;small&gt;by =&lt;a href=&quot;http://katz93.deviantart.com/&quot;&gt;kAtz93&lt;/a&gt;&lt;/small&gt;&lt;/span&gt;
 
-&lt;a href=&quot;http://www.flickr.com/photos/22890143@N04/5055987677/in/photostream/&quot; target=&quot;_blank&quot;&gt;&lt;img title=&quot;Suong Dem&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/Suong-Dem-537x339.png&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;339&quot; /&gt;&lt;/a&gt;</content>
+&lt;a href=&quot;http://www.flickr.com/photos/22890143@N04/5055987677/in/photostream/&quot; target=&quot;_blank&quot;&gt;&lt;img title=&quot;Suong Dem&quot; src=&quot;http://static.phollow.fr/2011/08/Suong-Dem-537x339.png&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;339&quot; /&gt;&lt;/a&gt;</content>
   </entry>
   
   <entry>
@@ -1102,13 +1102,13 @@ p {
     </author>
     <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;La team des designers Firefox ne cesse de rechercher à améliorer l'ergonomie du navigateur. Et aujourd'hui ils nous proposent des mockups de ce que pourrait ressembler les futures versions de Firefox 7 ou 8. Firefox 4 avait déjà vu son interface grandement changée, l'histoire risque encore de se répéter — &lt;em&gt;et c'est tant mieux !&lt;/em&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;Ces mockups ne seront pas forcément une image exacte des versions finales. Ils ont été réalisés avant tout dans une optique de recherche et de discussions. On peut voir sur ces premiers écrans la disparition de la barre de recherche, &lt;em&gt;que j'avais déjà enlevé personnellement la trouvant inutile&lt;/em&gt;, un nouveau style de menu et un mode plein-écran qui a l'air plutôt sympathique.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Mac.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3394&quot; title=&quot;Firefox 7 - 1&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Mac-804x536.jpg&quot; alt=&quot;Firefox 7 - 1&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/02-Firefox-Australis-Mac-FxMenu.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3395&quot; title=&quot;Firefox 7 - 2&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/02-Firefox-Australis-Mac-FxMenu-804x536.jpg&quot; alt=&quot;Firefox 7 - 2&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/03-Firefox-Australis-Mac-AddOns.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3396&quot; title=&quot;Firefox 7 - 3&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/03-Firefox-Australis-Mac-AddOns-804x536.jpg&quot; alt=&quot;Firefox 7 - 3&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/06-Firefox-Australis-Mac-Persona.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3397&quot; title=&quot;Firefox 7 - 4&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/06-Firefox-Australis-Mac-Persona-804x536.jpg&quot; alt=&quot;Firefox 7 - 4&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Mac-Fullscreen.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3398&quot; title=&quot;Firefox 7 - 5&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Mac-Fullscreen-804x536.jpg&quot; alt=&quot;Firefox 7 - 5&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Windows.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3400&quot; title=&quot;Firefox 7 - 6&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Windows-804x536.jpg&quot; alt=&quot;Firefox 7 - 6&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Windows-Fullscreen.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3401&quot; title=&quot;Firefox 7 - 7&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/08/01-Firefox-Australis-Windows-Fullscreen-804x536.jpg&quot; alt=&quot;Firefox 7 - 7&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3394&quot; title=&quot;Firefox 7 - 1&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac-804x536.jpg&quot; alt=&quot;Firefox 7 - 1&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/02-Firefox-Australis-Mac-FxMenu.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3395&quot; title=&quot;Firefox 7 - 2&quot; src=&quot;http://static.phollow.fr/2011/08/02-Firefox-Australis-Mac-FxMenu-804x536.jpg&quot; alt=&quot;Firefox 7 - 2&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/03-Firefox-Australis-Mac-AddOns.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3396&quot; title=&quot;Firefox 7 - 3&quot; src=&quot;http://static.phollow.fr/2011/08/03-Firefox-Australis-Mac-AddOns-804x536.jpg&quot; alt=&quot;Firefox 7 - 3&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/06-Firefox-Australis-Mac-Persona.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3397&quot; title=&quot;Firefox 7 - 4&quot; src=&quot;http://static.phollow.fr/2011/08/06-Firefox-Australis-Mac-Persona-804x536.jpg&quot; alt=&quot;Firefox 7 - 4&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac-Fullscreen.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3398&quot; title=&quot;Firefox 7 - 5&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac-Fullscreen-804x536.jpg&quot; alt=&quot;Firefox 7 - 5&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3400&quot; title=&quot;Firefox 7 - 6&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows-804x536.jpg&quot; alt=&quot;Firefox 7 - 6&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows-Fullscreen.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3401&quot; title=&quot;Firefox 7 - 7&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows-Fullscreen-804x536.jpg&quot; alt=&quot;Firefox 7 - 7&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Comme d'habitude ces expérimentations sont ouvertes et disponibles pour ceux qui veulent les tester. Mozilla a crée un nouveau build appelé Australis et téléchargeable à &lt;a title=&quot;Firefox 8 - Australis - UX&quot; href=&quot;https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-ux/&quot; target=&quot;_blank&quot;&gt;cette adresse&lt;/a&gt;. Ce build est une nightly, donc tous les jours une update pourra être téléchargée. La team UX Firefox déclare que c'est sur cette version que seront déposé leurs différents tests.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Maintenant je vais faire mon community manager en vous demandant ce que vous pensez de ces premiers concepts ? Pour ma part ça me plaît beaucoup même si on voit encore que Chrome a pas mal inspiré nos designers.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Via &lt;a title=&quot;Mozilla&quot; href=&quot;http://people.mozilla.com/~shorlander/ux-presentation/ux-presentation.html&quot; target=&quot;_blank&quot;&gt;Mozilla&lt;/a&gt;&lt;/p&gt;</content>
@@ -1127,10 +1127,10 @@ p {
     <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;Je joue beaucoup avec les dotfiles – ces petits fichiers cachés qui servent généralement à configurer un programme. Si vous aimez justement personnaliser votre système, vous en avez sans doute ouverts déjà pas mal. C'est là ou rentre en jeu &lt;a title=&quot;Dotshare.it&quot; href=&quot;http://dotshare.it/&quot; target=&quot;_blank&quot;&gt;Dotshare.it&lt;/a&gt;, un site web que l'on ma présenté il y a quelques temps.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Généralement il y a toujours un thread &lt;em&gt;Post your screenshot and configs&lt;/em&gt; sur les différents forum des distributions *nix. La config était généralement collée à l'arrache en dessous. Pas pratique pour les retrouver plus tard. Certains utilisent Github, ce qui me semble déjà une bonne évolution mais encore à un niveau en dessous de Dotshare, &lt;em&gt;qui lui est fait seulement pour ça&lt;/em&gt;.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;Dotshare.it veut donc faciliter le partage et la recherche de fichiers dotfiles. Ils sont triés par applications, avec une capture du résultat. On peut aller chercher tous les fichiers d'un utilisateur en particulier sur sa page profil, suivre cette personne pour être alerté des updates etc.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3376&quot; title=&quot;Capture d’écran 2011-07-27 à 13.24.27&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/07/Capture-d’écran-2011-07-27-à-13.24.27-537x376.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;376&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3376&quot; title=&quot;Capture d’écran 2011-07-27 à 13.24.27&quot; src=&quot;http://static.phollow.fr/2011/07/Capture-d’écran-2011-07-27-à-13.24.27-537x376.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;376&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Le look du site web est minimaliste et c'est une bonne chose. Ça ne devrait pas trop piquer les yeux des adeptes des CLI tools. L'information est bien présentée et l'essentiel est là. Il y a même des petites références au monde de la ligne de commande, comme &lt;em&gt;scrot&lt;/em&gt; pour voir la capture du logiciel.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3378&quot; title=&quot;Capture d’écran 2011-07-27 à 13.33.06&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/07/Capture-d’écran-2011-07-27-à-13.33.06-804x365.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;365&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3379&quot; title=&quot;Capture d’écran 2011-07-27 à 13.38.51&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/07/Capture-d’écran-2011-07-27-à-13.38.51-804x302.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;302&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3378&quot; title=&quot;Capture d’écran 2011-07-27 à 13.33.06&quot; src=&quot;http://static.phollow.fr/2011/07/Capture-d’écran-2011-07-27-à-13.33.06-804x365.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;365&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3379&quot; title=&quot;Capture d’écran 2011-07-27 à 13.38.51&quot; src=&quot;http://static.phollow.fr/2011/07/Capture-d’écran-2011-07-27-à-13.38.51-804x302.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;302&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;On a donc tout pour avoir un joli petit réseau social pour le partage des fichier de conf. Unix. Reste à voir si les gens vont suivre. Si vous avez des recommendations ou des demandes à faire aux devs vous pouvez toujours allez faire un tour sur &lt;em&gt;#dotshare at freenode.&lt;/em&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Via &lt;a title=&quot;Dotshare.it&quot; href=&quot;http://dotshare.it/&quot; target=&quot;_blank&quot;&gt;dotshare&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
@@ -1145,7 +1145,7 @@ p {
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;img class=&quot;alignnone size-full wp-image-3324&quot; title=&quot;nodejs&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/05/nodejs.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;300&quot; /&gt;
+    <content type="html">&lt;img class=&quot;alignnone size-full wp-image-3324&quot; title=&quot;nodejs&quot; src=&quot;http://static.phollow.fr/2011/05/nodejs.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;300&quot; /&gt;
 &lt;br&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Bonjour les enfants. Aujourd'hui on va s'amuser un peu avec &lt;a title=&quot;Node.js&quot; href=&quot;http://nodejs.org/&quot; target=&quot;_blank&quot;&gt;Node.js&lt;/a&gt; et les Web Sockets. Pour ceux qui vivent encore dans une grotte, &lt;strong&gt;Node.js&lt;/strong&gt; est un framework Javascript côté serveur basé sur &lt;strong&gt;V8&lt;/strong&gt; (Chrome). L'avantage est qu'il gère les entrées/sorties de manière asynchrone et supporte un modèle de programmation événementiel. En gros il est parfait pour les applications web temps réels (notifications, push serveur, streaming…).&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;En quelques lignes de codes on va être capable de faire cette &lt;a title=&quot;Twitter streaming - Node.js - Socket.io&quot; href=&quot;http://phollow.fr/tweet-stream/tweets.html&quot; target=&quot;_blank&quot;&gt;petite démo&lt;/a&gt;. Tu as besoin d'avoir un navigateur &lt;em&gt;à la pointe de la technologie&lt;/em&gt; pour que ça marche mon ami.&lt;/p&gt;
@@ -1158,7 +1158,7 @@ p {
 &lt;/div&gt;
 
 &lt;h1 style=&quot;text-align: justify;&quot;&gt;Socket.io&lt;/h1&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3340&quot; title=&quot;socket&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/05/socket.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;260&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3340&quot; title=&quot;socket&quot; src=&quot;http://static.phollow.fr/2011/05/socket.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;260&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://socket.io/&quot; target=&quot;_blank&quot;&gt;Socket.io&lt;/a&gt; est la première extension que l'on va installer pour ce tutorial. Le but de cette librairie est de faciliter le développement d'applications web temps réel dans tous les navigateurs. Parce que tu as certains navigateurs qui gèrent les sockets et d'autres non. Alors cette librairie va décider elle-même quel chemin prendre pour tes échanges parmi ceux-là :&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1268,16 +1268,16 @@ p {
       <uri>http://phollow.fr/</uri>
     </author>
     <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;CloudFlare est un reverse proxy, un CDN et un firewall. Tout ça en même temps et c'est &lt;strong&gt;gratuit&lt;/strong&gt;. J'en suis plutôt satisfait et j'aimerai vous en parler un peu plus dans ce billet.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3284&quot; title=&quot;CloudFlare-logo&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/CloudFlare-logo-537x223.png&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;223&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3284&quot; title=&quot;CloudFlare-logo&quot; src=&quot;http://static.phollow.fr/2011/04/CloudFlare-logo-537x223.png&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;223&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Le rôle de CloudFlare est d'accélérer et de protéger votre site. J'ai été bluffé par la simplicité de l'installation, à la portée de n'importe qui. Concrètement il faut juste faire pointer son nom de domaine chez CloudFlare. Le reste est géré &lt;em&gt;tout seul&lt;/em&gt;.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;CloudFlare est un &lt;em&gt;reverse-proxy&lt;/em&gt; : Tout le traffic passera donc d'abord par les serveurs de CloudFlare – qui pourront fournir aux visiteurs une page mise en cache et optimisée. Ce qui permet aux pages de s'ouvrir plus rapidement et de faire gagner de la bande-passante.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3297&quot; title=&quot;illustrationcf&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/illustrationcf-804x321.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;321&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3297&quot; title=&quot;illustrationcf&quot; src=&quot;http://static.phollow.fr/2011/04/illustrationcf-804x321.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;321&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Mon serveur se trouve aux États-Unis, le temps de réponse est donc légèrement plus lent pour les européens. Puisque CloudFlare est aussi un &lt;em&gt;CDN&lt;/em&gt;&lt;sup&gt;&lt;a id=&quot;footnoter1&quot; title=&quot;Allez à la note 1&quot; href=&quot;#footnote1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, je suis passé de 150ms de ping à 50ms.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Autre avantage : &lt;em&gt;le pare-feu&lt;/em&gt;. Les spammers et autres bots sont bloqués avant même d'atterrir sur votre site. Akismet s'ennui pas mal maintenant. On peut aussi bloquer manuellement des adresses IP.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3300&quot; title=&quot;Capture d’écran 2011-04-23 à 15.56.33&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/Capture-d’écran-2011-04-23-à-15.56.33-804x401.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;401&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3300&quot; title=&quot;Capture d’écran 2011-04-23 à 15.56.33&quot; src=&quot;http://static.phollow.fr/2011/04/Capture-d’écran-2011-04-23-à-15.56.33-804x401.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;401&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;On a aussi accès à des statistiques sur les visites —&lt;em&gt; pas aussi pointues que Google Analytics&lt;/em&gt; — qui donnent une vision globale en restant simple. Le plus intéressant est qu'il vous montre ce que CloudFlare vous a fait économiser :&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3305&quot; title=&quot;Capture d’écran 2011-04-23 à 16.03.59&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/Capture-d’écran-2011-04-23-à-16.03.59-537x98.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;98&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3305&quot; title=&quot;Capture d’écran 2011-04-23 à 16.03.59&quot; src=&quot;http://static.phollow.fr/2011/04/Capture-d’écran-2011-04-23-à-16.03.59-537x98.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;98&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Les différentes features en plus :&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1322,32 +1322,32 @@ La liste n'est pas complète. En terme de prix il y a une &lt;a href=&quot;https
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://dreamerseven.deviantart.com/art/Dream-Wallpaper-Pack-203093321&quot;&gt;Dream Wallpaper Pack&lt;/a&gt; &lt;/span&gt;&lt;em&gt;by *&lt;/em&gt;&lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://dreamerseven.deviantart.com/&quot;&gt;DreamerSeven&lt;/a&gt;&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;img class=&quot;alignnone size-medium wp-image-3248&quot; title=&quot;dream1280&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/dream1280-537x429.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;429&quot; /&gt;
+&lt;img class=&quot;alignnone size-medium wp-image-3248&quot; title=&quot;dream1280&quot; src=&quot;http://static.phollow.fr/2011/04/dream1280-537x429.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;429&quot; /&gt;
 &lt;a href=&quot;http://-kol.deviantart.com/art/Subtle-202658478&quot;&gt;&lt;/a&gt;
 
 &lt;div style=&quot;font-size: 16px; letter-spacing: 1px; line-height:22px; margin-bottom: 10px;&quot;&gt;
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://-kol.deviantart.com/art/Subtle-202658478&quot;&gt;Subtle&lt;/a&gt;&lt;/span&gt; &lt;em&gt;by `&lt;/em&gt; &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://-kol.deviantart.com/&quot;&gt;-kol&lt;/a&gt;&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;img class=&quot;alignnone size-medium wp-image-3251&quot; title=&quot;Subtle1_2560x1440&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/Subtle1_2560x1440-537x302.png&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;302&quot; /&gt;
+&lt;img class=&quot;alignnone size-medium wp-image-3251&quot; title=&quot;Subtle1_2560x1440&quot; src=&quot;http://static.phollow.fr/2011/04/Subtle1_2560x1440-537x302.png&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;302&quot; /&gt;
 
 &lt;!--more--&gt;
 &lt;div style=&quot;font-size: 16px; letter-spacing: 1px; line-height:22px; margin-bottom: 10px;&quot;&gt;
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://irvinggfm.deviantart.com/art/Deep-Blue-200575866&quot;&gt;Deep Blue&lt;/a&gt; &lt;/span&gt;&lt;em&gt;by *&lt;/em&gt;&lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://irvinggfm.deviantart.com/&quot;&gt;IrvingGFM&lt;/a&gt;&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3254&quot; title=&quot;Deep Blue 2560x1600&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/Deep-Blue-2560x1600-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3254&quot; title=&quot;Deep Blue 2560x1600&quot; src=&quot;http://static.phollow.fr/2011/04/Deep-Blue-2560x1600-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;&lt;/p&gt;
 &lt;div style=&quot;font-size: 16px; letter-spacing: 1px; line-height:22px; margin-bottom: 10px;&quot;&gt;
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://yingjunjiu.deviantart.com/art/Wrap-Wallpaper-201918059&quot;&gt;Wrap Wallpaper&lt;/a&gt;&lt;/span&gt;&lt;em&gt; by `&lt;/em&gt;&lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://yingjunjiu.deviantart.com/&quot;&gt;yingjunjiu&lt;/a&gt;&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;img class=&quot;alignnone size-medium wp-image-3256&quot; title=&quot;Wrap-1280-800&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/Wrap-1280-800-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;
+&lt;img class=&quot;alignnone size-medium wp-image-3256&quot; title=&quot;Wrap-1280-800&quot; src=&quot;http://static.phollow.fr/2011/04/Wrap-1280-800-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;
 
 &lt;div style=&quot;font-size: 16px; letter-spacing: 1px; line-height:22px; margin-bottom: 10px;&quot;&gt;
 &lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://reinspired.deviantart.com/art/SkyScraper-Wallpaper-203444528&quot;&gt;SkyScraper Wallpaper&lt;/a&gt;&lt;/span&gt; &lt;em&gt;by ~&lt;/em&gt;&lt;span class=&quot;upper&quot;&gt;&lt;a href=&quot;http://reinspired.deviantart.com/&quot;&gt;ReInspired&lt;/a&gt;&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;img class=&quot;alignnone size-medium wp-image-3260&quot; title=&quot;skyscraper_ReInspired_1920x1200&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/04/skyscraper_ReInspired_1920x1200-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;</content>
+&lt;img class=&quot;alignnone size-medium wp-image-3260&quot; title=&quot;skyscraper_ReInspired_1920x1200&quot; src=&quot;http://static.phollow.fr/2011/04/skyscraper_ReInspired_1920x1200-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;</content>
   </entry>
   
   <entry>
@@ -1361,7 +1361,7 @@ La liste n'est pas complète. En terme de prix il y a une &lt;a href=&quot;https
       <uri>http://phollow.fr/</uri>
     </author>
     <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;Pacman est le gestionnaire de paquet de la distribution &lt;strong&gt;Arch Linux&lt;/strong&gt;. De toutes les distributions GNU/Linux que j'ai pu tester, il est de loin le plus rapide et le plus simple à utiliser. Et la branche 3.5 de ce programme pousse encore plus loin sa rapidité. Voyons en détails les nouveautés.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3221&quot; title=&quot;archlinux-official-gradient&quot; src=&quot;http://s3-eu-west-1.amazonaws.com/phollow/2011/03/archlinux-official-gradient-537x178.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;178&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3221&quot; title=&quot;archlinux-official-gradient&quot; src=&quot;http://static.phollow.fr/2011/03/archlinux-official-gradient-537x178.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;178&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 style=&quot;text-align: justify;&quot;&gt;Vitesse&lt;/h3&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;La plus importante est le changement du format de la base de données locale. Quand vous synchronisez pacman avec les dépôts distants, il va stocker en local tout un tas d'informations dans divers fichiers. L'astuce a été de réduire considérablement le nombre de ces fichiers, et même dans certains cas de lire les informations directement dans un &lt;em&gt;tarball&lt;/em&gt; compressé sans avoir à l'extraire. Beaucoup moins d'accès disques, donc plus rapide, à hauteur de 30% d'après les développeurs.&lt;/p&gt;

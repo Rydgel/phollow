@@ -24,7 +24,7 @@ Prenons par exemple les ligatures. C’est une des choses que je voulais depuis 
 fleurs, fille, off.
 </p>
 
-Vous devriez voir trois ligatures ci-dessus si votre navigateur supporte ces réglages, sinon vous pouvez toujours allez voir sur cette [image](https://s3-eu-west-1.amazonaws.com/phollow/2012/05/ligatures.png "ligatures-phollow").
+Vous devriez voir trois ligatures ci-dessus si votre navigateur supporte ces réglages, sinon vous pouvez toujours allez voir sur cette [image](https://static.phollow.fr/2012/05/ligatures.png "ligatures-phollow").
 
 ### font-feature-settings
 
