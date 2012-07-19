@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-07-18T20:07:07+02:00</updated>
+  <updated>2012-07-19T10:24:00+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -123,7 +123,7 @@ font-size: $fontsize;
     </author>
     <content type="html">&lt;div&gt;
 &lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;https://static.phollow.fr/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
+&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://static.phollow.fr/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
@@ -216,7 +216,7 @@ fleurs, fille, off.
 &lt;/p&gt;
 
 
-&lt;p&gt;Vous devriez voir trois ligatures ci-dessus si votre navigateur supporte ces réglages, sinon vous pouvez toujours allez voir sur cette &lt;a href=&quot;https://static.phollow.fr/2012/05/ligatures.png&quot; title=&quot;ligatures-phollow&quot;&gt;image&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vous devriez voir trois ligatures ci-dessus si votre navigateur supporte ces réglages, sinon vous pouvez toujours allez voir sur cette &lt;a href=&quot;http://static.phollow.fr/2012/05/ligatures.png&quot; title=&quot;ligatures-phollow&quot;&gt;image&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;font-feature-settings&lt;/h3&gt;
 
