@@ -15,6 +15,7 @@ end
 
 before do
   # phollow.fr -> www.phollow.fr
+  puts request
   redirect "www.#{request.url}", 301 unless request.host =~ /^www/
   # cache headers
   headers "X-UA-Compatible" => "IE=Edge,chrome=1"
