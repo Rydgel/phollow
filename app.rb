@@ -14,9 +14,8 @@ configure :production do
 end
 
 before do
-  # phollow.fr -> www.phollow.fr
-  puts request
-  redirect "www.#{request.url}", 301 unless request.host =~ /^www/
+  # www.phollow.fr -> phollow.fr
+  redirect request.url.sub(/www\./, ''), 301 if request.host =~ /^www/
   # cache headers
   headers "X-UA-Compatible" => "IE=Edge,chrome=1"
   cache_control :public, :must_revalidate, :max_age => 86400
