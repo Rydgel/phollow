@@ -1507,6 +1507,11 @@ a.twitter-button:active {
   top: 1px;
 }
 
+#disqus_thread {
+  max-width: 552px;
+  margin: 0 auto;
+}
+
 /* #Media Queries
 ================================================== */
 	
