@@ -43,7 +43,7 @@
     })();
   </script>
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=21">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=22">
 </head>
 <body>
   <div class="container" role="wrapper">
@@ -94,7 +94,9 @@
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2010/05/utiliser-dautres-polices-en-web-google-et-typekit">Utiliser d'autres polices en web : google et typekit</a></h2>
+    
       </header>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
       <div class="entry single-page ten columns offset-by-three alpha">
         <p style="text-align: justify;">Si vous vous intéressez un peu au développement web, vous devriez connaître l'attribut CSS <strong>@font-face</strong>. Elle permet tout simplement d'utiliser une fonte de son choix dans la page, même si l'utilisateur qui visitera votre site ne la possède pas. Contrairement aux idées reçues ce n'est pas une nouveauté de la norme CSS3. Pour info elle a été proposée dans la norme CSS2 et Internet Explorer 5 fût le premier à pouvoir s'en servir. Oui 5 :)</p>
 <p style="text-align: justify;">Encore une fois les différents navigateurs ne sont pas d'accord sur la norme. Parce exemple Internet Explorer ne reconnait que les fontes au format openType (EOT), d'autres gèrent les TTF ou alors les SVG. Voilà à quoi peut ressembler le code CSS pour en utiliser une :</p>
@@ -135,7 +137,9 @@ Ce qui implique malheureusement d'avoir 3 versions de la police. L'autre problè
           var disqus_url = 'http://phollow.fr/2010/05/utiliser-dautres-polices-en-web-google-et-typekit/';
 
           (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
@@ -161,7 +165,7 @@ Ce qui implique malheureusement d'avoir 3 versions de la police. L'autre problè
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=6"></script>
+<script src="/js/compiled/global.js?v=7"></script>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];

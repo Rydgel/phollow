@@ -6,7 +6,11 @@ layout: layout
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+    {% if page.desc %}
+      <p class="desc">{{ page.desc }}</p>
+    {% endif %}
       </header>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
       <div class="entry single-page ten columns offset-by-three alpha">
         {{ content }}
       </div>
@@ -29,7 +33,9 @@ layout: layout
           var disqus_url = 'http://phollow.fr{{ page.url }}/';
 
           (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();

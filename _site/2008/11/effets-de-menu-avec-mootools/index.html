@@ -43,7 +43,7 @@
     })();
   </script>
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=21">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=22">
 </head>
 <body>
   <div class="container" role="wrapper">
@@ -94,7 +94,9 @@
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2008/11/effets-de-menu-avec-mootools">Effets de menu avec Mootools</a></h2>
+    
       </header>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
       <div class="entry single-page ten columns offset-by-three alpha">
         <p>Prototype, JQuery, script.aculo.us ... Les frameworks JavaScript sont nombreux et se valent tous plus ou moins. J'ai choisis Mootools pour sa rapidité, sa legereté et sa souplesse. Nous allons voir dans ce billet comment nous pouvons obtenir très facilement un effet simple mais efficace sur un menu.</p>
 
@@ -302,7 +304,9 @@ ul#sliding-navigation li.sliding-element h3
           var disqus_url = 'http://phollow.fr/2008/11/effets-de-menu-avec-mootools/';
 
           (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
@@ -328,7 +332,7 @@ ul#sliding-navigation li.sliding-element h3
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=6"></script>
+<script src="/js/compiled/global.js?v=7"></script>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];

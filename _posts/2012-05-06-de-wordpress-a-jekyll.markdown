@@ -4,6 +4,7 @@ layout: post
 slug: de-wordpress-a-jekyll
 status: publish
 title: De Wordpress à Jekyll
+desc: Ou comment lâcher une usine à gaz.
 wordpress_id: '3978'
 categories:
 - web

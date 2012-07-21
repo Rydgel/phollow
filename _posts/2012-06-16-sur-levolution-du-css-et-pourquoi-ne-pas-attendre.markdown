@@ -4,6 +4,7 @@ layout: post
 slug: sur-levolution-du-css-et-pourquoi-ne-pas-attendre
 status: publish
 title: Sur l’évolution du CSS et pourquoi ne pas attendre
+desc: Haters gonna hate ma pwetty CSS.
 wordpress_id: '3981'
 categories:
 - frontend

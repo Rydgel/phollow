@@ -72,5 +72,6 @@ window.onload = function() {
 
 $(function() {
   $('h2, h3, h4').fitText(1.3);
+  $('.desc').fitText(1.6);
   $('.fullsizestuff').fitText(0.65);
 });

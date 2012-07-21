@@ -43,7 +43,7 @@
     })();
   </script>
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=21">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=22">
 </head>
 <body>
   <div class="container" role="wrapper">
@@ -94,7 +94,9 @@
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2009/08/serveur-debian-lenny-les-dns">Serveur Debian Lenny - Les DNS</a></h2>
+    
       </header>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
       <div class="entry single-page ten columns offset-by-three alpha">
         <p style="text-align: justify;">Ce guide a pour but de vous montrer comment configurer vos noms de domaines sur votre dédié. On utilisera donc <strong>Bind</strong> <strong>9</strong> sur une <strong>Debian Lenny</strong>. Vous avez, bien sur, besoin d'un nom de domaine. Vous pouvez en enregistrer un sur <a href="http://www.gandi.net/" target="_blank">Gandi</a> par exemple.</p>
 <p style="text-align: justify;">On commence par installer <strong>bind9</strong> et les outils nécessaires :</p>
@@ -194,7 +196,9 @@ zone "phollow.fr" {
           var disqus_url = 'http://phollow.fr/2009/08/serveur-debian-lenny-les-dns/';
 
           (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
@@ -220,7 +224,7 @@ zone "phollow.fr" {
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=6"></script>
+<script src="/js/compiled/global.js?v=7"></script>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];

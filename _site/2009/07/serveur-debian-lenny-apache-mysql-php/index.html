@@ -43,7 +43,7 @@
     })();
   </script>
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=21">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=22">
 </head>
 <body>
   <div class="container" role="wrapper">
@@ -94,7 +94,9 @@
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2009/07/serveur-debian-lenny-apache-mysql-php">Serveur Debian Lenny - Apache, MySQL & PHP</a></h2>
+    
       </header>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
       <div class="entry single-page ten columns offset-by-three alpha">
         <p style="text-align: justify;">Je commence une toute nouvelle série de billets, sur l'installation et la configuration des serveurs dédiés. Étant donné que j'ai bougé ce blog sur une <strong>Debian Lenny</strong> il y peu de temps, <a href="http://colibri.servhome.org/" target="_blank">Dhoko</a> et d'autres personnes m'ont fait remarqué que ça pourrait être sympa d'en faire des billets. Donc c'est parti</p>
 <p style="text-align: justify;">Aujourd'hui nous allons attaquer l'installation d'un environnement <strong>LAMP</strong>, c'est à dire avec <strong>Apache</strong>, <strong>MySQL</strong> et <strong>PHP</strong>. Ces explications pourront egalement s'appliquer à une Ubuntu, il ne devrais pas y avoir trop de changement.</p>
@@ -148,7 +150,9 @@ Ouvrez le navigateur et pointez l'url sur <em>http://ip.de.votre.serveur/phpinfo
           var disqus_url = 'http://phollow.fr/2009/07/serveur-debian-lenny-apache-mysql-php/';
 
           (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
@@ -174,7 +178,7 @@ Ouvrez le navigateur et pointez l'url sur <em>http://ip.de.votre.serveur/phpinfo
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=6"></script>
+<script src="/js/compiled/global.js?v=7"></script>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];

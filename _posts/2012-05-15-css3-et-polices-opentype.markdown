@@ -5,6 +5,7 @@ slug: css3-et-polices-opentype
 status: publish
 title: CSS3 et polices OpenType
 wordpress_id: '3979'
+desc: 'Utiliser les propriétés avancées de vos webfonts dans vos pages web.'
 categories:
 - typographie
 - web

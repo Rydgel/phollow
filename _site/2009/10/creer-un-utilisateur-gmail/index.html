@@ -43,7 +43,7 @@
     })();
   </script>
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=21">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=22">
 </head>
 <body>
   <div class="container" role="wrapper">
@@ -94,7 +94,9 @@
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2009/10/creer-un-utilisateur-gmail">Créer un utilisateur gmail</a></h2>
+    
       </header>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
       <div class="entry single-page ten columns offset-by-three alpha">
         Vous vous demandez peut-être ce que j'entends par ce titre. En fait les gens qui utilisent mon ordinateur n'ont parfois pas de compte dessus et comme je n'aime pas prêter le mien (haha), on peut se faire des comptes "<em>publiques</em>", comme par exemple un compte gmail, pour aller bien sûr consulter ses emails.
 <p style="text-align: justify; ">Alors concrètement ça marche comment ? En fait on va créer un utilisateur du nom de gmail, et on va lui construire un environnement de bureau pour lui. On va en prendre un très léger comme <a href="http://www.nongnu.org/ratpoison/"><strong>ratpoison</strong></a>. Quant au navigateur, <a href="http://www.uzbl.org/"><strong>uzbl</strong></a> sera parfait pour ce que nous voulons faire.</p>
@@ -137,7 +139,9 @@ echo "set always_insert_mode = 1" > .config/uzbl/config</pre>
           var disqus_url = 'http://phollow.fr/2009/10/creer-un-utilisateur-gmail/';
 
           (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
@@ -163,7 +167,7 @@ echo "set always_insert_mode = 1" > .config/uzbl/config</pre>
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=6"></script>
+<script src="/js/compiled/global.js?v=7"></script>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];

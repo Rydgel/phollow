@@ -4,6 +4,7 @@ layout: post
 slug: jekyll-heroku-et-mon-blog
 status: publish
 title: Jekyll, Heroku et mon blog
+desc: Comment héberger son site Jekyll gratuitement avec Heroku.
 wordpress_id: '3980'
 categories:
 - blog

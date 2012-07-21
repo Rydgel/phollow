@@ -43,7 +43,7 @@
     })();
   </script>
   
-  <link rel="stylesheet" href="/css/compiled/global.css?v=21">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=22">
 </head>
 <body>
   <div class="container" role="wrapper">
@@ -94,7 +94,9 @@
   <article class="post">
       <header>
     <h2 class="entry-title entry-single"><a href="/2010/06/serveur-web-leger-lighttpd-et-freebsd">Serveur web léger Lighttpd et FreeBSD</a></h2>
+    
       </header>
+      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
       <div class="entry single-page ten columns offset-by-three alpha">
         <p style="text-align: justify;">Dans cet article je vais vous parler de la configuration actuelle de ce serveur, celui qui permet d'afficher ces pages. J'en avais un peu parlé dans un billet précédent, ce serveur tourne sous FreeBSD 8.0. Pourquoi FreeBSD ? Parce qu'avant tout je voulais apprendre un système que je connaissais pas du tout, et l'arbre des ports permet de compiler mes logiciels facilement, tout en ayant une liberté maximale sur les options de compîlation.</p>
 <p style="text-align: justify;">Je vais traité ici l'installation d'un serveur PHP (en l'occurence lighty). Il y a en gros deux parties distinctes : premièrement l'installation de PHP à proprement parlé, puis ensuite du serveur et sa configuration. Je ne parlerai pas de l'installation d'un serveur de base de données, sauf si ça vous branche :)</p>
@@ -208,7 +210,9 @@ compress.filetype          = ("text/plain", "text/html", "text/css", "text/xml",
           var disqus_url = 'http://phollow.fr/2010/06/serveur-web-leger-lighttpd-et-freebsd/';
 
           (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
@@ -234,7 +238,7 @@ compress.filetype          = ("text/plain", "text/html", "text/css", "text/xml",
 </footer>
 
 </div><!-- container -->
-<script src="/js/compiled/global.js?v=6"></script>
+<script src="/js/compiled/global.js?v=7"></script>
 
 <script type="text/javascript">
   var _gauges = _gauges || [];
