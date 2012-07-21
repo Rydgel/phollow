@@ -1,30 +1,5 @@
-/* 
-* Skeleton V1.0.3
-* Copyright 2011, Dave Gamache
-* www.getskeleton.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 7/17/2011
-*/
+@charset "UTF-8";
 
-
-/* Table of Content
-==================================================
-	#Reset & Basics
-	#Basic Styles
-	#Site Styles
-	#Typography
-	#Links
-	#Lists
-	#Images
-	#Buttons
-	#Tabs
-	#Forms
-	#Misc */
-
-
-/* #Reset & Basics (Inspired by E. Meyers)
-================================================== */
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
@@ -364,23 +339,70 @@ cite {
 *:first-child+html .clearfix { zoom: 1; }
 
 @font-face {
-  font-family:"SSUIForSymbolsetOnly";
-  src:url("/fonts/ss-symbolsetui-6.eot");
-  src:url("/fonts/ss-symbolsetui-6.eot?#iefix") format("embedded-opentype"),
-  url("/fonts/ss-symbolsetui-6.woff") format("woff"),
-  url("/fonts/ss-symbolsetui-6.ttf") format("truetype"),
-  url("/fonts/ss-symbolsetui-6.svg#SSUIForSymbolsetsOnly") format("svg");
-  font-weight:normal;
-  font-style:normal
+  font-family: "SSSocial";
+  src: url('/fonts/ss-social-regular.eot');
+  src: url('/fonts/ss-social-regular.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/ss-social-regular.woff') format('woff'),
+       url('/fonts/ss-social-regular.ttf') format('truetype'),
+       url('/fonts/ss-social-regular.svg#SSSocialRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.ss-icon,.sites-trigger:after,[class^="ss-"]:before,[class*=" ss-"]:before{
-  font-family:"SSUIForSymbolsetOnly" !important;
-  font-weight:normal !important;
-  font-style:normal !important;
-  text-transform:lowercase;
-  text-decoration:none !important
+.ss-icon, [class^="ss-"]:before, [class*=" ss-"]:before, 
+.ss-icon.ss-social-circle, [class^="ss-"].ss-social-circle:before, [class*=" ss-"].ss-social-circle:before,
+.ss-icon.ss-social, [class^="ss-"].ss-social:before, [class*=" ss-"].ss-social:before {
+  font-family: "SSSocial";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -moz-font-feature-settings: "liga", "dlig";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
 }
+
+.ss-icon.ss-social-circle, [class^="ss-"].ss-social-circle:before, [class*=" ss-"].ss-social-circle:before {
+  font-weight: bold;
+}
+
+.ss-facebook:before{content:''}.ss-twitter:before{content:''}.ss-linkedin:before{content:''}.ss-googleplus:before{content:''}.ss-tumblr:before{content:''}.ss-wordpress:before{content:''}.ss-blogger:before{content:''}.ss-posterous:before{content:''}.ss-youtube:before{content:''}.ss-vimeo:before{content:''}.ss-flickr:before{content:''}.ss-instagram:before{content:''}.ss-pinterest:before{content:''}.ss-dribbble:before{content:''}.ss-behance:before{content:''}.ss-github:before{content:''}.ss-paypal:before{content:''}.ss-foursquare:before{content:''}.ss-skype:before{content:''}.ss-mail:before{content:'✉'}
+
+@font-face {
+  font-family: "SSStandard";
+  src: url('/fonts/ss-standard.eot');
+  src: url('/fonts/ss-standard.eot?#iefix') format('embedded-opentype'), 
+       url('/fonts/ss-standard.woff') format('woff'), 
+       url('/fonts/ss-standard.ttf')  format('truetype'),
+       url('/fonts/ss-standard.svg#SSStandard') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ss-icon, [class^="ss-"]:before, [class*=" ss-"]:before, 
+.ss-icon.ss-standard, [class^="ss-"].ss-standard:before, [class*=" ss-"].ss-standard:before {
+  font-family: "SSStandard";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -moz-font-feature-settings: "liga", "dlig";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}
+
+.ss-cursor:before{content:''}.ss-crosshair:before{content:'⌖'}.ss-search:before{content:'🔎'}.ss-view:before{content:'👀'}.ss-attach:before{content:'📎'}.ss-link:before{content:'🔗'}.ss-move:before{content:''}.ss-write:before{content:'✎'}.ss-writingdisabled:before{content:''}.ss-erase:before{content:'✐'}.ss-compose:before{content:'📝'}.ss-lock:before{content:'🔒'}.ss-unlock:before{content:'🔓'}.ss-key:before{content:'🔑'}.ss-backspace:before{content:'⌫'}.ss-ban:before{content:'🚫'}.ss-trash:before{content:''}.ss-target:before{content:'◎'}.ss-tag:before{content:''}.ss-bookmark:before{content:'🔖'}.ss-flag:before{content:'⚑'}.ss-like:before{content:'👍'}.ss-dislike:before{content:'👎'}.ss-heart:before{content:'♥'}.ss-halfheart:before{content:''}.ss-star:before{content:'⋆'}.ss-halfstar:before{content:''}.ss-sample:before{content:''}.ss-crop:before{content:''}.ss-layers:before{content:''}.ss-phone:before{content:'📞'}.ss-phonedisabled:before{content:''}.ss-rss:before{content:''}.ss-facetime:before{content:''}.ss-reply:before{content:'↩'}.ss-mail:before{content:'✉'}.ss-inbox:before{content:'📥'}.ss-chat:before{content:'💬'}.ss-user:before{content:'👤'}.ss-femaleuser:before{content:'👧'}.ss-users:before{content:'👥'}.ss-cart:before{content:''}.ss-creditcard:before{content:'💳'}.ss-barchart:before{content:'📊'}.ss-piechart:before{content:''}.ss-box:before{content:'📦'}.ss-home:before{content:'⌂'}.ss-globe:before{content:'🌎'}.ss-navigate:before{content:''}.ss-compass:before{content:''}.ss-signpost:before{content:''}.ss-location:before{content:''}.ss-map:before{content:''}.ss-pin:before{content:'📍'}.ss-database:before{content:''}.ss-music:before{content:'♫'}.ss-mic:before{content:'🎤'}.ss-volume:before{content:'🔈'}.ss-volumelow:before{content:'🔉'}.ss-volumehigh:before{content:'🔊'}.ss-airplay:before{content:''}.ss-camera:before{content:'📷'}.ss-picture:before{content:'🌄'}.ss-video:before{content:'📹'}.ss-play:before{content:'▶'}.ss-pause:before{content:''}.ss-stop:before{content:'■'}.ss-record:before{content:'●'}.ss-rewind:before{content:'⏪'}.ss-fastforward:before{content:'⏩'}.ss-skipback:before{content:'⏮'}.ss-skipforward:before{content:'⏭'}.ss-eject:before{content:'⏏'}.ss-repeat:before{content:'🔁'}.ss-replay:before{content:'↺'}.ss-shuffle:before{content:'🔀'}.ss-notebook:before{content:'📓'}.ss-grid:before{content:''}.ss-rows:before{content:''}.ss-columns:before{content:''}.ss-desktop:before{content:'💻'}.ss-laptop:before{content:''}.ss-tablet:before{content:''}.ss-cell:before{content:'📱'}.ss-battery:before{content:'🔋'}.ss-batteryhigh:before{content:''}.ss-batterymedium:before{content:''}.ss-batterylow:before{content:''}.ss-batteryempty:before{content:''}.ss-clouddownload:before{content:''}.ss-download:before{content:''}.ss-cloudupload:before{content:''}.ss-upload:before{content:''}.ss-fork:before{content:''}.ss-merge:before{content:''}.ss-refresh:before{content:'↻'}.ss-sync:before{content:''}.ss-loading:before{content:''}.ss-wifi:before{content:''}.ss-connection:before{content:''}.ss-file:before{content:'📄'}.ss-folder:before{content:'📁'}.ss-quote:before{content:'“'}.ss-text:before{content:''}.ss-font:before{content:''}.ss-print:before{content:'⎙'}.ss-fax:before{content:'📠'}.ss-list:before{content:''}.ss-layout:before{content:''}.ss-action:before{content:''}.ss-expand:before{content:'⤢'}.ss-contract:before{content:''}.ss-help:before{content:'❓'}.ss-info:before{content:'ℹ'}.ss-alert:before{content:'⚠'}.ss-caution:before{content:'⛔'}.ss-plus:before{content:'+'}.ss-hyphen:before{content:'-'}.ss-dropdown:before{content:'▾'}.ss-check:before{content:'✓'}.ss-delete:before{content:'␡'}.ss-settings:before{content:'⚙'}.ss-dashboard:before{content:''}.ss-notifications:before{content:'🔔'}.ss-notificationsdisabled:before{content:'🔕'}.ss-clock:before{content:'⏲'}.ss-stopwatch:before{content:'⏱'}.ss-calendar:before{content:'📆'}.ss-calendaradd:before{content:''}.ss-calendarremove:before{content:''}.ss-calendarcheck:before{content:''}.ss-briefcase:before{content:'💼'}.ss-cloud:before{content:'☁'}.ss-navigateup:before{content:''}.ss-navigateright:before{content:'▻'}.ss-navigatedown:before{content:''}.ss-navigateleft:before{content:'◅'}.ss-up:before{content:'⬆'}.ss-upright:before{content:'⬈'}.ss-right:before{content:'➡'}.ss-downright:before{content:'⬊'}.ss-down:before{content:'⬇'}.ss-downleft:before{content:'⬋'}.ss-left:before{content:'⬅'}.ss-upleft:before{content:'⬉'}.ss-retweet:before{content:''}
+
+
+
 
 [class^="ss-"]:before,[class*=" ss-"]:before {
   display:inline-block
@@ -404,32 +426,7 @@ cite {
   top: 3px;
 }
 
-.ss-desktop:before{content:"\1F4BB"}
-.ss-cell:before{content:"\1F4F1"}
-.ss-layout:before{content:"\EDA0"}
-.ss-tag:before{content:"\E100"}
-.ss-grid:before{content:"\E9A0"}
-.ss-globe:before{content:"\1F30E"}
-.ss-timer:before{content:"\23F1"}
-.ss-female-user:before{content:"\1F467"}
-.ss-user:before{content:"\1F464"}
-.ss-heart:before{content:"\2665"}
-.ss-link:before{content:"\1F517"}
-.ss-rss:before{content:"\E310"}
-.ss-reply:before{content:"\1F519"}
-.ss-cart:before{content:"\E500"}
-.ss-credit-card:before{content:"\1F4B3"}
-.ss-info:before{content:"\2139"}
-.ss-alert:before{content:"\26A0"}
-.ss-add:before{content:"\002B"}
-.ss-subtract:before{content:"\2212"}
-.ss-dropdown:before{content:"\EE02"}
-.ss-check:before{content:"\2713"}
-.ss-delete:before{content:"\2421"}
-.ss-nav-up:before{content:"\F500"}
-.ss-nav-down:before{content:"\F501"}
-.ss-twitter:before{content:"\F611"}
-.ss-paypal:before{content:"\F681"}
+
 
 body {
   background: url('/images/lightpaperfibers.png') repeat #FFFDF9;
@@ -724,86 +721,64 @@ blockquote:after {
 
 
 #logo a {
-  width: 97px;
-  height: 95px;
   display: block;
-  text-indent: -999em;
-  background-image: url('/images/phollow-logo.png');
-  background-repeat: no-repeat;
-  transition: all .5s ease-in-out;
-  -webkit-transition: all .5s ease-in-out;
-  -moz-transition: all .5s ease-in-out;
-  -o-transition: all .5s ease-in-out;
-
 }
 
-
-#nav-header {
-  font-family: "Skolar Regular", Georgia, serif;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 100;
+#logo a img {
+  width: 105px;
+  height: 103px;
+  display: block;
 }
 
-#nav-header ul {
-  height: 100px;
-  line-height: 100px;
-}
-
-#nav-header ul li {
-  float: left;
-  width: 25%;
+nav[role="main-navigation"] {
   text-align: right;
-  display: block;
-  height: 100px;
-  line-height: 100px;
-}
-
-#nav-header ul li a {
-  font-size: 0.824em;
-  text-decoration: none;
-  letter-spacing: 2px;
-  color: #4A473A;
-}
-
-#nav-header ul li a:hover {
-  border-bottom: 1px dotted #4A473A;
-  color: #4A473A;
+  float: right;
 }
 
 
-#nav-header2 {
-  font-family: "Skolar Regular", Georgia, serif;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 100;
+nav[role="main-navigation"] ul {
+  height: 90px;
+  float: right;
+  width: 100%;
+  padding-top: 15px;
 }
 
-#nav-header2 ul {
-  height: 50px;
-  line-height: 50px;
-}
-
-#nav-header2 ul li {
+nav[role="main-navigation"] ul li {
+  list-style: none;
   float: left;
+  display: inline-block;
   width: 25%;
-  text-align: right;
+}
+
+nav[role="main-navigation"] a {
   display: block;
-  height: 50px;
-  line-height: 50px;
-}
-
-#nav-header2 ul li a {
-  font-size: 0.824em;
+  position: relative;
+  padding: 1.175em 0 1.125em;
+  line-height: 1.5em;
+  text-align: center;
+  color : #4A473A;
+  width: auto;
   text-decoration: none;
-  letter-spacing: 2px;
-  color: #FFF;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
 }
 
-#nav-header2 ul li a:hover {
-  border-bottom: 1px dotted #fff;
-  color: #fff;
+nav[role="main-navigation"] ul a:hover {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  color: #FF6000;
 }
+
+nav[role="main-navigation"] .ss-icon {
+  display: block;
+  line-height: 1.2em;
+  height: 1.5em;
+}
+
 
 #claim {
   text-align: center;
@@ -1498,6 +1473,10 @@ a.twitter-button {
   color: #4A473A;
 }
 
+a.twitter-button span {
+  font-family: "Skolar Regular", Georgia, "Times New Roman", Times, serif;
+}
+
 a.twitter-button:hover {
   color: inherit;
 }
@@ -1580,6 +1559,10 @@ a.twitter-button:active {
     
 	  #logo a {
 	    margin: 0 auto;
+	  }
+	  
+	  #logo a img {
+  	  margin: 0 auto;
 	  }
 	  
 	  #logo2 {
