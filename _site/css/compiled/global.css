@@ -747,7 +747,7 @@ nav[role="main-navigation"] ul li {
   list-style: none;
   float: left;
   display: inline-block;
-  width: 25%;
+  width: 20%;
 }
 
 nav[role="main-navigation"] a {
