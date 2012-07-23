@@ -911,9 +911,12 @@ cite.entry-meta {
   display: block;
   font-family: inherit;
   margin-bottom: 20px;
-  font-size: 1em;
-  font-style: italic;
-  font-family: "Skolar Italic", Georgia, serif;
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+.post cite.entry-meta {
+  width: 18.75% !important;
 }
 
 cite.entry-meta a {
@@ -1632,6 +1635,10 @@ a.twitter-button:active {
 
     span.code {
 	font-size: 0.824em;
+	}
+	
+	.post cite.entry-meta {
+	  width: 100% !important;
 	}
 	  
 	}

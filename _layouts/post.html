@@ -16,9 +16,13 @@ layout: layout
       </div>
       <cite class="omega three columns entry-meta">
         <p>
-          <time datetime="{{ page.date }}" pubdate class="updated ss-globe">{{ page.date | date: "%B %e, %Y" }}</time>
+          <time datetime="{{ page.date }}" pubdate class="updated ss-clock">{{ page.date | date: "%B %e, %Y" }}</time>
           <br>
           <span class="ss-tag">{{ page.categories | render_category }}</span>
+          <br>
+          {% if page.pk %}
+          <span class="ss-link"><a href="http://{{ page.pk }}">{{ page.pk }}</a></span>
+          {% endif %}
         </p>
         </cite>
       <footer class="share alpha twelve columns offset-by-three">
