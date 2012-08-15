@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-08-15T21:43:40+02:00</updated>
+  <updated>2012-08-15T21:50:04+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -15,7 +15,7 @@
   <entry>
     <id>http://phollow.fr/2012/08/demarrer-la-creation-site-python-flask</id>
     <link type="text/html" rel="alternate" href="http://phollow.fr/2012/08/demarrer-la-creation-site-python-flask"/>
-    <title>Démarrer la création d’un site avec Python &amp; Flask</title>
+    <title>Démarrer la création d’un site avec Python et Flask</title>
     <published>2012-08-15T01:00:00+02:00</published>
     <updated>2012-08-15T01:00:00+02:00</updated>
     <author>

@@ -3,7 +3,7 @@ date: '2012-08-15 01:00:00'
 layout: post
 slug: demarrer-la-creation-site-python-flask
 status: publish
-title: Démarrer la création d’un site avec Python & Flask
+title: Démarrer la création d’un site avec Python et Flask
 desc: Préparer le projet de la bonne façon.
 pk: j.mp/NAd5uQ
 wordpress_id: '3982'
