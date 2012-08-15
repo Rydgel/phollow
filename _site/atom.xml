@@ -4,13 +4,145 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-07-24T15:22:18+02:00</updated>
+  <updated>2012-08-15T21:43:40+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
     <email>rydgel@phollow.fr</email>
   </author>
 
+  
+  <entry>
+    <id>http://phollow.fr/2012/08/demarrer-la-creation-site-python-flask</id>
+    <link type="text/html" rel="alternate" href="http://phollow.fr/2012/08/demarrer-la-creation-site-python-flask"/>
+    <title>Démarrer la création d’un site avec Python &amp; Flask</title>
+    <published>2012-08-15T01:00:00+02:00</published>
+    <updated>2012-08-15T01:00:00+02:00</updated>
+    <author>
+      <name>Jérôme Mahuet</name>
+      <uri>http://phollow.fr/</uri>
+    </author>
+    <content type="html">&lt;p class=&quot;fullsizestuff&quot; style=&quot;margin-bottom: 60px;&quot;&gt;
+&lt;img src=&quot;http://static.phollow.fr/2012/08/flask.png&quot; alt=&quot;Flask&quot;&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;J’avais envie depuis quelques jours de faire une série d’articles sur &lt;strong&gt;Python&lt;/strong&gt; et le développement d’applications web. D’une part pour montrer que ce n’est pas plus compliqué qu’un projet PHP et d’un autre côté pour montrer qu’on perd moins de temps pour faire quelque chose de propre (pas besoin de palier aux &lt;a href=&quot;http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/&quot;&gt;bizarreries&lt;/a&gt; du langage).&lt;/p&gt;
+
+&lt;p&gt;Si vous n’avez jamais rien testé d’autre que PHP comme &lt;em&gt;langage de programmation&lt;/em&gt; (back-end), faites-vous une faveur et sortez de votre zone de comfort. Il n’en sortira que du bon, c’est promis.&lt;/p&gt;
+
+&lt;p&gt;On va débuter, dans cet article, par mettre en place son projet de la meilleure façon qui soit. Et d’autres articles viendront par la suite pour montrer certains aspects du web-dev (base de données, sessions, templates, tests unitaires, &lt;abbr&gt;AJAX&lt;/abbr&gt;, cache et optimisations, déploiement…). Le tout surement sur le thème d’une petite application. &lt;em&gt;Je n’ai pas encore trouvé le sujet.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgs.xkcd.com/comics/python.png&quot; title=&quot;Python&quot; alt=&quot;Python&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Python&lt;/h3&gt;
+
+&lt;p&gt;Python existe en ce moment sous 2 versions majeures : 2.X et 3.X. Je vous conseille de dévélopper avec la branche 2.X sauf si vous avez une bonne raison de faire le contraire. La version 3 est en plein développement et beaucoup de bibliothèques Python n’ont pas fait encore le grand saut. La dernière version à l’heure où j’écris ces lignes est la &lt;strong&gt;2.7.3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3&gt;Installer Python&lt;/h3&gt;
+
+&lt;p&gt;Python est pré-installé sur Ubuntu, et OS X. Même si ces versions sont suffisantes pour faire tourner les examples de codes que je vais donner, il est préférable d’utiliser une version à jour pour un développement plus sérieux.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.python-guide.org/en/latest/starting/install/osx/&quot;&gt;Installation sous OS X&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.python-guide.org/en/latest/starting/install/linux/&quot;&gt;Installation sous GNU/Linux, *BSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.python-guide.org/en/latest/starting/install/win/&quot;&gt;Installation sous Windows&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Virtualenv&lt;/h3&gt;
+
+&lt;p&gt;Python possède une quantité incroyable d’extensions/bibliothèques que vous pouvez installer et utiliser dans vos projets. Mais quand on travaille sur plusieurs projets à la fois (et pas forcément que sur du web), on peut arriver à des problèmes de dépendances. &lt;em&gt;Mon projet A nécessite truc en version 1, mon projet B truc en version 2…&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Une bonne pratique consiste à créer un environnement virtuel pour nos packages, avec un outil comme &lt;a href=&quot;http://pypi.python.org/pypi/virtualenv&quot;&gt;virtualenv&lt;/a&gt;, de cette manière cet environnement sera complétement indépendant du reste du système.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;easy_install virtualenv
+virtualenv mon_projet
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;mon_projet
+&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;bin/activate &lt;span class=&quot;c&quot;&gt;# pour l&amp;#39;activer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Le répertoire &lt;strong&gt;mon_projet&lt;/strong&gt; sera crée avec tout le nécessaire. Si votre prompt change légèrement, c’est que la manipulation a fonctionné. Virtualenv est très puissant, vous pouvez même lui passer la version de Python en paramètre.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;virtualenv -p /usr/local/bin/python3.3 mon_projet
+virtualenv -p /usr/local/bin/pypy mon_projet
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C’est équivalent à ce que l‘on peut trouver chez Ruby avec Bundler. Pour désactiver un virtualenv il suffit de lancer la commande &lt;code&gt;deactivate&lt;/code&gt; dans le terminal.&lt;/p&gt;
+
+&lt;h3&gt;Flask&lt;/h3&gt;
+
+&lt;p&gt;Flask est un micro-framework et je pense qu’il est du coup beaucoup plus approprié dans l’apprentissage du langage Python. Contrairement à Django qui fait beaucoup de choses tout seul (ORM, validations formulaires, back-end admin…), Flask reste simple et c’est à vous de lui coder/rajouter ces composants à la main (BYOB). On en sort avec un framework flexible où je ne ressens, &lt;em&gt;personnellement&lt;/em&gt;, pas de contrainte à travailler avec.&lt;/p&gt;
+
+&lt;p&gt;Parmis les avantages de Flask, on retrouve :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Base code minimale, environ 800 lignes.&lt;/li&gt;
+&lt;li&gt;Très bien testé, environ 1 500 lignes.&lt;/li&gt;
+&lt;li&gt;Très bonne documentation (plus de 200 pages).&lt;/li&gt;
+&lt;li&gt;Possède un système de template (Jinja2).&lt;/li&gt;
+&lt;li&gt;Pousse à coder son application sous forme de services, ce qui est une bonne chose.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Installons Flask avec &lt;strong&gt;pip&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install Flask
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Une fois installé, on va écrire notre premier script. Pour cela on va créer un dossier &lt;code&gt;mon_projet/app&lt;/code&gt; et à la racine de ce dossier un fichier &lt;code&gt;mon_projet/app/app.py&lt;/code&gt;, comme par exemple :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Pour tester ce code, il suffit juste de lancer la commande suivante. Et d’ouvrir le navigateur sur l’URL qui sera affichée dans la console.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python app.py
+ * Running on http://127.0.0.1:5000/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;GIT&lt;/h3&gt;
+
+&lt;p&gt;Et pour faire les choses bien, on va se créer un dépôt GIT et &lt;em&gt;commiter&lt;/em&gt; tout ça. Mais avant on rajoute le &lt;code&gt;.gitgnore&lt;/code&gt; qui va bien.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;venv
+*.pyc
+.env
+.DS_Store
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On crée le dépôt, on rajoute les fichiers et on commit avec un message &lt;em&gt;explicite&lt;/em&gt;. On peut même rajouter des supers emojis sur &lt;a href=&quot;http://www.emoji-cheat-sheet.com/&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git init
+git add .
+git commit -m &quot;:sparkle: First commit :sparkle:&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Next step&lt;/h3&gt;
+
+&lt;p&gt;La documentation de Flask est vraiment bien foutue, à partir de là, si vous êtes intéressé, &lt;a href=&quot;http://flask.pocoo.org/docs/quickstart/&quot;&gt;le quickstart&lt;/a&gt; peut vous permettre de débuter rapidement avec le framework. En attendant je réfléchis à la suite de cet article.&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;font-size: 2em;&quot;&gt;❧&lt;/p&gt;
+
+</content>
+  </entry>
   
   <entry>
     <id>http://phollow.fr/2012/06/sur-levolution-du-css-et-pourquoi-ne-pas-attendre</id>
@@ -1348,33 +1480,6 @@ La liste n'est pas complète. En terme de prix il y a une &lt;a href=&quot;https
 &lt;/div&gt;
 
 &lt;img class=&quot;alignnone size-medium wp-image-3260&quot; title=&quot;skyscraper_ReInspired_1920x1200&quot; src=&quot;http://static.phollow.fr/2011/04/skyscraper_ReInspired_1920x1200-537x335.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;335&quot; /&gt;</content>
-  </entry>
-  
-  <entry>
-    <id>http://phollow.fr/2011/03/pacman-3-5-nouveautes</id>
-    <link type="text/html" rel="alternate" href="http://phollow.fr/2011/03/pacman-3-5-nouveautes"/>
-    <title>Pacman 3.5 : Nouveautés</title>
-    <published>2011-03-24T13:33:37+01:00</published>
-    <updated>2011-03-24T13:33:37+01:00</updated>
-    <author>
-      <name>Jérôme Mahuet</name>
-      <uri>http://phollow.fr/</uri>
-    </author>
-    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;Pacman est le gestionnaire de paquet de la distribution &lt;strong&gt;Arch Linux&lt;/strong&gt;. De toutes les distributions GNU/Linux que j'ai pu tester, il est de loin le plus rapide et le plus simple à utiliser. Et la branche 3.5 de ce programme pousse encore plus loin sa rapidité. Voyons en détails les nouveautés.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3221&quot; title=&quot;archlinux-official-gradient&quot; src=&quot;http://static.phollow.fr/2011/03/archlinux-official-gradient-537x178.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;178&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;text-align: justify;&quot;&gt;Vitesse&lt;/h3&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;La plus importante est le changement du format de la base de données locale. Quand vous synchronisez pacman avec les dépôts distants, il va stocker en local tout un tas d'informations dans divers fichiers. L'astuce a été de réduire considérablement le nombre de ces fichiers, et même dans certains cas de lire les informations directement dans un &lt;em&gt;tarball&lt;/em&gt; compressé sans avoir à l'extraire. Beaucoup moins d'accès disques, donc plus rapide, à hauteur de 30% d'après les développeurs.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Ce changement de format nécessite une manipulation de votre part. Après avoir mis à jour pacman, il faut lancer en root :&lt;/p&gt;
-[cc]pacman-db-upgrade[/cc]
-&lt;p style=&quot;text-align: justify;&quot;&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;h3 style=&quot;text-align: justify;&quot;&gt;Sécurité&lt;/h3&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Ensuite on pouvait facilement exploser son système si on ne faisait pas attention à l'espace disque restant quand on installait des paquets. Maintenant pacman peut automatiquement regarder si il y a assez de place pour ce qu'il veut faire. Personnellement j'ai désactivé cette option, car je sais très bien que je vais pas essayer d'installer la suite KDE  avec 300Mo. Pratique pour ceux qui ont l'esprit ailleurs j'imagine..&lt;/p&gt;
-
-&lt;h3 style=&quot;text-align: justify;&quot;&gt;Pratique !&lt;/h3&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Pouvoir choisir les paquets à installer dans un groupe — &lt;em&gt;au lieu d'être obligé d'installer tout le groupe&lt;/em&gt; — est revenu dans cette version.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Au final les développeurs d'Arch Linux ont encore fait du bon boulot en allégeant pas mal le moteur de pacman. Vous pouvez voir la liste complète des nouveautés dans le &lt;a href=&quot;http://projects.archlinux.org/pacman.git/tree/NEWS?id=v3.5.0&quot; target=&quot;_blank&quot;&gt;changelog&lt;/a&gt;, et aussi dans le &lt;a href=&quot;http://projects.archlinux.org/pacman.git/tree/README?id=v3.5.0&quot; target=&quot;_blank&quot;&gt;readme&lt;/a&gt;.&lt;/p&gt;</content>
   </entry>
   
  

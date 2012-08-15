@@ -467,28 +467,23 @@ span.code, article code {
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   background-color: #FDF6E3;
   font-size: 0.724em;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
   hyphens: none;
   -webkit-hyphens: none;
   -moz-hyphens: none;
   padding: 1px 3px;
   color: #93A1A1;
   line-height: 1em;
-  border: 1px solid #FAE7B3;
 }
 
 article pre > code {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	background: #FDF6E3;
-	margin-bottom: 40px;
-	padding: 0.6em;
+	margin: 40px -30px;
+	padding: 1em;
 	display: block;
 	font-size: 0.724em;
 	word-wrap: break-word;
-  line-height: 1.48em;
+  line-height: 1.7em;
 }
 
 a.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
@@ -1512,6 +1507,11 @@ a.twitter-button:active {
 	
 	/* Mobile/Browser */
 	@media only screen and (max-width: 768px) {
+	
+	  article pre > code {
+  	   margin: 40px 0;
+	  }
+	  
     .fullsizestuff {
       margin-left: 0;
     }
