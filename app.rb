@@ -32,9 +32,9 @@ get '/*' do
   if FileTest.exist?(file_path)
     send_file(file_path)
   end
-  halt 404
+  not_found
 end
 
 not_found do
-  send_file('_site/404.html')
+  send_file('_site/404.html', :status => 404)
 end
