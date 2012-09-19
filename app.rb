@@ -28,7 +28,9 @@ get(/.+/) do
 end
 
 not_found do
-  send_sinatra_file('404.html') {"Sorry, I cannot find #{request.path}"}
+  send_sinatra_file('404.html', {:status => 404}) do
+    "Sorry, I cannot find #{request.path}"
+  end
 end
 
 def send_sinatra_file(path, &missing_file_block)
