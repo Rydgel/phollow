@@ -24,7 +24,7 @@ before do
 end
 
 get '/' do
-  send_file('_site/index.html')
+  send_file '_site/index.html'
 end
 
 get '/*' do
@@ -36,5 +36,5 @@ get '/*' do
 end
 
 not_found do
-  send_file('_site/404.html', {:status => 404})
+  send_file '_site/404.html', :status => 404
 end
