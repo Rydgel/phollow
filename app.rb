@@ -36,5 +36,6 @@ get '/*' do
 end
 
 not_found do
-  send_file('_site/404.html', :status => 404)
+  "404 - Not found"
+  #send_file('_site/404.html', :status => 404)
 end
