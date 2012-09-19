@@ -23,18 +23,16 @@ before do
   etag Digest::MD5.hexdigest("#{request.url};#{@last_mod_time}")
 end
 
-get '/' do
-  send_file '_site/index.html'
-end
-
-get '/*' do
-  file_path = '_site/' + params[:splat].join('/') + '/index.html'
-  if FileTest.exist?(file_path)
-    send_file(file_path)
-  end
-  not_found
+get(/.+/) do
+  send_sinatra_file(request.path) {404}
 end
 
 not_found do
-  send_file '_site/404.html', :status => 404
+  send_sinatra_file('404.html') {"Sorry, I cannot find #{request.path}"}
+end
+
+def send_sinatra_file(path, &missing_file_block)
+  file_path = File.join(File.dirname(__FILE__), '_site',  path)
+  file_path = File.join(file_path, 'index.html') unless file_path =~ /\.[a-z]+$/i  
+  File.exist?(file_path) ? send_file(file_path) : missing_file_block.call
 end
