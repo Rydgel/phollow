@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://phollow.fr/sitemap.xml
