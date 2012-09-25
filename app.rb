@@ -27,6 +27,10 @@ get '/' do
   send_file('_site/index.html')
 end
 
+get '/robots.txt' do
+  send_file('_site/robots.txt')
+end
+
 get '/*' do
   file_path = '_site/' + params[:splat].join('/') + '/index.html'
   if FileTest.exist?(file_path)
