@@ -27,8 +27,8 @@ get '/' do
   send_file('_site/index.html')
 end
 
-get '/robots.txt' do
-  send_file('_site/robots.txt')
+get '/feed' do
+  redirect '/atom.xml', 301
 end
 
 get '/*' do
@@ -40,6 +40,10 @@ get '/*' do
 end
 
 not_found do
-  "404 - Not found"
+  #"404 - Not found"
   #send_file('_site/404.html', :status => 404)
+  file = File.open("_site/404.html", "rb")
+  contents = file.read
+  file.close
+  return contents
 end
