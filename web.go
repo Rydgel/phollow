@@ -40,5 +40,9 @@ func main() {
     r.PathPrefix("/").Handler(http.FileServer(http.Dir("_site")))
     r.NotFoundHandler = http.HandlerFunc(NotFound)
     http.Handle("/", r)
-    http.ListenAndServe(":8080", nil)
+
+    err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+    if err != nil {
+        panic(err)
+    }
 }
