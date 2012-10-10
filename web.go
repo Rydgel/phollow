@@ -35,9 +35,9 @@ func NotFound(w http.ResponseWriter, r *http.Request) {
 func main() {
     r := mux.NewRouter()
     r.HandleFunc("/", HomeHandler)
+    r.PathPrefix("/").Handler(http.FileServer(http.Dir("_site")))
     r.HandleFunc("/{path}", PageHandler)
     r.HandleFunc("/feed/", FeedHandler)
-    r.PathPrefix("/").Handler(http.FileServer(http.Dir("_site")))
     r.NotFoundHandler = http.HandlerFunc(NotFound)
     http.Handle("/", r)
 
