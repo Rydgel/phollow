@@ -3,44 +3,48 @@ package main
 import (
     "os"
     "net/http"
-    "github.com/gorilla/mux"
+    "html/template"
 )
 
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-    http.ServeFile(w, r, "_site/index.html")
+type errorWriter struct {
+	w http.ResponseWriter
+    ignore bool
 }
 
-func PageHandler(w http.ResponseWriter, r *http.Request) {
-    vars := mux.Vars(r)
-    path := vars["path"]
+type errorHandle struct {
+    h http.Handler
+}
 
-    filePath := "_site/" + path + "index.html"
-    // check if file exists, otherwise 404 
-    _, err := os.Stat(filePath)
-    if err != nil {
-        http.ServeFile(w, r, "_site/404.html")
-    } else {
-        http.ServeFile(w, r, filePath)
+func (h *errorHandle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    h.h.ServeHTTP(&errorWriter{w, false}, r)
+}
+
+func (w *errorWriter) Header() (http.Header) {
+    return w.w.Header()
+}
+
+func (w *errorWriter) Write(p []byte) (int, error) {
+    if w.ignore {
+        return len(p), nil
     }
+    
+    return w.w.Write(p)
 }
 
-func FeedHandler(w http.ResponseWriter, r *http.Request) {
-    http.ServeFile(w, r, "_site/atom.xml")
-}
-
-func NotFound(w http.ResponseWriter, r *http.Request) {
-    http.ServeFile(w, r, "_site/404.html")
+func (w *errorWriter) WriteHeader(status int) {
+   if status == 404 {
+      w.ignore = true
+      w.w.Header().Set("Content-Type", "text/html; charset=utf-8")
+      w.w.WriteHeader(404)
+      t, _ := template.ParseFiles("_site/404.html")
+      t.Execute(w.w, nil)
+   } else {
+      w.w.WriteHeader(status)
+   }
 }
 
 func main() {
-    r := mux.NewRouter()
-    r.HandleFunc("/", HomeHandler)
-    r.PathPrefix("/").Handler(http.FileServer(http.Dir("_site")))
-    r.HandleFunc("/{path}", PageHandler)
-    r.HandleFunc("/feed/", FeedHandler)
-    r.NotFoundHandler = http.HandlerFunc(NotFound)
-    http.Handle("/", r)
-
+    http.Handle("/", &errorHandle{http.FileServer(http.Dir("_site"))})
     err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
     if err != nil {
         panic(err)
