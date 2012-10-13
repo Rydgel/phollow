@@ -7,20 +7,20 @@ import (
 )
 
 type errorWriter struct {
-	w http.ResponseWriter
+    http.ResponseWriter
     ignore bool
 }
 
 type errorHandle struct {
-    h http.Handler
+    http.Handler
 }
 
 func (h *errorHandle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-    h.h.ServeHTTP(&errorWriter{w, false}, r)
+    h.Handler.ServeHTTP(&errorWriter{w, false}, r)
 }
 
 func (w *errorWriter) Header() (http.Header) {
-    return w.w.Header()
+    return w.ResponseWriter.Header()
 }
 
 func (w *errorWriter) Write(p []byte) (int, error) {
@@ -28,23 +28,24 @@ func (w *errorWriter) Write(p []byte) (int, error) {
         return len(p), nil
     }
     
-    return w.w.Write(p)
+    return w.ResponseWriter.Write(p)
 }
 
 func (w *errorWriter) WriteHeader(status int) {
    if status == 404 {
       w.ignore = true
-      w.w.Header().Set("Content-Type", "text/html; charset=utf-8")
-      w.w.WriteHeader(404)
+      w.ResponseWriter.Header().Set("Content-Type", "text/html; charset=utf-8")
+      w.ResponseWriter.WriteHeader(404)
       t, _ := template.ParseFiles("_site/404.html")
-      t.Execute(w.w, nil)
+      t.Execute(w.ResponseWriter, nil)
    } else {
-      w.w.WriteHeader(status)
+      w.ResponseWriter.WriteHeader(status)
    }
 }
 
 func main() {
-    http.Handle("/", &errorHandle{http.FileServer(http.Dir("_site"))})
+    fs := http.FileServer(http.Dir("_site"))
+    http.Handle("/", &errorHandle{fs})
     err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
     if err != nil {
         panic(err)
