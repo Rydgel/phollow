@@ -7,6 +7,7 @@ title: Démarrer la création d’un site avec Python et Flask
 desc: Préparer le projet de la bonne façon.
 pk: j.mp/NAd5uQ
 wordpress_id: '3982'
+ogp_image: 'http://static.phollow.fr/2012/08/flask.png'
 categories:
 - python
 - web
@@ -27,7 +28,9 @@ Si vous n’avez jamais rien testé d’autre que PHP comme _langage de programm
 
 On va débuter, dans cet article, par mettre en place son projet de la meilleure façon qui soit. Et d’autres articles viendront par la suite pour montrer certains aspects du web-dev (base de données, sessions, templates, tests unitaires, <abbr>AJAX</abbr>, cache et optimisations, déploiement…). Le tout surement sur le thème d’une petite application. _Je n’ai pas encore trouvé le sujet._
 
-![Python](http://imgs.xkcd.com/comics/python.png "Python")
+<p style="text-align:center;">
+<img src="http://imgs.xkcd.com/comics/python.png" alt="Python" style="display:inline">
+</p>
 
 ### Python
 
@@ -114,7 +117,7 @@ On crée le dépôt, on rajoute les fichiers et on commit avec un message _expli
 
     git init
     git add .
-    git commit -m ":sparkle: First commit :sparkle:"
+    git commit -m ":sparkles: First commit :sparkles:"
                                                                  
 
 ### Next step

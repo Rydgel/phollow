@@ -8,29 +8,43 @@
   <meta name="author" content="Jérôme Mahuet">
   <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
   <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
-  <meta property="og:title" content="{{ page.title }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@phollow">
+  <meta name="twitter:creator" content="@phollow">
+  {% if page.url == '/index.html' %}
+  <meta property="og:url" value="http://phollow.fr">
+  <meta property="og:description" value="Blog from a web &amp; iPhone developer with a soft spot for good typography and responsive design.">
+  {% else %}
+  <meta property="og:url" value="{{ site.url }}{{ page.url }}/">
+  <meta property="og:description" value="{{ page.content | strip_html | strip_newlines | truncate: 240 }}">
+  {% endif %}
+  <meta property="og:image" value="{% if page.ogp_image %}{{ page.ogp_image }}{% else %}http://phollow.fr/images/phollow-logo3.png{% endif %}">
   <meta property="og:type" content="phollow:post">
   <meta property="og:site_name" content="Phollow.me">
   <meta property="fb:admins" content="rydgel">
   <meta property="fb:app_id" content="101739241646">
   <meta itemprop="name" content="{{ page.title }}">
+  <meta property="og:title" value="{{ page.title }}">
+
+
   <meta http-equiv="cleartype" content="on">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
-  <link rel="stylesheet" href="http://f.fontdeck.com/s/css/gZ5nfPju/xX9Gas/rZ9ymPUCM/4/phollow.fr/19429.css" type="text/css">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=28">
   <script src="/js/compiled/modernizr.min.js"></script>
-  
-  <link rel="stylesheet" href="/css/compiled/global.css?v=27">
+  <script src="//use.typekit.net/jfp7vgn.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
   <div class="container" role="wrapper">
     <header role="banner" id="header-site" class="sixteen columns">
       <h1 id="logo" class="four columns alpha">
         <a href="/" title="Phollow.me">
-          <img src="/images/phollow-logo.png" alt="Phollow.me">
+          <img src="/images/phollow-logo3.png" alt="Phollow.me">
         </a>
       </h1>
       <nav role="main-navigation" class="seven columns">
@@ -44,7 +58,7 @@
           <li>
             <a href="/archives/" title="archives">
             <span class="ss-icon ss-database"></span>
-            <span>#old</span>
+            <span>Archives</span>
             </a>
           </li>
           <li>
@@ -67,12 +81,13 @@
           </li>
         </ul>
       </nav>
-      <hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.02);">
+      <hr>
     </header>
 
 {{ content }}
 
 <footer id="footer" role="contentinfo" class="sixteen columns">
+  <hr>
   <nav role="navigation">
     <ul>
       <li><a href="/">Homepage</a></li>
