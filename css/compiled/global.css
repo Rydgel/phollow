@@ -365,7 +365,7 @@ html:hover [class^="ss-"]{-ms-zoom: 1;}
 
 body {
   background: #FFF;
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
   font-style:normal;
   color: #57534A;
   /*text-rendering: optimizeLegibility;*/
@@ -434,22 +434,22 @@ a.button, button, input[type="submit"], input[type="reset"], input[type="button"
 
 h1, h2, h3, h4, h5, h6 {
   color: #57534A;
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
   font-weight: 500;
   letter-spacing: 0px;
   line-height: 1.3;
 }
 
 h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
 }
 
 h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
 }
 
 .pagetitle em b {
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
 }
 
 h2 {
@@ -464,7 +464,7 @@ h3 {
   margin-bottom: 30px;
   margin-top: 30px;
   font-weight: bold;
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
 }
 
 p {
@@ -518,19 +518,19 @@ article b, article strong, article em, article i {
 }
 
 article b, article strong {
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
   font-weight:bold;
   font-style:normal;
 }
 
 article em, article i {
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
   font-weight:200;
   font-style:italic;
 }
 
 article em strong, article strong em {
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
   font-weight:bold;
   font-style:italic
 }
@@ -620,7 +620,7 @@ blockquote {
   color: #A19C91;
   padding-right: 37px;
   margin-bottom: 30px;
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
   font-weight:200;
   font-style:italic;
 }
@@ -633,7 +633,7 @@ blockquote:before {
   line-height: 1px;
   font-size: 1.764em;
   top: 0.2em;
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
   font-weight:200;
   font-style:italic;
 }
@@ -646,7 +646,7 @@ blockquote:after {
   font-size: 1.764em;
   line-height: 0px;
   top: 0.2em;
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
   font-weight:200;
   font-style:italic;
 }
@@ -813,7 +813,7 @@ nav[role="main-navigation"] .ss-icon {
 
 .entry-title {
   margin-bottom: 20px;
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
   font-weight: bold;
 }
 
@@ -1000,7 +1000,7 @@ cite.entry-meta a:hover {
 .copyright a {
   text-decoration: none;
   font-weight: bold;
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
   color: #A19C91;
   text-transform: none;
   letter-spacing: 0;
@@ -1019,7 +1019,7 @@ footer[role="contentinfo"] nav ul li {
 	margin: 0 10px 0 0;
 	padding: 0 10px 0 0;
 	font-weight: bold;
-	font-family:"ff-scala-web", sans-serif;
+	font-family:calluna, sans-serif;
 	border-right: 1px solid #ccc;
         font-size: 0.824em;
 	}
@@ -1120,7 +1120,7 @@ textarea {
   display: block;
   margin-bottom: 2px;
   font-weight: bold;
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
 }
 
 .commentlist cite a {
@@ -1207,7 +1207,7 @@ span.says, .comment-edit-link {
 
 .pagetitle b {
   font-weight: bold;
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
 }
 
 .entry div {
@@ -1256,7 +1256,7 @@ span.says, .comment-edit-link {
   font-size: 1.176em;
   font-style: none;
   text-decoration: none;
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
 }
 
 .archives-comments {
@@ -1314,7 +1314,7 @@ span.says, .comment-edit-link {
 
 article.post strong, article.post b  {
   font-weight: bold;
-  font-family:"ff-scala-web", sans-serif;
+  font-family:calluna, sans-serif;
 }
 
 abbr {
@@ -1336,7 +1336,7 @@ a.twitter-button {
 }
 
 a.twitter-button span {
-  font-family: "ff-scala-web", sans-serif;
+  font-family: calluna, sans-serif;
   margin-left: 5px;
 }
 
