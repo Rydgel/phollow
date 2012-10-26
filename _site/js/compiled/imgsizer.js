@@ -1,1 +1,61 @@
-var imgSizer={Config:{imgCache:[],spacer:"/path/to/your/spacer.gif"},collate:function(e){var t=document.all&&!window.opera&&!window.XDomainRequest?1:0;if(t&&document.getElementsByTagName){var n=imgSizer,r=n.Config.imgCache,i=e&&e.length?e:document.getElementsByTagName("img");for(var s=0;s<i.length;s++)i[s].origWidth=i[s].offsetWidth,i[s].origHeight=i[s].offsetHeight,r.push(i[s]),n.ieAlpha(i[s]),i[s].style.width="100%";r.length&&n.resize(function(){for(var e=0;e<r.length;e++){var t=r[e].offsetWidth/r[e].origWidth;r[e].style.height=r[e].origHeight*t+"px"}})}},ieAlpha:function(e){var t=imgSizer;e.oldSrc&&(e.src=e.oldSrc);var n=e.src;e.style.width=e.offsetWidth+"px",e.style.height=e.offsetHeight+"px",e.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+n+"', sizingMethod='scale')",e.oldSrc=n,e.src=t.Config.spacer},resize:function(e){var t=window.onresize;typeof window.onresize!="function"?window.onresize=e:window.onresize=function(){t&&t(),e()}}};
+var imgSizer = {
+	Config : {
+		imgCache : []
+		,spacer : "/path/to/your/spacer.gif"
+	}
+
+	,collate : function(aScope) {
+		var isOldIE = (document.all && !window.opera && !window.XDomainRequest) ? 1 : 0;
+		if (isOldIE && document.getElementsByTagName) {
+			var c = imgSizer;
+			var imgCache = c.Config.imgCache;
+
+			var images = (aScope && aScope.length) ? aScope : document.getElementsByTagName("img");
+			for (var i = 0; i < images.length; i++) {
+				images[i].origWidth = images[i].offsetWidth;
+				images[i].origHeight = images[i].offsetHeight;
+
+				imgCache.push(images[i]);
+				c.ieAlpha(images[i]);
+				images[i].style.width = "100%";
+			}
+
+			if (imgCache.length) {
+				c.resize(function() {
+					for (var i = 0; i < imgCache.length; i++) {
+						var ratio = (imgCache[i].offsetWidth / imgCache[i].origWidth);
+						imgCache[i].style.height = (imgCache[i].origHeight * ratio) + "px";
+					}
+				});
+			}
+		}
+	}
+
+	,ieAlpha : function(img) {
+		var c = imgSizer;
+		if (img.oldSrc) {
+			img.src = img.oldSrc;
+		}
+		var src = img.src;
+		img.style.width = img.offsetWidth + "px";
+		img.style.height = img.offsetHeight + "px";
+		img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='scale')"
+		img.oldSrc = src;
+		img.src = c.Config.spacer;
+	}
+
+	// Ghettomodified version of Simon Willison's addLoadEvent() -- http://simonwillison.net/2004/May/26/addLoadEvent/
+	,resize : function(func) {
+		var oldonresize = window.onresize;
+		if (typeof window.onresize != 'function') {
+			window.onresize = func;
+		} else {
+			window.onresize = function() {
+				if (oldonresize) {
+					oldonresize();
+				}
+				func();
+			}
+		}
+	}
+}

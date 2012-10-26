@@ -1,1 +1,183 @@
-<!doctype html><html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"><head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#"><meta charset="UTF-8"><title>Evilwm</title><link href="https://plus.google.com/116513653525162928064" rel="publisher"><meta name="title" content="Evilwm"><meta name="author" content="Jérôme Mahuet"><meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved."><meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@phollow"><meta name="twitter:creator" content="@phollow"><meta property="og:url" value="http://phollow.fr/2009/06/evilwm/"><meta property="og:description" value="Je viens de commencer  mes expérimentations avec mon 1000H. Et je me suis dit que j'allais essayer evilwm. Incroyablement simple. C'est la première impression que j'ai eu. Simple, minimaliste et puissant. Tout peut se faire au clavier, q..."><meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png"><meta property="og:type" content="phollow:post"><meta property="og:site_name" content="Phollow.me"><meta property="fb:admins" content="rydgel"><meta property="fb:app_id" content="101739241646"><meta itemprop="name" content="Evilwm"><meta property="og:title" value="Evilwm"><meta http-equiv="cleartype" content="on"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml"><link rel="stylesheet" href="/css/compiled/global.css?v=28"> <script src="/js/compiled/modernizr.min.js"></script><script src="//use.typekit.net/jfp7vgn.js"></script><script>try{Typekit.load()}catch(e){}</script></head><body><div class="container" role="wrapper"> <header role="banner" id="header-site" class="sixteen columns"><h1 id="logo" class="four columns alpha"> <a href="/" title="Phollow.me"> <img src="/images/phollow-logo3.png" alt="Phollow.me"> </a></h1> <nav role="main-navigation" class="seven columns"><ul><li> <a href="/" title="blog"> <span class="ss-icon ss-write"></span> <span>Blog</span> </a></li><li> <a href="/archives/" title="archives"> <span class="ss-icon ss-database"></span> <span>Archives</span> </a></li><li> <a href="http://jrm.li/projects" title="Projets"> <span class="ss-icon ss-notebook"></span> <span>Projets</span> </a></li><li> <a href="http://jrm.li/" title="À propos"> <span class="ss-icon ss-user"></span> <span>Me</span> </a></li><li> <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS"> <span class="ss-icon ss-rss"></span> <span>Rss</span> </a></li></ul> </nav><hr> </header><div id="container" class="sixteen columns"> <article class="post"> <header><h2 class="entry-title entry-single"><a href="/2009/06/evilwm">Evilwm</a></h2> </header><hr><div class="entry single-page thirteen columns alpha"><p style="text-align:justify">Je viens de commencer  mes expérimentations avec mon 1000H. Et je me suis dit que j'allais essayer <a href="http://www.6809.org.uk/evilwm/" target="_blank"><strong>evilwm</strong></a>. Incroyablement <strong>simple</strong>. C'est la première impression que j'ai eu. Simple, minimaliste et puissant. Tout peut se faire au clavier, que ce soit le déplacement des fenêtres, l'agrandissement ou la réduction. Il possède des bureaux virtuels. Il n'y a pas de décorations de fenêtres ou d'icônes, parce qu'on en a tout simplement pas besoin avec <strong>evilwm</strong>.</p>[caption id="attachment_879" align="aligncenter" width="595" caption="mon eeePC"]<a href="http://static.phollow.fr/2009/06/2009-06-13-205840_1024x600_scrot.png"><img class="size-medium wp-image-879" title="2009-06-13-205840_1024x600_scrot" src="http://static.phollow.fr/2009/06/2009-06-13-205840_1024x600_scrot-595x348.png" alt="evilwm" width="595" height="348"/></a>[/caption]<h2 style="text-align: justify;">Installation</h2><p style="text-align:justify">Si votre distro est cool, le paquet sera disponible dans votre dépôt. Par exemple sous Arch Linux :</p><pre lang="bash">sudo pacman -S evilwm</pre><p style="text-align:justify">Sinon ça sera direction le <a href="http://www.6809.org.uk/evilwm/" target="_blank">site de evilwm</a> pour récupérer les sources et compiler tout ça <em>à la mano</em>.</p><h2 style="text-align: justify;">Lancement</h2><p style="text-align:justify">Il suffit de lancer evilwm avec tous les arguments qu'on veut dans le <em>~/.xinitrc</em>.</p><pre lang="bash">exec evilwm -fg "#554444" -bg "#3c3c3c" -bw 2 -term bashrun</pre><p style="text-align:justify">Voici la liste des arguments et leurs fonctions :</p><dl><dt>-display <em>display</em></dt><dd>on dit sur quel X on veut le lancer. (utilise seulement si vous en avez plusieurs)</dd><dt>-term <em>termprog</em></dt><dd>le programme qui sera lancé avec le raccourcis ctrl-alt-entrer. Perso je met un lanceur comme <strong>bashrun.</strong></dd><dt>-fn <em>fontname</em></dt><dd>la font à utiliser pour les infos sur la fenêtre qu'on redimensionne.</dd><dt>-fg <em>foreground colour</em></dt><dd>couleur de la bordure des fenêtres actives.</dd><dt>-fc <em>fixed colour</em></dt><dd>couleur de la bordure des fenêtres fixes.</dd><dt>-bg <em>background colour</em></dt><dd>couleur de la bordure des fenêtres inactives.</dd><dt>-bw <em>borderwidth</em></dt><dd>la taille de la bordure en pixels</dd><dt>-snap <em>num</em></dt><dd>active les fenêtres qui collent aux autres. num est la distance minimum en pixels.</dd><dt>-mask1 <em>modifiers</em></dt><dt>-mask2 <em>modifiers</em></dt><dt>-altmask <em>modifier</em></dt><dd>utile pour changer les touches claviers à utiliser pour activer les raccourcis. <em>mask1</em> est utilisé pour la plupart des raccourcis claviers (défaut: control+alt), et <em>mask2</em> est utilisé avec la souris pour bouger les fenêtres  (défaut: alt). Si vous en mettez plusieurs il faut les séparer avec des +  . Voici la liste :  shift, lock, control, alt, mod1, mod2, mod3, mod4, mod5.</dd><dt>-app <em>name/class</em></dt><dd>Pour donner certaines propriétés à certaines application. Il faut donner le nom de la classe. Utiliser <strong>xprop</strong> pour la trouver.  Les options -g -v et -s qui suivent seront appliqués à cette application.</dd><dt>-g <em>geometry</em></dt><dd>la taille. En utilisant la convention de X</dd><dt>-v <em>vdesk</em></dt><dd>sur quel bureau virtuel la lancer</dd><dt>-s</dt><dd>spécifie que cette application aura une fenêtre persistante</dd><dt>-nosoliddrag</dt><dd>ne dessine pas la fenêtre quand on la bouge</dd><dt>-V</dt><dd>écrit le numéro de version</dd></dl><h2>Utilisation</h2> J'ai mis bashrun comme argument à evilwm pour pouvoir lancer mes applications facilement. Je vous conseille de faire la même chose, pas forcément avec bashrun mais avec un lanceur d'application du même style. Parce que du coup il n'y a pas de menu par défaut :)Je l'utilise sans panel, sans tray mais rien ne vous empeche de les utiliser (rajouter les dans le .xinitrc) et j'utilise nitrogen pour mon fond d'écran.Vous trouverez la liste des raccourcis <a href="http://www.6809.org.uk/evilwm/usage.shtml" target="_blank">ici</a>.</div><cite class="omega three columns entry-meta"><p> <time datetime="2009-06-14 13:17:46 +0200" pubdate class="updated ss-clock">June 14, 2009</time> <br> <span class="ss-tag"><a href="/category/linux" rel="category tag">linux</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a></span> <br></p></cite> <footer class="share alpha thirteen columns"> <a id="tweet" href="http://twitter.com/?status=Evilwm%20http%3A%2F%2Fphollow.fr/2009/06/evilwm%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a> </footer> </article><hr><div id="disqus_thread"></div> <script>var disqus_shortname="phollowfr",disqus_identifier="http://phollow.fr/2009/06/evilwm/",disqus_url="http://phollow.fr/2009/06/evilwm/";(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></div><footer id="footer" role="contentinfo" class="sixteen columns"><hr> <nav role="navigation"><ul><li><a href="/">Homepage</a></li><li><a href="http://twitter.com/phollow">Twitter</a></li><li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li><li><a href="http://dribbble.com/phollow">Dribbble</a></li><li><a href="mailto:rydgel@phollow.fr">Contact</a></li></ul> </nav> <span class="copyright">Copyright © 2012 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.heroku.com/">Heroku.</a></span> <a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a> </footer></div> <script src="/js/compiled/global.js?v=8"></script><script>var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="gauges-tracker",e.setAttribute("data-site-id","4ec64821f5a1f55c33000003"),e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script></body></html>
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Evilwm</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Evilwm">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@phollow">
+  <meta name="twitter:creator" content="@phollow">
+  
+  <meta property="og:url" value="http://phollow.fr/2009/06/evilwm/">
+  <meta property="og:description" value="Je viens de commencer  mes expérimentations avec mon 1000H. Et je me suis dit que j'allais essayer evilwm. Incroyablement simple. C'est la première impression que j'ai eu. Simple, minimaliste et puissant. Tout peut se faire au clavier, q...">
+  
+  <meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Evilwm">
+  <meta property="og:title" value="Evilwm">
+
+
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=29">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script src="//use.typekit.net/jfp7vgn.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  <div class="container" role="wrapper">
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">
+          <img src="/images/phollow-logo3.png" alt="Phollow.me">
+        </a>
+      </h1>
+      <nav role="main-navigation" class="seven columns">
+        <ul>
+          <li>
+            <a href="/" title="blog">
+            <span class="ss-icon ss-write"></span>
+            <span>Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="/archives/" title="archives">
+            <span class="ss-icon ss-database"></span>
+            <span>Archives</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/projects" title="Projets">
+            <span class="ss-icon ss-notebook"></span>
+            <span>Projets</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/" title="À propos">
+            <span class="ss-icon ss-user"></span>
+            <span>Me</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS">
+            <span class="ss-icon ss-rss"></span>
+            <span>Rss</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <hr>
+    </header>
+
+<div id="container" class="sixteen columns">
+  <article class="post">
+      <header>
+    <h2 class="entry-title entry-single"><a href="/2009/06/evilwm">Evilwm</a></h2>
+    
+      </header>
+      <hr>
+      <div class="entry single-page thirteen columns alpha">
+        <p style="text-align: justify;">Je viens de commencer  mes expérimentations avec mon 1000H. Et je me suis dit que j'allais essayer <a href="http://www.6809.org.uk/evilwm/" target="_blank"><strong>evilwm</strong></a>. Incroyablement <strong>simple</strong>. C'est la première impression que j'ai eu. Simple, minimaliste et puissant. Tout peut se faire au clavier, que ce soit le déplacement des fenêtres, l'agrandissement ou la réduction. Il possède des bureaux virtuels. Il n'y a pas de décorations de fenêtres ou d'icônes, parce qu'on en a tout simplement pas besoin avec <strong>evilwm</strong>.</p>
+
+
+[caption id="attachment_879" align="aligncenter" width="595" caption="mon eeePC"]<a href="http://static.phollow.fr/2009/06/2009-06-13-205840_1024x600_scrot.png"><img class="size-medium wp-image-879" title="2009-06-13-205840_1024x600_scrot" src="http://static.phollow.fr/2009/06/2009-06-13-205840_1024x600_scrot-595x348.png" alt="evilwm" width="595" height="348" /></a>[/caption]
+<h2 style="text-align: justify;">Installation</h2>
+<p style="text-align: justify;">Si votre distro est cool, le paquet sera disponible dans votre dépôt. Par exemple sous Arch Linux :</p>
+
+<pre lang="bash">sudo pacman -S evilwm</pre>
+<p style="text-align: justify;">Sinon ça sera direction le <a href="http://www.6809.org.uk/evilwm/" target="_blank">site de evilwm</a> pour récupérer les sources et compiler tout ça <em>à la mano</em>.</p>
+
+<h2 style="text-align: justify;">Lancement</h2>
+<p style="text-align: justify;">Il suffit de lancer evilwm avec tous les arguments qu'on veut dans le <em>~/.xinitrc</em>.</p>
+
+<pre lang="bash">exec evilwm -fg "#554444" -bg "#3c3c3c" -bw 2 -term bashrun</pre>
+<p style="text-align: justify;">Voici la liste des arguments et leurs fonctions :</p>
+
+<dl> <dt>-display <em>display</em></dt> <dd>on dit sur quel X on veut le lancer. (utilise seulement si vous en avez plusieurs) </dd> <dt>-term <em>termprog</em></dt> <dd>le programme qui sera lancé avec le raccourcis ctrl-alt-entrer. Perso je met un lanceur comme <strong>bashrun.</strong></dd> <dt>-fn <em>fontname</em></dt> <dd>la font à utiliser pour les infos sur la fenêtre qu'on redimensionne. </dd> <dt>-fg <em>foreground colour</em></dt> <dd>couleur de la bordure des fenêtres actives. </dd> <dt>-fc <em>fixed colour</em></dt> <dd>couleur de la bordure des fenêtres fixes.</dd> <dt>-bg <em>background colour</em></dt> <dd>couleur de la bordure des fenêtres inactives.</dd> <dt>-bw <em>borderwidth</em></dt> <dd>la taille de la bordure en pixels </dd> <dt>-snap <em>num</em></dt> <dd>active les fenêtres qui collent aux autres. num est la distance minimum en pixels. </dd> <dt>-mask1 <em>modifiers</em></dt> <dt>-mask2 <em>modifiers</em></dt> <dt>-altmask <em>modifier</em></dt> <dd>utile pour changer les touches claviers à utiliser pour activer les raccourcis.  <em>mask1</em> est utilisé pour la plupart des raccourcis claviers (défaut: control+alt), et <em>mask2</em> est utilisé avec la souris pour bouger les fenêtres  (défaut: alt). Si vous en mettez plusieurs il faut les séparer avec des +  . Voici la liste :  shift, lock, control, alt, mod1, mod2, mod3, mod4, mod5.</dd> <dt>-app <em>name/class</em></dt> <dd>Pour donner certaines propriétés à certaines application. Il faut donner le nom de la classe. Utiliser <strong>xprop</strong> pour la trouver.  Les options -g -v et -s qui suivent seront appliqués à cette application.</dd> <dt>-g <em>geometry</em></dt> <dd>la taille. En utilisant la convention de X</dd> <dt>-v <em>vdesk</em></dt> <dd>sur quel bureau virtuel la lancer</dd> <dt>-s</dt> <dd>spécifie que cette application aura une fenêtre persistante </dd> <dt>-nosoliddrag</dt> <dd>ne dessine pas la fenêtre quand on la bouge </dd> <dt>-V</dt> <dd>écrit le numéro de version </dd> </dl>
+<h2>Utilisation</h2>
+J'ai mis bashrun comme argument à evilwm pour pouvoir lancer mes applications facilement. Je vous conseille de faire la même chose, pas forcément avec bashrun mais avec un lanceur d'application du même style. Parce que du coup il n'y a pas de menu par défaut :)
+
+Je l'utilise sans panel, sans tray mais rien ne vous empeche de les utiliser (rajouter les dans le .xinitrc) et j'utilise nitrogen pour mon fond d'écran.
+
+Vous trouverez la liste des raccourcis <a href="http://www.6809.org.uk/evilwm/usage.shtml" target="_blank">ici</a>.
+      </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="2009-06-14 13:17:46 +0200" pubdate class="updated ss-clock">June 14, 2009</time>
+          <br>
+          <span class="ss-tag"><a href="/category/linux" rel="category tag">linux</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a></span>
+          <br>
+          
+        </p>
+        </cite>
+      <footer class="share alpha thirteen columns">
+      <a id="tweet" href="http://twitter.com/?status=Evilwm%20http%3A%2F%2Fphollow.fr/2009/06/evilwm%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2009/06/evilwm/';
+          var disqus_url = 'http://phollow.fr/2009/06/evilwm/';
+
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <hr>
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>
+  <span class="copyright">Copyright © 2012 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=8"></script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+

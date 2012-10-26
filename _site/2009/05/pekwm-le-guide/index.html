@@ -1,25 +1,174 @@
-<!doctype html><html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"><head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#"><meta charset="UTF-8"><title>Pekwm le guide</title><link href="https://plus.google.com/116513653525162928064" rel="publisher"><meta name="title" content="Pekwm le guide"><meta name="author" content="Jérôme Mahuet"><meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved."><meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@phollow"><meta name="twitter:creator" content="@phollow"><meta property="og:url" value="http://phollow.fr/2009/05/pekwm-le-guide/"><meta property="og:description" value="Ce guide a pour but de vous accompagner durant l'installation du gestionnaire de fenêtres Pekwm, de sa configuration et de son utilisation. De la même manière que mon guide sur Openbox, je vais rester le plus général possible pour que le..."><meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png"><meta property="og:type" content="phollow:post"><meta property="og:site_name" content="Phollow.me"><meta property="fb:admins" content="rydgel"><meta property="fb:app_id" content="101739241646"><meta itemprop="name" content="Pekwm le guide"><meta property="og:title" value="Pekwm le guide"><meta http-equiv="cleartype" content="on"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml"><link rel="stylesheet" href="/css/compiled/global.css?v=28"> <script src="/js/compiled/modernizr.min.js"></script><script src="//use.typekit.net/jfp7vgn.js"></script><script>try{Typekit.load()}catch(e){}</script></head><body><div class="container" role="wrapper"> <header role="banner" id="header-site" class="sixteen columns"><h1 id="logo" class="four columns alpha"> <a href="/" title="Phollow.me"> <img src="/images/phollow-logo3.png" alt="Phollow.me"> </a></h1> <nav role="main-navigation" class="seven columns"><ul><li> <a href="/" title="blog"> <span class="ss-icon ss-write"></span> <span>Blog</span> </a></li><li> <a href="/archives/" title="archives"> <span class="ss-icon ss-database"></span> <span>Archives</span> </a></li><li> <a href="http://jrm.li/projects" title="Projets"> <span class="ss-icon ss-notebook"></span> <span>Projets</span> </a></li><li> <a href="http://jrm.li/" title="À propos"> <span class="ss-icon ss-user"></span> <span>Me</span> </a></li><li> <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS"> <span class="ss-icon ss-rss"></span> <span>Rss</span> </a></li></ul> </nav><hr> </header><div id="container" class="sixteen columns"> <article class="post"> <header><h2 class="entry-title entry-single"><a href="/2009/05/pekwm-le-guide">Pekwm le guide</a></h2> </header><hr><div class="entry single-page thirteen columns alpha"><p style="text-align:justify">Ce guide a pour but de vous accompagner durant l'installation du gestionnaire de fenêtres <a href="http://pekwm.org/projects/pekwm" target="_blank">Pekwm</a>, de sa configuration et de son utilisation. De la même manière que <a href="http://phollow.fr/2009/01/openbox-le-guide/" target="_blank">mon guide sur Openbox</a>, je vais rester le plus général possible pour que les manipulations fonctionnent sur toutes les distributions GNU/Linux et *BSD.</p><p style="text-align:justify"><strong>Note:</strong> Je me base sur la distribution <a href="http://www.archlinux.org" target="_blank">Archlinux</a> pour l'installation des paquets (pacman), vous devez donc adapter ces commandes à vos gestionnaires de paquets (aptitude, yum...)</p><h2 style="text-align: justify;">Introduction</h2><p style="text-align:justify"><a title="http://pekwm.org" rel="nofollow" href="http://pekwm.org/">The Pek Window Manager</a> est écrit par Claes Nästen. Le code est basé sur le gestionnaire de fenêtre <a class="new" title="Aewm++ (page does not exist)" href="http://wiki.archlinux.org/index.php?title=Aewm%2B%2B&amp;action=edit&amp;redlink=1">aewm++</a>, mais le code a vraiment évolué, si bien qu'aujourd'hui il ne ressemble plus du tout à <a class="new" title="Aewm++ (page does not exist)" href="http://wiki.archlinux.org/index.php?title=Aewm%2B%2B&amp;action=edit&amp;redlink=1">aewm++</a>. Il possède beaucoup de fonctionnalités, dont le regroupement de fenêtres, des propriétés automatiques, xinerama et des raccourcis claviers qui supportent les enchaînements de touches, et beaucoup plus.</p><h2 style="text-align: justify;">Sources</h2><ul><li><a href="http://pekwm.org/projects/pekwm" target="_blank">Le site officiel de pekwm</a></li><li><a href="http://wiki.archlinux.org/index.php/PekWM" target="_blank">Le wiki Archlinux</a></li><li><a href="http://wiki.archlinux.fr/pekwm" target="_blank">Le wiki Archlinux.fr</a></li></ul><h2>Installation</h2> Pekwm est disponible dans le dépôt d'Archlinux <pre lang="bash">sudo pacman -S pekwm</pre>Il faut maintenant mettre en place le démarrage de <strong>Pekwm</strong><h3>Méthode 1: GDM/KDM</h3><p style="text-align:justify">Généralement une session pekwm sera ajoutée automatiquement. Selectionnez pekwm dans le menu. Si jamais la session n'apparaît pas dans le menu, pas de soucis on va la créer :</p><p style="text-align:justify">Dans un fichier <strong>/usr/share/xsessions/Pekwm.desktop</strong> on ajoute ceci :</p><pre lang="bash">[Desktop Entry]
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Pekwm le guide</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Pekwm le guide">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@phollow">
+  <meta name="twitter:creator" content="@phollow">
+  
+  <meta property="og:url" value="http://phollow.fr/2009/05/pekwm-le-guide/">
+  <meta property="og:description" value="Ce guide a pour but de vous accompagner durant l'installation du gestionnaire de fenêtres Pekwm, de sa configuration et de son utilisation. De la même manière que mon guide sur Openbox, je vais rester le plus général possible pour que le...">
+  
+  <meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Pekwm le guide">
+  <meta property="og:title" value="Pekwm le guide">
+
+
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=29">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script src="//use.typekit.net/jfp7vgn.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  <div class="container" role="wrapper">
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">
+          <img src="/images/phollow-logo3.png" alt="Phollow.me">
+        </a>
+      </h1>
+      <nav role="main-navigation" class="seven columns">
+        <ul>
+          <li>
+            <a href="/" title="blog">
+            <span class="ss-icon ss-write"></span>
+            <span>Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="/archives/" title="archives">
+            <span class="ss-icon ss-database"></span>
+            <span>Archives</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/projects" title="Projets">
+            <span class="ss-icon ss-notebook"></span>
+            <span>Projets</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/" title="À propos">
+            <span class="ss-icon ss-user"></span>
+            <span>Me</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS">
+            <span class="ss-icon ss-rss"></span>
+            <span>Rss</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <hr>
+    </header>
+
+<div id="container" class="sixteen columns">
+  <article class="post">
+      <header>
+    <h2 class="entry-title entry-single"><a href="/2009/05/pekwm-le-guide">Pekwm le guide</a></h2>
+    
+      </header>
+      <hr>
+      <div class="entry single-page thirteen columns alpha">
+        <p style="text-align: justify;">Ce guide a pour but de vous accompagner durant l'installation du gestionnaire de fenêtres <a href="http://pekwm.org/projects/pekwm" target="_blank">Pekwm</a>, de sa configuration et de son utilisation. De la même manière que <a href="http://phollow.fr/2009/01/openbox-le-guide/" target="_blank">mon guide sur Openbox</a>, je vais rester le plus général possible pour que les manipulations fonctionnent sur toutes les distributions GNU/Linux et *BSD.</p>
+<p style="text-align: justify;"><strong>Note:</strong> Je me base sur la distribution <a href="http://www.archlinux.org" target="_blank">Archlinux</a> pour l'installation des paquets (pacman), vous devez donc adapter ces commandes à vos gestionnaires de paquets (aptitude, yum...)</p>
+
+<h2 style="text-align: justify;">Introduction</h2>
+<p style="text-align: justify;"><a title="http://pekwm.org" rel="nofollow" href="http://pekwm.org/">The Pek Window Manager</a> est écrit par Claes Nästen. Le code est basé sur le gestionnaire de fenêtre <a class="new" title="Aewm++ (page does not exist)" href="http://wiki.archlinux.org/index.php?title=Aewm%2B%2B&amp;action=edit&amp;redlink=1">aewm++</a>, mais le code a vraiment évolué, si bien qu'aujourd'hui il ne ressemble plus du tout à <a class="new" title="Aewm++ (page does not exist)" href="http://wiki.archlinux.org/index.php?title=Aewm%2B%2B&amp;action=edit&amp;redlink=1">aewm++</a>. Il possède beaucoup de fonctionnalités, dont le regroupement de fenêtres, des propriétés automatiques, xinerama et des raccourcis claviers qui supportent les enchaînements de touches, et beaucoup plus.</p>
+
+<h2 style="text-align: justify;">Sources</h2>
+<ul>
+	<li><a href="http://pekwm.org/projects/pekwm" target="_blank">Le site officiel de pekwm</a></li>
+	<li><a href="http://wiki.archlinux.org/index.php/PekWM" target="_blank">Le wiki Archlinux</a></li>
+	<li><a href="http://wiki.archlinux.fr/pekwm" target="_blank">Le wiki Archlinux.fr</a></li>
+</ul>
+<h2>Installation</h2>
+Pekwm est disponible dans le dépôt d'Archlinux
+<pre lang="bash">sudo pacman -S pekwm</pre>
+Il faut maintenant mettre en place le démarrage de <strong>Pekwm</strong>
+<h3>Méthode 1: GDM/KDM</h3>
+<p style="text-align: justify;">Généralement une session pekwm sera ajoutée automatiquement. Selectionnez pekwm dans le menu. Si jamais la session n'apparaît pas dans le menu, pas de soucis on va la créer :</p>
+<p style="text-align: justify;">Dans un fichier <strong>/usr/share/xsessions/Pekwm.desktop</strong> on ajoute ceci :</p>
+
+<pre lang="bash">[Desktop Entry]
 Encoding=UTF-8
 Name=PekWM
 Comment=Start PekWM
 Exec=/usr/bin/pekwm
 Icon=
-Type=Application</pre><h3>Méthode 2: xinitrc</h3> Dans votre <strong>~/.xinitrc</strong>, on démarre pekwm de cette façon : <pre lang="bash">exec pekwm</pre><h2>Configuration</h2><p style="text-align:justify">La première chose à faire avant de lancer <strong>Pekwm</strong> est de créer nos fichiers de configurations dans notre <em>home</em>. Nous allons prendre les fichiers par défaut qui nous servirons de base dans notre installation.</p><pre lang="bash">mkdir ~/.pekwm
-cp /etc/pekwm/* ~/.pekwm/</pre><p style="text-align:justify">Les fichiers de configurations sont les suivants :</p><ul><li><strong>~/.pekwm/config</strong>: Concerne la configuration propre de pekwm (thème, comportement des fenêtres)</li><li><strong>~/.pekwm/mouse</strong>: Concerne les réglages de la souris</li><li><strong>~/.pekwm/keys: </strong>Concerne les raccourcis claviers</li><li><strong>~/.pekwm/menu:</strong> Pour configurer le menu du bureau, de la fenêtre</li><li><strong>~/.pekwm/vars:</strong> Stockage de variables</li><li><strong>~/.pekwm/start: </strong>Le fichier qui permet de lancer des programmes au démarrage de pekwm</li><li><strong>~/.pekwm/autoproperties: </strong>Le fichier le plus intéressant de pekwm :)</li></ul><h3><strong>Le fichier config</strong></h3><p style="text-align:justify">Ce fichier comme expliqué plus tôt permet de configurer le comportement des fenêtres, le nom des bureaux par exemple et diverses options. La configuration se fait en plusieurs sous-sections:</p><ul><li><strong>Files { }</strong>: les fichiers à utiliser</li><li><strong>MoveResize { }</strong>: la section permettant de configurer le comportement des fenêtres lors d'un déplacement/redimensionnement.</li><li><strong>Menu { }</strong>: section permettant de définir l'utilisation du menu (pas son contenu).</li><li><strong>CmdDialog { }</strong>: cette section permet de configurer le lanceur d'applications.</li><li class="level1"><div class="li"><strong>Harbour { }</strong>: la section pour configurer harbour.</div></li></ul> <pre lang="bash">Files {
+Type=Application</pre>
+<h3>Méthode 2: xinitrc</h3>
+Dans votre <strong>~/.xinitrc</strong>, on démarre pekwm de cette façon :
+<pre lang="bash">exec pekwm</pre>
+<h2>Configuration</h2>
+<p style="text-align: justify;">La première chose à faire avant de lancer <strong>Pekwm</strong> est de créer nos fichiers de configurations dans notre <em>home</em>. Nous allons prendre les fichiers par défaut qui nous servirons de base dans notre installation.</p>
+
+<pre lang="bash">mkdir ~/.pekwm
+cp /etc/pekwm/* ~/.pekwm/</pre>
+<p style="text-align: justify;">Les fichiers de configurations sont les suivants :</p>
+
+<ul>
+	<li><strong>~/.pekwm/config</strong>: Concerne la configuration propre de pekwm (thème, comportement des fenêtres)</li>
+	<li><strong>~/.pekwm/mouse</strong>: Concerne les réglages de la souris</li>
+	<li><strong>~/.pekwm/keys: </strong>Concerne les raccourcis claviers</li>
+	<li><strong>~/.pekwm/menu:</strong> Pour configurer le menu du bureau, de la fenêtre</li>
+	<li><strong>~/.pekwm/vars:</strong> Stockage de variables</li>
+	<li><strong>~/.pekwm/start: </strong>Le fichier qui permet de lancer des programmes au démarrage de pekwm</li>
+	<li><strong>~/.pekwm/autoproperties: </strong>Le fichier le plus intéressant de pekwm :)</li>
+</ul>
+<h3><strong>Le fichier config</strong></h3>
+<p style="text-align: justify;">Ce fichier comme expliqué plus tôt permet de configurer le comportement des fenêtres, le nom des bureaux par exemple et diverses options. La configuration se fait en plusieurs sous-sections:</p>
+
+<ul>
+	<li><strong>Files { }</strong>: les fichiers à utiliser</li>
+	<li><strong>MoveResize { }</strong>: la section permettant de configurer le comportement des fenêtres lors d'un déplacement/redimensionnement.</li>
+	<li><strong>Menu { }</strong>: section permettant de définir l'utilisation du menu (pas son contenu).</li>
+	<li><strong>CmdDialog { }</strong>: cette section permet de configurer le lanceur d'applications.</li>
+	<li class="level1">
+<div class="li"><strong>Harbour { }</strong>: la section pour configurer harbour.</div></li>
+</ul>
+<pre lang="bash">Files {
     Keys = "~/.pekwm/keys"
     Mouse = "~/.pekwm/mouse"
     Menu = "~/.pekwm/menu"
     Start = "~/.pekwm/start"
     AutoProps = "~/.pekwm/autoproperties"
     Theme = "~/.pekwm/themes/Miro"
-}</pre><p style="text-align:justify">Je ne vous conseille pas de changer les 5 premiers sauf si vous savez ce que vous faites. Au niveau du champ <strong>Theme</strong> vous devez indiquer le répertoire du thème à utiliser.</p><pre lang="bash">MoveResize {
+}</pre>
+<p style="text-align: justify;">Je ne vous conseille pas de changer les 5 premiers sauf si vous savez ce que vous faites. Au niveau du champ <strong>Theme</strong> vous devez indiquer le répertoire du thème à utiliser.</p>
+
+<pre lang="bash">MoveResize {
     EdgeAttract = "10"
     EdgeResist = "10"
     WindowAttract = "5"
     WindowResist = "5"
     OpaqueMove = "true"
     OpaqueResize = "false"
-}</pre><strong>EdgeAttract</strong>: cette valeur est la distance (en pixel) à partir de laquelle la fenêtre “colle” aux bords. <strong>WindowAttract</strong>: même chose par rapport aux fenêtres. <strong>OpaqueMove</strong>: doit-on dessiner la fenêtre pendant le déplacement. <strong>OpaqueResize</strong>: doit-on dessiner la fenêtre pendant le redimensionnement. <pre lang="bash">Screen {
+}</pre>
+<strong>EdgeAttract</strong>: cette valeur est la distance (en pixel) à partir de laquelle la fenêtre “colle” aux bords.
+<strong>WindowAttract</strong>: même chose par rapport aux fenêtres.
+<strong>OpaqueMove</strong>: doit-on dessiner la fenêtre pendant le déplacement.
+<strong>OpaqueResize</strong>: doit-on dessiner la fenêtre pendant le redimensionnement.
+<pre lang="bash">Screen {
     Workspaces = "6"
     WorkspacesPerRow = "2"
     WorkspaceNames = "Main;Chat;Music;Web;Games;Code"
@@ -46,7 +195,18 @@ cp /etc/pekwm/* ~/.pekwm/</pre><p style="text-align:justify">Les fichiers de con
         }
     }
 
-}</pre><strong>Workspace</strong>: le nombre de bureaux. <strong>WorkspacesPerRow</strong>: le nombre de bureaux par colonne (0 pour mettre en ligne). <strong>ShowFrameList</strong>: doit-on afficher la liste des fenêtres lorsque l'on navigue parmi elles. <strong>WorkspaceNames</strong>: noms des bureaux séparés par ;. <strong>ShowStatusWindowsCenteredOnRoot</strong>: si oui les informations de la fenêtre seront au centre du bureau sinon au centre de la fenêtre. <strong>FocusNew</strong>: doit-on mettre automatiquement en avant une nouvelle fenêtre. <strong>EdgeSize</strong>: l'espacement par rapport aux bords (dans l'ordre haut bas gauche droite). <strong>EdgeIndent</strong>: si oui les fenêtres n'iront pas d'elles même dans l'espacement inscrit dans EdgeSize. <strong>DoubleClickTime</strong>: la vitesse de double click en ms. <strong>Placement {</strong>: configuration du placement des fenêtres, regardez la documentation de <a href="http://pekwm.org/" target="_blank"><span class="search_hit">pekwm</span></a> pour plus de détails. <pre lang="bash">Menu {
+}</pre>
+<strong>Workspace</strong>: le nombre de bureaux.
+<strong>WorkspacesPerRow</strong>: le nombre de bureaux par colonne (0 pour mettre en ligne).
+<strong>ShowFrameList</strong>: doit-on afficher la liste des fenêtres lorsque l'on navigue parmi elles.
+<strong>WorkspaceNames</strong>: noms des bureaux séparés par ;.
+<strong>ShowStatusWindowsCenteredOnRoot</strong>: si oui les informations de la fenêtre seront au centre du bureau sinon au centre de la fenêtre.
+<strong>FocusNew</strong>: doit-on mettre automatiquement en avant une nouvelle fenêtre.
+<strong>EdgeSize</strong>: l'espacement par rapport aux bords (dans l'ordre haut bas gauche droite).
+<strong>EdgeIndent</strong>: si oui les fenêtres n'iront pas d'elles même dans l'espacement inscrit dans EdgeSize.
+<strong>DoubleClickTime</strong>: la vitesse de double click en ms.
+<strong>Placement {</strong>: configuration du placement des fenêtres, regardez la documentation de <a href="http://pekwm.org/" target="_blank"><span class="search_hit">pekwm</span></a> pour plus de détails.
+<pre lang="bash">Menu {
     DisplayIcons = "true"
     Icons = "Menu" {
       Minimum = "16x16"
@@ -55,14 +215,45 @@ cp /etc/pekwm/* ~/.pekwm/</pre><p style="text-align:justify">Les fichiers de con
     Select = "Motion"
     Enter = "Motion"
     Exec = "ButtonPress"
-}</pre><strong>DisplayIcons</strong>: doit-on afficher des icônes. <strong>Icons = “Menu”</strong>: paramètres à utiliser pour la section “Menu” du fichier .<span class="search_hit">pekwm</span>/menu. <strong>Select</strong>: comment choisir un élément du menu. <strong>Enter</strong>: comment entrer dans un sous-menu. <strong>Exec</strong>: comment exécuter un élément. <pre lang="bash">CmdDialog {
+}</pre>
+<strong>DisplayIcons</strong>: doit-on afficher des icônes.
+<strong>Icons = “Menu”</strong>: paramètres à utiliser pour la section “Menu” du fichier .<span class="search_hit">pekwm</span>/menu.
+<strong>Select</strong>: comment choisir un élément du menu.
+<strong>Enter</strong>: comment entrer dans un sous-menu.
+<strong>Exec</strong>: comment exécuter un élément.
+<pre lang="bash">CmdDialog {
     HistoryUnique = "true"
     HistorySize = "500"
     HistoryFile = "~/.pekwm/history"
     HistorySaveInterval = "16"
-}</pre><strong>HistoryUnique</strong>: doit-on afficher qu'une fois une application déjà lancée plusieurs fois. <strong>HistorySize</strong>: taille du fichier historique. <strong>HistoryFile</strong>: le fichier historique à utiliser.<h3><strong>Les fichiers mouse et keys</strong></h3><p style="text-align:justify">Ces deux fichiers vont nous permettre de définir les raccourcis claviers et souris.</p><h4><a id="pour_mouse1" name="pour_mouse1">les identifiants pour mouse</a></h4><ul><li><strong>1</strong>: click gauche.</li><li><strong>2</strong>: click du milieu.</li><li><strong>3</strong>: click droit.</li><li><strong>4/5</strong>: molette haut/molette bas.</li></ul><h4><a id="pour_keys1" name="pour_keys1">les identifiants pour keys</a></h4><ul><li><strong>Ctrl</strong>: touche contrôle.</li><li><strong>Mod1</strong>: touche alt.</li><li><strong>Mod4</strong>: touche super ou windows.</li></ul> Petit exemple pour la souris : <pre lang="bash">FrameTitle {
+}</pre>
+<strong>HistoryUnique</strong>: doit-on afficher qu'une fois une application déjà lancée plusieurs fois.
+<strong>HistorySize</strong>: taille du fichier historique.
+<strong>HistoryFile</strong>: le fichier historique à utiliser.
+<h3><strong>Les fichiers mouse et keys</strong></h3>
+<p style="text-align: justify;">Ces deux fichiers vont nous permettre de définir les raccourcis claviers et souris.</p>
+
+<h4><a id="pour_mouse1" name="pour_mouse1">les identifiants pour mouse</a></h4>
+<ul>
+	<li><strong>1</strong>: click gauche.</li>
+	<li><strong>2</strong>: click du milieu.</li>
+	<li><strong>3</strong>: click droit.</li>
+	<li><strong>4/5</strong>: molette haut/molette bas.</li>
+</ul>
+<h4><a id="pour_keys1" name="pour_keys1">les identifiants pour keys</a></h4>
+<ul>
+	<li><strong>Ctrl</strong>: touche contrôle.</li>
+	<li><strong>Mod1</strong>: touche alt.</li>
+	<li><strong>Mod4</strong>: touche super ou windows.</li>
+</ul>
+Petit exemple pour la souris :
+<pre lang="bash">FrameTitle {
      ButtonRelease = "1" { Actions = "Raise; Focus" }
-}</pre>Va faire venir une fenêtre au premier plan en cliquant sur la barre de titre avec le clic gauche.Exemple pour les raccourcis clavier : <pre lang="bash">INCLUDE = "vars"
+}</pre>
+Va faire venir une fenêtre au premier plan en cliquant sur la barre de titre avec le clic gauche.
+
+Exemple pour les raccourcis clavier :
+<pre lang="bash">INCLUDE = "vars"
 Global {
   KeyPress = "Mod4 e" { Actions = "Exec $TERMINAL &" }
   KeyPress = "#123" { Actions = "Exec $MIXINC &" }
@@ -70,12 +261,134 @@ Global {
   Chain = "Mod4 Mod1 M" {
     KeyPress = "P" { Actions = "Exec $PLAY &" }
   }
-}</pre><strong>INCLUDE = “vars”</strong>: on inclue le fichier vars où on définira certaines applications. <strong>KeyPress = ”#123” { Actions = “Exec $MIXINC &amp;” }</strong>: sur la pression de la touche 123 identifiée par xev on lance $MIXINC défini dans .<span class="search_hit">pekwm</span>/vars. <strong>Chain = “Mod4 Mod1 M” {</strong>: le raccourci Super + Alt + M, à lui seul il donne rien, il faut ensuite rajouter une autre touche. <strong>KeyPress = “P” { Actions = “Exec $PLAY &amp;” }</strong>: appuyer P après Super + Alt + M lancera $PLAY défini dans .<span class="search_hit">pekwm</span>/vars.<p style="text-align:justify">Il est possible de lancer plusieurs programmes à la fois :</p><pre lang="bash">KeyPress = "Ctrl Mod1 R" { Actions = "Exec osdctl -s 'Reconfiguring'; Reload" }</pre>Pour une liste complète des variables et propriétés, jettez un coup d'oeil à la <a href="http://www.pekwm.org/files/pekwm/doc/git/html/config/keys_mouse.html#config-keys_mouse-actions" target="_blank">documentation</a>.<h3><strong>Le fichier menu</strong></h3><p style="text-align:justify">Le paquet archlinux installe un fichier menu par défaut, qui contient divers raccourcis. On va donc vouloir changer ça. Deux façon possible :</p><h4 style="text-align: justify;">Menumaker</h4><p style="text-align:justify">Ce programme va générer un menu automatiquement avec les programmes que vous avez installé.</p><pre lang="bash">mmaker --no-desktop -f pekwm</pre><p style="text-align:justify">Regardez les options disponible avec <strong>mmaker --help</strong>. Ce petit programme peut nous donner une bonne base pour pouvoir après édité notre menu à la main</p><h4 style="text-align: justify;">À la main</h4><p style="text-align:justify">Comme mentionné un peu avant, les modifications se font dans le fichier<strong> ~/.pekwm/menu </strong>. La syntaxe est assez compréhensive. Voici une entrée de menu :</p><pre lang="bash">Entry = "NAME" { Actions = "Exec COMMAND &" }</pre><p style="text-align:justify">Et là un sous-menu possédant 2 entrée :</p><pre lang="bash">Submenu = "NAME" {
+}</pre>
+<strong>INCLUDE = “vars”</strong>: on inclue le fichier vars où on définira certaines applications.
+<strong>KeyPress = ”#123” { Actions = “Exec $MIXINC &amp;” }</strong>: sur la pression de la touche 123 identifiée par xev on lance $MIXINC défini dans .<span class="search_hit">pekwm</span>/vars.
+<strong>Chain = “Mod4 Mod1 M” {</strong>: le raccourci Super + Alt + M, à lui seul il donne rien, il faut ensuite rajouter une autre touche.
+<strong>KeyPress = “P” { Actions = “Exec $PLAY &amp;” }</strong>: appuyer P après Super + Alt + M lancera $PLAY défini dans .<span class="search_hit">pekwm</span>/vars.
+<p style="text-align: justify;">Il est possible de lancer plusieurs programmes à la fois :</p>
+
+<pre lang="bash">KeyPress = "Ctrl Mod1 R" { Actions = "Exec osdctl -s 'Reconfiguring'; Reload" }</pre>
+Pour une liste complète des variables et propriétés, jettez un coup d'oeil à la <a href="http://www.pekwm.org/files/pekwm/doc/git/html/config/keys_mouse.html#config-keys_mouse-actions" target="_blank">documentation</a>.
+<h3><strong>Le fichier menu</strong></h3>
+<p style="text-align: justify;">Le paquet archlinux installe un fichier menu par défaut, qui contient divers raccourcis. On va donc vouloir changer ça. Deux façon possible :</p>
+
+<h4 style="text-align: justify;">Menumaker</h4>
+<p style="text-align: justify;">Ce programme va générer un menu automatiquement avec les programmes que vous avez installé.</p>
+
+<pre lang="bash">mmaker --no-desktop -f pekwm</pre>
+<p style="text-align: justify;">Regardez les options disponible avec <strong>mmaker --help</strong>. Ce petit programme peut nous donner une bonne base pour pouvoir après édité notre menu à la main</p>
+
+<h4 style="text-align: justify;">À la main</h4>
+<p style="text-align: justify;">Comme mentionné un peu avant, les modifications se font dans le fichier<strong> ~/.pekwm/menu </strong>. La syntaxe est assez compréhensive. Voici une entrée de menu :</p>
+
+<pre lang="bash">Entry = "NAME" { Actions = "Exec COMMAND &" }</pre>
+<p style="text-align: justify;">Et là un sous-menu possédant 2 entrée :</p>
+
+<pre lang="bash">Submenu = "NAME" {
      Entry = "NAME" { Actions = "Exec COMMAND &" }
      Entry = "NAME" { Actions = "Exec COMMAND &" }
-}</pre><p style="text-align:justify">Un séparateur :</p><pre lang="bash">Separator {}</pre><p style="text-align:justify">Pekwm supporte aussi les menus dynamiques. Ce sont des entrées de menus générées par des scripts. Vous trouverez un exemple <a href="http://urukrama.wordpress.com/2008/01/02/show-the-date-and-time-in-pekwms-menu/" target="_blank">ici</a> pour afficher la date et l'heure actuelle.</p><h3 style="text-align: justify;"><strong>Le fichier vars</strong></h3><p style="text-align:justify">On y met les variables qu'on peut réutiliser ensuite dans les fichiers de configurations (il faut bien sur inclure le fichier vars )</p><pre lang="bash">$TERM="xterm -fn fixed +sb -bg white -fg black"</pre><h3><strong>Le fichier autoproperties</strong></h3><p style="text-align:justify">Nous voilà au fichier le plus complexe de <span class="search_hit">pekwm</span> mais aussi le plus puissant, avec celui ci vous pourrez faire en sorte qu'une application se lance sur tel ou tel bureau, de manière maximisée ou bien groupée avec d'autres.</p><p style="text-align:justify">Tout d'abord vous devez connaître la valeur WM_CLASS de l'application que vous voulez définir. pour cela en terminal faites</p><pre lang="bash">xprop WM_CLASS</pre><p style="text-align:justify">puis cliquez sur l'application désirée, par exemple firefox → WM_CLASS(STRING) = “Navigator”, “Firefox”</p><p style="text-align:justify">Maintenant admettons que je veuille que firefox démarre sur le bureau 4 automatiquement au lancement je fais ceci:</p><pre style="text-align: justify;" lang="bash">Property = "Navigator", "Firefox" {
+}</pre>
+<p style="text-align: justify;">Un séparateur :</p>
+
+<pre lang="bash">Separator {}</pre>
+<p style="text-align: justify;">Pekwm supporte aussi les menus dynamiques. Ce sont des entrées de menus générées par des scripts. Vous trouverez un exemple <a href="http://urukrama.wordpress.com/2008/01/02/show-the-date-and-time-in-pekwms-menu/" target="_blank">ici</a> pour afficher la date et l'heure actuelle.</p>
+
+<h3 style="text-align: justify;"><strong>Le fichier vars</strong></h3>
+<p style="text-align: justify;">On y met les variables qu'on peut réutiliser ensuite dans les fichiers de configurations (il faut bien sur inclure le fichier vars )</p>
+
+<pre lang="bash">$TERM="xterm -fn fixed +sb -bg white -fg black"</pre>
+<h3><strong>Le fichier autoproperties</strong></h3>
+<p style="text-align: justify;">Nous voilà au fichier le plus complexe de <span class="search_hit">pekwm</span> mais aussi le plus puissant, avec celui ci vous pourrez faire en sorte qu'une application se lance sur tel ou tel bureau, de manière maximisée ou bien groupée avec d'autres.</p>
+<p style="text-align: justify;">Tout d'abord vous devez connaître la valeur WM_CLASS de l'application que vous voulez définir. pour cela en terminal faites</p>
+
+<pre lang="bash">xprop WM_CLASS</pre>
+<p style="text-align: justify;">puis cliquez sur l'application désirée, par exemple firefox → WM_CLASS(STRING) = “Navigator”, “Firefox”</p>
+<p style="text-align: justify;">Maintenant admettons que je veuille que firefox démarre sur le bureau 4 automatiquement au lancement je fais ceci:</p>
+
+<pre style="text-align: justify;" lang="bash">Property = "Navigator", "Firefox" {
   ApplyOn = "New Start"
   Workspace = "4"
-}</pre><p style="text-align:justify"><strong>Property = “Navigator”, “Firefox” {</strong>: la propriété visant firefox. <strong>ApplyOn = “New Start”</strong>: New = quand une nouvelle fenêtre démarre, Start = quand firefox se lance. <strong>Workspace = “4”</strong>: on dit de lancer firefox sur le bureau 4.<p style="text-align:justify">Il y a beaucoup d'autres méthodes utiles, pour ça je vous conseille d'aller faire un tour sur la <a href="http://www.pekwm.org/files/pekwm/doc/git/html/config/autoprops.html" target="_blank">documentation</a>.</p><h3 style="text-align: justify;"><strong>Le fichier start</strong></h3><p style="text-align:justify">Un fichier assez simple, c'est le même que le autostart.sh d'openbox, donc rendez le executable (chmod +x) et remplissez le comme ceci :</p><pre lang="bash">#!/bin/sh
+}</pre>
+<p style="text-align: justify;"><strong>Property = “Navigator”, “Firefox” {</strong>: la propriété visant firefox.
+<strong>ApplyOn = “New Start”</strong>: New = quand une nouvelle fenêtre démarre, Start = quand firefox se lance.
+<strong>Workspace = “4”</strong>: on dit de lancer firefox sur le bureau 4.
+<p style="text-align: justify;">Il y a beaucoup d'autres méthodes utiles, pour ça je vous conseille d'aller faire un tour sur la <a href="http://www.pekwm.org/files/pekwm/doc/git/html/config/autoprops.html" target="_blank">documentation</a>.</p>
+
+<h3 style="text-align: justify;"><strong>Le fichier start</strong></h3>
+<p style="text-align: justify;">Un fichier assez simple, c'est le même que le autostart.sh d'openbox, donc rendez le executable (chmod +x) et remplissez le comme ceci :</p>
+
+<pre lang="bash">#!/bin/sh
 pidgin &
-firefox &</pre><h2>Conclusion</h2><p style="text-align:justify">J'espère qu'avec cet article vous envisagerez au moins d'essayer Pekwm, comme d'habitude vous savez où me contacter si vous avez des questions :)</p></div><cite class="omega three columns entry-meta"><p> <time datetime="2009-05-06 23:34:58 +0200" pubdate class="updated ss-clock">May 6, 2009</time> <br> <span class="ss-tag"><a href="/category/featured articles" rel="category tag">featured articles</a>, <a href="/category/linux" rel="category tag">linux</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a></span> <br></p></cite> <footer class="share alpha thirteen columns"> <a id="tweet" href="http://twitter.com/?status=Pekwm%20le%20guide%20http%3A%2F%2Fphollow.fr/2009/05/pekwm-le-guide%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a> </footer> </article><hr><div id="disqus_thread"></div> <script>var disqus_shortname="phollowfr",disqus_identifier="http://phollow.fr/2009/05/pekwm-le-guide/",disqus_url="http://phollow.fr/2009/05/pekwm-le-guide/";(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></div><footer id="footer" role="contentinfo" class="sixteen columns"><hr> <nav role="navigation"><ul><li><a href="/">Homepage</a></li><li><a href="http://twitter.com/phollow">Twitter</a></li><li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li><li><a href="http://dribbble.com/phollow">Dribbble</a></li><li><a href="mailto:rydgel@phollow.fr">Contact</a></li></ul> </nav> <span class="copyright">Copyright © 2012 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.heroku.com/">Heroku.</a></span> <a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a> </footer></div> <script src="/js/compiled/global.js?v=8"></script><script>var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="gauges-tracker",e.setAttribute("data-site-id","4ec64821f5a1f55c33000003"),e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script></body></html>
+firefox &</pre>
+<h2>Conclusion</h2>
+<p style="text-align: justify;">J'espère qu'avec cet article vous envisagerez au moins d'essayer Pekwm, comme d'habitude vous savez où me contacter si vous avez des questions :)</p>
+      </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="2009-05-06 23:34:58 +0200" pubdate class="updated ss-clock">May  6, 2009</time>
+          <br>
+          <span class="ss-tag"><a href="/category/featured articles" rel="category tag">featured articles</a>, <a href="/category/linux" rel="category tag">linux</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a></span>
+          <br>
+          
+        </p>
+        </cite>
+      <footer class="share alpha thirteen columns">
+      <a id="tweet" href="http://twitter.com/?status=Pekwm%20le%20guide%20http%3A%2F%2Fphollow.fr/2009/05/pekwm-le-guide%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2009/05/pekwm-le-guide/';
+          var disqus_url = 'http://phollow.fr/2009/05/pekwm-le-guide/';
+
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <hr>
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>
+  <span class="copyright">Copyright © 2012 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=8"></script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+

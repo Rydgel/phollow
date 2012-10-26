@@ -1,42 +1,227 @@
-<!doctype html><html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"><head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#"><meta charset="UTF-8"><title>Facebook Like, méthode de partage</title><link href="https://plus.google.com/116513653525162928064" rel="publisher"><meta name="title" content="Facebook Like, méthode de partage"><meta name="author" content="Jérôme Mahuet"><meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved."><meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@phollow"><meta name="twitter:creator" content="@phollow"><meta property="og:url" value="http://phollow.fr/2011/03/facebook-like-methode-de-partage/"><meta property="og:description" value="Facebook a rajouté tout récemment de nouvelles fonctionnalités à son bouton like. Ce bouton — un peu le cheval de Troie de Facebook sur le web — devient maintenant une alternative intéressante, et obligatoire, au Facebook Share. Il faut ..."><meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png"><meta property="og:type" content="phollow:post"><meta property="og:site_name" content="Phollow.me"><meta property="fb:admins" content="rydgel"><meta property="fb:app_id" content="101739241646"><meta itemprop="name" content="Facebook Like, méthode de partage"><meta property="og:title" value="Facebook Like, méthode de partage"><meta http-equiv="cleartype" content="on"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml"><link rel="stylesheet" href="/css/compiled/global.css?v=28"> <script src="/js/compiled/modernizr.min.js"></script><script src="//use.typekit.net/jfp7vgn.js"></script><script>try{Typekit.load()}catch(e){}</script></head><body><div class="container" role="wrapper"> <header role="banner" id="header-site" class="sixteen columns"><h1 id="logo" class="four columns alpha"> <a href="/" title="Phollow.me"> <img src="/images/phollow-logo3.png" alt="Phollow.me"> </a></h1> <nav role="main-navigation" class="seven columns"><ul><li> <a href="/" title="blog"> <span class="ss-icon ss-write"></span> <span>Blog</span> </a></li><li> <a href="/archives/" title="archives"> <span class="ss-icon ss-database"></span> <span>Archives</span> </a></li><li> <a href="http://jrm.li/projects" title="Projets"> <span class="ss-icon ss-notebook"></span> <span>Projets</span> </a></li><li> <a href="http://jrm.li/" title="À propos"> <span class="ss-icon ss-user"></span> <span>Me</span> </a></li><li> <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS"> <span class="ss-icon ss-rss"></span> <span>Rss</span> </a></li></ul> </nav><hr> </header><div id="container" class="sixteen columns"> <article class="post"> <header><h2 class="entry-title entry-single"><a href="/2011/03/facebook-like-methode-de-partage">Facebook Like, méthode de partage</a></h2> </header><hr><div class="entry single-page thirteen columns alpha"><p style="text-align:justify">Facebook a rajouté tout récemment de nouvelles fonctionnalités à son bouton <strong>like</strong>. Ce bouton — <em>un peu le cheval de Troie de Facebook sur le web</em> — devient maintenant une alternative intéressante, et <em>obligatoire</em>, au Facebook Share. Il faut dire qu'avant le partage se limitait à une simple ligne sur le profil du <em>likeur</em>. Voyons ce qui change et comment l'intégrer sur <strong>Wordpress</strong> par exemple.</p> <img class="alignnone size-medium wp-image-3146" title="amis-facebook" src="http://static.phollow.fr/2011/03/amis-facebook-537x314.jpg" alt="" width="537" height="314"/><p style="text-align:justify">Désormais le simple fait de “ liker ” une page, pourra poster sur votre profil tout un tas d'informations. Le titre de la page, une description et pourquoi pas une image. En fait c'est exactement le même modèle de ce que faisait le vieux bouton bleu moche <strong>Facebook Share</strong>.</p><p style="text-align:justify">Le bouton like fonctionne avec le protocole <strong>Open Graph</strong>. Concrètement ce protocole permet à Facebook de s'insérer dans n'importe quel site web. Dans ce protocole, Facebook a définit certaines balises Meta qui vont contenir la carte d'identité de la page web. Le titre, l'URL, la description, la catégorie etc.</p><div class="highlight"><pre><code class="html"><span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/1999/xhtml"</span>
-<span class="na">xmlns:og=</span><span class="s">"http://ogp.me/ns#"</span>
-<span class="na">xmlns:fb=</span><span class="s">"http://www.facebook.com/2008/fbml"</span><span class="nt">&gt;</span>
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Facebook Like, méthode de partage</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Facebook Like, méthode de partage">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@phollow">
+  <meta name="twitter:creator" content="@phollow">
+  
+  <meta property="og:url" value="http://phollow.fr/2011/03/facebook-like-methode-de-partage/">
+  <meta property="og:description" value="Facebook a rajouté tout récemment de nouvelles fonctionnalités à son bouton like. Ce bouton — un peu le cheval de Troie de Facebook sur le web — devient maintenant une alternative intéressante, et obligatoire, au Facebook Share. Il faut ...">
+  
+  <meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Facebook Like, méthode de partage">
+  <meta property="og:title" value="Facebook Like, méthode de partage">
+
+
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=29">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script src="//use.typekit.net/jfp7vgn.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  <div class="container" role="wrapper">
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">
+          <img src="/images/phollow-logo3.png" alt="Phollow.me">
+        </a>
+      </h1>
+      <nav role="main-navigation" class="seven columns">
+        <ul>
+          <li>
+            <a href="/" title="blog">
+            <span class="ss-icon ss-write"></span>
+            <span>Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="/archives/" title="archives">
+            <span class="ss-icon ss-database"></span>
+            <span>Archives</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/projects" title="Projets">
+            <span class="ss-icon ss-notebook"></span>
+            <span>Projets</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/" title="À propos">
+            <span class="ss-icon ss-user"></span>
+            <span>Me</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS">
+            <span class="ss-icon ss-rss"></span>
+            <span>Rss</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <hr>
+    </header>
+
+<div id="container" class="sixteen columns">
+  <article class="post">
+      <header>
+    <h2 class="entry-title entry-single"><a href="/2011/03/facebook-like-methode-de-partage">Facebook Like, méthode de partage</a></h2>
+    
+      </header>
+      <hr>
+      <div class="entry single-page thirteen columns alpha">
+        <p style="text-align: justify;">Facebook a rajouté tout récemment de nouvelles fonctionnalités à son bouton <strong>like</strong>. Ce bouton — <em>un peu le cheval de Troie de Facebook sur le web</em> — devient maintenant une alternative intéressante, et <em>obligatoire</em>, au Facebook Share. Il faut dire qu'avant le partage se limitait à une simple ligne sur le profil du <em>likeur</em>. Voyons ce qui change et comment l'intégrer sur <strong>Wordpress</strong> par exemple.</p>
+<img class="alignnone size-medium wp-image-3146" title="amis-facebook" src="http://static.phollow.fr/2011/03/amis-facebook-537x314.jpg" alt="" width="537" height="314" />
+<p style="text-align: justify;">Désormais le simple fait de “ liker ” une page, pourra poster sur votre profil tout un tas d'informations. Le titre de la page, une description et pourquoi pas une image. En fait c'est exactement le même modèle de ce que faisait le vieux bouton bleu moche <strong>Facebook Share</strong>.</p>
+<p style="text-align: justify;">Le bouton like fonctionne avec le protocole <strong>Open Graph</strong>. Concrètement ce protocole permet à Facebook de s'insérer dans n'importe quel site web. Dans ce protocole, Facebook a définit certaines balises Meta qui vont contenir la carte d'identité de la page web. Le titre, l'URL, la description, la catégorie etc.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span>
+<span class="na">xmlns:og=</span><span class="s">&quot;http://ogp.me/ns#&quot;</span>
+<span class="na">xmlns:fb=</span><span class="s">&quot;http://www.facebook.com/2008/fbml&quot;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;head&gt;</span>
 <span class="nt">&lt;title&gt;</span>The Rock (1996)<span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:title"</span> <span class="na">content=</span><span class="s">"The Rock"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:type"</span> <span class="na">content=</span><span class="s">"movie"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:url"</span> <span class="na">content=</span><span class="s">"http://www.imdb.com/title/tt0117500/"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:image"</span> <span class="na">content=</span><span class="s">"http://ia.media-imdb.com/rock.jpg"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:site_name"</span> <span class="na">content=</span><span class="s">"IMDb"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"fb:admins"</span> <span class="na">content=</span><span class="s">"USER_ID"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:description"</span><span class="err"> </span><span class="na">content=</span><span class="s">"A group of U.S. Marines, under command of a renegade general, take over Alcatraz and threaten San Francisco Bay with biological weapons."</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:title&quot;</span> <span class="na">content=</span><span class="s">&quot;The Rock&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:type&quot;</span> <span class="na">content=</span><span class="s">&quot;movie&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:url&quot;</span> <span class="na">content=</span><span class="s">&quot;http://www.imdb.com/title/tt0117500/&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:image&quot;</span> <span class="na">content=</span><span class="s">&quot;http://ia.media-imdb.com/rock.jpg&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:site_name&quot;</span> <span class="na">content=</span><span class="s">&quot;IMDb&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;fb:admins&quot;</span> <span class="na">content=</span><span class="s">&quot;USER_ID&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:description&quot;</span><span class="err"> </span><span class="na">content=</span><span class="s">&quot;A group of U.S. Marines, under command of a renegade general, take over Alcatraz and threaten San Francisco Bay with biological weapons.&quot;</span><span class="nt">/&gt;</span>
 ...
 <span class="nt">&lt;/head&gt;</span>
 ...
 <span class="nt">&lt;/html&gt;</span>
-</code></pre></div><p style="text-align:justify">Vous pouvez trouver une liste exhaustive de ces attributs sur la <a href="http://developers.facebook.com/docs/opengraph/" target="_blank">documentation</a> de Facebook.</p><p style="text-align:justify">Ces éléments sont nécessaires pour profiter à 100% du widget Facebook. Le bouton en lui-même s'insère facilement.</p><div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://connect.facebook.net/fr_FR/all.js#xfbml=1"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;fb:like</span> <span class="na">href=</span><span class="s">"http://phollow.fr"</span> <span class="na">show_faces=</span><span class="s">"true"</span> <span class="na">width=</span><span class="s">"450"</span><span class="nt">&gt;&lt;/fb:like&gt;</span>
-</code></pre></div><p style="text-align:justify">L'attribut <em>href</em>, vous l'avez compris, pointe vers la page à partager. C'est sur cette même page que les balises Open Graph devront être. Maintenant prenant l'exemple d'un blog, sous Wordpress. Chacun de vos articles aura dans le header les balises Meta qui le décriront en gros, et un bouton <em>like</em> présent à la fin du billet pour le partager. Ce qui peut être sympa, c'est de récupérer une image de l'article en question pour l'afficher lors du partage.</p><p style="text-align:justify">Pour cela il faut modifier un peu le thème du blog. On ouvre functions.php, et on ajoute cette fonction :</p><div class="highlight"><pre><code class="php"><span class="x">function premiere_image() {</span>
+</code></pre>
+</div>
+
+<p style="text-align: justify;">Vous pouvez trouver une liste exhaustive de ces attributs sur la <a href="http://developers.facebook.com/docs/opengraph/" target="_blank">documentation</a> de Facebook.</p>
+<p style="text-align: justify;">Ces éléments sont nécessaires pour profiter à 100% du widget Facebook. Le bouton en lui-même s'insère facilement.</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://connect.facebook.net/fr_FR/all.js#xfbml=1&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;fb:like</span> <span class="na">href=</span><span class="s">&quot;http://phollow.fr&quot;</span> <span class="na">show_faces=</span><span class="s">&quot;true&quot;</span> <span class="na">width=</span><span class="s">&quot;450&quot;</span><span class="nt">&gt;&lt;/fb:like&gt;</span>
+</code></pre>
+</div>
+
+<p style="text-align: justify;">L'attribut <em>href</em>, vous l'avez compris, pointe vers la page à partager. C'est sur cette même page que les balises Open Graph devront être. Maintenant prenant l'exemple d'un blog, sous Wordpress. Chacun de vos articles aura dans le header les balises Meta qui le décriront en gros, et un bouton <em>like</em> présent à la fin du billet pour le partager. Ce qui peut être sympa, c'est de récupérer une image de l'article en question pour l'afficher lors du partage.</p>
+<p style="text-align: justify;">Pour cela il faut modifier un peu le thème du blog. On ouvre functions.php, et on ajoute cette fonction :</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">function premiere_image() {</span>
 <span class="x">global $post, $posts;</span>
-<span class="x">$first_img = '';</span>
+<span class="x">$first_img = &#39;&#39;;</span>
 <span class="x">ob_start();</span>
 <span class="x">ob_end_clean();</span>
-<span class="x">$output = preg_match_all('//i', $post-&gt;post_content, $matches);</span>
+<span class="x">$output = preg_match_all(&#39;//i&#39;, $post-&gt;post_content, $matches);</span>
 <span class="x">$first_img = $matches [1] [0];</span>
 
-<span class="x">if(empty($first_img)){ //Si il n'y a pas d'image dans le billet</span>
-<span class="x">$first_img = "/images/default.jpg"; // On en met une par défaut</span>
+<span class="x">if(empty($first_img)){ //Si il n&#39;y a pas d&#39;image dans le billet</span>
+<span class="x">$first_img = &quot;/images/default.jpg&quot;; // On en met une par défaut</span>
 <span class="x">}</span>
 <span class="x">return $first_img;</span>
 <span class="x">}</span>
-</code></pre></div><p style="text-align:justify">Avec cette fonction, on va maintenant éditer le fichier <em>header.php</em> du thème pour modifier les balises meta.</p><div class="highlight"><pre><code class="html"><span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:type"</span> <span class="na">content=</span><span class="s">"blog"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:site_name"</span> <span class="na">content=</span><span class="s">"&lt;?php bloginfo('name'); ?&gt;"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:country_name"</span> <span class="na">content=</span><span class="s">"French"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"fb:admins"</span> <span class="na">content=</span><span class="s">"rydgel"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"fb:app_id"</span> <span class="na">content=</span><span class="s">"101739241646"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:email"</span> <span class="na">content=</span><span class="s">"rydgel@phollow.fr"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+<p style="text-align: justify;">Avec cette fonction, on va maintenant éditer le fichier <em>header.php</em> du thème pour modifier les balises meta.</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:type&quot;</span> <span class="na">content=</span><span class="s">&quot;blog&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:site_name&quot;</span> <span class="na">content=</span><span class="s">&quot;&lt;?php bloginfo(&#39;name&#39;); ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:country_name&quot;</span> <span class="na">content=</span><span class="s">&quot;French&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;fb:admins&quot;</span> <span class="na">content=</span><span class="s">&quot;rydgel&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;fb:app_id&quot;</span> <span class="na">content=</span><span class="s">&quot;101739241646&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:email&quot;</span> <span class="na">content=</span><span class="s">&quot;rydgel@phollow.fr&quot;</span> <span class="nt">/&gt;</span>
 <span class="cp">&lt;?php if(is_single()) :?&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:url"</span> <span class="na">content=</span><span class="s">"&lt;?php the_permalink() ?&gt;"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">"og:image"</span> <span class="na">content=</span><span class="s">"&lt;?php echo premiere_image() ?&gt;"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:url&quot;</span> <span class="na">content=</span><span class="s">&quot;&lt;?php the_permalink() ?&gt;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;og:image&quot;</span> <span class="na">content=</span><span class="s">&quot;&lt;?php echo premiere_image() ?&gt;&quot;</span><span class="nt">/&gt;</span>
 <span class="cp">&lt;?php endif; ?&gt;</span>
-</code></pre></div><p style="text-align:justify">Et voilà ça devrait suffire !</p><p style="text-align:justify">Maintenant on peut se poser la question de la pertinence de la chose. On avait à la base l'action de partager et l'action d'aimer. Désormais le simple fait d'aimer un truc, nous le fait partager. Admettons. Mais si je veux partager sans aimer ?</p></div><cite class="omega three columns entry-meta"><p> <time datetime="2011-03-01 23:54:37 +0100" pubdate class="updated ss-clock">March 1, 2011</time> <br> <span class="ss-tag"><a href="/category/bout de codes" rel="category tag">bout de codes</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>, <a href="/category/web" rel="category tag">web</a></span> <br></p></cite> <footer class="share alpha thirteen columns"> <a id="tweet" href="http://twitter.com/?status=Facebook%20Like,%20m%C3%A9thode%20de%20partage%20http%3A%2F%2Fphollow.fr/2011/03/facebook-like-methode-de-partage%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a> </footer> </article><hr><div id="disqus_thread"></div> <script>var disqus_shortname="phollowfr",disqus_identifier="http://phollow.fr/2011/03/facebook-like-methode-de-partage/",disqus_url="http://phollow.fr/2011/03/facebook-like-methode-de-partage/";(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></div><footer id="footer" role="contentinfo" class="sixteen columns"><hr> <nav role="navigation"><ul><li><a href="/">Homepage</a></li><li><a href="http://twitter.com/phollow">Twitter</a></li><li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li><li><a href="http://dribbble.com/phollow">Dribbble</a></li><li><a href="mailto:rydgel@phollow.fr">Contact</a></li></ul> </nav> <span class="copyright">Copyright © 2012 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.heroku.com/">Heroku.</a></span> <a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a> </footer></div> <script src="/js/compiled/global.js?v=8"></script><script>var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="gauges-tracker",e.setAttribute("data-site-id","4ec64821f5a1f55c33000003"),e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script></body></html>
+</code></pre>
+</div>
+
+<p style="text-align: justify;">Et voilà ça devrait suffire !</p>
+<p style="text-align: justify;">Maintenant on peut se poser la question de la pertinence de la chose. On avait à la base l'action de partager et l'action d'aimer. Désormais le simple fait d'aimer un truc, nous le fait partager. Admettons. Mais si je veux partager sans aimer ?</p>
+
+      </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="2011-03-01 23:54:37 +0100" pubdate class="updated ss-clock">March  1, 2011</time>
+          <br>
+          <span class="ss-tag"><a href="/category/bout de codes" rel="category tag">bout de codes</a>, <a href="/category/tutoriel" rel="category tag">tutoriel</a>, <a href="/category/web" rel="category tag">web</a></span>
+          <br>
+          
+        </p>
+        </cite>
+      <footer class="share alpha thirteen columns">
+      <a id="tweet" href="http://twitter.com/?status=Facebook%20Like,%20m%C3%A9thode%20de%20partage%20http%3A%2F%2Fphollow.fr/2011/03/facebook-like-methode-de-partage%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2011/03/facebook-like-methode-de-partage/';
+          var disqus_url = 'http://phollow.fr/2011/03/facebook-like-methode-de-partage/';
+
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <hr>
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>
+  <span class="copyright">Copyright © 2012 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=8"></script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+

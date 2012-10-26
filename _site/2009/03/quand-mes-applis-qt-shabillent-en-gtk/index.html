@@ -1,1 +1,178 @@
-<!doctype html><html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"><head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#"><meta charset="UTF-8"><title>Quand mes applis Qt s'habillent en Gtk...</title><link href="https://plus.google.com/116513653525162928064" rel="publisher"><meta name="title" content="Quand mes applis Qt s'habillent en Gtk..."><meta name="author" content="Jérôme Mahuet"><meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved."><meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@phollow"><meta name="twitter:creator" content="@phollow"><meta property="og:url" value="http://phollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk/"><meta property="og:description" value="Gtk, Qt, sources d'innombrables trolls, on voit souvent ces 2 là comme les pires ennemis du monde. Les Gnomistes refusant de voir un bout de Qt sur leurs ordis et inversement. J'avous aussi avoir évité le plus possible d'utiliser des app..."><meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png"><meta property="og:type" content="phollow:post"><meta property="og:site_name" content="Phollow.me"><meta property="fb:admins" content="rydgel"><meta property="fb:app_id" content="101739241646"><meta itemprop="name" content="Quand mes applis Qt s'habillent en Gtk..."><meta property="og:title" value="Quand mes applis Qt s'habillent en Gtk..."><meta http-equiv="cleartype" content="on"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml"><link rel="stylesheet" href="/css/compiled/global.css?v=28"> <script src="/js/compiled/modernizr.min.js"></script><script src="//use.typekit.net/jfp7vgn.js"></script><script>try{Typekit.load()}catch(e){}</script></head><body><div class="container" role="wrapper"> <header role="banner" id="header-site" class="sixteen columns"><h1 id="logo" class="four columns alpha"> <a href="/" title="Phollow.me"> <img src="/images/phollow-logo3.png" alt="Phollow.me"> </a></h1> <nav role="main-navigation" class="seven columns"><ul><li> <a href="/" title="blog"> <span class="ss-icon ss-write"></span> <span>Blog</span> </a></li><li> <a href="/archives/" title="archives"> <span class="ss-icon ss-database"></span> <span>Archives</span> </a></li><li> <a href="http://jrm.li/projects" title="Projets"> <span class="ss-icon ss-notebook"></span> <span>Projets</span> </a></li><li> <a href="http://jrm.li/" title="À propos"> <span class="ss-icon ss-user"></span> <span>Me</span> </a></li><li> <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS"> <span class="ss-icon ss-rss"></span> <span>Rss</span> </a></li></ul> </nav><hr> </header><div id="container" class="sixteen columns"> <article class="post"> <header><h2 class="entry-title entry-single"><a href="/2009/03/quand-mes-applis-qt-shabillent-en-gtk">Quand mes applis Qt s'habillent en Gtk...</a></h2> </header><hr><div class="entry single-page thirteen columns alpha"><p style="text-align:justify">Gtk, Qt, sources d'innombrables trolls, on voit souvent ces 2 là comme les pires ennemis du monde. Les Gnomistes refusant de voir un bout de Qt sur leurs ordis et inversement. J'avous aussi avoir évité le plus possible d'utiliser des apps Qt, pas parce que je les trouve inférieur à Gtk (au contraire même), mais surtout que le style visuel était clairement différent des mes autres apps graphiques et .. ça faisait tâche. Mais la sortie du nouveau framework Qt change tout ça !</p><h1>Alors quoi de neuf ?</h1><p style="text-align:justify">Et bien dans la version 4.5 de Qt les développeurs de chez <a href="http://www.qtsoftware.com/" target="_blank">Trolltech</a> ont donné à leur moteur de pouvoir <em>lire les données Gtk</em>.<span style="color:#888"><span style="color:#000"> </span></span>Bon ok je simplifie fortement mais pour faire court les applications Qt peuvent maintenant utiliser les thèmes Gtk !</p><p style="text-align:justify">Il suffit pour cela d'utiliser le style <strong>Gtk</strong> prévu à cet effet.</p><h1 style="text-align: justify;">Installation</h1> Tout ce dont vous avez besoin ce trouve <a href="http://labs.trolltech.com/page/Projects/Styles/GtkStyle" target="_blank">ici</a>.Après avoir installé le nouveau style <strong>Gtk</strong>, il faut maintenant le sélectionner dans <strong>qtconfig</strong> :<a href="http://static.phollow.fr/2009/03/qtconfig.png"><img class="alignnone size-medium wp-image-483" title="qtconfig" src="http://static.phollow.fr/2009/03/qtconfig-300x239.png" alt="qtconfig" width="300" height="239"/></a>Et.. c'est tout.Maintenant plus de problèmes graphiques entre Gtk et Qt, pour preuve voici un petit screen :)<a href="http://static.phollow.fr/2009/03/gtkqt.png"><img class="alignnone size-medium wp-image-484" title="gtkqt" src="http://static.phollow.fr/2009/03/gtkqt-300x187.png" alt="gtkqt" width="300" height="187"/></a></div><cite class="omega three columns entry-meta"><p> <time datetime="2009-03-28 23:09:14 +0100" pubdate class="updated ss-clock">March 28, 2009</time> <br> <span class="ss-tag"><a href="/category/linux" rel="category tag">linux</a></span> <br></p></cite> <footer class="share alpha thirteen columns"> <a id="tweet" href="http://twitter.com/?status=Quand%20mes%20applis%20Qt%20s'habillent%20en%20Gtk...%20http%3A%2F%2Fphollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a> </footer> </article><hr><div id="disqus_thread"></div> <script>var disqus_shortname="phollowfr",disqus_identifier="http://phollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk/",disqus_url="http://phollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk/";(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="http://"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></div><footer id="footer" role="contentinfo" class="sixteen columns"><hr> <nav role="navigation"><ul><li><a href="/">Homepage</a></li><li><a href="http://twitter.com/phollow">Twitter</a></li><li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li><li><a href="http://dribbble.com/phollow">Dribbble</a></li><li><a href="mailto:rydgel@phollow.fr">Contact</a></li></ul> </nav> <span class="copyright">Copyright © 2012 <a rel="author" href="https://plus.google.com/113221045987282389062?rel=author" title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved. Hosted by <a href="http://www.heroku.com/">Heroku.</a></span> <a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a> </footer></div> <script src="/js/compiled/global.js?v=8"></script><script>var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.id="gauges-tracker",e.setAttribute("data-site-id","4ec64821f5a1f55c33000003"),e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script></body></html>
+<!doctype html>
+<html class="no-js" lang="fr" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Quand mes applis Qt s'habillent en Gtk...</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Quand mes applis Qt s'habillent en Gtk...">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@phollow">
+  <meta name="twitter:creator" content="@phollow">
+  
+  <meta property="og:url" value="http://phollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk/">
+  <meta property="og:description" value="Gtk, Qt, sources d'innombrables trolls, on voit souvent ces 2 là comme les pires ennemis du monde. Les Gnomistes refusant de voir un bout de Qt sur leurs ordis et inversement. J'avous aussi avoir évité le plus possible d'utiliser des app...">
+  
+  <meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Quand mes applis Qt s'habillent en Gtk...">
+  <meta property="og:title" value="Quand mes applis Qt s'habillent en Gtk...">
+
+
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=29">
+  <script src="/js/compiled/modernizr.min.js"></script>
+  <script src="//use.typekit.net/jfp7vgn.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  <div class="container" role="wrapper">
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">
+          <img src="/images/phollow-logo3.png" alt="Phollow.me">
+        </a>
+      </h1>
+      <nav role="main-navigation" class="seven columns">
+        <ul>
+          <li>
+            <a href="/" title="blog">
+            <span class="ss-icon ss-write"></span>
+            <span>Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="/archives/" title="archives">
+            <span class="ss-icon ss-database"></span>
+            <span>Archives</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/projects" title="Projets">
+            <span class="ss-icon ss-notebook"></span>
+            <span>Projets</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/" title="À propos">
+            <span class="ss-icon ss-user"></span>
+            <span>Me</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS">
+            <span class="ss-icon ss-rss"></span>
+            <span>Rss</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <hr>
+    </header>
+
+<div id="container" class="sixteen columns">
+  <article class="post">
+      <header>
+    <h2 class="entry-title entry-single"><a href="/2009/03/quand-mes-applis-qt-shabillent-en-gtk">Quand mes applis Qt s'habillent en Gtk...</a></h2>
+    
+      </header>
+      <hr>
+      <div class="entry single-page thirteen columns alpha">
+        <p style="text-align: justify; ">Gtk, Qt, sources d'innombrables trolls, on voit souvent ces 2 là comme les pires ennemis du monde. Les Gnomistes refusant de voir un bout de Qt sur leurs ordis et inversement. J'avous aussi avoir évité le plus possible d'utiliser des apps Qt, pas parce que je les trouve inférieur à Gtk (au contraire même), mais surtout que le style visuel était clairement différent des mes autres apps graphiques et .. ça faisait tâche. Mais la sortie du nouveau framework Qt change tout ça !</p>
+
+<h1>Alors quoi de neuf ?</h1>
+<p style="text-align: justify;">Et bien dans la version 4.5 de Qt les développeurs de chez <a href="http://www.qtsoftware.com/" target="_blank">Trolltech</a> ont donné à leur moteur de pouvoir <em>lire les données Gtk</em>.<span style="color: #888888;"><span style="color: #000000;"> </span></span>Bon ok je simplifie fortement mais pour faire court les applications Qt peuvent maintenant utiliser les thèmes Gtk !</p>
+<p style="text-align: justify;">Il suffit pour cela d'utiliser le style <strong>Gtk</strong> prévu à cet effet.</p>
+
+<h1 style="text-align: justify;">Installation</h1>
+Tout ce dont vous avez besoin ce trouve <a href="http://labs.trolltech.com/page/Projects/Styles/GtkStyle" target="_blank">ici</a>.
+
+Après avoir installé le nouveau style <strong>Gtk</strong>, il faut maintenant le sélectionner dans <strong>qtconfig</strong> :
+
+<a href="http://static.phollow.fr/2009/03/qtconfig.png"><img class="alignnone size-medium wp-image-483" title="qtconfig" src="http://static.phollow.fr/2009/03/qtconfig-300x239.png" alt="qtconfig" width="300" height="239" /></a>
+
+Et.. c'est tout.
+
+Maintenant plus de problèmes graphiques entre Gtk et Qt, pour preuve voici un petit screen :)
+
+<a href="http://static.phollow.fr/2009/03/gtkqt.png"><img class="alignnone size-medium wp-image-484" title="gtkqt" src="http://static.phollow.fr/2009/03/gtkqt-300x187.png" alt="gtkqt" width="300" height="187" /></a>
+      </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="2009-03-28 23:09:14 +0100" pubdate class="updated ss-clock">March 28, 2009</time>
+          <br>
+          <span class="ss-tag"><a href="/category/linux" rel="category tag">linux</a></span>
+          <br>
+          
+        </p>
+        </cite>
+      <footer class="share alpha thirteen columns">
+      <a id="tweet" href="http://twitter.com/?status=Quand%20mes%20applis%20Qt%20s'habillent%20en%20Gtk...%20http%3A%2F%2Fphollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span>Partager</span></a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk/';
+          var disqus_url = 'http://phollow.fr/2009/03/quand-mes-applis-qt-shabillent-en-gtk/';
+
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <hr>
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>
+  <span class="copyright">Copyright © 2012 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=8"></script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+

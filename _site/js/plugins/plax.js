@@ -20,4 +20,99 @@
   OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-(function(e){function u(){return window.DeviceMotionEvent!=undefined}function a(e){if((new Date).getTime()<r+n)return;r=(new Date).getTime();var t=u()?e.rotationRate.beta:e.pageX,a=u()?e.rotationRate.alpha:e.pageY,f=t/(u()?90:s),l=a/(u()?180:o),c,h;for(h=i.length;h--;)c=i[h],c.invert!=1?c.obj.css("left",c.startX+c.xRange*f).css("top",c.startY+c.yRange*l):c.obj.css("left",c.startX-c.xRange*f).css("top",c.startY-c.yRange*l)}var t=25,n=1/t*1e3,r=(new Date).getTime(),i=[],s=e(window).width(),o=e(window).height();e(window).resize(function(){s=e(window).width(),o=e(window).height()}),e.fn.plaxify=function(t){return this.each(function(){var n={xRange:0,yRange:0,invert:!1};for(var r in t)n[r]==0&&(n[r]=t[r]);n.obj=e(this),n.startX=this.offsetLeft,n.startY=this.offsetTop,n.invert==0?(n.startX-=Math.floor(n.xRange/2),n.startY-=Math.floor(n.yRange/2)):(n.startX+=Math.floor(n.xRange/2),n.startY+=Math.floor(n.yRange/2)),i.push(n)})},e.plax={enable:function(){e(document).bind("mousemove.plax",function(e){a(e)}),u()&&(window.ondevicemotion=function(e){a(e)})},disable:function(){e(document).unbind("mousemove.plax")}},typeof ender!="undefined"&&e.ender(e.fn,!0)})(function(){return typeof jQuery!="undefined"?jQuery:ender}());
+
+(function ($) {
+
+  var maxfps = 25;
+  var delay = 1 / maxfps * 1000 // delay in ms
+  var lastRender = new Date().getTime();
+  var layers    = [],
+      docWidth  = $(window).width(),
+      docHeight = $(window).height()
+
+  $(window).resize(function() {
+      docWidth  = $(window).width()
+      docHeight = $(window).height()
+  })
+
+  // Public Methods
+  $.fn.plaxify = function (params){
+
+    return this.each(function () {
+
+      var layer = {"xRange":0,"yRange":0,"invert":false}
+      for (var param in params) {
+        if (layer[param] == 0) {
+          layer[param] = params[param]
+        }
+      }
+
+      // Add an object to the list of things to parallax
+      layer.obj    = $(this)
+      layer.startX = this.offsetLeft
+      layer.startY = this.offsetTop
+
+      if(layer.invert == false){
+        layer.startX -= Math.floor(layer.xRange/2)
+        layer.startY -= Math.floor(layer.yRange/2)
+      } else {
+        layer.startX += Math.floor(layer.xRange/2)
+        layer.startY += Math.floor(layer.yRange/2)
+      }
+      layers.push(layer)
+    })
+  }
+
+  function inertial(){
+    return window.DeviceMotionEvent != undefined
+  }
+
+  function plaxifier(e) {
+    if (new Date().getTime() < lastRender + delay) return;
+      lastRender = new Date().getTime();
+
+    var x      = inertial() ? e.rotationRate.beta : e.pageX,
+        y      = inertial() ? e.rotationRate.alpha  : e.pageY,
+        hRatio = x/(inertial() ? 90  : docWidth),
+        vRatio = y/(inertial() ? 180 : docHeight),
+        layer, i
+
+    for (i = layers.length; i--;) {
+      layer = layers[i]
+      if (layer.invert != true) {
+        layer.obj
+          .css('left',layer.startX + (layer.xRange*hRatio))
+          .css('top', layer.startY + (layer.yRange*vRatio))
+      } else {
+        layer.obj
+          .css('left',layer.startX - (layer.xRange*hRatio))
+          .css('top', layer.startY - (layer.yRange*vRatio))
+      }
+    }
+  }
+
+  $.plax = {
+    enable: function(){
+      $(document).bind('mousemove.plax', function (e) {
+        plaxifier(e)
+      })
+
+    if(inertial()){
+      window.ondevicemotion = function(e) {
+        plaxifier(e)
+      }
+    }
+
+    },
+    disable: function(){
+      $(document).unbind('mousemove.plax')
+    }
+  }
+
+  if (typeof ender !== 'undefined') {
+    $.ender($.fn, true)
+  }
+
+})(function () {
+  return typeof jQuery !== 'undefined' ? jQuery : ender
+}())

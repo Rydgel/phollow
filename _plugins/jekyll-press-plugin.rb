@@ -1,1 +1,1 @@
-require 'jekyll-press'
+#require 'jekyll-press'
