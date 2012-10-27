@@ -4,13 +4,111 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-10-26T22:38:55+02:00</updated>
+  <updated>2012-10-27T16:57:54+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
     <email>rydgel@phollow.fr</email>
   </author>
 
+  
+  <entry>
+    <id>http://phollow.fr/2012/10/serveur-fichiers-statiques-golang</id>
+    <link type="text/html" rel="alternate" href="http://phollow.fr/2012/10/serveur-fichiers-statiques-golang"/>
+    <title>Un simple serveur de ﬁchiers ﬆatiques sous Golang</title>
+    <published>2012-10-27T16:55:00+02:00</published>
+    <updated>2012-10-27T16:55:00+02:00</updated>
+    <author>
+      <name>Jérôme Mahuet</name>
+      <uri>http://phollow.fr/</uri>
+    </author>
+    <content type="html">&lt;p&gt;Depuis quelques semaines, je me suis mis à l’apprentissage de Go. Et pour accélérer cet apprentissage je me suis mis en tête de refaire mon serveur de fichiers statiques (celui qui sert les pages de ce blog). Il était fait en Ruby avec Sinatra, j’en parlais &lt;a href=&quot;http://phollow.fr/2012/05/jekyll-heroku-et-mon-blog/&quot;&gt;ici&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Première version&lt;/h3&gt;
+
+&lt;p&gt;Go possède déjà pas mal de bibliothèques pour tout ce qui est &lt;em&gt;networking&lt;/em&gt; et &lt;em&gt;serveurs&lt;/em&gt;. Le module &lt;code&gt;http&lt;/code&gt; possède une méthode &lt;code&gt;FileServer&lt;/code&gt; qui peut-être utilisée en tant que serveur de fichiers statiques.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ListenAndServe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;:8000&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;panic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;Seconde version&lt;/h3&gt;
+
+&lt;p&gt;La première version, aussi simple soit-elle, ne me suffisait pas. Le problème étant lié aux pages 404, Go servant la sienne. Je voulais pouvoir mettre une page customisée. La solution consiste à créer ses propres types et à les &lt;em&gt;wrapper&lt;/em&gt; autour des natifs. (Ce n’est pas de l’héritage, Go n’étant pas un langage orienté objet. Ce qui est &lt;strong&gt;bien&lt;/strong&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Mon type &lt;code&gt;errorHandle&lt;/code&gt; contient juste le type habituel, mais grâce à lui je peux faire ma propre méthode &lt;code&gt;ServeHTTP&lt;/code&gt; qui elle utilisera mon type &lt;code&gt;errorWriter&lt;/code&gt;. Il contient le type de base &lt;code&gt;ResponseWriter&lt;/code&gt; avec en plus un boolean. Je set ce boolean à &lt;code&gt;true&lt;/code&gt; quand je détecte un header 404 et je sers ma page customisée à la place.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot;os&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot;html/template&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errorHandle&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handler&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServeHTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ServeHTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Content-Type&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;text/html; charset=utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ParseFiles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site/404.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ListenAndServe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PORT&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;panic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Ce bout de code est capable de tourner sous Heroku (et peut-être App Engine). J’ai 2, 3 autres articles sous le feu sur ce langage qui me plaît bien.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://phollow.fr/2012/10/generer-html-flask-jinja2</id>
@@ -1507,55 +1605,6 @@ Liquid error: ClassNotFound: no lexer for alias 'html+js' found
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;Tu n'as plus qu'a ouvrir la partie cliente dans ton navigateur et ça devrait marcher. Je trouve Node.js vraiment intéressant et je n'avais pas pris le temps de le creuser plus que ça. Mais le développement de ce programme est vraiment rapide et s'améliore de jour en jour. Il existe des wrappers node pour Mysql, mongodb et d'autres base de données. Et d'autres plugins aussi utiles que Twitter-node ou socket.io. Il y a même des frameworks de type MVC et cie. On en trouve une bonne liste sur &lt;a href=&quot;https://github.com/joyent/node/wiki/modules&quot; target=&quot;_blank&quot;&gt;cette page&lt;/a&gt;.&lt;/p&gt;
 </content>
-  </entry>
-  
-  <entry>
-    <id>http://phollow.fr/2011/04/cloudflare-retour-experiences</id>
-    <link type="text/html" rel="alternate" href="http://phollow.fr/2011/04/cloudflare-retour-experiences"/>
-    <title>CloudFlare, retour d'expériences</title>
-    <published>2011-04-23T15:42:21+02:00</published>
-    <updated>2011-04-23T15:42:21+02:00</updated>
-    <author>
-      <name>Jérôme Mahuet</name>
-      <uri>http://phollow.fr/</uri>
-    </author>
-    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;CloudFlare est un reverse proxy, un CDN et un firewall. Tout ça en même temps et c'est &lt;strong&gt;gratuit&lt;/strong&gt;. J'en suis plutôt satisfait et j'aimerai vous en parler un peu plus dans ce billet.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3284&quot; title=&quot;CloudFlare-logo&quot; src=&quot;http://static.phollow.fr/2011/04/CloudFlare-logo-537x223.png&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;223&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Le rôle de CloudFlare est d'accélérer et de protéger votre site. J'ai été bluffé par la simplicité de l'installation, à la portée de n'importe qui. Concrètement il faut juste faire pointer son nom de domaine chez CloudFlare. Le reste est géré &lt;em&gt;tout seul&lt;/em&gt;.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;CloudFlare est un &lt;em&gt;reverse-proxy&lt;/em&gt; : Tout le traffic passera donc d'abord par les serveurs de CloudFlare – qui pourront fournir aux visiteurs une page mise en cache et optimisée. Ce qui permet aux pages de s'ouvrir plus rapidement et de faire gagner de la bande-passante.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3297&quot; title=&quot;illustrationcf&quot; src=&quot;http://static.phollow.fr/2011/04/illustrationcf-804x321.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;321&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Mon serveur se trouve aux États-Unis, le temps de réponse est donc légèrement plus lent pour les européens. Puisque CloudFlare est aussi un &lt;em&gt;CDN&lt;/em&gt;&lt;sup&gt;&lt;a id=&quot;footnoter1&quot; title=&quot;Allez à la note 1&quot; href=&quot;#footnote1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, je suis passé de 150ms de ping à 50ms.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Autre avantage : &lt;em&gt;le pare-feu&lt;/em&gt;. Les spammers et autres bots sont bloqués avant même d'atterrir sur votre site. Akismet s'ennui pas mal maintenant. On peut aussi bloquer manuellement des adresses IP.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3300&quot; title=&quot;Capture d’écran 2011-04-23 à 15.56.33&quot; src=&quot;http://static.phollow.fr/2011/04/Capture-d’écran-2011-04-23-à-15.56.33-804x401.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;401&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;On a aussi accès à des statistiques sur les visites —&lt;em&gt; pas aussi pointues que Google Analytics&lt;/em&gt; — qui donnent une vision globale en restant simple. Le plus intéressant est qu'il vous montre ce que CloudFlare vous a fait économiser :&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3305&quot; title=&quot;Capture d’écran 2011-04-23 à 16.03.59&quot; src=&quot;http://static.phollow.fr/2011/04/Capture-d’écran-2011-04-23-à-16.03.59-537x98.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;98&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Les différentes features en plus :&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;Gestion du niveau de sécurité&lt;/li&gt;
-	&lt;li&gt;Gestion de l'agressivité du cache.&lt;/li&gt;
-	&lt;li&gt;Auto-minification du javascript et CSS&lt;/li&gt;
-	&lt;li&gt;Rocket Script (peut forcer tous les scripts JS de la page à se charger de manière asynchrones)&lt;/li&gt;
-	&lt;li&gt;Personnalisation de la page de blocage (quand l'IP est mauvaise on présente un captcha)&lt;/li&gt;
-	&lt;li&gt;Web Application Firewall qui bloque les injections SQL, XSS et autres cochonneries (pro feature)&lt;/li&gt;
-	&lt;li&gt;Website Preloader (pro feature)&lt;/li&gt;
-	&lt;li&gt;Obfuscation des adresses e-mails.&lt;/li&gt;
-	&lt;li&gt;Always online (si ton serveur est mort, CloudFlare continura a servir les pages cachées)&lt;/li&gt;
-	&lt;li&gt;Hotlink Protection&lt;/li&gt;
-&lt;/ul&gt;
-La liste n'est pas complète. En terme de prix il y a une &lt;a href=&quot;https://www.cloudflare.com/plans.html&quot;&gt;offre gratuite très complète et une payante avec des petites fonctionnalités en plus&lt;/a&gt;.
-&lt;p style=&quot;text-align: justify;&quot;&gt;Je suis agréablement surpris par ce service et je vous invite à le tester. C'est réellement simple à mettre en place et à enlever si ça ne vous plaît pas.&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-
-&lt;hr /&gt;
-
-&amp;nbsp;
-&lt;ol&gt;
-	&lt;li id=&quot;footnote1&quot;&gt;Content Delivery Network. Réseaux de diffusion de contenus en français. &lt;a href=&quot;http://fr.wikipedia.org/wiki/Content_Delivery_Network&quot;&gt;Définition&lt;/a&gt;.  &lt;a title=&quot;Retour à la note 1 dans le texte&quot; href=&quot;#footnoter1&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content>
   </entry>
   
  
