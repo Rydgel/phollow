@@ -3,9 +3,9 @@ pygments: true
 permalink: /:year/:month/:title
 auto: true
 category_dir: category
-category_title_prefix: "Articles sous la catégorie : "
+category_title_prefix: "Posts category : "
 tag_dir: tag
-tag_title_prefix: "Article sous le tag : "
+tag_title_prefix: "Posts tagged : "
 url: http://phollow.fr
 exclude: ['Rakefile', 'readme.markdown', 'CNAME', 'app.rb', 'Gemfile', 'Procfile', 'config', 'config.ru', 'Gemfile.lock']
 rdiscount:

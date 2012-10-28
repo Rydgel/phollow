@@ -6,7 +6,7 @@ c(b,d,this));return this};"undefined"!==typeof module&&module.exports&&(module.e
 clic=function(a,b,d){null==b&&(b=500);null==d&&(d=300);return a.onclick=function(){window.open(a.href,"","width="+b+", height="+d);return!1}};id=function(a){return document.getElementById(a)};window.getComputedStyle||(window.getComputedStyle=function(a){this.el=a;this.getPropertyValue=function(b){var d=/(\-([a-z]){1})/g;"float"==b&&(b="styleFloat");d.test(b)&&(b=b.replace(d,function(a,b,d){return d.toUpperCase()}));return a.currentStyle[b]?a.currentStyle[b]:null};return this});
 
 $.domReady(function () {
-  $('h2, h3, h4').fitText(1.3);
+  $('h2, h3, h4').fitText(1.4);
   $('.desc').fitText(1.6);
   $('.fullsizestuff').fitText(0.65);
 

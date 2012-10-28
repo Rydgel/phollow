@@ -3,7 +3,7 @@ date: '2012-10-27 16:55:00'
 layout: post
 slug: serveur-fichiers-statiques-golang
 status: publish
-title: Un simple serveur de ﬁchiers ﬆatiques sous Golang
+title: Un simple serveur de fichiers statiques sous Golang
 desc: Mes premiers ‘ébats’ avec ce langage.
 pk: j.mp/TmkdgL
 wordpress_id: '3984'

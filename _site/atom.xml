@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-10-27T16:57:54+02:00</updated>
+  <updated>2012-10-28T16:22:54+01:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -15,7 +15,7 @@
   <entry>
     <id>http://phollow.fr/2012/10/serveur-fichiers-statiques-golang</id>
     <link type="text/html" rel="alternate" href="http://phollow.fr/2012/10/serveur-fichiers-statiques-golang"/>
-    <title>Un simple serveur de ﬁchiers ﬆatiques sous Golang</title>
+    <title>Un simple serveur de fichiers statiques sous Golang</title>
     <published>2012-10-27T16:55:00+02:00</published>
     <updated>2012-10-27T16:55:00+02:00</updated>
     <author>
