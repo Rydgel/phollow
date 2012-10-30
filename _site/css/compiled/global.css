@@ -368,10 +368,15 @@ body {
   font-family: ff-milo-web-pro, Helvetica, Arial, sans-serif;
   font-style:normal;
   color: #57534A;
-  /*text-rendering: optimizeLegibility;*/
   -webkit-font-smoothing: subpixel-antialiased;
   font-size: 100%;
   line-height: 1.48;
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings:"liga=1, dlig=1, onum=1"; 
+  -ms-font-feature-settings:"liga", "dlig", "onum"; 
+  -o-font-feature-settings:"liga", "dlig", "onum"; 
+  -webkit-font-feature-settings:"liga", "dlig", "onum"; 
+  font-feature-settings:"liga", "dlig", "onum";
 }
 
 div[role="wrapper"] { 
