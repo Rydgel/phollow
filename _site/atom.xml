@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-11-05T01:38:00+01:00</updated>
+  <updated>2012-11-05T11:05:30+01:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -81,7 +81,7 @@ Hello, world!
 &lt;/div&gt;
 
 
-&lt;p&gt;Yeah, it’s working. It may be a good idea to put this bin directory on our system PATH: &lt;code&gt;export PATH=$HOME/golang/bin:$PATH&lt;/code&gt;. This way we just have to type &lt;code&gt;hello&lt;/code&gt; to run or program.&lt;/p&gt;
+&lt;p&gt;Yeah, it’s working. It may be a good idea to put this bin directory on our system PATH: &lt;code&gt;export PATH=$HOME/golang/bin:$PATH&lt;/code&gt;. This way we just have to type &lt;code&gt;hello&lt;/code&gt; to run our program.&lt;/p&gt;
 
 &lt;h3&gt;Creating a package&lt;/h3&gt;
 

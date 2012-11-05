@@ -70,7 +70,7 @@ $ ~/golang/bin/hello
 Hello, world!
 {% endhighlight %}
 
-Yeah, it’s working. It may be a good idea to put this bin directory on our system PATH: `export PATH=$HOME/golang/bin:$PATH`. This way we just have to type `hello` to run or program.
+Yeah, it’s working. It may be a good idea to put this bin directory on our system PATH: `export PATH=$HOME/golang/bin:$PATH`. This way we just have to type `hello` to run our program.
 
 ### Creating a package
 
