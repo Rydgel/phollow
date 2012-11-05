@@ -44,7 +44,7 @@ We want our program to be called `hello`, so let’s create a `hello` directory 
 $ cd src/phollow.fr
 $ mkdir hello
 $ cd hello
-$ vim hello/hello.go
+$ vim hello.go
 {% endhighlight %}
 
 {% highlight go %}
