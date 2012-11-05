@@ -1,0 +1,339 @@
+<!doctype html>
+<html class="no-js" lang="en-US" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="phollow-fr" data-template-set="html5-phollow-wordpress-theme" profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
+  <meta charset="UTF-8">
+  <title>Building and installing Go code</title>
+  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
+  <meta name="title" content="Building and installing Go code">
+  <meta name="author" content="Jérôme Mahuet">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@phollow">
+  <meta name="twitter:creator" content="@phollow">
+  
+  <meta property="og:url" value="http://phollow.fr/2012/11/building-installing-testing-golang/">
+  <meta property="og:description" value="So you just [installed](http://golang.org/doc/install) Go in your system, now you’ll have to create a workspace to work with packages provided by third-parties or making your own ones. A workspace is simply a directory which contains you...">
+  
+  <meta property="og:image" value="http://static.phollow.fr/2012/10/golang.jpg">
+  <meta property="og:type" content="phollow:post">
+  <meta property="og:site_name" content="Phollow.me">
+  <meta property="fb:admins" content="rydgel">
+  <meta property="fb:app_id" content="101739241646">
+  <meta itemprop="name" content="Building and installing Go code">
+  <meta property="og:title" value="Building and installing Go code">
+
+
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript">
+    (function() {
+      var config = {
+        kitId: 'jfp7vgn',
+        scriptTimeout: 3000
+      };
+      var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+    })();
+  </script>
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
+  <link rel="stylesheet" href="/css/compiled/global.css?v=104">
+  <script src="/js/compiled/modernizr.min.js"></script>
+</head>
+<body>
+  <div class="container" role="wrapper">
+    <header role="banner" id="header-site" class="sixteen columns">
+      <h1 id="logo" class="four columns alpha">
+        <a href="/" title="Phollow.me">
+          <img src="/images/phollow-logo3.png" alt="Phollow.me">
+        </a>
+      </h1>
+      <nav role="main-navigation" class="seven columns">
+        <ul>
+          <li>
+            <a href="/" title="blog">
+            <span class="ss-icon ss-write"></span>
+            <span>Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="/archives/" title="archives">
+            <span class="ss-icon ss-database"></span>
+            <span>Archives</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/projects" title="Projets">
+            <span class="ss-icon ss-notebook"></span>
+            <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://jrm.li/" title="À propos">
+            <span class="ss-icon ss-user"></span>
+            <span>Me</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS">
+            <span class="ss-icon ss-rss"></span>
+            <span>Rss</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <hr>
+    </header>
+
+<div id="container" class="sixteen columns">
+  <article class="post">
+      <header>
+    <h2 class="entry-title entry-single"><a href="/2012/11/building-installing-testing-golang">Building and installing Go code</a></h2>
+    
+      <p class="desc">Setting up a workspace the right way</p>
+    
+      </header>
+      <hr>
+      <div class="entry single-page thirteen columns alpha">
+        <p>So you just <a href="http://golang.org/doc/install">installed</a> Go in your system, now you’ll have to create a workspace to work with packages provided by third-parties or making your own ones. A workspace is simply a directory which contains your code, binaries and packages objects compiled from it.</p>
+
+<h3>Creating the workspace</h3>
+
+<p>The workspace can be created anywhere on your system, let’s create it on a directory called <code>golang</code>.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>mkdir ~/golang
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/golang
+</code></pre>
+</div>
+
+
+<p>We have to set up the <code>GOPATH</code> environment variable to tell golang tools this is where we want our workspace to be.</p>
+
+<h3>Writing our first program</h3>
+
+<p>Go code resides in the <code>src</code> directory of your workspace. Inside of it we will create our first namespace. Its name should be unique to avoid conflicts with other packages. Let’s create all this and make our first and <em>awesome</em> “Hello World” program.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd</span> ~/golang
+<span class="nv">$ </span>mkdir -p src/phollow.fr
+</code></pre>
+</div>
+
+
+<p>We want our program to be called <code>hello</code>, so let’s create a <code>hello</code> directory inside our namespace, and then the Go code itself.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd </span>src/phollow.fr
+<span class="nv">$ </span>mkdir hello
+<span class="nv">$ </span><span class="nb">cd </span>hello
+<span class="nv">$ </span>vim hello/hello.go
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="go"><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">&quot;fmt&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+<p><strong>FYI:</strong> there is no real <em>main</em> package, it’s just a convention telling Go you want this code to generate an executable binary.</p>
+
+<p>Now you just have to type <code>go install</code> to let the Go tools compile and install our binary. Every binary is installed inside the <code>bin</code> directory of your workspace.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>ls ~/golang/bin
+hello
+<span class="nv">$ </span>~/golang/bin/hello
+Hello, world!
+</code></pre>
+</div>
+
+
+<p>Yeah, it’s working. It may be a good idea to put this bin directory on our system PATH: <code>export PATH=$HOME/golang/bin:$PATH</code>. This way we just have to type <code>hello</code> to run or program.</p>
+
+<h3>Creating a package</h3>
+
+<p>Now let’s create a <strong>package</strong>. They can be imported in other Go programs and use a different package name, ie. not “main”. We want to make a little function that will double our strings. So we will create a string directory in our namespace and write the code.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd</span> ~/golang/src/phollow.fr
+<span class="nv">$ </span>mkdir string
+<span class="nv">$ </span><span class="nb">cd </span>string
+<span class="nv">$ </span>vim string.go
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="go"><span class="k">package</span> <span class="nb">string</span>
+
+<span class="c1">// Pretty useless I know, it’s just for the sake</span>
+<span class="c1">// of this example ;)</span>
+<span class="k">func</span> <span class="n">Double</span><span class="p">(</span><span class="n">s</span> <span class="nb">string</span><span class="p">)</span> <span class="nb">string</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">+</span><span class="n">s</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+<p><strong>FYI:</strong> you can see that my function begins with an <strong>uppercase</strong>. This is a convention, telling that this function can be used outside the package itself (you know, like public/private stuff…).</p>
+
+<p>You can check if this function is working by typing <code>go build</code>. No output = no problem. Let’s make this package available to other programs:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>go install
+<span class="nv">$ </span>ls ~/golang/pkg/darwin_amd64/phollow.fr
+string.a
+</code></pre>
+</div>
+
+
+<p>Great! There it is. As you can see you will find them all in the <code>pkg</code> directory.</p>
+
+<h3>Using our new package</h3>
+
+<p>Let’s go back editing our <strong>hello.go</strong> program:</p>
+
+<div class="highlight"><pre><code class="go"><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;phollow.fr/string&quot;</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">.</span><span class="n">Double</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>go install
+<span class="nv">$ </span>hello
+Hello, world!Hello, world!
+</code></pre>
+</div>
+
+
+<p>So basically the Go tools found our package <code>phollow.fr/string</code> and use the <em>string.a</em> and linked it to our hello code. Not really hard.</p>
+
+<h3>Bonus: Testing Go code</h3>
+
+<p>You can never be sure your code is 100% working without testing it. And good news, there is a build-in tool to do so in Go. What we want to test here is our <code>string.Double()</code> function. A test file resides besides the code and should be named <code>packagename_test.go</code>. So we will go with <code>string_test.go</code> inside the <strong>string</strong> directory in our namespace.</p>
+
+<div class="highlight"><pre><code class="go"><span class="k">package</span> <span class="nb">string</span>
+
+<span class="k">import</span> <span class="s">&quot;testing&quot;</span>
+
+<span class="k">func</span> <span class="n">Test</span><span class="p">(</span><span class="n">t</span> <span class="p">*</span><span class="n">testing</span><span class="p">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">tests</span> <span class="p">=</span> <span class="p">[]</span><span class="k">struct</span> <span class="p">{</span>
+        <span class="n">s</span><span class="p">,</span> <span class="n">want</span> <span class="nb">string</span>
+    <span class="p">}{</span>
+        <span class="p">{</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="s">&quot;HelloHello&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;Good Bye!&quot;</span><span class="p">,</span> <span class="s">&quot;Good Bye!Good Bye!&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;日本&quot;</span><span class="p">,</span> <span class="s">&quot;日本日本&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="p">:=</span> <span class="k">range</span> <span class="n">tests</span> <span class="p">{</span>
+        <span class="n">got</span> <span class="p">:=</span> <span class="n">Double</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">got</span> <span class="p">!=</span> <span class="n">c</span><span class="p">.</span><span class="n">want</span> <span class="p">{</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">&quot;Double(%s) == %s, want %s&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">s</span><span class="p">,</span> <span class="n">got</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">want</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>go <span class="nb">test</span>
+PASS
+ok      phollow.fr/string   0.010s
+</code></pre>
+</div>
+
+
+<p>And now you are ready to build cool stuff with Go!</p>
+
+      </div>
+      <cite class="omega three columns entry-meta">
+        <p>
+          <time datetime="2012-11-05 01:00:00 +0100" pubdate class="updated ss-clock">November  5, 2012</time>
+          <br>
+          <span class="ss-tag"><a href="/category/golang" rel="category tag">golang</a>, <a href="/category/web" rel="category tag">web</a></span>
+          <br>
+          
+          <span class="ss-link"><a href="http://j.mp/RCTASz">j.mp/RCTASz</a></span>
+          
+        </p>
+        </cite>
+      <footer class="share alpha thirteen columns">
+      <a id="tweet" href="http://twitter.com/?status=Building%20and%20installing%20Go%20code%20http%3A%2F%2Fphollow.fr/2012/11/building-installing-testing-golang%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span style="-webkit-font-smoothing: subpixel-antialiased;">share</span></a>
+      </footer>
+    </article>
+      <hr>
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2012/11/building-installing-testing-golang/';
+          var disqus_url = 'http://phollow.fr/2012/11/building-installing-testing-golang/';
+
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript'; 
+              dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+</div>
+
+
+<footer id="footer" role="contentinfo" class="sixteen columns">
+  <hr>
+  <nav role="navigation">
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="http://twitter.com/phollow">Twitter</a></li>
+      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
+      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
+      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
+    </ul>
+  </nav>
+  <span class="copyright">Copyright © 2012 <a rel="author"
+      href="https://plus.google.com/113221045987282389062?rel=author"
+      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
+    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
+<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+</footer>
+
+</div><!-- container -->
+<script src="/js/compiled/global.js?v=9"></script>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
+

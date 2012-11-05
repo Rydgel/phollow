@@ -4,13 +4,193 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-10-30T01:24:26+01:00</updated>
+  <updated>2012-11-05T01:09:57+01:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
     <email>rydgel@phollow.fr</email>
   </author>
 
+  
+  <entry>
+    <id>http://phollow.fr/2012/11/building-installing-testing-golang</id>
+    <link type="text/html" rel="alternate" href="http://phollow.fr/2012/11/building-installing-testing-golang"/>
+    <title>Building and installing Go code</title>
+    <published>2012-11-05T01:00:00+01:00</published>
+    <updated>2012-11-05T01:00:00+01:00</updated>
+    <author>
+      <name>Jérôme Mahuet</name>
+      <uri>http://phollow.fr/</uri>
+    </author>
+    <content type="html">&lt;p&gt;So you just &lt;a href=&quot;http://golang.org/doc/install&quot;&gt;installed&lt;/a&gt; Go in your system, now you’ll have to create a workspace to work with packages provided by third-parties or making your own ones. A workspace is simply a directory which contains your code, binaries and packages objects compiled from it.&lt;/p&gt;
+
+&lt;h3&gt;Creating the workspace&lt;/h3&gt;
+
+&lt;p&gt;The workspace can be created anywhere on your system, let’s create it on a directory called &lt;code&gt;golang&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir ~/golang
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/golang
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;We have to set up the &lt;code&gt;GOPATH&lt;/code&gt; environment variable to tell golang tools this is where we want our workspace to be.&lt;/p&gt;
+
+&lt;h3&gt;Writing our first program&lt;/h3&gt;
+
+&lt;p&gt;Go code resides in the &lt;code&gt;src&lt;/code&gt; directory of your workspace. Inside of it we will create our first namespace. Its name should be unique to avoid conflicts with other packages. Let’s create all this and make our first and &lt;em&gt;awesome&lt;/em&gt; “Hello World” program.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/golang
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir -p src/phollow.fr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;We want our program to be called &lt;code&gt;hello&lt;/code&gt;, so let’s create a &lt;code&gt;hello&lt;/code&gt; directory inside our namespace, and then the Go code itself.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;src/phollow.fr
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir hello
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;hello
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim hello/hello.go
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; there is no real &lt;em&gt;main&lt;/em&gt; package, it’s just a convention telling Go you want this code to generate an executable binary.&lt;/p&gt;
+
+&lt;p&gt;Now you just have to type &lt;code&gt;go install&lt;/code&gt; to let the Go tools compile and install our binary. Every binary is installed inside the &lt;code&gt;bin&lt;/code&gt; directory of your workspace.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls ~/golang/bin
+hello
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;~/golang/bin/hello
+Hello, world!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Yeah, it’s working. It may be a good idea to put this bin directory on our system PATH: &lt;code&gt;export PATH=$HOME/golang/bin:$PATH&lt;/code&gt;. This way we just have to type &lt;code&gt;hello&lt;/code&gt; to run or program.&lt;/p&gt;
+
+&lt;h3&gt;Creating a package&lt;/h3&gt;
+
+&lt;p&gt;Now let’s create a &lt;strong&gt;package&lt;/strong&gt;. They can be imported in other Go programs and use a different package name, ie. not “main”. We want to make a little function that will double our strings. So we will create a string directory in our namespace and write the code.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/golang/src/phollow.fr
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir string
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;string
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim string.go
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Pretty useless I know, it’s just for the sake&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// of this example ;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; you can see that my function begins with an &lt;strong&gt;uppercase&lt;/strong&gt;. This is a convention, telling that this function can be used outside the package itself (you know, like public/private stuff…).&lt;/p&gt;
+
+&lt;p&gt;You can check if this function is working by typing &lt;code&gt;go build&lt;/code&gt;. No output = no problem. Let’s make this package available to other programs:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;go install
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls ~/golang/pkg/darwin_amd64/phollow.fr
+string.a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Great! There it is. As you can see you will find them all in the &lt;code&gt;pkg&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h3&gt;Using our new package&lt;/h3&gt;
+
+&lt;p&gt;Let’s go back editing our &lt;strong&gt;hello.go&lt;/strong&gt; program:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot;phollow.fr/string&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;go install
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;hello
+Hello, world!Hello, world!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;So basically the Go tools found our package &lt;code&gt;phollow.fr/string&lt;/code&gt; and use the &lt;em&gt;string.a&lt;/em&gt; and linked it to our hello code. Not really hard.&lt;/p&gt;
+
+&lt;h3&gt;Bonus: Testing Go code&lt;/h3&gt;
+
+&lt;p&gt;You can never be sure your code is 100% working without testing it. And good news, there is a build-in tool to do so in Go. What we want to test here is our &lt;code&gt;string.Double()&lt;/code&gt; function. A test file resides besides the code and should be named &lt;code&gt;packagename_test.go&lt;/code&gt;. So we will go with &lt;code&gt;string_test.go&lt;/code&gt; inside the &lt;strong&gt;string&lt;/strong&gt; directory in our namespace.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;testing&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;HelloHello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Good Bye!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Good Bye!Good Bye!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;日本&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;日本日本&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Errorf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Double(%s) == %s, want %s&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;got&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;want&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;go &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+PASS
+ok      phollow.fr/string   0.010s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;And now you are ready to build cool stuff with Go!&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://phollow.fr/2012/10/serveur-fichiers-statiques-golang</id>
@@ -1511,100 +1691,6 @@ p {
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3379&quot; title=&quot;Capture d’écran 2011-07-27 à 13.38.51&quot; src=&quot;http://static.phollow.fr/2011/07/Capture-d’écran-2011-07-27-à-13.38.51-804x302.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;302&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;On a donc tout pour avoir un joli petit réseau social pour le partage des fichier de conf. Unix. Reste à voir si les gens vont suivre. Si vous avez des recommendations ou des demandes à faire aux devs vous pouvez toujours allez faire un tour sur &lt;em&gt;#dotshare at freenode.&lt;/em&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Via &lt;a title=&quot;Dotshare.it&quot; href=&quot;http://dotshare.it/&quot; target=&quot;_blank&quot;&gt;dotshare&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  
-  <entry>
-    <id>http://phollow.fr/2011/05/streaming-twitter-nodejs-socket-io</id>
-    <link type="text/html" rel="alternate" href="http://phollow.fr/2011/05/streaming-twitter-nodejs-socket-io"/>
-    <title>Streaming Twitter: NodeJS &amp; Socket.IO</title>
-    <published>2011-05-15T20:48:38+02:00</published>
-    <updated>2011-05-15T20:48:38+02:00</updated>
-    <author>
-      <name>Jérôme Mahuet</name>
-      <uri>http://phollow.fr/</uri>
-    </author>
-    <content type="html">&lt;img class=&quot;alignnone size-full wp-image-3324&quot; title=&quot;nodejs&quot; src=&quot;http://static.phollow.fr/2011/05/nodejs.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;300&quot; /&gt;
-&lt;br&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Bonjour les enfants. Aujourd'hui on va s'amuser un peu avec &lt;a title=&quot;Node.js&quot; href=&quot;http://nodejs.org/&quot; target=&quot;_blank&quot;&gt;Node.js&lt;/a&gt; et les Web Sockets. Pour ceux qui vivent encore dans une grotte, &lt;strong&gt;Node.js&lt;/strong&gt; est un framework Javascript côté serveur basé sur &lt;strong&gt;V8&lt;/strong&gt; (Chrome). L'avantage est qu'il gère les entrées/sorties de manière asynchrone et supporte un modèle de programmation événementiel. En gros il est parfait pour les applications web temps réels (notifications, push serveur, streaming…).&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;En quelques lignes de codes on va être capable de faire cette &lt;a title=&quot;Twitter streaming - Node.js - Socket.io&quot; href=&quot;http://phollow.fr/tweet-stream/tweets.html&quot; target=&quot;_blank&quot;&gt;petite démo&lt;/a&gt;. Tu as besoin d'avoir un navigateur &lt;em&gt;à la pointe de la technologie&lt;/em&gt; pour que ça marche mon ami.&lt;/p&gt;
-
-&lt;h1 style=&quot;text-align: justify;&quot;&gt;Installation&lt;/h1&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Pour commencer il nous faut Node.js bien sur. Alors là tu as plusieurs solutions. Tu peux déjà commencer par &lt;a title=&quot;Node.js installing manager&quot; href=&quot;https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager&quot; target=&quot;_blank&quot;&gt;regarder&lt;/a&gt; si il est disponible sous forme de paquet dans ton OS ou distribution GNU/Linux. Sinon tu vas devoir le compiler, mais c'est pas très difficile: &lt;a href=&quot;https://github.com/joyent/node/wiki/Installation&quot; target=&quot;_blank&quot;&gt;regarde&lt;/a&gt;.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Il est aussi important d'installer &lt;strong&gt;npm&lt;/strong&gt; (Node Package Manager), il va nous simplifier la vie quand on voudra installer des extensions à Node.js.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;curl http://npmjs.org/install.sh | sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 style=&quot;text-align: justify;&quot;&gt;Socket.io&lt;/h1&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3340&quot; title=&quot;socket&quot; src=&quot;http://static.phollow.fr/2011/05/socket.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;260&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://socket.io/&quot; target=&quot;_blank&quot;&gt;Socket.io&lt;/a&gt; est la première extension que l'on va installer pour ce tutorial. Le but de cette librairie est de faciliter le développement d'applications web temps réel dans tous les navigateurs. Parce que tu as certains navigateurs qui gèrent les sockets et d'autres non. Alors cette librairie va décider elle-même quel chemin prendre pour tes échanges parmi ceux-là :&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;Websocket&lt;/li&gt;
-	&lt;li&gt;Adobe Flash $ocket ©&lt;/li&gt;
-	&lt;li&gt;Ajax long polling&lt;/li&gt;
-	&lt;li&gt;Multipart XHR&lt;/li&gt;
-	&lt;li&gt;Forever iFrame (lol IE)&lt;/li&gt;
-	&lt;li&gt;JSONP polling&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;npm install socket.io
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: justify;&quot;&gt;Et puisque l'on va jouer avec l'API streaming de Twitter, tu peux aussi installer l'excellent &lt;a href=&quot;https://github.com/technoweenie/twitter-node&quot; target=&quot;_blank&quot;&gt;twitter-node&lt;/a&gt; de la même manière.&lt;/p&gt;
-
-&lt;h1 style=&quot;text-align: justify;&quot;&gt;Code serveur&lt;/h1&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;pseudo&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;filter&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;track&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;bieber&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]},&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;sys&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;sys&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;writeHead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;text/html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;&amp;lt;h1&amp;gt;Twitter live stream&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Server running at http://127.0.0.1:8080/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;socket.io&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;twitter&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;twitter-node&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;TwitterNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;twitter&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tweet&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tweet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;broadcast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tweet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;limit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;LIMIT: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inspect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;del&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;DELETE: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inspect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;del&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;end&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;wave goodbye...&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;statusCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: justify;&quot;&gt;Au début du code on instancie quelques variables, dont la variable config que l'on passera à notre objet twitter-node. Elle contient les accès Twitter, le fait que l'on veut utiliser l'API Twitter en mode filtre et le mot sur lequel on veut filter. On instancie aussi un serveur Node.js, dans mon cas sur le port 8080.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;On attache un objet socket.io sur notre serveur et on instancie un objet twitter-node. On démarre le stream de Twitter en attachant des fonctions aux évènements que l'on peut recevoir.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;L'évènement du nom de “ tweet ” est appelé à chaque fois que l'on reçoit &lt;strong&gt;un&lt;/strong&gt; tweet. Les évènements limit et delete sont envoyés par l'API Twitter. Par exemple le cas du delete est important à prendre en compte si on construit un client Twitter sur l'API de streaming. Imaginons que quelqu'un poste un tweet et l'efface 2s après. Vous l'aurez déjà reçu et affiché. Mais 2s après vous allez recevoir un signal DELETE sur ce tweet et votre client pourra gérer sa disparition.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Quand on passe dans l'évènement Tweet, je demande à Socket.io d'envoyer en &lt;em&gt;broadcast&lt;/em&gt; (à toutes les personnes connectées sur mon serveur) d'envoyer un objet JSON du tweet reçu.&lt;/p&gt;
-
-&lt;h1 style=&quot;text-align: justify;&quot;&gt;Côté Client&lt;/h1&gt;
-Liquid error: ClassNotFound: no lexer for alias 'html+js' found
-&lt;p style=&quot;text-align: justify;&quot;&gt;Donc là je charge jQuery et une fois que c'est fait je vais chercher le script socket.io.js. Il est automatiquement fournit par le serveur node, donc tu as peut-être le port à changer. Une fois que c'est fait on peut créer un nouveau socket et attacher une fonction à l'évènement &lt;strong&gt;message&lt;/strong&gt;. Cet évènement est appelé à chaque fois que le serveur nous envoi quelque chose. Dans notre cas un tweet, donc je l'affiche.&lt;/p&gt;
-
-&lt;h1 style=&quot;text-align: justify;&quot;&gt;Lancement du serveur&lt;/h1&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;node serveur.js
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: justify;&quot;&gt;Tu n'as plus qu'a ouvrir la partie cliente dans ton navigateur et ça devrait marcher. Je trouve Node.js vraiment intéressant et je n'avais pas pris le temps de le creuser plus que ça. Mais le développement de ce programme est vraiment rapide et s'améliore de jour en jour. Il existe des wrappers node pour Mysql, mongodb et d'autres base de données. Et d'autres plugins aussi utiles que Twitter-node ou socket.io. Il y a même des frameworks de type MVC et cie. On en trouve une bonne liste sur &lt;a href=&quot;https://github.com/joyent/node/wiki/modules&quot; target=&quot;_blank&quot;&gt;cette page&lt;/a&gt;.&lt;/p&gt;
-</content>
   </entry>
   
  

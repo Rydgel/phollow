@@ -9,21 +9,9 @@
 		vertical-align: baseline; }
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block; }
-	body {
-		line-height: 1; }
-	ol, ul {
-		list-style: none; }
-	blockquote, q {
-		quotes: none; }
-	blockquote:before, blockquote:after,
-	q:before, q:after {
-		content: '';
-		content: none; }
 	table {
 		border-collapse: collapse;
 		border-spacing: 0; }
-		
-		
 	body { 
 		-webkit-text-size-adjust: 100%;
     }
@@ -35,16 +23,8 @@
 	small { font-size: 80%; }
 	
 /*	Blockquotes  */
-	blockquote, blockquote p { font-size: 17px; line-height: 24px; color: #777; font-style: italic; }
-	blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
-	blockquote cite { display: block; font-size: 12px; color: #555; }
-	blockquote cite:before { content: "\2014 \0020"; }
-	blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: #555; }
+	blockquote, blockquote p { font-style: italic; }
 	
-
-
-	
-
 /* #Lists
 ================================================== */
 	ul, ol { margin-bottom: 20px; }
@@ -58,9 +38,6 @@
 	ol ol, ol ul { margin: 4px 0 5px 30px; font-size: 90%;  }
 	ul ul li, ul ol li,
 	ol ol li, ol ul li { margin-bottom: 6px; }
-	li { line-height: 18px; margin-bottom: 12px; }
-	ul.large li { line-height: 21px; }
-	li p { line-height: 21px; }
 	
 /* #Images
 ================================================== */
@@ -97,7 +74,7 @@
     .container .sixteen.columns                 { width: 98.0%; }
     
     .container .one-third.column                { width: 31.1%; }
-    .container .two-thirds.column               { width: 64%; }
+    .container .two-thirds.column               { width: 62.2%; }
     
     /* Offsets */   
     .container .offset-by-one                   { padding-left: 6.25%;  }
@@ -368,14 +345,14 @@ body {
   font-family: ff-milo-web-pro, Helvetica, Arial, sans-serif;
   font-style:normal;
   color: #57534A;
-  -webkit-font-smoothing: subpixel-antialiased;
   font-size: 100%;
   line-height: 1.48;
   text-rendering: optimizeLegibility;
-  -moz-font-feature-settings:"liga=1, dlig=1, onum=1"; 
-  -ms-font-feature-settings:"liga", "dlig", "onum"; 
-  -o-font-feature-settings:"liga", "dlig", "onum"; 
-  -webkit-font-feature-settings:"liga", "dlig", "onum"; 
+  -moz-font-feature-settings:"liga=1, dlig=1, onum=1";
+  -moz-font-feature-settings:"liga", "dlig", "onum";
+  -ms-font-feature-settings:"liga", "dlig", "onum";
+  -o-font-feature-settings:"liga", "dlig", "onum";
+  -webkit-font-feature-settings:"liga", "dlig", "onum";
   font-feature-settings:"liga", "dlig", "onum";
 }
 
