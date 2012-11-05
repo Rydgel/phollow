@@ -16,7 +16,7 @@ tags:
 - web
 ---
 
-So you just [installed](http://golang.org/doc/install) Go in your system, now you’ll have to create a workspace to work with packages provided by third-parties or making your own ones. A workspace is simply a directory which contains your code, binaries and packages objects compiled from it.
+So you just [installed](http://golang.org/doc/install) Go in your system, now you’ll have to create a workspace to work with packages provided by third-parties or making your own ones. A workspace is simply a directory which contains your code, binaries and package objects compiled from it.
 
 ### Creating the workspace
 

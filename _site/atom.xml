@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-11-05T01:09:57+01:00</updated>
+  <updated>2012-11-05T01:38:00+01:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -22,7 +22,7 @@
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p&gt;So you just &lt;a href=&quot;http://golang.org/doc/install&quot;&gt;installed&lt;/a&gt; Go in your system, now you’ll have to create a workspace to work with packages provided by third-parties or making your own ones. A workspace is simply a directory which contains your code, binaries and packages objects compiled from it.&lt;/p&gt;
+    <content type="html">&lt;p&gt;So you just &lt;a href=&quot;http://golang.org/doc/install&quot;&gt;installed&lt;/a&gt; Go in your system, now you’ll have to create a workspace to work with packages provided by third-parties or making your own ones. A workspace is simply a directory which contains your code, binaries and package objects compiled from it.&lt;/p&gt;
 
 &lt;h3&gt;Creating the workspace&lt;/h3&gt;
 
