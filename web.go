@@ -1,9 +1,9 @@
 package main
 
 import (
-    "os"
-    "net/http"
     "html/template"
+    "net/http"
+    "os"
     "regexp"
 )
 
@@ -21,13 +21,13 @@ func (h *errorHandle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     re, _ := regexp.Compile(`^www`)
     if re.MatchString(r.Host) == true {
         // Redirect
-        url := "http://phollow.fr"+r.URL.Path
+        url := "http://phollow.fr" + r.URL.Path
         http.Redirect(w, r, url, http.StatusMovedPermanently)
     }
     h.Handler.ServeHTTP(&errorWriter{w, false}, r)
 }
 
-func (w *errorWriter) Header() (http.Header) {
+func (w *errorWriter) Header() http.Header {
     return w.ResponseWriter.Header()
 }
 
@@ -40,15 +40,15 @@ func (w *errorWriter) Write(p []byte) (int, error) {
 }
 
 func (w *errorWriter) WriteHeader(status int) {
-   if status == 404 {
+    if status == 404 {
         w.ignore = true
         w.ResponseWriter.Header().Set("Content-Type", "text/html; charset=utf-8")
         w.ResponseWriter.WriteHeader(404)
         t, _ := template.ParseFiles("_site/404.html")
         t.Execute(w.ResponseWriter, nil)
-   } else {
+    } else {
         w.ResponseWriter.WriteHeader(status)
-   }
+    }
 }
 
 func main() {
