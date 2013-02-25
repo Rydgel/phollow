@@ -6,7 +6,7 @@
   <link href="https://plus.google.com/116513653525162928064" rel="publisher">
   <meta name="title" content="{{ page.title }}">
   <meta name="author" content="Jérôme Mahuet">
-  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2013. All Rights Reserved.">
   <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
 
   <meta name="twitter:card" content="summary">
@@ -43,92 +43,52 @@
     })();
   </script>
   <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
-  <link rel="stylesheet" href="/css/compiled/global.css?v=105">
+  <link rel="stylesheet" href="/css/screen.css?v=106">
   <!--[if lt IE 9]>
   <script src="/js/compiled/modernizr.min.js"></script>
   <![endif]-->
 </head>
 <body>
-  <div class="container" role="wrapper">
-    <header role="banner" id="header-site" class="sixteen columns">
-      <h1 id="logo" class="four columns alpha">
-        <a href="/" title="Phollow.me">
-          <img src="/images/phollow-logo3.png" alt="Phollow.me">
-        </a>
-      </h1>
-      <nav role="main-navigation" class="seven columns">
-        <ul>
-          <li>
-            <a href="/" title="blog">
-            <span class="ss-icon ss-write"></span>
-            <span>Blog</span>
-            </a>
-          </li>
-          <li>
-            <a href="/archives/" title="archives">
-            <span class="ss-icon ss-database"></span>
-            <span>Archives</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://jrm.li#projects" title="Projets">
-            <span class="ss-icon ss-notebook"></span>
-            <span>Projects</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://jrm.li/" title="À propos">
-            <span class="ss-icon ss-user"></span>
-            <span>Me</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS">
-            <span class="ss-icon ss-rss"></span>
-            <span>Rss</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <hr>
-    </header>
 
-{{ content }}
+<header>
+    <div class="container">
+        <h1 id="logo">
+          <a href="/" title="Phollow.me">
+            <img src="/images/phollow-logo3.png" alt="Phollow.me">
+          </a>
+        </h1>
+        <section role="claim">
+          <h1>
+              Hacking stuff <em>since</em> 1986.<br>
+              Web &amp; iPhone developer with a soft spot for good typography and responsive design.
+          </h1>
+            <ul>
+              <li class="twitter">
+                  <a href="https://twitter.com/phollow" class="ss-icon ss-social ss-twitter"></a>
+              </li>
+              <li class="facebook">
+                  <a href="https://www.facebook.com/Phollow.fr" class="ss-icon ss-social ss-facebook"></a>
+              </li>
+              <li class="github">
+                  <a href="https://github.com/Rydgel" class="ss-icon ss-social ss-octocat"></a>
+              </li>
+              <li class="dribbble">
+                  <a href="http://dribbble.com/phollow" class="ss-icon ss-social ss-dribbble"></a>
+              </li>
+            </ul>
+        </section>
+    </div>
+</header>
 
-<footer id="footer" role="contentinfo" class="sixteen columns">
-  <hr>
-  <nav role="navigation">
-    <ul>
-      <li><a href="/">Homepage</a></li>
-      <li><a href="http://twitter.com/phollow">Twitter</a></li>
-      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
-      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
-      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
-    </ul>
-  </nav>
-  <span class="copyright">Copyright © 2012 <a rel="author"
-      href="https://plus.google.com/113221045987282389062?rel=author"
-      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
-    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
-<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
+<section role="articles">
+    {{ content }}
+</section>
+
+<footer>
+    <div class="container">
+        <p><a href="http://jrm.li" target="_blank">Jérôme Mahuet</a> - Hosted by <a href="http://heroku.com">Heroku</a> &amp; <a href="https://github.com/Rydgel/phollow">open-source</a>.</p>
+    </div>
 </footer>
-
-</div>
-<script src="/js/compiled/global.js?v=9"></script>
-
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
 </body>
 </html>
 

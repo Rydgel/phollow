@@ -18,9 +18,9 @@ tags:
 - backend
 ---
 
-<p class="fullsizestuff" style="margin-bottom: 60px;">
+<figure>
 <img src="http://static.phollow.fr/2012/08/flask.png" alt="Flask">
-</p>
+</figure>
 
 J’avais envie depuis quelques jours de faire une série d’articles sur **Python** et le développement d’applications web. D’une part pour montrer que ce n’est pas plus compliqué qu’un projet PHP et d’un autre côté pour montrer qu’on perd moins de temps pour faire quelque chose de propre (pas besoin de palier aux [bizarreries](http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/) du langage).
 
@@ -123,5 +123,3 @@ On crée le dépôt, on rajoute les fichiers et on commit avec un message _expli
 ### Next step
 
 La documentation de Flask est vraiment bien foutue, à partir de là, si vous êtes intéressé, [le quickstart](http://flask.pocoo.org/docs/quickstart/) peut vous permettre de débuter rapidement avec le framework. En attendant je réfléchis à la suite de cet article.
-
-<p style="text-align:center;font-size: 2em;">❧</p>

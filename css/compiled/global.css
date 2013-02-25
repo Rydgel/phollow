@@ -1,60 +1,60 @@
 @charset "UTF-8";
 
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-		margin: 0;
-		padding: 0;
-		border: 0;
-		font-size: 100%;
-		font: inherit;
-		vertical-align: baseline; }
-	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-		display: block; }
-	table {
-		border-collapse: collapse;
-		border-spacing: 0; }
-	body { 
-		-webkit-text-size-adjust: 100%;
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+  body {
+    -webkit-text-size-adjust: 100%;
     }
-	
-	p img { margin: 0; }
-	
-	em { font-style: italic; }
-	strong { font-weight: bold; }
-	small { font-size: 80%; }
-	
-/*	Blockquotes  */
-	blockquote, blockquote p { font-style: italic; }
-	
+
+  p img { margin: 0; }
+
+  em { font-style: italic; }
+  strong { font-weight: bold; }
+  small { font-size: 80%; }
+
+/*  Blockquotes  */
+  blockquote, blockquote p { font-style: italic; }
+
 /* #Lists
 ================================================== */
-	ul, ol { margin-bottom: 20px; }
-	ul { list-style: none outside; }
-	ol { list-style: decimal; }
-	ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
-	ul.square { list-style: square outside; }
-	ul.circle { list-style: circle outside; }
-	ul.disc { list-style: disc outside; }
-	ul ul, ul ol,
-	ol ol, ol ul { margin: 4px 0 5px 30px; font-size: 90%;  }
-	ul ul li, ul ol li,
-	ol ol li, ol ul li { margin-bottom: 6px; }
-	
+  ul, ol { margin-bottom: 20px; }
+  ul { list-style: none outside; }
+  ol { list-style: decimal; }
+  ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
+  ul.square { list-style: square outside; }
+  ul.circle { list-style: circle outside; }
+  ul.disc { list-style: disc outside; }
+  ul ul, ul ol,
+  ol ol, ol ul { margin: 4px 0 5px 30px; font-size: 90%;  }
+  ul ul li, ul ol li,
+  ol ol li, ol ul li { margin-bottom: 6px; }
+
 /* #Images
 ================================================== */
 
-	img.scale-with-grid { 
-		max-width: 100%;
-		height: auto; }
+  img.scale-with-grid {
+    max-width: 100%;
+    height: auto; }
 
 
     .container                                  { position: relative; width: 98%; max-width: 960px; overflow: hidden; margin: 0 auto; padding: 0;}
     .column, .columns                           { float: left; display: inline; margin-left: 1%; margin-right: 1%; }
     .row                                        { margin-bottom: 20px; }
-    
+
     /* Nested Column Classes */
     .column.alpha, .columns.alpha               { margin-left: 0; }
     .column.omega, .columns.omega               { margin-right: 0; }
-    
+
     /* Base Grid */
     .container .one.column                      { width: 4.25%;  }
     .container .two.columns                     { width: 10.5%; }
@@ -72,11 +72,11 @@
     .container .fourteen.columns                { width: 85.5%; }
     .container .fifteen.columns                 { width: 91.75%; }
     .container .sixteen.columns                 { width: 98.0%; }
-    
+
     .container .one-third.column                { width: 31.1%; }
     .container .two-thirds.column               { width: 62.2%; }
-    
-    /* Offsets */   
+
+    /* Offsets */
     .container .offset-by-one                   { padding-left: 6.25%;  }
     .container .offset-by-two                   { padding-left: 12.5%; }
     .container .offset-by-three                 { padding-left: 18.75% }
@@ -92,12 +92,12 @@
     .container .offset-by-thirteen              { padding-left: 81.25%; }
     .container .offset-by-fourteen              { padding-left: 87.5%; }
     .container .offset-by-fifteen               { padding-left: 93.75%; }
-    
-    
-    
+
+
+
     @media only screen and (max-width: 768px) {
         .columns, .column { margin: 0; }
-        
+
         .container .one.column,
         .container .two.columns,
         .container .three.columns,
@@ -113,36 +113,36 @@
         .container .thirteen.columns,
         .container .fourteen.columns,
         .container .fifteen.columns,
-        .container .sixteen.columns, 
-        .container .one-third.column, 
+        .container .sixteen.columns,
+        .container .one-third.column,
         .container .two-thirds.column  { width: 100%; }
-        
-        /* Offsets */   
-        .container .offset-by-one,              
-        .container .offset-by-two,                  
-        .container .offset-by-three,                
-        .container .offset-by-four,                     
-        .container .offset-by-five,                     
-        .container .offset-by-six,                  
-        .container .offset-by-seven,                
-        .container .offset-by-eight,                
-        .container .offset-by-nine,                     
-        .container .offset-by-ten,                  
-        .container .offset-by-eleven,               
-        .container .offset-by-twelve,               
-        .container .offset-by-thirteen,             
-        .container .offset-by-fourteen,             
-        .container .offset-by-fifteen { padding-left: 0; }          
-                
+
+        /* Offsets */
+        .container .offset-by-one,
+        .container .offset-by-two,
+        .container .offset-by-three,
+        .container .offset-by-four,
+        .container .offset-by-five,
+        .container .offset-by-six,
+        .container .offset-by-seven,
+        .container .offset-by-eight,
+        .container .offset-by-nine,
+        .container .offset-by-ten,
+        .container .offset-by-eleven,
+        .container .offset-by-twelve,
+        .container .offset-by-thirteen,
+        .container .offset-by-fourteen,
+        .container .offset-by-fifteen { padding-left: 0; }
+
     }
-    
+
 /* #Clearing
 ================================================== */
 
     /* Self Clearing Goodness */
-    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; } 
-    
-    /* Use clearfix class on parent to clear nested columns, 
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
     or wrap each row of columns in a <div class="row"> */
     .clearfix:before,
     .clearfix:after,
@@ -157,10 +157,10 @@
     .row:after,
     .clearfix:after {
       clear: both; }
-    .row, 
+    .row,
     .clearfix {
       zoom: 1; }
-      
+
     /* You can also use a <br class="clear" /> to clear columns */
     .clear {
       clear: both;
@@ -223,13 +223,13 @@ cite {
 }
 
 .clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
-	}
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+  }
 * html .clearfix             { zoom: 1; }
 *:first-child+html .clearfix { zoom: 1; }
 
@@ -245,7 +245,7 @@ cite {
 }
 
 .ss-icon, .ss-icon.ss-social, .ss-icon.ss-social-circle,
-[class^="ss-"]:before, [class*=" ss-"]:before, 
+[class^="ss-"]:before, [class*=" ss-"]:before,
 [class^="ss-"][class*=" ss-social"]:before, [class*=" ss-"][class*=" ss-social"]:before,
 [class^="ss-"].right:after, [class*=" ss-"].right:after,
 [class^="ss-"][class*=" ss-social"].right:after, [class*=" ss-"][class*=" ss-social"].right:after{
@@ -264,7 +264,7 @@ cite {
   -webkit-font-smoothing: antialiased;
 }
 
-.ss-icon.ss-social-circle, 
+.ss-icon.ss-social-circle,
 [class^="ss-"].ss-social-circle:before, [class*=" ss-"].ss-social-circle:before,
 [class^="ss-"].ss-social-circle.right:after, [class*=" ss-"].ss-social-circle.right:after{
   font-weight: bold;
@@ -277,8 +277,8 @@ cite {
 @font-face {
   font-family: "SSStandard";
   src: url('/fonts/ss-standard.eot');
-  src: url('/fonts/ss-standard.eot?#iefix') format('embedded-opentype'), 
-       url('/fonts/ss-standard.woff') format('woff'), 
+  src: url('/fonts/ss-standard.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/ss-standard.woff') format('woff'),
        url('/fonts/ss-standard.ttf')  format('truetype'),
        url('/fonts/ss-standard.svg#SSStandard') format('svg');
   font-weight: normal;
@@ -315,7 +315,6 @@ html:hover [class^="ss-"]{-ms-zoom: 1;}
 .ss-volumelow:before,.ss-volumelow.right:after{content:'🔉'}.ss-volumehigh:before,.ss-volumehigh.right:after{content:'🔊'}.ss-batteryhigh:before,.ss-batteryhigh.right:after{content:''}.ss-batterymedium:before,.ss-batterymedium.right:after{content:''}.ss-batterylow:before,.ss-batterylow.right:after{content:''}.ss-batteryempty:before,.ss-batteryempty.right:after{content:''}.ss-clouddownload:before,.ss-clouddownload.right:after{content:''}.ss-cloudupload:before,.ss-cloudupload.right:after{content:''}.ss-calendaradd:before,.ss-calendaradd.right:after{content:''}.ss-calendarremove:before,.ss-calendarremove.right:after{content:''}.ss-calendarcheck:before,.ss-calendarcheck.right:after{content:''}.ss-calendardelete:before,.ss-calendardelete.right:after{content:''}
 
 
-
 [class^="ss-"]:before,[class*=" ss-"]:before {
   display:inline-block
 }
@@ -346,7 +345,7 @@ body {
   font-style:normal;
   color: #57534A;
   font-size: 100%;
-  line-height: 1.48;
+  line-height: 1.6;
   text-rendering: optimizeLegibility;
   -moz-font-feature-settings:"liga=1, dlig=1, onum=1";
   -moz-font-feature-settings:"liga", "dlig", "onum";
@@ -356,8 +355,8 @@ body {
   font-feature-settings:"liga", "dlig", "onum";
 }
 
-div[role="wrapper"] { 
-    -moz-box-sizing:border-box; 
+div[role="wrapper"] {
+    -moz-box-sizing:border-box;
     -webkit-box-sizing: border-box;
     box-sizing:border-box;
     padding: 15px;
@@ -368,7 +367,7 @@ div[role="wrapper"] {
 }
 
 ul ul, ul ol, ol ol, ol ul {
-	font-size: 100%
+  font-size: 100%
 }
 
 hr {
@@ -376,10 +375,10 @@ clear: both;
 margin: 10px 0 30px;
 border: 0;
 height: 1px;
-background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
-    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
-    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
-    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
+background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0));
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0));
 }
 
 span.code, article code {
@@ -395,13 +394,13 @@ span.code, article code {
 }
 
 article pre > code {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	background: #FAF8F2;
-	margin: 40px -24px;
-	padding: 10px 25px;
-	display: block;
-	font-size: 0.724em;
-	word-wrap: break-word;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  background: #FAF8F2;
+  margin: 40px -24px;
+  padding: 10px 25px;
+  display: block;
+  font-size: 0.724em;
+  word-wrap: break-word;
     line-height: 1.7em;
     color: #423F37;
     border-radius: 3px;
@@ -427,12 +426,12 @@ h2 {
 }
 
 h3 {
-  font-size: 1.353em; 
+  font-size: 1.353em;
 }
 
 .post h3, .post h4 {
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin-bottom: 1.6em;
+  margin-top: 1.6em;
   font-weight: bold;
   font-family: ff-milo-web-pro, Helvetica, Arial, sans-serif;
 }
@@ -452,8 +451,8 @@ a:hover {
 }
 
 /*article p + p {
-	margin-top: -20px;
-	text-indent: 2.3em;
+  margin-top: -20px;
+  text-indent: 2.3em;
 }*/
 
 /*p.lettrine:first-letter {
@@ -471,7 +470,7 @@ article p:first-child:first-letter {
 }*/
 
 .footnotes li {
-	list-style: none !important;
+  list-style: none !important;
 }
 
 img,video,object,embed {
@@ -479,7 +478,7 @@ img,video,object,embed {
 }
 
 img {
-  width: auto; 
+  width: auto;
   height: auto;
 }
 
@@ -505,7 +504,7 @@ article em strong, article strong em {
 }
 
 p {
-  margin: 0 0 30px 0;
+  margin: 0 0 1.6em 0;
 }
 
 figure {
@@ -547,8 +546,8 @@ article figure figcaption strong {
 }
 
 .single-page {
-  /*font-size: 1.313em;*/
-  font-size: 1.250em;
+    /*width: 80% !important;*/
+    font-size: 1.438em;
 }
 
 a.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
@@ -588,7 +587,7 @@ blockquote {
   line-height: inherit;
   color: #A19C91;
   padding-right: 37px;
-  margin-bottom: 30px;
+  margin-bottom: 1.6em;
   font-family:ff-milo-web-pro, Helvetica, Arial, sans-serif;
   font-weight:200;
   font-style:italic;
@@ -613,7 +612,7 @@ blockquote:after {
   position: relative;
   left: 0.2em;
   font-size: 1.764em;
-  line-height: 0px;
+  line-height: 0;
   top: 0.2em;
   font-family:ff-milo-web-pro, Helvetica, Arial, sans-serif;
   font-weight:200;
@@ -731,7 +730,7 @@ nav[role="main-navigation"] .ss-icon {
 }
 
 #container-home-1 article, #container-home-2 article {
-  margin-bottom: 30px;
+  margin-bottom: 1.6em;
   font-size: 1.125em;
   /*height: 123px;*/
 }
@@ -745,7 +744,7 @@ nav[role="main-navigation"] .ss-icon {
 }
 
 .post {
-  margin-bottom: 30px;
+  margin-bottom: 1.6em;
 }
 
 .post header {
@@ -760,10 +759,6 @@ nav[role="main-navigation"] .ss-icon {
 .post a {
   text-decoration: underline;
   color: #FD584D;
-  transition: all .5s ease-in-out;
-  -webkit-transition: all .5s ease-in-out;
-  -moz-transition: all .5s ease-in-out;
-  -o-transition: all .5s ease-in-out;
 }
 
 .post a:hover {
@@ -866,23 +861,23 @@ cite.entry-meta a:hover {
 
 .post ul {
   margin-left: 0px;
-  margin-bottom: 30px;
+  margin-bottom: 1.6em;
 }
 
 .post ul li {
   list-style: disc outside;
-  margin-bottom: 30px;
+  margin-bottom: 1.6em;
 }
 
 .post ol {
   margin-left: 0px;
   list-style: decimal outside;
-  margin-bottom: 30px;
+  margin-bottom: 1.6em;
 }
 
 .post ol li {
   list-style: decimal outside;
-  margin-bottom: 30px;
+  margin-bottom: 1.6em;
 }
 
 .post li {
@@ -902,7 +897,7 @@ cite.entry-meta a:hover {
   color: #A19C91;
   transition: color .4s ease-out;
   -webkit-transition: color .4s ease-out;
-  -moz-transition: color .4s ease-out;	
+  -moz-transition: color .4s ease-out;
   -o-transition: color .4s ease-out;
 }
 
@@ -918,7 +913,7 @@ cite.entry-meta a:hover {
   color: #DDD;
   transition: color .4s ease-out;
   -webkit-transition: color .4s ease-out;
-  -moz-transition: color .4s ease-out;	
+  -moz-transition: color .4s ease-out;
   -o-transition: color .4s ease-out;
 }
 
@@ -982,33 +977,33 @@ cite.entry-meta a:hover {
 }
 
 footer[role="contentinfo"] {
-	padding: 15px 0 0 0;
-	font-size: 1em;
-	}
+  padding: 15px 0 0 0;
+  font-size: 1em;
+  }
 footer[role="contentinfo"] nav ul li {
-	display: inline;
-	margin: 0 10px 0 0;
-	padding: 0 10px 0 0;
-	font-weight: bold;
-	font-family:ff-milo-web-pro, Helvetica, Arial, sans-serif;
-	border-right: 1px solid #ccc;
+  display: inline;
+  margin: 0 10px 0 0;
+  padding: 0 10px 0 0;
+  font-weight: bold;
+  font-family:ff-milo-web-pro, Helvetica, Arial, sans-serif;
+  border-right: 1px solid #ccc;
         font-size: 0.824em;
-	}
+  }
 footer[role="contentinfo"] nav ul li a{
         text-decoration: none;
         color: #A19C91;
-	}
+  }
 footer[role="contentinfo"] nav ul li a:hover {
         color: #333;
-	}
+  }
 footer[role="contentinfo"] nav ul li:last-child {
-	margin: 0;
-	padding: 0;
-	border: none;
-	}
+  margin: 0;
+  padding: 0;
+  border: none;
+  }
 footer[role="contentinfo"] p {
-	margin: 10px 0;
-	}
+  margin: 10px 0;
+  }
 
 article p.figure-full img, article img.size-full, article img.size-medium, article img {
   display: block;
@@ -1161,7 +1156,7 @@ span.says, .comment-edit-link {
 }
 
 #commentform {
-  margin-top: 30px;
+  margin-top: 1.6em;
 }
 
 #submit {
@@ -1210,7 +1205,7 @@ span.says, .comment-edit-link {
 }
 
 .archives-list li:last-child {
-  border-bottom: none;  
+  border-bottom: none;
 }
 
 .archives-date {
@@ -1219,7 +1214,7 @@ span.says, .comment-edit-link {
 }
 
 .archives-perma {
-  
+
 }
 
 .archives-perma a, .archives-perma a:hover {
@@ -1320,57 +1315,60 @@ a.twitter-button:active {
   top: 1px;
 }
 
-#disqus_thread {
-  max-width: 723px;
-}
-
 /* #Media Queries
 ================================================== */
-	
-	/* Mobile/Browser */
-	@media only screen and (max-width: 768px) {
-        
+
+  /* Mobile/Browser */
+  @media only screen and (max-width: 1025px) {
+      .single-page {
+          width: 100% !important;
+          font-size: 1.438em;
+      }
+  }
+  
+  @media only screen and (max-width: 768px) {
+
         ul, ol {
          list-style: none inside;
-         margin-left: 20px !important;   
+         margin-left: 20px !important;
         }
-	
-	  article pre > code {
-  	   margin: 40px 0;
-	  }
-	  
+
+    article pre > code {
+       margin: 40px 0;
+    }
+
     .fullsizestuff {
       margin-left: 0;
     }
 
           blockquote, blockquote p {
- 		padding-right: 0;
-	  }
+    padding-right: 0;
+    }
 
-	  .container .offset-by-five {
-  	    padding-left: 0;
-	  }
+    .container .offset-by-five {
+        padding-left: 0;
+    }
 
-	  body {
-	    font-size: 0.941em;
+    body {
+      font-size: 1em;
           }
 
           .single-page {
-            font-size: 1.118em;
-	  }
-          
+            font-size: 1.250em;
+            }
+
           #claim h1 {
             text-align:center;
           }
 
-	#claim-home h1 {
+  #claim-home h1 {
             text-align:center;
           }
-          
+
   #container-home-1 article, #container-home-2 article {
     height: auto;
   }
-  
+
   #container-home-1 h2 a, #container-home-2 h2 a {
     display:inline;
     overflow:none;
@@ -1378,84 +1376,91 @@ a.twitter-button:active {
     max-height: none;
   }
 
-	article figure figcaption {
-  	padding: 0 0 0.5em 0;
-  	position: static;
+  article figure figcaption {
+    padding: 0 0 0.5em 0;
+    position: static;
     text-align: left;
-  	width: auto;
-	}
-    
-	  #logo a {
-	    margin: 0 auto;
-	  }
-	  
-	  #logo a img {
-  	  margin: 0 auto;
-	  }
-	  
-	  #logo2 {
-	    display: none; 
+    width: auto;
+  }
+
+    #logo a {
+      margin: 0 auto;
     }
-	  
-	  #nav-header ul {
-	    margin-top: 10px;
+
+    #logo a img {
+      margin: 0 auto;
+    }
+
+    #logo2 {
+      display: none;
+    }
+
+    #nav-header ul {
+      margin-top: 10px;
       height: 30px;
       line-height: 30px;
     }
-	  
-	  #nav-header ul li {
+
+    #nav-header ul li {
       text-align: center;
       height: 40px;
       line-height: 40px;
     }
-    
+
     #nav-header ul li a {
       font-size: 0.706em;
     }
-    
+
     #nav-header2 ul {
-	    margin-top: 10px;
+      margin-top: 10px;
       height: 30px;
       line-height: 30px;
     }
-	  
-	  #nav-header2 ul li {
+
+    #nav-header2 ul li {
       text-align: center;
       height: 40px;
       line-height: 40px;
     }
-    
+
     #nav-header2 ul li a {
       font-size: 0.706em;
     }
-    
+
     aside {
       clear: left;
     }
-      
+
     #sidebar {
       text-align: center;
     }
-    
+
     #contact-comments {
       font-size: 1.059em;
       margin-bottom: 60px;
     }
-    
+
     .copyright {
       font-size: 0.706em;
     }
-    
+
     #meta {
       font-size: 1.059em;
     }
 
     span.code {
-	font-size: 0.824em;
-	}
-	
-	.post cite.entry-meta {
-	  width: 100% !important;
-	}
-	  
-	}
+  font-size: 0.824em;
+  }
+
+  .post cite.entry-meta {
+    width: 100% !important;
+  }
+
+  }
+  
+  @media only screen and (max-width: 479px) {
+      .single-page {
+        font-size: 1em;
+        }
+      
+  }

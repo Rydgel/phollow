@@ -1,47 +1,24 @@
 ---
-layout: layout
+layout: layout_posts
 ---
 
-<div id="container" class="sixteen columns">
+<div class="container">
   <article class="post">
-      <header>
-    <h2 class="entry-title entry-single"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+    <time datetime="{{ page.date }}">{{ page.date | date: "%b %e, %Y" }}</time>
+    <h2 class="entry-title">
+        <a title="{{ page.title }}" href="{{ page.url }}">{{ page.title }}</a>
+    </h2>
     {% if page.desc %}
       <p class="desc">{{ page.desc }}</p>
     {% endif %}
-      </header>
-      <hr>
-      <div class="entry single-page thirteen columns alpha">
+    
+      <section role="post-content">
         {{ content }}
-      </div>
-      <cite class="omega three columns entry-meta">
-        <p>
-          <time datetime="{{ page.date }}" pubdate class="updated ss-clock">{{ page.date | date: "%B %e, %Y" }}</time>
-          <br>
-          <span class="ss-tag">{{ page.categories | render_category }}</span>
-          <br>
-          {% if page.pk %}
-          <span class="ss-link"><a href="http://{{ page.pk }}">{{ page.pk }}</a></span>
-          {% endif %}
-        </p>
-        </cite>
-      <footer class="share alpha thirteen columns">
-      <a id="tweet" href="http://twitter.com/?status={{ page.title | url_encode }}%20http%3A%2F%2Fphollow.fr{{ page.url | url_encode }}%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span style="-webkit-font-smoothing: subpixel-antialiased;">share</span></a>
-      </footer>
+      </section>
+      
+      <section role="share">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="phollow">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </section>
     </article>
-      <hr>
-      <div id="disqus_thread"></div>
-      <script>
-          var disqus_shortname = 'phollowfr';
-          var disqus_identifier = 'http://phollow.fr{{ page.url }}/';
-          var disqus_url = 'http://phollow.fr{{ page.url }}/';
-
-          (function() {
-              var dsq = document.createElement('script');
-              dsq.type = 'text/javascript'; 
-              dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
 </div>

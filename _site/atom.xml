@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2012-11-30T15:14:10+01:00</updated>
+  <updated>2013-02-25T19:24:22+01:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -30,8 +30,7 @@
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir ~/golang
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/golang
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We have to set up the &lt;code&gt;GOPATH&lt;/code&gt; environment variable to tell golang tools this is where we want our workspace to be.&lt;/p&gt;
@@ -42,8 +41,7 @@
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/golang
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir -p src/phollow.fr
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We want our program to be called &lt;code&gt;hello&lt;/code&gt;, so let’s create a &lt;code&gt;hello&lt;/code&gt; directory inside our namespace, and then the Go code itself.&lt;/p&gt;
@@ -52,21 +50,19 @@
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir hello
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;hello
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim hello.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; there is no real &lt;em&gt;main&lt;/em&gt; package, it’s just a convention telling Go you want this code to generate an executable binary.&lt;/p&gt;
@@ -77,8 +73,7 @@
 hello
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;~/golang/bin/hello
 Hello, world!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Yeah, it’s working. It may be a good idea to put this bin directory on our system PATH: &lt;code&gt;export PATH=$HOME/golang/bin:$PATH&lt;/code&gt;. This way we just have to type &lt;code&gt;hello&lt;/code&gt; to run our program.&lt;/p&gt;
@@ -91,21 +86,19 @@ Hello, world!
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir string
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;string
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim string.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// Pretty useless I know, it’s just for the sake&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// of this example ;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; you can see that my function begins with an &lt;strong&gt;uppercase&lt;/strong&gt;. This is a convention, telling that this function can be used outside the package itself (you know, like public/private stuff…).&lt;/p&gt;
@@ -115,8 +108,7 @@ Hello, world!
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;go install
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls ~/golang/pkg/darwin_amd64/phollow.fr
 string.a
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Great! There it is. As you can see you will find them all in the &lt;code&gt;pkg&lt;/code&gt; directory.&lt;/p&gt;
@@ -125,18 +117,17 @@ string.a
 
 &lt;p&gt;Let’s go back editing our &lt;strong&gt;hello.go&lt;/strong&gt; program:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&amp;quot;phollow.fr/string&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -144,8 +135,7 @@ string.a
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;go install
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;hello
 Hello, world!Hello, world!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So basically the Go tools found our package &lt;code&gt;phollow.fr/string&lt;/code&gt; and use the &lt;em&gt;string.a&lt;/em&gt; and linked it to our hello code. Not really hard.&lt;/p&gt;
@@ -154,13 +144,13 @@ Hello, world!Hello, world!
 
 &lt;p&gt;You can never be sure your code is 100% working without testing it. And good news, there is a build-in tool to do so in Go. What we want to test here is our &lt;code&gt;string.Double()&lt;/code&gt; function. A test file resides besides the code and should be named &lt;code&gt;packagename_test.go&lt;/code&gt;. So we will go with &lt;code&gt;string_test.go&lt;/code&gt; inside the &lt;strong&gt;string&lt;/strong&gt; directory in our namespace.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;testing&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;testing&amp;quot;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tests&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;HelloHello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Good Bye!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Good Bye!Good Bye!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
@@ -168,15 +158,14 @@ Hello, world!Hello, world!
         &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Errorf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Double(%s) == %s, want %s&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;got&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;want&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tests&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Errorf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Double(%s) == %s, want %s&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;got&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;want&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -184,8 +173,7 @@ Hello, world!Hello, world!
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;go &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
 PASS
 ok      phollow.fr/string   0.010s
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And now you are ready to build cool stuff with Go!&lt;/p&gt;
@@ -208,19 +196,18 @@ ok      phollow.fr/string   0.010s
 
 &lt;p&gt;Go possède déjà pas mal de bibliothèques pour tout ce qui est &lt;em&gt;networking&lt;/em&gt; et &lt;em&gt;serveurs&lt;/em&gt;. Le module &lt;code&gt;http&lt;/code&gt; possède une méthode &lt;code&gt;FileServer&lt;/code&gt; qui peut-être utilisée en tant que serveur de fichiers statiques.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ListenAndServe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;:8000&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;panic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FileServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ListenAndServe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;:8000&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;panic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Seconde version&lt;/h3&gt;
@@ -229,61 +216,60 @@ ok      phollow.fr/string   0.010s
 
 &lt;p&gt;Mon type &lt;code&gt;errorHandle&lt;/code&gt; contient juste le type habituel, mais grâce à lui je peux faire ma propre méthode &lt;code&gt;ServeHTTP&lt;/code&gt; qui elle utilisera mon type &lt;code&gt;errorWriter&lt;/code&gt;. Il contient le type de base &lt;code&gt;ResponseWriter&lt;/code&gt; avec en plus un boolean. Je set ce boolean à &lt;code&gt;true&lt;/code&gt; quand je détecte un header 404 et je sers ma page customisée à la place.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&amp;quot;os&amp;quot;&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&amp;quot;html/template&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errorWriter&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errorHandle&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handler&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errorHandle&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Handler&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServeHTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ServeHTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errorHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ServeHTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ServeHTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;true&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Content-Type&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;text/html; charset=utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ParseFiles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site/404.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errorWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ignore&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Content-Type&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;text/html; charset=utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ParseFiles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site/404.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WriteHeader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ListenAndServe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PORT&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;panic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FileServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Handle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errorHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ListenAndServe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PORT&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;panic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Ce bout de code est capable de tourner sous Heroku (et peut-être App Engine). J’ai 2, 3 autres articles sous le feu sur ce langage qui me plaît bien.&lt;/p&gt;
@@ -324,11 +310,10 @@ questions (no troll).&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;umad {{ name }}?&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Jérôme&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;u&amp;#39;umad Jérôme?&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Voilà en gros le principe. Dans l'utilisation courante on utilisera pas ces méthodes, car on chargera plutôt un fichier .html. Mais c’est ce qui se passe, &lt;em&gt;à peu près&lt;/em&gt;, en arrière-plan.&lt;/p&gt;
+&lt;p&gt;Voilà en gros le principe. Dans l&#39;utilisation courante on utilisera pas ces méthodes, car on chargera plutôt un fichier .html. Mais c’est ce qui se passe, &lt;em&gt;à peu près&lt;/em&gt;, en arrière-plan.&lt;/p&gt;
 
 &lt;h3&gt;Exemple concret avec Flask&lt;/h3&gt;
 
@@ -350,8 +335,7 @@ questions (no troll).&lt;/p&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -370,8 +354,7 @@ questions (no troll).&lt;/p&gt;
         &lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;endfor&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;endblock&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Et maintenant côté Python:&lt;/p&gt;
@@ -383,8 +366,7 @@ questions (no troll).&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&amp;quot;Jérôme&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u&amp;quot;Rick Astley&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u&amp;quot;Tony Stark&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render_template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Commençons par la fin. On a une route qui pointe sur la racine du site, on crée une liste appelée &lt;code&gt;users&lt;/code&gt; contenant le nom de 3 personnes. On demande ensuite à Flask de nous retourner le template index.html en lui passant le contexte (notre liste). Le template index &lt;a href=&quot;http://jinja.pocoo.org/docs/templates/#template-inheritance&quot;&gt;hérite&lt;/a&gt; du template layout. L’objet users étant une liste, on peut utiliser une boucle &lt;code&gt;{% for %}{% endfor %}&lt;/code&gt; pour itérer. La liste des opérateurs (boucles, conditions…) peut se trouver &lt;a href=&quot;http://jinja.pocoo.org/docs/templates/#list-of-control-structures&quot;&gt;ici&lt;/a&gt;.&lt;/p&gt;
@@ -398,8 +380,7 @@ questions (no troll).&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;jinja&quot;&gt;&lt;span class=&quot;c&quot;&gt;{# Par exemple mon_titre=&amp;quot;mon super titre&amp;quot; #}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;mon_titre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;x&quot;&gt;  -&amp;gt; &amp;quot;Mon Super Titre&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Liste des filtres disponibles de base dans Jinja2, &lt;a href=&quot;http://jinja.pocoo.org/docs/templates/#builtin-filters&quot;&gt;ici&lt;/a&gt;.&lt;/p&gt;
@@ -412,8 +393,7 @@ questions (no troll).&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Enlève certains caractères d’une chaîne de caractères&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -423,8 +403,7 @@ questions (no troll).&lt;/p&gt;
 &lt;span class=&quot;x&quot;&gt;  -&amp;gt; &amp;quot;bar&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;f&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;x&quot;&gt;  -&amp;gt; &amp;quot;oobar&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Plus d’infos sur &lt;a href=&quot;http://jinja.pocoo.org/docs/api/#custom-filters&quot;&gt;cette page&lt;/a&gt; et &lt;a href=&quot;http://flask.pocoo.org/docs/templating/#registering-filters&quot;&gt;celle-ci&lt;/a&gt;.&lt;/p&gt;
@@ -445,10 +424,9 @@ questions (no troll).&lt;/p&gt;
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p class=&quot;fullsizestuff&quot; style=&quot;margin-bottom: 60px;&quot;&gt;
+    <content type="html">&lt;p&gt;&lt;figure&gt;
 &lt;img src=&quot;http://static.phollow.fr/2012/08/flask.png&quot; alt=&quot;Flask&quot;&gt;
-&lt;/p&gt;
-
+&lt;/figure&gt;&lt;/p&gt;
 
 &lt;p&gt;J’avais envie depuis quelques jours de faire une série d’articles sur &lt;strong&gt;Python&lt;/strong&gt; et le développement d’applications web. D’une part pour montrer que ce n’est pas plus compliqué qu’un projet PHP et d’un autre côté pour montrer qu’on perd moins de temps pour faire quelque chose de propre (pas besoin de palier aux &lt;a href=&quot;http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/&quot;&gt;bizarreries&lt;/a&gt; du langage).&lt;/p&gt;
 
@@ -486,8 +464,7 @@ questions (no troll).&lt;/p&gt;
 virtualenv mon_projet
 &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;mon_projet
 &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;bin/activate &lt;span class=&quot;c&quot;&gt;# pour l&amp;#39;activer&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Le répertoire &lt;strong&gt;mon_projet&lt;/strong&gt; sera crée avec tout le nécessaire. Si votre prompt change légèrement, c’est que la manipulation a fonctionné. Virtualenv est très puissant, vous pouvez même lui passer la version de Python en paramètre.&lt;/p&gt;
@@ -532,16 +509,14 @@ virtualenv -p /usr/local/bin/pypy mon_projet
 
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Pour tester ce code, il suffit juste de lancer la commande suivante. Et d’ouvrir le navigateur sur l’URL qui sera affichée dans la console.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python app.py
  * Running on http://127.0.0.1:5000/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;GIT&lt;/h3&gt;
@@ -564,9 +539,6 @@ git commit -m &quot;:sparkles: First commit :sparkles:&quot;
 &lt;h3&gt;Next step&lt;/h3&gt;
 
 &lt;p&gt;La documentation de Flask est vraiment bien foutue, à partir de là, si vous êtes intéressé, &lt;a href=&quot;http://flask.pocoo.org/docs/quickstart/&quot;&gt;le quickstart&lt;/a&gt; peut vous permettre de débuter rapidement avec le framework. En attendant je réfléchis à la suite de cet article.&lt;/p&gt;
-
-&lt;p style=&quot;text-align:center;font-size: 2em;&quot;&gt;❧&lt;/p&gt;
-
 </content>
   </entry>
   
@@ -580,14 +552,7 @@ git commit -m &quot;:sparkles: First commit :sparkles:&quot;
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;div&gt;
-&lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://static.phollow.fr/2012/06/Compass.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Les variables CSS sont apparues il y a quelques jours dans le dépôt &lt;a href=&quot;http://trac.webkit.org/changeset/120154&quot;&gt;Webkit&lt;/a&gt; et devraient être utilisables dans les dernières &lt;em&gt;nightlies&lt;/em&gt; de Safari. La norme CSS continue de se doter de fonctionnalités permettant d’avoir un code plus facilement maintenable.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Les variables CSS sont apparues il y a quelques jours dans le dépôt &lt;a href=&quot;http://trac.webkit.org/changeset/120154&quot;&gt;Webkit&lt;/a&gt; et devraient être utilisables dans les dernières &lt;em&gt;nightlies&lt;/em&gt; de Safari. La norme CSS continue de se doter de fonctionnalités permettant d’avoir un code plus facilement maintenable.&lt;/p&gt;
 
 &lt;h3&gt;Don’t repeat yourself they said&lt;/h3&gt;
 
@@ -663,9 +628,6 @@ font-size: $fontsize;
 &lt;h3&gt;TL;DR&lt;/h3&gt;
 
 &lt;p&gt;Je dirais juste à essayer (essayer concrètement) avant de dire que l’on aime pas. Ces fonctionnalités arriveront tôt ou tard dans la norme CSS. Et il y a beaucoup de temps à gagner si on sait utiliser les pré-processeurs.&lt;/p&gt;
-
-&lt;p style=&quot;text-align:center;font-size: 2em;&quot;&gt;❧&lt;/p&gt;
-
 </content>
   </entry>
   
@@ -679,15 +641,7 @@ font-size: $fontsize;
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;div&gt;
-&lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://static.phollow.fr/2012/05/heroku.jpeg&quot; title=&quot;heroku&quot; class=&quot;alignnone size-full&quot;&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;La migration du blog vers Jekyll était une première étape nécessaire pour une migration complète vers une solution gratuite – &lt;em&gt;ou presque&lt;/em&gt;. Quand le site web n’est plus qu’une collection de fichiers statiques, l’hébergement devient vraiment simple.&lt;/p&gt;
+    <content type="html">&lt;p&gt;La migration du blog vers Jekyll était une première étape nécessaire pour une migration complète vers une solution gratuite – &lt;em&gt;ou presque&lt;/em&gt;. Quand le site web n’est plus qu’une collection de fichiers statiques, l’hébergement devient vraiment simple.&lt;/p&gt;
 
 &lt;h3&gt;Heroku&lt;/h3&gt;
 
@@ -734,8 +688,7 @@ font-size: $fontsize;
 &lt;span class=&quot;n&quot;&gt;not_found&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;send_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;_site/404.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Le code de l’application a été mise à jour sur le &lt;a href=&quot;https://github.com/Rydgel/phollow&quot;&gt;dépôt Github du blog&lt;/a&gt;.&lt;/p&gt;
@@ -769,7 +722,7 @@ font-size: $fontsize;
 
 &lt;p&gt;Prenons par exemple les ligatures. C’est une des choses que je voulais depuis longtemps et qui est maintenant possible sur une page web. Le but d’une ligature est de rendre le texte plus lisible et plus beau aussi, comme en évitant une transition grossière entre un &lt;em&gt;f&lt;/em&gt; et un &lt;em&gt;i&lt;/em&gt;. Les ligatures fusionnent deux caractères et le résultat est vraiment considéré comme un seul.&lt;/p&gt;
 
-&lt;p class=&quot;fullsizestuff&quot; style='font-size: 112px; text-rendering: optimizelegibility; -moz-font-feature-settings:&quot;liga=1, dlig=1&quot;; -ms-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -o-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -webkit-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;;'&gt;
+&lt;p class=&quot;fullsizestuff&quot; style=&#39;font-size: 112px; text-rendering: optimizelegibility; -moz-font-feature-settings:&quot;liga=1, dlig=1&quot;; -ms-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -o-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; -webkit-font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;; font-feature-settings:&quot;liga&quot;, &quot;dlig&quot;;margin-bottom: 30px;&#39;&gt;
 fleurs, fille, off.
 &lt;/p&gt;
 
@@ -810,7 +763,7 @@ fleurs, fille, off.
 
 &lt;h3&gt;Où trouver des webfonts compatibles ?&lt;/h3&gt;
 
-&lt;p&gt;C'est là que le bât blesse. Après quelques recherches je me suis rendu compte que le service que j’utilise, &lt;a href=&quot;http://typekit.com&quot; title=&quot;typekit&quot;&gt;Typekit&lt;/a&gt; ne prend pas encore en compte cette fonctionnalité. &lt;em&gt;Du moins sur les polices que j’ai essayé.&lt;/em&gt; Par contre FontDeck commence à répertorier ce genre de police sous le label &lt;a href=&quot;http://fontdeck.com/typefaces/all/tags/opentype&quot; title=&quot;FontDeck OpenType&quot;&gt;Opentype&lt;/a&gt;. En allant sur le détail d‘une police, on peut voir les options OpenType gérées. Certaine comme &lt;a href=&quot;http://fontdeck.com/typeface/magneta&quot; title=&quot;Magenta&quot;&gt;Magenta&lt;/a&gt; en possède pas mal !&lt;/p&gt;
+&lt;p&gt;C&#39;est là que le bât blesse. Après quelques recherches je me suis rendu compte que le service que j’utilise, &lt;a href=&quot;http://typekit.com&quot; title=&quot;typekit&quot;&gt;Typekit&lt;/a&gt; ne prend pas encore en compte cette fonctionnalité. &lt;em&gt;Du moins sur les polices que j’ai essayé.&lt;/em&gt; Par contre FontDeck commence à répertorier ce genre de police sous le label &lt;a href=&quot;http://fontdeck.com/typefaces/all/tags/opentype&quot; title=&quot;FontDeck OpenType&quot;&gt;Opentype&lt;/a&gt;. En allant sur le détail d‘une police, on peut voir les options OpenType gérées. Certaine comme &lt;a href=&quot;http://fontdeck.com/typeface/magneta&quot; title=&quot;Magenta&quot;&gt;Magenta&lt;/a&gt; en possède pas mal !&lt;/p&gt;
 </content>
   </entry>
   
@@ -824,15 +777,7 @@ fleurs, fille, off.
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;div&gt;
-&lt;figure&gt;&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://static.phollow.fr/2012/05/dr_jekyll_mr_hyde_low.jpg&quot; title=&quot;jekyll&quot; class=&quot;alignnone size-full&quot;&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-
-
-
-
-&lt;p class=&quot;lettrine&quot;&gt;Cela fait plusieurs mois que j’en avait envie, je l’ai finalement fait ce week-end : une migration &lt;em&gt;complète&lt;/em&gt; de mon blog Wordpress vers Jekyll. Vous ne devriez pas voir énormément de différences… Non, la différence est surtout pour moi, l’écriture et la gestion du site.&lt;/p&gt;
+    <content type="html">&lt;p class=&quot;lettrine&quot;&gt;Cela fait plusieurs mois que j’en avait envie, je l’ai finalement fait ce week-end : une migration &lt;em&gt;complète&lt;/em&gt; de mon blog Wordpress vers Jekyll. Vous ne devriez pas voir énormément de différences… Non, la différence est surtout pour moi, l’écriture et la gestion du site.&lt;/p&gt;
 
 
 &lt;p&gt;Je n’étais pas vraiment malheureux avec Wordpress, non. Seulement embêté par certaines &lt;em&gt;fonctionnalités&lt;/em&gt;. Par exemple l’édition d’articles est juste infâme, je finissais souvent par utiliser l’éditeur HTML en fait. La performance de Wordpress est minable sans plugin externe (cache), car il fait les mêmes requêtes SQL à chaque pages vues. &lt;em&gt;On ne sait jamais, peut-être que l’article change toutes les 5 minutes ?&lt;/em&gt;&lt;/p&gt;
@@ -878,8 +823,7 @@ fleurs, fille, off.
 |   &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;-- 2009-04-26-barcamp-boston-4-roundup.textile
 |-- _site
 &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;-- index.html
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;_config.yml&lt;/h4&gt;
@@ -943,14 +887,7 @@ fleurs, fille, off.
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;div&gt;
-&lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top: 0;&quot; src=&quot;http://static.phollow.fr/2012/02/sass.gif&quot; title=&quot;sass&quot; class=&quot;alignnone size-full&quot;&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-
-Le &lt;abbr&gt;css&lt;/abbr&gt; permet de définir des styles au travers d’un langage déclaratif, de sélecteurs, propriétés et valeurs. Le tout saupoudrée d’une notion d’héritage basique. Ce qui peut amener certains problèmes sur le long terme : répétition de code et complexification du fichier CSS où les relations entres nos éléments du &lt;abbr&gt;DOM&lt;/abbr&gt; ne sont pas forcément claires.&lt;/p&gt;
+    <content type="html">Le &lt;abbr&gt;css&lt;/abbr&gt; permet de définir des styles au travers d’un langage déclaratif, de sélecteurs, propriétés et valeurs. Le tout saupoudrée d’une notion d’héritage basique. Ce qui peut amener certains problèmes sur le long terme : répétition de code et complexification du fichier CSS où les relations entres nos éléments du &lt;abbr&gt;DOM&lt;/abbr&gt; ne sont pas forcément claires.&lt;/p&gt;
 &lt;p&gt;&lt;abbr&gt;&lt;b&gt;Sass&lt;/b&gt;&lt;/abbr&gt; étend les capacités du &lt;abbr&gt;css&lt;/abbr&gt; en rajoutant la possibilité d’utiliser des variables, des fonctions, l’héritage de sélection… Tout un tas de choses qui permet non seulement de simplifier le code mais aussi, selon moi, de rendre plus &lt;em&gt;logique&lt;/em&gt; les feuilles de styles. La structure du &lt;abbr&gt;dom&lt;/abbr&gt; saute facilement aux yeux.&lt;/p&gt;
 &lt;h3&gt;Installation&lt;/h3&gt;
 &lt;p&gt;On installe &lt;abbr&gt;sass&lt;/abbr&gt; comme n’importe quelle autre gem Ruby.&lt;/p&gt;
@@ -968,9 +905,7 @@ sass --watch default.scss
   &lt;span class=&quot;nt&quot;&gt;margin-bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1em&lt;/span&gt;
   &lt;span class=&quot;nc&quot;&gt;.entry&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;red&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* SCSS */&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -979,9 +914,7 @@ sass --watch default.scss
     &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;Imbrication&lt;/h3&gt;
 &lt;h4&gt;Principe&lt;/h4&gt;
@@ -998,9 +931,7 @@ sass --watch default.scss
 &lt;span class=&quot;nt&quot;&gt;article&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1em&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* CSS */&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.hl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1013,9 +944,7 @@ sass --watch default.scss
 &lt;span class=&quot;nt&quot;&gt;article&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;article&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4&gt;Le sélecteur parent&lt;/h4&gt;
 &lt;p&gt;Pense juste à &lt;span class=&quot;code&quot;&gt;self&lt;/span&gt; ou &lt;span class=&quot;code&quot;&gt;this&lt;/span&gt; comme dans les langages objets, copain. Dans &lt;abbr&gt;sass&lt;/abbr&gt; on utilise le symbole &lt;span class=&quot;code&quot;&gt;&amp;&lt;/span&gt;.&lt;/p&gt;
@@ -1027,17 +956,13 @@ sass --watch default.scss
   &lt;span class=&quot;nt&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;inline-block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.6em&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* CSS */&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#324567&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1.6em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4&gt;Media queries&lt;/h4&gt;
 
@@ -1048,18 +973,14 @@ sass --watch default.scss
     &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1.5em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* CSS */&lt;/span&gt;
 &lt;span class=&quot;nf&quot;&gt;#content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2.5em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;screen&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;460px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nf&quot;&gt;#content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1.5em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;Les variables&lt;/h3&gt;
 &lt;p&gt;J’ai déjà eu la nécessité de changer une ou plusieurs couleurs dans le thème d’un site. C’est donc X lignes que tu dois modifier. Avec les variables on a pas ce problèmes là, il suffit de définir les couleurs une fois seulement. Les variables dans &lt;abbr&gt;sass&lt;/abbr&gt; peuvent aussi stocker des tailles, des chaînes de caractères…&lt;/p&gt;
@@ -1073,16 +994,12 @@ sass --watch default.scss
   &lt;span class=&quot;o&quot;&gt;&amp;amp;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hover&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;pad&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* CSS */&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;@extend&lt;/h3&gt;
 &lt;p&gt;Cet attribut permet de spécifier qu’une classe hérite des propriétés d’une autre. Imaginons que vous ayez une classe &lt;span class=&quot;code&quot;&gt;.button&lt;/span&gt; contenant le style de base d’un bouton sur votre site et une classe &lt;span class=&quot;code&quot;&gt;.button-submit&lt;/span&gt; qui lui aura juste une couleur différente. L’attribut &lt;span class=&quot;code&quot;&gt;@extend&lt;/span&gt; vous évite à mettre dans le &lt;abbr&gt;dom&lt;/abbr&gt; les 2 classes sur ce bouton mais uniquement la dernière.&lt;/p&gt;
@@ -1097,9 +1014,7 @@ sass --watch default.scss
   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* CSS */&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;.button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.button-submit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1108,9 +1023,7 @@ sass --watch default.scss
   &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.4em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;.button-submit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;Mixins&lt;/h3&gt;
 &lt;p&gt;Les mixins ce sont des bouts de codes que tu peux rappeler ensuite ailleurs dans tes classes. Utiles pour éviter la duplication de codes encore une fois. Des valeurs peuvent être envoyés en paramètres, et celles-ci sont nommées et peuvent avoir une valeur par défaut.&lt;/p&gt;
@@ -1122,9 +1035,7 @@ sass --watch default.scss
   &lt;span class=&quot;nt&quot;&gt;-moz-border-radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;.msg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* CSS */&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;.msg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1132,9 +1043,7 @@ sass --watch default.scss
   &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Autres fonctionnalités&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -1149,7 +1058,6 @@ sass --watch default.scss
 &lt;p&gt;&lt;abbr&gt;Sass&lt;/abbr&gt; peut rendre l’utilisation du &lt;abbr&gt;css&lt;/abbr&gt; plus sympathique. Si vous voulez en savoir plus je vous conseille de vous rendre sur la &lt;a href=&quot;http://sass-lang.com/&quot; title=&quot;Sass&quot; target=&quot;_blank&quot;&gt;page officielle&lt;/a&gt; de l’application. Vous y trouverez des exemples et de la documentation sur d’autres fonctionnalités non évoquées ici.&lt;/p&gt;
 &lt;p&gt;Si Ruby vous rebute, il y a une autre application qui s’appelle &lt;a href=&quot;http://lesscss.org/&quot; title=&quot;LESS CSS&quot; target=&quot;_blank&quot;&gt;LESS&lt;/a&gt; et qui fait en gros la même chose, la syntaxe étant un peu différente.&lt;/p&gt;
 &lt;p&gt;En tout cas une chose est sûre, je vais l’utiliser sur mon prochain projet. &lt;em&gt;Reste à trouver le projet.&lt;/em&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align:center;font-size: 2em;&quot;&gt;❧&lt;/p&gt;
 </content>
   </entry>
   
@@ -1163,13 +1071,7 @@ sass --watch default.scss
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;div&gt;
-&lt;figure&gt;
-&lt;figcaption&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://static.phollow.fr/2012/02/necroscope.jpg&quot; alt=&quot;&quot; title=&quot;necroscope&quot; width=&quot;580&quot; height=&quot;773&quot; class=&quot;alignnone size-full wp-image-3898&quot;&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p class=&quot;lettrine&quot;&gt;Rien à voir avec les spams de Viagra. Non. Sous ce titre un peu malicieux, je tenais à vous parler d’une chose que je ne supporte plus : les tailles de texte minuscules dans les pages &lt;abbr&gt;html&lt;/abbr&gt;. Cette impression d’avoir sous les yeux le dictionnaire Édition Larousse en &lt;em&gt;lisant&lt;/em&gt; un article de blog.&lt;/p&gt;
+    <content type="html">&lt;p class=&quot;lettrine&quot;&gt;Rien à voir avec les spams de Viagra. Non. Sous ce titre un peu malicieux, je tenais à vous parler d’une chose que je ne supporte plus : les tailles de texte minuscules dans les pages &lt;abbr&gt;html&lt;/abbr&gt;. Cette impression d’avoir sous les yeux le dictionnaire Édition Larousse en &lt;em&gt;lisant&lt;/em&gt; un article de blog.&lt;/p&gt;
 &lt;p&gt;Pourtant je ne pense pas qu’il soit plus difficile de lire sur un écran que de lire un livre. Il suffit de &lt;em&gt;copier&lt;/em&gt; la façon dont les livres mettent en page le texte.&lt;/p&gt;
 &lt;p&gt;Pour être un peu plus précis, le problème se situe souvent sur le nombre de caractères que contient une ligne de texte. La taille de la police sera donc à priori proportionnelle à la largeur de son conteneur.&lt;/p&gt;
 &lt;h3&gt;Être lu comme on lit un livre&lt;/h3&gt;
@@ -1208,7 +1110,7 @@ sass --watch default.scss
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p&gt;Après un &lt;a title=&quot;Mes polices web preferees serifs&quot; href=&quot;http://phollow.fr/2011/10/mes-polices-web-preferees-serifs/&quot;&gt;premier article&lt;/a&gt; sur les polices de types &lt;strong&gt;serif&lt;/strong&gt;, je continue sur ma lancée avec cette fois-ci les &lt;strong&gt;sans-serifs&lt;/strong&gt;. Ce type de police n’a pas d’empattements, &lt;em&gt;d’où leur nom&lt;/em&gt;. En français on les appellent aussi polices &lt;strong&gt;linéales&lt;/strong&gt;. Elles ont été longuement privilégiées pour le corps de texte sur les écrans, car à l’époque les écrans analogiques et la basse résolution ne rendaient pas l’affichage d‘une serif optimale. La nature simple des polices linéales fait qu’elles sont mieux lisibles sur ce type d’écran. De nos jours avec nos écrans LCD, l’antialiasing etc., ce n'est plus vrai je trouve.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Après un &lt;a title=&quot;Mes polices web preferees serifs&quot; href=&quot;http://phollow.fr/2011/10/mes-polices-web-preferees-serifs/&quot;&gt;premier article&lt;/a&gt; sur les polices de types &lt;strong&gt;serif&lt;/strong&gt;, je continue sur ma lancée avec cette fois-ci les &lt;strong&gt;sans-serifs&lt;/strong&gt;. Ce type de police n’a pas d’empattements, &lt;em&gt;d’où leur nom&lt;/em&gt;. En français on les appellent aussi polices &lt;strong&gt;linéales&lt;/strong&gt;. Elles ont été longuement privilégiées pour le corps de texte sur les écrans, car à l’époque les écrans analogiques et la basse résolution ne rendaient pas l’affichage d‘une serif optimale. La nature simple des polices linéales fait qu’elles sont mieux lisibles sur ce type d’écran. De nos jours avec nos écrans LCD, l’antialiasing etc., ce n&#39;est plus vrai je trouve.&lt;/p&gt;
 
 &lt;p&gt;Aujourd’hui je vais donc vous montrer quelques polices sans empattements que je trouve plutôt cool. Donc si vous en avez un peu marre &lt;em&gt;d’Helvetica&lt;/em&gt; ou &lt;em&gt;d’Arial&lt;/em&gt;, n’hésitez pas à les tester. Ces fonts ont été trouvés, à l’image de l’article précédent, sur &lt;a title=&quot;Typekit&quot; href=&quot;http://typekit.com&quot;&gt;Typekit&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;LFT Etica Web &amp;amp; PT Sans&lt;/h3&gt;
@@ -1221,7 +1123,7 @@ sass --watch default.scss
 &lt;figcaption&gt;Sur le site web de Joni Korpi, on peut voir l’utilisation de ces deux polices. Avec LFT Etica Web pour les titres et PT Sans pour le corps de texte.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;h3&gt;Proxima Nova&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Proxima Nova&lt;/strong&gt; (2005) est une refonte complète de Sans Proxima (1994). Les six polices originales (trois poids avec italique) ont été élargies à 42 polices OpenType complet. Proxima Nova chevauche l'écart entre les fontes comme Futura et Akzidenz Grotesk. Le résultat est un hybride combinant des proportions humanistes avec un aspect un peu géométrique.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Proxima Nova&lt;/strong&gt; (2005) est une refonte complète de Sans Proxima (1994). Les six polices originales (trois poids avec italique) ont été élargies à 42 polices OpenType complet. Proxima Nova chevauche l&#39;écart entre les fontes comme Futura et Akzidenz Grotesk. Le résultat est un hybride combinant des proportions humanistes avec un aspect un peu géométrique.&lt;/p&gt;
 &lt;figure&gt;
 &lt;a href=&quot;http://sparrowmailapp.com/&quot; title=&quot;Sparrow Mail&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://static.phollow.fr/2011/11/Capture-d’écran-2011-11-29-à-13.36.23-640x297.jpg&quot; alt=&quot;&quot; title=&quot;Proxima Nova&quot; width=&quot;640&quot; height=&quot;297&quot; class=&quot;alignnone size-medium wp-image-3797&quot;&gt;&lt;/a&gt;
 
@@ -1261,7 +1163,7 @@ sass --watch default.scss
       <uri>http://phollow.fr/</uri>
     </author>
     <content type="html">&lt;p&gt;
-Je commence une série d'article à propos d'outils permettant de faciliter le développement d’un site internet &lt;em&gt;responsive&lt;/em&gt;, s’adaptant dynamiquement à la taille de l’écran du média. Dans cet article, je vais parler uniquement de tout ce qui a un rapport avec le CSS. En particulier des &lt;strong&gt;grids&lt;/strong&gt; et des &lt;strong&gt;templates&lt;/strong&gt; CSS.
+Je commence une série d&#39;article à propos d&#39;outils permettant de faciliter le développement d’un site internet &lt;em&gt;responsive&lt;/em&gt;, s’adaptant dynamiquement à la taille de l’écran du média. Dans cet article, je vais parler uniquement de tout ce qui a un rapport avec le CSS. En particulier des &lt;strong&gt;grids&lt;/strong&gt; et des &lt;strong&gt;templates&lt;/strong&gt; CSS.
 &lt;/p&gt;
 &lt;h3&gt;320 and up&lt;/h3&gt;
 &lt;figure&gt;
@@ -1350,16 +1252,16 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
     </author>
     <content type="html">&lt;img style=&quot;margin-top:0; margin-bottom: 20px;&quot; src=&quot;http://static.phollow.fr/2011/11/formula.png&quot; alt=&quot;&quot; title=&quot;formula&quot; width=&quot;700&quot; height=&quot;300&quot; class=&quot;alignnone size-full wp-image-3677&quot;&gt;
 &lt;p&gt;Quand on a pris la &lt;strong&gt;bonne&lt;/strong&gt; habitude de travailler sous un environnement Unix, il y a certains outils qui vous manquent &lt;em&gt;cruellement&lt;/em&gt; quand on se retrouve par exemple sur Mac OS/X. Ce système d’exploitation ne possède pas de gestionnaire de paquet comme &lt;span class=&quot;code&quot;&gt;apt-get&lt;/span&gt; sous Debian ou &lt;span class=&quot;code&quot;&gt;yum&lt;/span&gt; sous CentOS. Il existe heureusement des solutions, comme par exemple &lt;strong&gt;Macports&lt;/strong&gt;. J’en avais parlé &lt;a href=&quot;http://phollow.fr/2009/08/les-macports/&quot; title=&quot;Macports&quot;&gt;sur ce billet&lt;/a&gt; il y a quelques temps déjà.&lt;/p&gt;
-&lt;p&gt;Aujourd’hui j’utilise un autre gestionnaire de paquet s'appelant &lt;strong&gt;Homebrew&lt;/strong&gt;. Il se veut plus simple que Macports et diffère un peu dans sa manière de faire. Pour faire simple Homebrew va toujours essayer d'utiliser les librairies déjà sur le système pour compiler nos paquets. Cette manière de procéder possède des avantages et des inconvénients. L'avantage c'est que pour compiler un paquet, on ne va pas devoir compiler X librairies avant. L'inconvénient c'est que nos exécutables risquent grandement de planter après une mise à jour de l’OS ; les librairies de Mac OS/X étant mises à jour.&lt;/p&gt;
-&lt;p&gt;C'est donc un choix à faire. Et j’ai choisit Homebrew car je n'ai pas non plus 50 paquets à maintenir, une vingtaine tout au plus, et je ne mets pas mon système d’exploitation à jour tous les quatre matins.&lt;/p&gt;
+&lt;p&gt;Aujourd’hui j’utilise un autre gestionnaire de paquet s&#39;appelant &lt;strong&gt;Homebrew&lt;/strong&gt;. Il se veut plus simple que Macports et diffère un peu dans sa manière de faire. Pour faire simple Homebrew va toujours essayer d&#39;utiliser les librairies déjà sur le système pour compiler nos paquets. Cette manière de procéder possède des avantages et des inconvénients. L&#39;avantage c&#39;est que pour compiler un paquet, on ne va pas devoir compiler X librairies avant. L&#39;inconvénient c&#39;est que nos exécutables risquent grandement de planter après une mise à jour de l’OS ; les librairies de Mac OS/X étant mises à jour.&lt;/p&gt;
+&lt;p&gt;C&#39;est donc un choix à faire. Et j’ai choisit Homebrew car je n&#39;ai pas non plus 50 paquets à maintenir, une vingtaine tout au plus, et je ne mets pas mon système d’exploitation à jour tous les quatre matins.&lt;/p&gt;
 &lt;h3&gt;Pré-requis&lt;/h3&gt;
 &lt;p&gt;Il faut savoir que par défaut il n’y a pas les outils de compilation dans Mac OS/X. Alors on va devoir installer &lt;span class=&quot;code&quot;&gt;gcc&lt;/span&gt; et ses potes, et ça se fait &lt;em&gt;simplement&lt;/em&gt; en installant &lt;a href=&quot;http://itunes.apple.com/us/app/xcode/id448457090&quot; title=&quot;Xcode&quot; target=&quot;_blank&quot;&gt;Xcode&lt;/a&gt;. Pour certains paquets vous allez peut-être avoir besoin du « Java Developer Update ». On peut trouver ce qu’il faut sur &lt;a href=&quot;https://developer.apple.com/downloads/index.action&quot; title=&quot;Mac - Java Developer Update&quot; target=&quot;_blank&quot;&gt;cette page&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Installation&lt;/h3&gt;
-&lt;p&gt;L'installation à proprement parler du gestionnaire de paquets peut maintenant commencer. Homebrew est écrit en &lt;strong&gt;Ruby&lt;/strong&gt; et son script d’installation aussi.&lt;/p&gt;
+&lt;p&gt;L&#39;installation à proprement parler du gestionnaire de paquets peut maintenant commencer. Homebrew est écrit en &lt;strong&gt;Ruby&lt;/strong&gt; et son script d’installation aussi.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.github.com/gist/323731)&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Il va faire son &lt;em&gt;nid&lt;/em&gt; dans &lt;span class=&quot;code&quot;&gt;/usr/local&lt;/span&gt;, ce qui nous permettra d’installer des paquets sans passer par &lt;strong&gt;sudo&lt;/strong&gt;. De plus cet endroit est assez indépendant du système, on pourra donc facilement tout enlever si besoin. Il est bien sûr toujours possible de mettre tout ça ailleurs si vous préférez.&lt;/p&gt;
 &lt;h3&gt;Et ensuite on peut RTFM&lt;/h3&gt;
-&lt;figure&gt;&lt;p&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://static.phollow.fr/2011/11/RTFM.jpg&quot; alt=&quot;&quot; title=&quot;RTFM&quot; width=&quot;700&quot; height=&quot;464&quot; class=&quot;alignnone size-full wp-image-3704&quot; /&gt;&lt;/p&gt;&lt;figcaption&gt;J'admets avoir la flemme de tout vous expliquer, mais franchement il suffit de lire.&lt;/figcaption&gt;&lt;figure&gt;
+&lt;figure&gt;&lt;p&gt;&lt;img style=&quot;margin-top:0;&quot; src=&quot;http://static.phollow.fr/2011/11/RTFM.jpg&quot; alt=&quot;&quot; title=&quot;RTFM&quot; width=&quot;700&quot; height=&quot;464&quot; class=&quot;alignnone size-full wp-image-3704&quot; /&gt;&lt;/p&gt;&lt;figcaption&gt;J&#39;admets avoir la flemme de tout vous expliquer, mais franchement il suffit de lire.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;Pour avoir la liste complète de ce qu’il est possible d’installer, on peut se rendre sur GitHub, sur &lt;a href=&quot;https://github.com/mxcl/homebrew/tree/master/Library/Formula/&quot; title=&quot;Homebrew Formula List&quot; target=&quot;_blank&quot;&gt;cette page&lt;/a&gt;. À savoir que vous pouvez créer vos propres formules et la proposer à la communauté si vous voyez un manque. Homebrew m’a servi pour installer quelques paquets toujours pratiques comme &lt;span class=&quot;code&quot;&gt;git&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;ffmpeg&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;x264&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;mongodb&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;redis&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;htop&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;wget&lt;/span&gt;…
 &lt;p&gt;&lt;a href=&quot;http://mxcl.github.com/homebrew/&quot; title=&quot;Homebrew&quot; target=&quot;_blank&quot;&gt;Site web de Homebrew&lt;/a&gt;.&lt;/p&gt;</content>
   </entry>
@@ -1374,43 +1276,43 @@ Je commence une série d'article à propos d'outils permettant de faciliter le d
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p&gt;Le marché des &lt;em&gt;« web fonts »&lt;/em&gt; ne s'est jamais aussi bien porté. Et son avenir le semble tout autant. La quantité et la qualité des polices croissent tous les jours et avec l'aide des services comme &lt;a title=&quot;typekit&quot; href=&quot;http://typekit.com&quot; target=&quot;_blank&quot;&gt;Adobe Typekit&lt;/a&gt; et &lt;a title=&quot;Google WebFonts&quot; href=&quot;http://www.google.com/webfonts&quot; target=&quot;_blank&quot;&gt;Google WebFonts&lt;/a&gt;, l'intégration est simple.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Le marché des &lt;em&gt;« web fonts »&lt;/em&gt; ne s&#39;est jamais aussi bien porté. Et son avenir le semble tout autant. La quantité et la qualité des polices croissent tous les jours et avec l&#39;aide des services comme &lt;a title=&quot;typekit&quot; href=&quot;http://typekit.com&quot; target=&quot;_blank&quot;&gt;Adobe Typekit&lt;/a&gt; et &lt;a title=&quot;Google WebFonts&quot; href=&quot;http://www.google.com/webfonts&quot; target=&quot;_blank&quot;&gt;Google WebFonts&lt;/a&gt;, l&#39;intégration est simple.&lt;/p&gt;
 
-&lt;p&gt;Le processus de création d'une police pour le format web est moins simple que l'on peut le penser au premier abord. Il ne suffit pas de prendre une simple .ttf et de la convertir au format &lt;span class=&quot;code&quot;&gt;@font-face&lt;/span&gt;. La police doit être retravaillée complètement pour être lisible sur les différents OS/Navigateur. Un processus appelé en anglais &lt;em&gt;« hinting »&lt;/em&gt; et très bien expliqué &lt;a title=&quot;Type rendering&quot; href=&quot;http://blog.typekit.com/2010/10/05/type-rendering-on-the-web/&quot; target=&quot;_blank&quot;&gt;ici&lt;/a&gt; et &lt;a title=&quot;Type rendering&quot; href=&quot;http://blog.typekit.com/2010/10/15/type-rendering-operating-systems/&quot; target=&quot;_blank&quot;&gt;là&lt;/a&gt; par Typekit. Les grandes fonderies travaillent donc à convertir leurs grands classiques au format web, pour mon plus grand plaisir !
-J'ai donc décidé dans cet article de vous présenter ma série de polices web préférées du moment, en me concentrant uniquement aujourd'hui sur la famille des &lt;strong&gt;serifs&lt;/strong&gt;. Vous l'aurez compris d'autres articles viendront plus tard dans le même style.&lt;/p&gt;
+&lt;p&gt;Le processus de création d&#39;une police pour le format web est moins simple que l&#39;on peut le penser au premier abord. Il ne suffit pas de prendre une simple .ttf et de la convertir au format &lt;span class=&quot;code&quot;&gt;@font-face&lt;/span&gt;. La police doit être retravaillée complètement pour être lisible sur les différents OS/Navigateur. Un processus appelé en anglais &lt;em&gt;« hinting »&lt;/em&gt; et très bien expliqué &lt;a title=&quot;Type rendering&quot; href=&quot;http://blog.typekit.com/2010/10/05/type-rendering-on-the-web/&quot; target=&quot;_blank&quot;&gt;ici&lt;/a&gt; et &lt;a title=&quot;Type rendering&quot; href=&quot;http://blog.typekit.com/2010/10/15/type-rendering-operating-systems/&quot; target=&quot;_blank&quot;&gt;là&lt;/a&gt; par Typekit. Les grandes fonderies travaillent donc à convertir leurs grands classiques au format web, pour mon plus grand plaisir !
+J&#39;ai donc décidé dans cet article de vous présenter ma série de polices web préférées du moment, en me concentrant uniquement aujourd&#39;hui sur la famille des &lt;strong&gt;serifs&lt;/strong&gt;. Vous l&#39;aurez compris d&#39;autres articles viendront plus tard dans le même style.&lt;/p&gt;
 
 &lt;h3&gt;FF Meta Serif Web Pro&lt;/h3&gt;
 &lt;p&gt;Cette police a été créee en partant de la version sans-serif de base (FF Meta). Elle a été développée en 3 ans par 3 designers Erik Spiekermann, Christian Schwartz &lt;em&gt;&amp;amp;&lt;/em&gt; Kris Sowersby.&lt;/p&gt;
 
 &lt;figure&gt;&lt;a title=&quot;Trent Walton&quot; href=&quot;http://trentwalton.com/info/&quot; target=&quot;_blank&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3607&quot; title=&quot;Trent Walton&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-19.34.42.jpg&quot; alt=&quot;Trent Walton&quot; width=&quot;700&quot; height=&quot;339&quot; /&gt;&lt;/a&gt;
 
-&lt;figcaption&gt;&lt;strong&gt;Fig. 1:&lt;/strong&gt; Le blog personnel de Trent Walton utilise cette police à 100%. Elle rend bien à n'importe quelle taille que ça soit pour les paragraphes ou les headings grâce notamment à son « x-height » élevé.&lt;/figcaption&gt; &lt;/figure&gt;
+&lt;figcaption&gt;&lt;strong&gt;Fig. 1:&lt;/strong&gt; Le blog personnel de Trent Walton utilise cette police à 100%. Elle rend bien à n&#39;importe quelle taille que ça soit pour les paragraphes ou les headings grâce notamment à son « x-height » élevé.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;Adobe Minion Pro&lt;/h3&gt;
 &lt;p&gt;Une police Adobe désignée par Robert Slimbach dans les années 90. Elle a le style des polices utilisées dans les livres pendant la Renaissance. Minion est élégante et très lisible.&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;http://robweychert.com/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3616&quot; title=&quot;http://robweychert.com/&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-20.00.43.jpg&quot; alt=&quot;http://robweychert.com/&quot; width=&quot;701&quot; height=&quot;465&quot; /&gt;&lt;/a&gt;
 
-&lt;figcaption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Le blog de Rob Weychert l'utilise dans ces paragraphes.&lt;/figcaption&gt; &lt;/figure&gt;
+&lt;figcaption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Le blog de Rob Weychert l&#39;utilise dans ces paragraphes.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;FF Tisa Web Pro&lt;/h3&gt;
-&lt;p&gt;Dessinée par Mitja Miklavčič pour l'usage dans des magazines modernes. Un &lt;em&gt;« x-height »&lt;/em&gt; large et des serifs prononcés améliorent la lisibilité. Et je trouve vraiment la version italique jolie.&lt;/p&gt;
+&lt;p&gt;Dessinée par Mitja Miklavčič pour l&#39;usage dans des magazines modernes. Un &lt;em&gt;« x-height »&lt;/em&gt; large et des serifs prononcés améliorent la lisibilité. Et je trouve vraiment la version italique jolie.&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;http://simplebits.com/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3621&quot; title=&quot;Simplebits&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-20.23.03.jpg&quot; alt=&quot;Simplebits&quot; width=&quot;700&quot; height=&quot;340&quot; /&gt;&lt;/a&gt;
 
-&lt;figcaption&gt;&lt;strong&gt;Fig. 3:&lt;/strong&gt; Dan Cederholm l'utilise dans les paragraphes de ces articles.&lt;/figcaption&gt; &lt;/figure&gt;
+&lt;figcaption&gt;&lt;strong&gt;Fig. 3:&lt;/strong&gt; Dan Cederholm l&#39;utilise dans les paragraphes de ces articles.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;Skolar Web&lt;/h3&gt;
-&lt;p&gt;Skolar, la police primée conçue par David Březina, est une serif qui a été désignée à l'origine pour des publications savantes et multilingues. La police maintient sa crédibilité tout en incorporant un style subtil personnel.&lt;/p&gt;
+&lt;p&gt;Skolar, la police primée conçue par David Březina, est une serif qui a été désignée à l&#39;origine pour des publications savantes et multilingues. La police maintient sa crédibilité tout en incorporant un style subtil personnel.&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;http://elliotjaystocks.com/about/&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-3626&quot; title=&quot;http://elliotjaystocks.com/about/&quot; src=&quot;http://static.phollow.fr/2011/10/Capture-d’écran-2011-10-23-à-20.39.34.jpg&quot; alt=&quot;http://elliotjaystocks.com/about/&quot; width=&quot;700&quot; height=&quot;345&quot; /&gt;&lt;/a&gt;
 
 &lt;figcaption&gt;&lt;strong&gt;Fig. 4:&lt;/strong&gt; Elliot Jay Stocks utilise cette police à toutes les sauces. Dans les paragraphes ou les titres en majuscules avec un letter-spacing etc.&lt;/figcaption&gt; &lt;/figure&gt;
 &lt;h3&gt;FF Scala Web&lt;/h3&gt;
-&lt;blockquote style=&quot;margin-bottom:0&quot;&gt;FF Scala is an old style, humanist, serif typeface designed by Dutch typeface designer Martin Majoor in 1990 for the Vredenburg Music Center in Utrecht, the Netherlands. The FF Scala font family was named for the Teatro alla Scala (1776–78) in Milan. Like many contemporary Dutch serif faces, FF Scala is not an academic revival of a single historic typeface but shows influences of several historic models. Similarities can be seen with William Addison Dwiggins' 1935 design Electra in its clarity of form, and rhythmic, highly calligraphic italics. Eric Gill's 1931 typeface Joanna (released by Monotype in 1937), with its old style armature but nearly square serifs is also similar in its nearly mono-weighted stroke width.&lt;/blockquote&gt;
+&lt;blockquote style=&quot;margin-bottom:0&quot;&gt;FF Scala is an old style, humanist, serif typeface designed by Dutch typeface designer Martin Majoor in 1990 for the Vredenburg Music Center in Utrecht, the Netherlands. The FF Scala font family was named for the Teatro alla Scala (1776–78) in Milan. Like many contemporary Dutch serif faces, FF Scala is not an academic revival of a single historic typeface but shows influences of several historic models. Similarities can be seen with William Addison Dwiggins&#39; 1935 design Electra in its clarity of form, and rhythmic, highly calligraphic italics. Eric Gill&#39;s 1931 typeface Joanna (released by Monotype in 1937), with its old style armature but nearly square serifs is also similar in its nearly mono-weighted stroke width.&lt;/blockquote&gt;
 &lt;cite style=&quot;color:#99968A;margin-bottom: 20px;display: block;&quot;&gt;— Wikipedia, &lt;a title=&quot;FF Scala&quot; href=&quot;http://en.wikipedia.org/wiki/FF_Scala&quot; target=&quot;_blank&quot;&gt;source&lt;/a&gt;&lt;/cite&gt;
 
-&lt;p&gt;C'est la police que j'utilise dans les paragraphes de ce blog. J'aime beaucoup les détails calligraphiques. Il existe plusieurs familles dont une &lt;em&gt;condensée&lt;/em&gt; et une &lt;em&gt;« small-caps »&lt;/em&gt;. Et aussi une version sans-serif.
+&lt;p&gt;C&#39;est la police que j&#39;utilise dans les paragraphes de ce blog. J&#39;aime beaucoup les détails calligraphiques. Il existe plusieurs familles dont une &lt;em&gt;condensée&lt;/em&gt; et une &lt;em&gt;« small-caps »&lt;/em&gt;. Et aussi une version sans-serif.
 Toutes ces &lt;em&gt;fonts&lt;/em&gt; sont disponibles sur &lt;a title=&quot;Typekit&quot; href=&quot;http://typekit.com&quot; target=&quot;_blank&quot;&gt;Typekit&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;C'est d'ailleurs ce service que j'utilise, parce que c'est là où toutes les polices professionnelles se trouvent. J'ai testé un peu Google WebFonts et à vrai dire je n'en trouve pas beaucoup de bonne qualité. À part peut-être la famille de fonts Droid ou Lobster la nouvelle Comic Sans de nos chers &lt;em&gt;designerfags&lt;/em&gt; en herbe — &lt;em&gt;Mais c'est cool ça fait retro !&lt;/em&gt; — Bref je m'égare, je garde ma haine pour la mauvaise utilisation de Lobster dans un article à part.&lt;/p&gt;</content>
+&lt;p&gt;C&#39;est d&#39;ailleurs ce service que j&#39;utilise, parce que c&#39;est là où toutes les polices professionnelles se trouvent. J&#39;ai testé un peu Google WebFonts et à vrai dire je n&#39;en trouve pas beaucoup de bonne qualité. À part peut-être la famille de fonts Droid ou Lobster la nouvelle Comic Sans de nos chers &lt;em&gt;designerfags&lt;/em&gt; en herbe — &lt;em&gt;Mais c&#39;est cool ça fait retro !&lt;/em&gt; — Bref je m&#39;égare, je garde ma haine pour la mauvaise utilisation de Lobster dans un article à part.&lt;/p&gt;</content>
   </entry>
   
   <entry>
@@ -1423,10 +1325,10 @@ Toutes ces &lt;em&gt;fonts&lt;/em&gt; sont disponibles sur &lt;a title=&quot;Typ
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p&gt;En typographie, la &lt;strong&gt;césure&lt;/strong&gt; est l'art de couper un mot de telle manière à ce qu'il entre dans la justification. Cette pratique est utilisée dans les livres et depuis peu de temps possible aussi sur le web.&lt;/p&gt;
-&lt;p&gt;On a inventé ce système pour pouvoir mettre plus de mots sur une page donc économiser du papier à l'imprimerie et améliorer la justification. Même si on n'utilise pas de papier sur le web, on peut toujours gagner de la place et améliorer l'aspect général de la typographie.&lt;/p&gt;
+    <content type="html">&lt;p&gt;En typographie, la &lt;strong&gt;césure&lt;/strong&gt; est l&#39;art de couper un mot de telle manière à ce qu&#39;il entre dans la justification. Cette pratique est utilisée dans les livres et depuis peu de temps possible aussi sur le web.&lt;/p&gt;
+&lt;p&gt;On a inventé ce système pour pouvoir mettre plus de mots sur une page donc économiser du papier à l&#39;imprimerie et améliorer la justification. Même si on n&#39;utilise pas de papier sur le web, on peut toujours gagner de la place et améliorer l&#39;aspect général de la typographie.&lt;/p&gt;
 &lt;p&gt;Parfois les textes justifiés sont vraiment horribles sur les pages web, avec des &lt;em&gt;rivières&lt;/em&gt; monstrueuses. Les &lt;strong&gt;césures&lt;/strong&gt; améliorent nettement ça, donc passons maintenant au code.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://static.phollow.fr/2011/10/books-900x600.jpg&quot; alt=&quot;&quot; title=&quot;books&quot; width=&quot;900&quot; height=&quot;600&quot; class=&quot;alignnone size-large wp-image-3563&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&quot;http://static.phollow.fr/2011/10/books-900x600.jpg&quot; alt=&quot;&quot; title=&quot;books&quot; width=&quot;900&quot; height=&quot;600&quot; class=&quot;alignnone size-large wp-image-3563&quot; /&gt;&lt;/figure&gt;
 &lt;h3&gt;Nouvelle méthode CSS3&lt;/h3&gt;
 &lt;pre&gt;
 &lt;code&gt;
@@ -1437,14 +1339,14 @@ p {
 }
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;p&gt;À l'heure où j'écris ces lignes, les navigateurs supportant ces propriétés sont &lt;strong&gt;Firefox&lt;/strong&gt; 6+ et &lt;strong&gt;Safari&lt;/strong&gt; 5.1+. Pour les désactiver il suffit de passer &lt;span class=&quot;code&quot;&gt;auto&lt;/span&gt; en &lt;span class=&quot;code&quot;&gt;manual&lt;/span&gt;. En mode manuel, les &lt;span class=&quot;code&quot;&gt;&amp;amp;shy;&lt;/span&gt; sont néanmoins toujours respectés.&lt;/p&gt;
-&lt;p&gt;Les césures ont des règles strictes d'utilisation, règles changeant suivant la langue. Le navigateur doit savoir dans quelle langue vous écrivez, donc vous devez la renseigner. Un &lt;span class=&quot;code&quot;&gt;lang=&quot;fr&quot;&lt;/span&gt; dans la balise &lt;span class=&quot;code&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt; suffit par exemple.&lt;/p&gt;
+&lt;p&gt;À l&#39;heure où j&#39;écris ces lignes, les navigateurs supportant ces propriétés sont &lt;strong&gt;Firefox&lt;/strong&gt; 6+ et &lt;strong&gt;Safari&lt;/strong&gt; 5.1+. Pour les désactiver il suffit de passer &lt;span class=&quot;code&quot;&gt;auto&lt;/span&gt; en &lt;span class=&quot;code&quot;&gt;manual&lt;/span&gt;. En mode manuel, les &lt;span class=&quot;code&quot;&gt;&amp;amp;shy;&lt;/span&gt; sont néanmoins toujours respectés.&lt;/p&gt;
+&lt;p&gt;Les césures ont des règles strictes d&#39;utilisation, règles changeant suivant la langue. Le navigateur doit savoir dans quelle langue vous écrivez, donc vous devez la renseigner. Un &lt;span class=&quot;code&quot;&gt;lang=&quot;fr&quot;&lt;/span&gt; dans la balise &lt;span class=&quot;code&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt; suffit par exemple.&lt;/p&gt;
 &lt;h3&gt;Hyphenator&lt;/h3&gt;
-&lt;p&gt;Cette bibliothèque javascript permet d'activer les césures sur tous les navigateurs supportant le « &lt;em&gt;trait d'union conditionnel&lt;/em&gt; ». Ce caractère &lt;span class=&quot;code&quot;&gt;&amp;amp;shy;&lt;/span&gt; est invisible quand on le place mais il sert à déterminer l'endroit où une césure peut avoir lieu.&lt;/p&gt;
-&lt;p&gt;L'avantage de ce script est qu'il privilégie l'utilisation de la méthode CSS3 sur les navigateurs la supportant.&lt;/p&gt;
+&lt;p&gt;Cette bibliothèque javascript permet d&#39;activer les césures sur tous les navigateurs supportant le « &lt;em&gt;trait d&#39;union conditionnel&lt;/em&gt; ». Ce caractère &lt;span class=&quot;code&quot;&gt;&amp;amp;shy;&lt;/span&gt; est invisible quand on le place mais il sert à déterminer l&#39;endroit où une césure peut avoir lieu.&lt;/p&gt;
+&lt;p&gt;L&#39;avantage de ce script est qu&#39;il privilégie l&#39;utilisation de la méthode CSS3 sur les navigateurs la supportant.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://code.google.com/p/hyphenator/&quot; title=&quot;hyphenator.js&quot; target=&quot;_blank&quot;&gt;http://code.google.com/p/hyphenator/&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Examples&lt;/h3&gt;
-&lt;p&gt;Les paragraphes de mon blog devraient maintenant tous fonctionner avec ce système de césures — &lt;em&gt;depuis la mise à jour du thème en fait&lt;/em&gt; — et donc vous devriez les voir sur cet article (et les autres) — à condition d'avoir un navigateur assez récent, mais je ne me fais pas de soucis pour vous.&lt;/p&gt;</content>
+&lt;p&gt;Les paragraphes de mon blog devraient maintenant tous fonctionner avec ce système de césures — &lt;em&gt;depuis la mise à jour du thème en fait&lt;/em&gt; — et donc vous devriez les voir sur cet article (et les autres) — à condition d&#39;avoir un navigateur assez récent, mais je ne me fais pas de soucis pour vous.&lt;/p&gt;</content>
   </entry>
   
   <entry>
@@ -1458,12 +1360,12 @@ p {
       <uri>http://phollow.fr/</uri>
     </author>
     <content type="html">&lt;img style=&quot;margin-top:0;&quot; class=&quot;alignnone size-full wp-image-3503&quot; title=&quot;css&quot; src=&quot;http://static.phollow.fr/2011/10/css.png&quot; alt=&quot;&quot; width=&quot;832&quot; height=&quot;300&quot; /&gt;
-&lt;h3&gt;Qu'est-ce que c'est ?&lt;/h3&gt;
-&lt;p&gt;Le module CSS &lt;em&gt;multi-colums&lt;/em&gt; permet de diviser un long flux de texte en plusieurs colonnes de manière automatique. Et donc nous n'avons pas besoin, par exemple, pour 3 colonnes de créer 3 conteneurs. Cette technique est beaucoup utilisée dans les journaux ou les magazines mais encore très peu sur le web.&lt;/p&gt;
+&lt;h3&gt;Qu&#39;est-ce que c&#39;est ?&lt;/h3&gt;
+&lt;p&gt;Le module CSS &lt;em&gt;multi-colums&lt;/em&gt; permet de diviser un long flux de texte en plusieurs colonnes de manière automatique. Et donc nous n&#39;avons pas besoin, par exemple, pour 3 colonnes de créer 3 conteneurs. Cette technique est beaucoup utilisée dans les journaux ou les magazines mais encore très peu sur le web.&lt;/p&gt;
 
-&lt;p&gt;Ainsi de larges blocs de texte peuvent être divisés facilement en sous-colonnes pour offrir une meilleure lecture et améliorer l'esthétisme d'un site. C'est un avantage aussi d'un point de vue sémantique, car on se passe de balises supplémentaires nécessaires pour avoir le même rendu sans CSS3.&lt;/p&gt;
+&lt;p&gt;Ainsi de larges blocs de texte peuvent être divisés facilement en sous-colonnes pour offrir une meilleure lecture et améliorer l&#39;esthétisme d&#39;un site. C&#39;est un avantage aussi d&#39;un point de vue sémantique, car on se passe de balises supplémentaires nécessaires pour avoir le même rendu sans CSS3.&lt;/p&gt;
 
-&lt;p&gt;D'un autre côté la lisibilité d'un site peut être complètement ruinée avec une mauvaise utilisation de ce module. Un site web n'étant pas forcément statique comme le serait la page d'un magazine. Par exemple l'utilisateur ne doit pas avoir à scroller quand il lit la fin de la colonne et passe à la suivante.&lt;/p&gt;
+&lt;p&gt;D&#39;un autre côté la lisibilité d&#39;un site peut être complètement ruinée avec une mauvaise utilisation de ce module. Un site web n&#39;étant pas forcément statique comme le serait la page d&#39;un magazine. Par exemple l&#39;utilisateur ne doit pas avoir à scroller quand il lit la fin de la colonne et passe à la suivante.&lt;/p&gt;
 
 &lt;h3&gt;Compatibilité des navigateurs&lt;/h3&gt;
 &lt;ul&gt;
@@ -1476,11 +1378,11 @@ p {
 
 &lt;h3&gt;Utilisation&lt;/h3&gt;
 
-&lt;p&gt;Il y a deux façons de créer des colonnes, on peut d'une part spécifier un nombre fixe de colonnes à l'aide de la propriété &lt;span class=&quot;code&quot;&gt;column-count&lt;/span&gt; ou alors spécifier la largeur des colonnes à l'aide de &lt;span class=&quot;code&quot;&gt;column-width&lt;/span&gt; (pixels ou ems, mais pas de pourcentage…). Les deux propriétés peuvent être cumulées, mais le navigateur choisira l'une ou l'autre suivant les cas. Il existe bien sur d'autre propriétés :&lt;/p&gt;
+&lt;p&gt;Il y a deux façons de créer des colonnes, on peut d&#39;une part spécifier un nombre fixe de colonnes à l&#39;aide de la propriété &lt;span class=&quot;code&quot;&gt;column-count&lt;/span&gt; ou alors spécifier la largeur des colonnes à l&#39;aide de &lt;span class=&quot;code&quot;&gt;column-width&lt;/span&gt; (pixels ou ems, mais pas de pourcentage…). Les deux propriétés peuvent être cumulées, mais le navigateur choisira l&#39;une ou l&#39;autre suivant les cas. Il existe bien sur d&#39;autre propriétés :&lt;/p&gt;
 &lt;ul&gt;
-	&lt;li&gt;&lt;span class=&quot;code&quot;&gt;column-gap&lt;/span&gt; pour gérer l'espacement entres les colonnes&lt;/li&gt;
-	&lt;li&gt;&lt;span class=&quot;code&quot;&gt;column-rule&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;column-rule-width&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;column-rule-style&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;column-rule-color&lt;/span&gt; pour gérer l'apparence de la séparation des colonnes&lt;/li&gt;
-	&lt;li&gt;&lt;span class=&quot;code&quot;&gt;break-before&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;break-after&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;break-inside&lt;/span&gt; permet par exemple de forcer le passage d'un élément sur la colonne suivante. Plus d'infos sur le site du &lt;a title=&quot;w3c&quot; href=&quot;http://www.w3.org/TR/css3-multicol/#column-breaks&quot; target=&quot;_blank&quot;&gt;w3c&lt;/a&gt;.&lt;/li&gt;
+	&lt;li&gt;&lt;span class=&quot;code&quot;&gt;column-gap&lt;/span&gt; pour gérer l&#39;espacement entres les colonnes&lt;/li&gt;
+	&lt;li&gt;&lt;span class=&quot;code&quot;&gt;column-rule&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;column-rule-width&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;column-rule-style&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;column-rule-color&lt;/span&gt; pour gérer l&#39;apparence de la séparation des colonnes&lt;/li&gt;
+	&lt;li&gt;&lt;span class=&quot;code&quot;&gt;break-before&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;break-after&lt;/span&gt;, &lt;span class=&quot;code&quot;&gt;break-inside&lt;/span&gt; permet par exemple de forcer le passage d&#39;un élément sur la colonne suivante. Plus d&#39;infos sur le site du &lt;a title=&quot;w3c&quot; href=&quot;http://www.w3.org/TR/css3-multicol/#column-breaks&quot; target=&quot;_blank&quot;&gt;w3c&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;Exemples&lt;/h3&gt;
@@ -1488,17 +1390,17 @@ p {
 
 &lt;div style=&quot;font-size: 80%; column-count: 2; column-gap: 20px; -moz-column-count: 2; -moz-column-gap: 20px; -o-column-count: 2; -o-column-gap: 20px; -webkit-column-count: 2; -webkit-column-gap: 20px; text-align: justify;&quot;&gt;
 
-&lt;p&gt;Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.&lt;/p&gt;
+&lt;p&gt;Now that we know who you are, I know who I am. I&#39;m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain&#39;s going to be? He&#39;s the exact opposite of the hero. And most times they&#39;re friends, like you and me! I should&#39;ve known way back when... You know why, David? Because of the kids. They called me Mr Glass.&lt;/p&gt;
 
-&lt;p&gt;Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.&lt;/p&gt;
+&lt;p&gt;Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that&#39;s what you see at a toy store. And you must think you&#39;re in a toy store, because you&#39;re here shopping for an infant named Jeb.&lt;/p&gt;
 
-&lt;p&gt;Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.&lt;/p&gt;
+&lt;p&gt;Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they&#39;re actually proud of that shit.&lt;/p&gt;
 
-&lt;p&gt;Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.&lt;/p&gt;
+&lt;p&gt;Now that we know who you are, I know who I am. I&#39;m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain&#39;s going to be? He&#39;s the exact opposite of the hero. And most times they&#39;re friends, like you and me! I should&#39;ve known way back when... You know why, David? Because of the kids. They called me Mr Glass.&lt;/p&gt;
 
-&lt;p&gt;Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?&lt;/p&gt;
+&lt;p&gt;Look, just because I don&#39;t be givin&#39; no man a foot massage don&#39;t make it right for Marsellus to throw Antwone into a glass motherfuckin&#39; house, fuckin&#39; up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, &#39;cause I&#39;ll kill the motherfucker, know what I&#39;m sayin&#39;?&lt;/p&gt;
 
-&lt;p&gt;Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.&lt;/p&gt;
+&lt;p&gt;Well, the way they make shows is, they make one show. That show&#39;s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they&#39;re going to make more shows. Some pilots get picked and become television programs. Some don&#39;t, become nothing. She starred in one of the ones that became nothing.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;h4&gt;Code&lt;/h4&gt;
@@ -1512,23 +1414,21 @@ p {
   &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;Séparation en trois colonnes + style&lt;/h4&gt;
 &lt;div style=&quot;font-size: 75%; column-count: 3; column-gap: 10px; column-rule-color: #ccc; column-rule-style: dotted; column-rule-width: 2px; -moz-column-count: 3; -moz-column-gap: 10px; -moz-column-rule-color: #ccc; -moz-column-rule-style: dotted; -moz-column-rule-width: 2px; -o-column-count: 3; -o-column-gap: 10px; -o-column-rule-color: #ccc; -o-column-rule-style: dotted; -o-column-rule-width: 2px; -webkit-column-count: 3; -webkit-column-gap: 10px; -webkit-column-rule-color: #ccc; -webkit-column-rule-style: dotted; -webkit-column-rule-width: 2px; text-align: justify;&quot;&gt;
 
-&lt;p&gt;The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.&lt;/p&gt;
+&lt;p&gt;The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother&#39;s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.&lt;/p&gt;
 
-&lt;p&gt;Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?&lt;/p&gt;
+&lt;p&gt;Look, just because I don&#39;t be givin&#39; no man a foot massage don&#39;t make it right for Marsellus to throw Antwone into a glass motherfuckin&#39; house, fuckin&#39; up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, &#39;cause I&#39;ll kill the motherfucker, know what I&#39;m sayin&#39;?&lt;/p&gt;
 
-&lt;p&gt;Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.&lt;/p&gt;
+&lt;p&gt;Your bones don&#39;t break, mine do. That&#39;s clear. Your cells react to bacteria and viruses differently than mine. You don&#39;t get sick, I do. That&#39;s also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We&#39;re on the same curve, just on opposite ends.&lt;/p&gt;
 
-&lt;p&gt;Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.&lt;/p&gt;
+&lt;p&gt;Now that we know who you are, I know who I am. I&#39;m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain&#39;s going to be? He&#39;s the exact opposite of the hero. And most times they&#39;re friends, like you and me! I should&#39;ve known way back when... You know why, David? Because of the kids. They called me Mr Glass.&lt;/p&gt;
 
-&lt;p&gt;Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.&lt;/p&gt;
+&lt;p&gt;Well, the way they make shows is, they make one show. That show&#39;s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they&#39;re going to make more shows. Some pilots get picked and become television programs. Some don&#39;t, become nothing. She starred in one of the ones that became nothing.&lt;/p&gt;
 
-&lt;p&gt;Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.&lt;/p&gt;
+&lt;p&gt;Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I&#39;m in a transitional period so I don&#39;t wanna kill you, I wanna help you. But I can&#39;t give you this case, it don&#39;t belong to me. Besides, I&#39;ve already been through too much shit this morning over this case to hand it over to your dumb ass.&lt;/p&gt;
 
 &lt;/div&gt;
 &amp;nbsp;
@@ -1555,11 +1455,9 @@ p {
 	&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;dotted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 	&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;La propriété CSS &lt;em&gt;multi-columns&lt;/em&gt; se dégrade assez naturellement sur les navigateurs qui ne supporte pas encore la spécification. On voit simplement qu'une seule colonne. Pouvoir gérer ce genre de layout sans avoir recours à des scripts quelconque est vraiment pratique. À l'heure où les designers donnent de plus en plus d'importance à la lisibilité du contenu, je pense qu'on en verra un peu plus d'ici quelques temps.&lt;/p&gt;
+&lt;p&gt;La propriété CSS &lt;em&gt;multi-columns&lt;/em&gt; se dégrade assez naturellement sur les navigateurs qui ne supporte pas encore la spécification. On voit simplement qu&#39;une seule colonne. Pouvoir gérer ce genre de layout sans avoir recours à des scripts quelconque est vraiment pratique. À l&#39;heure où les designers donnent de plus en plus d&#39;importance à la lisibilité du contenu, je pense qu&#39;on en verra un peu plus d&#39;ici quelques temps.&lt;/p&gt;
 
 &lt;p&gt;P.S. : Vous avez reconnu les citations des exemples ?&lt;/p&gt;
 
@@ -1576,27 +1474,27 @@ p {
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p&gt;Mon blog est maintenant &lt;em&gt;responsive&lt;/em&gt;. Terme que l'on peut traduire à l'arrache par &lt;em&gt;qui répond bien&lt;/em&gt;. Le thème et le contenu va automatiquement s'adapter à la taille de l'écran. Le concept est intéressant et plus pratique que de faire un thème normal + un thème mobile par exemple. À l'heure actuelle les sites internets ne sont plus seulement affichés sur un ordinateur mais de plus en plus souvent sur des appareils de type mobile, smartphones ou tablettes.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Mon blog est maintenant &lt;em&gt;responsive&lt;/em&gt;. Terme que l&#39;on peut traduire à l&#39;arrache par &lt;em&gt;qui répond bien&lt;/em&gt;. Le thème et le contenu va automatiquement s&#39;adapter à la taille de l&#39;écran. Le concept est intéressant et plus pratique que de faire un thème normal + un thème mobile par exemple. À l&#39;heure actuelle les sites internets ne sont plus seulement affichés sur un ordinateur mais de plus en plus souvent sur des appareils de type mobile, smartphones ou tablettes.&lt;/p&gt;
 
-&lt;h3&gt;S'adapter&lt;/h3&gt;
+&lt;h3&gt;S&#39;adapter&lt;/h3&gt;
 
-&lt;p&gt;Au début on avait pas énormément d'appareils &lt;em&gt;exotiques&lt;/em&gt; en dehors du desktop. On voyait souvent un sous-domaine dédié à l'affichage d'un site sous iPhone, avec un thème propre. D'un point de vue conception on était tranquille, le thème mobile était indépendant du thème principal, et on connaissait les contraintes de l'iPhone. Mais maintenant on a beaucoup plus de smartphones et même des tablettes, chaque appareil possédant sa propre résolution. Et là on se rend compte que faire un thème dédié pour chacun de ces appareils est une idée complètement idiote. Donc le site web doit &lt;strong&gt;s'adapter&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Au début on avait pas énormément d&#39;appareils &lt;em&gt;exotiques&lt;/em&gt; en dehors du desktop. On voyait souvent un sous-domaine dédié à l&#39;affichage d&#39;un site sous iPhone, avec un thème propre. D&#39;un point de vue conception on était tranquille, le thème mobile était indépendant du thème principal, et on connaissait les contraintes de l&#39;iPhone. Mais maintenant on a beaucoup plus de smartphones et même des tablettes, chaque appareil possédant sa propre résolution. Et là on se rend compte que faire un thème dédié pour chacun de ces appareils est une idée complètement idiote. Donc le site web doit &lt;strong&gt;s&#39;adapter&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Bonjour media query&lt;/h3&gt;
 
-&lt;p&gt;Vous les avez déjà utilisées. Mais si, &lt;span class=&quot;code&quot;&gt;media=&quot;print&quot;&lt;/span&gt; pour avoir un CSS dédié à l'impression par exemple. C'est pas nouveau, ça date de la norme CSS 2.1. Ce qui est nouveau se sont les ajouts de la norme CSS3. Des ajouts nous permettant de tester la résolution de l'écran, le type de &lt;em&gt;device&lt;/em&gt; etc.&lt;/p&gt;
+&lt;p&gt;Vous les avez déjà utilisées. Mais si, &lt;span class=&quot;code&quot;&gt;media=&quot;print&quot;&lt;/span&gt; pour avoir un CSS dédié à l&#39;impression par exemple. C&#39;est pas nouveau, ça date de la norme CSS 2.1. Ce qui est nouveau se sont les ajouts de la norme CSS3. Des ajouts nous permettant de tester la résolution de l&#39;écran, le type de &lt;em&gt;device&lt;/em&gt; etc.&lt;/p&gt;
 
 &lt;span class=&quot;code&quot;&gt;&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen and (max-device-width: 480px)&quot; href=&quot;mobile.css&quot;/&amp;gt;&lt;/span&gt;
 
-&lt;p&gt;Si l'appareil à une résolution inférieure ou égale à 480px en largeur, le fichier mobile.css sera lu. L'attribut &lt;span class=&quot;code&quot;&gt;@media&lt;/span&gt; du CSS permet de faire la même chose sans avoir à le faire dans la balise &lt;span class=&quot;code&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Si l&#39;appareil à une résolution inférieure ou égale à 480px en largeur, le fichier mobile.css sera lu. L&#39;attribut &lt;span class=&quot;code&quot;&gt;@media&lt;/span&gt; du CSS permet de faire la même chose sans avoir à le faire dans la balise &lt;span class=&quot;code&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;.&lt;/p&gt;
 
-&lt;p&gt;Par exemple sur ce site quand la résolution devient petite, j'enlève la sidebar sur la gauche pour la placer en dessous du contenu. C'est ce que permettent de faire les &lt;strong&gt;media queries&lt;/strong&gt;. On peut imaginer faire disparaître certains éléments qui n'auraient par leur place sur un petit écran, avec un &lt;span class=&quot;code&quot;&gt;display:none;&lt;/span&gt; par exemple.&lt;/p&gt;
+&lt;p&gt;Par exemple sur ce site quand la résolution devient petite, j&#39;enlève la sidebar sur la gauche pour la placer en dessous du contenu. C&#39;est ce que permettent de faire les &lt;strong&gt;media queries&lt;/strong&gt;. On peut imaginer faire disparaître certains éléments qui n&#39;auraient par leur place sur un petit écran, avec un &lt;span class=&quot;code&quot;&gt;display:none;&lt;/span&gt; par exemple.&lt;/p&gt;
 
-&lt;p&gt;Les media queries de ce type ne fonctionnent que sur les navigateurs récents et sur la plupart des navigateurs mobiles (webkit, opera). Il y a donc un script js que j'utilise pour certains navigateurs (&lt;em&gt;Oh hai, Internet Explorer&lt;/em&gt;). Vous pouvez le trouver sur &lt;a title=&quot;respond.js&quot; href=&quot;https://github.com/scottjehl/respond&quot; target=&quot;_blank&quot;&gt;cette page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Les media queries de ce type ne fonctionnent que sur les navigateurs récents et sur la plupart des navigateurs mobiles (webkit, opera). Il y a donc un script js que j&#39;utilise pour certains navigateurs (&lt;em&gt;Oh hai, Internet Explorer&lt;/em&gt;). Vous pouvez le trouver sur &lt;a title=&quot;respond.js&quot; href=&quot;https://github.com/scottjehl/respond&quot; target=&quot;_blank&quot;&gt;cette page&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Responsive Grid&lt;/h3&gt;
 
-&lt;p&gt;Pour me faciliter le travail j'ai utilisé une Grid CSS réactive. Construite sur les media queries, les différents blocs peuvent se ré-agencer suivant la taille de l'écran. Voici une liste non-exhaustive&lt;/p&gt;
+&lt;p&gt;Pour me faciliter le travail j&#39;ai utilisé une Grid CSS réactive. Construite sur les media queries, les différents blocs peuvent se ré-agencer suivant la taille de l&#39;écran. Voici une liste non-exhaustive&lt;/p&gt;
 &lt;ul&gt;
 	&lt;li&gt;&lt;a title=&quot;Less Framework 4&quot; href=&quot;http://lessframework.com/&quot; target=&quot;_blank&quot;&gt;Less Framework 4&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a title=&quot;Less+ Framework&quot; href=&quot;http://www.angrycreative.se/projekt/less-framework/&quot; target=&quot;_blank&quot;&gt;Less+ Framework&lt;/a&gt;&lt;/li&gt;
@@ -1609,13 +1507,13 @@ p {
 &lt;div&gt;&lt;img class=&quot;alignnone size-medium wp-image-3487&quot; title=&quot;Capture d’écran 2011-09-06 à 11.23.57&quot; src=&quot;http://static.phollow.fr/2011/08/Capture-d’écran-2011-09-06-à-11.23.57-832x415.jpg&quot; alt=&quot;&quot; width=&quot;832&quot; height=&quot;415&quot; /&gt;&lt;/div&gt;
 &amp;nbsp;
 
-&lt;p&gt;&lt;a title=&quot;FitText.js&quot; href=&quot;http://fittextjs.com/&quot; target=&quot;_blank&quot;&gt;FitText.js&lt;/a&gt; est un plugin jQuery permettant de rendre les tailles de polices flexibles. Je l'utilise pour certains headers. Ce plugin va les redimensionner par rapport à la taille du conteneur. Pratique.&lt;/p&gt;
+&lt;p&gt;&lt;a title=&quot;FitText.js&quot; href=&quot;http://fittextjs.com/&quot; target=&quot;_blank&quot;&gt;FitText.js&lt;/a&gt; est un plugin jQuery permettant de rendre les tailles de polices flexibles. Je l&#39;utilise pour certains headers. Ce plugin va les redimensionner par rapport à la taille du conteneur. Pratique.&lt;/p&gt;
 
 &lt;h3&gt;Thème Phollow&lt;/h3&gt;
 
 &lt;p&gt;Je met en ligne la source du thème Wordpress actuel sur Github pour les personnes intéressées. Vous pouvez le trouver sur &lt;a title=&quot;Phollow Wordpress Theme&quot; href=&quot;https://github.com/Rydgel/Phollow3-Theme&quot; target=&quot;_blank&quot;&gt;cette adresse&lt;/a&gt;. Les forks sont fortement encouragés.&lt;p&gt;
 
-&lt;p&gt;Pour moi il est maintenant obligatoire de travailler sur des sites qui fonctionnent sur &lt;em&gt;n'importe quelles&lt;/em&gt; resolutions que sur des sites qui fonctionnent sur les résolutions des appareils actuels.&lt;/p&gt;</content>
+&lt;p&gt;Pour moi il est maintenant obligatoire de travailler sur des sites qui fonctionnent sur &lt;em&gt;n&#39;importe quelles&lt;/em&gt; resolutions que sur des sites qui fonctionnent sur les résolutions des appareils actuels.&lt;/p&gt;</content>
   </entry>
   
   <entry>
@@ -1658,8 +1556,8 @@ p {
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;La team des designers Firefox ne cesse de rechercher à améliorer l'ergonomie du navigateur. Et aujourd'hui ils nous proposent des mockups de ce que pourrait ressembler les futures versions de Firefox 7 ou 8. Firefox 4 avait déjà vu son interface grandement changée, l'histoire risque encore de se répéter — &lt;em&gt;et c'est tant mieux !&lt;/em&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;Ces mockups ne seront pas forcément une image exacte des versions finales. Ils ont été réalisés avant tout dans une optique de recherche et de discussions. On peut voir sur ces premiers écrans la disparition de la barre de recherche, &lt;em&gt;que j'avais déjà enlevé personnellement la trouvant inutile&lt;/em&gt;, un nouveau style de menu et un mode plein-écran qui a l'air plutôt sympathique.&lt;/p&gt;
+    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;La team des designers Firefox ne cesse de rechercher à améliorer l&#39;ergonomie du navigateur. Et aujourd&#39;hui ils nous proposent des mockups de ce que pourrait ressembler les futures versions de Firefox 7 ou 8. Firefox 4 avait déjà vu son interface grandement changée, l&#39;histoire risque encore de se répéter — &lt;em&gt;et c&#39;est tant mieux !&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;Ces mockups ne seront pas forcément une image exacte des versions finales. Ils ont été réalisés avant tout dans une optique de recherche et de discussions. On peut voir sur ces premiers écrans la disparition de la barre de recherche, &lt;em&gt;que j&#39;avais déjà enlevé personnellement la trouvant inutile&lt;/em&gt;, un nouveau style de menu et un mode plein-écran qui a l&#39;air plutôt sympathique.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3394&quot; title=&quot;Firefox 7 - 1&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac-804x536.jpg&quot; alt=&quot;Firefox 7 - 1&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/02-Firefox-Australis-Mac-FxMenu.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3395&quot; title=&quot;Firefox 7 - 2&quot; src=&quot;http://static.phollow.fr/2011/08/02-Firefox-Australis-Mac-FxMenu-804x536.jpg&quot; alt=&quot;Firefox 7 - 2&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/03-Firefox-Australis-Mac-AddOns.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3396&quot; title=&quot;Firefox 7 - 3&quot; src=&quot;http://static.phollow.fr/2011/08/03-Firefox-Australis-Mac-AddOns-804x536.jpg&quot; alt=&quot;Firefox 7 - 3&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1667,7 +1565,7 @@ p {
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac-Fullscreen.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3398&quot; title=&quot;Firefox 7 - 5&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Mac-Fullscreen-804x536.jpg&quot; alt=&quot;Firefox 7 - 5&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3400&quot; title=&quot;Firefox 7 - 6&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows-804x536.jpg&quot; alt=&quot;Firefox 7 - 6&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;a href=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows-Fullscreen.jpg&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3401&quot; title=&quot;Firefox 7 - 7&quot; src=&quot;http://static.phollow.fr/2011/08/01-Firefox-Australis-Windows-Fullscreen-804x536.jpg&quot; alt=&quot;Firefox 7 - 7&quot; width=&quot;804&quot; height=&quot;536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Comme d'habitude ces expérimentations sont ouvertes et disponibles pour ceux qui veulent les tester. Mozilla a crée un nouveau build appelé Australis et téléchargeable à &lt;a title=&quot;Firefox 8 - Australis - UX&quot; href=&quot;https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-ux/&quot; target=&quot;_blank&quot;&gt;cette adresse&lt;/a&gt;. Ce build est une nightly, donc tous les jours une update pourra être téléchargée. La team UX Firefox déclare que c'est sur cette version que seront déposé leurs différents tests.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;Comme d&#39;habitude ces expérimentations sont ouvertes et disponibles pour ceux qui veulent les tester. Mozilla a crée un nouveau build appelé Australis et téléchargeable à &lt;a title=&quot;Firefox 8 - Australis - UX&quot; href=&quot;https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-ux/&quot; target=&quot;_blank&quot;&gt;cette adresse&lt;/a&gt;. Ce build est une nightly, donc tous les jours une update pourra être téléchargée. La team UX Firefox déclare que c&#39;est sur cette version que seront déposé leurs différents tests.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Maintenant je vais faire mon community manager en vous demandant ce que vous pensez de ces premiers concepts ? Pour ma part ça me plaît beaucoup même si on voit encore que Chrome a pas mal inspiré nos designers.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;Via &lt;a title=&quot;Mozilla&quot; href=&quot;http://people.mozilla.com/~shorlander/ux-presentation/ux-presentation.html&quot; target=&quot;_blank&quot;&gt;Mozilla&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
@@ -1682,11 +1580,11 @@ p {
       <name>Jérôme Mahuet</name>
       <uri>http://phollow.fr/</uri>
     </author>
-    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;Je joue beaucoup avec les dotfiles – ces petits fichiers cachés qui servent généralement à configurer un programme. Si vous aimez justement personnaliser votre système, vous en avez sans doute ouverts déjà pas mal. C'est là ou rentre en jeu &lt;a title=&quot;Dotshare.it&quot; href=&quot;http://dotshare.it/&quot; target=&quot;_blank&quot;&gt;Dotshare.it&lt;/a&gt;, un site web que l'on ma présenté il y a quelques temps.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Généralement il y a toujours un thread &lt;em&gt;Post your screenshot and configs&lt;/em&gt; sur les différents forum des distributions *nix. La config était généralement collée à l'arrache en dessous. Pas pratique pour les retrouver plus tard. Certains utilisent Github, ce qui me semble déjà une bonne évolution mais encore à un niveau en dessous de Dotshare, &lt;em&gt;qui lui est fait seulement pour ça&lt;/em&gt;.&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;Dotshare.it veut donc faciliter le partage et la recherche de fichiers dotfiles. Ils sont triés par applications, avec une capture du résultat. On peut aller chercher tous les fichiers d'un utilisateur en particulier sur sa page profil, suivre cette personne pour être alerté des updates etc.&lt;/p&gt;
+    <content type="html">&lt;p style=&quot;text-align: justify;&quot;&gt;Je joue beaucoup avec les dotfiles – ces petits fichiers cachés qui servent généralement à configurer un programme. Si vous aimez justement personnaliser votre système, vous en avez sans doute ouverts déjà pas mal. C&#39;est là ou rentre en jeu &lt;a title=&quot;Dotshare.it&quot; href=&quot;http://dotshare.it/&quot; target=&quot;_blank&quot;&gt;Dotshare.it&lt;/a&gt;, un site web que l&#39;on ma présenté il y a quelques temps.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;Généralement il y a toujours un thread &lt;em&gt;Post your screenshot and configs&lt;/em&gt; sur les différents forum des distributions *nix. La config était généralement collée à l&#39;arrache en dessous. Pas pratique pour les retrouver plus tard. Certains utilisent Github, ce qui me semble déjà une bonne évolution mais encore à un niveau en dessous de Dotshare, &lt;em&gt;qui lui est fait seulement pour ça&lt;/em&gt;.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;&lt;!--more--&gt;Dotshare.it veut donc faciliter le partage et la recherche de fichiers dotfiles. Ils sont triés par applications, avec une capture du résultat. On peut aller chercher tous les fichiers d&#39;un utilisateur en particulier sur sa page profil, suivre cette personne pour être alerté des updates etc.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;alignnone size-medium wp-image-3376&quot; title=&quot;Capture d’écran 2011-07-27 à 13.24.27&quot; src=&quot;http://static.phollow.fr/2011/07/Capture-d’écran-2011-07-27-à-13.24.27-537x376.jpg&quot; alt=&quot;&quot; width=&quot;537&quot; height=&quot;376&quot; /&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: justify;&quot;&gt;Le look du site web est minimaliste et c'est une bonne chose. Ça ne devrait pas trop piquer les yeux des adeptes des CLI tools. L'information est bien présentée et l'essentiel est là. Il y a même des petites références au monde de la ligne de commande, comme &lt;em&gt;scrot&lt;/em&gt; pour voir la capture du logiciel.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify;&quot;&gt;Le look du site web est minimaliste et c&#39;est une bonne chose. Ça ne devrait pas trop piquer les yeux des adeptes des CLI tools. L&#39;information est bien présentée et l&#39;essentiel est là. Il y a même des petites références au monde de la ligne de commande, comme &lt;em&gt;scrot&lt;/em&gt; pour voir la capture du logiciel.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3378&quot; title=&quot;Capture d’écran 2011-07-27 à 13.33.06&quot; src=&quot;http://static.phollow.fr/2011/07/Capture-d’écran-2011-07-27-à-13.33.06-804x365.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;365&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;&lt;img class=&quot;mainimage alignnone size-large wp-image-3379&quot; title=&quot;Capture d’écran 2011-07-27 à 13.38.51&quot; src=&quot;http://static.phollow.fr/2011/07/Capture-d’écran-2011-07-27-à-13.38.51-804x302.jpg&quot; alt=&quot;&quot; width=&quot;804&quot; height=&quot;302&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: justify;&quot;&gt;On a donc tout pour avoir un joli petit réseau social pour le partage des fichier de conf. Unix. Reste à voir si les gens vont suivre. Si vous avez des recommendations ou des demandes à faire aux devs vous pouvez toujours allez faire un tour sur &lt;em&gt;#dotshare at freenode.&lt;/em&gt;&lt;/p&gt;

@@ -15,13 +15,6 @@ tags:
 - blog
 ---
 
-<div>
-<figure>
-<figcaption><img style="margin-top: 0;" src="http://static.phollow.fr/2012/05/heroku.jpeg" title="heroku" class="alignnone size-full">
-</figcaption>
-</figure>
-</div>
-
 La migration du blog vers Jekyll était une première étape nécessaire pour une migration complète vers une solution gratuite – _ou presque_. Quand le site web n’est plus qu’une collection de fichiers statiques, l’hébergement devient vraiment simple.
 
 ### Heroku

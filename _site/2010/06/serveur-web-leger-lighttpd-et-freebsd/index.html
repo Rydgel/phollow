@@ -1,36 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="en-US" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#">
-  <meta charset="UTF-8">
-  <title>Serveur web léger Lighttpd et FreeBSD</title>
-  <link href="https://plus.google.com/116513653525162928064" rel="publisher">
-  <meta name="title" content="Serveur web léger Lighttpd et FreeBSD">
-  <meta name="author" content="Jérôme Mahuet">
-  <meta name="Copyright" content="Copyright Jérôme Mahuet 2012. All Rights Reserved.">
-  <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@phollow">
-  <meta name="twitter:creator" content="@phollow">
-  
-  <meta property="og:url" value="http://phollow.fr/2010/06/serveur-web-leger-lighttpd-et-freebsd/">
-  <meta property="og:description" value="Dans cet article je vais vous parler de la configuration actuelle de ce serveur, celui qui permet d'afficher ces pages. J'en avais un peu parlé dans un billet précédent, ce serveur tourne sous FreeBSD 8.0. Pourquoi FreeBSD ? Parce qu'ava...">
-  
-  <meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png">
-  <meta property="og:type" content="phollow:post">
-  <meta property="og:site_name" content="Phollow.me">
-  <meta property="fb:admins" content="rydgel">
-  <meta property="fb:app_id" content="101739241646">
-  <meta itemprop="name" content="Serveur web léger Lighttpd et FreeBSD">
-  <meta property="og:title" value="Serveur web léger Lighttpd et FreeBSD">
-
-
-  <meta http-equiv="cleartype" content="on">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript">
+<!doctype html> <html class="no-js" lang="en-US" dir="ltr" itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"> <head profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phollow: http://ogp.me/ns/fb/phollow#"> <meta charset="UTF-8"> <title>Serveur web léger Lighttpd et FreeBSD</title> <link href="https://plus.google.com/116513653525162928064" rel="publisher"> <meta name="title" content="Serveur web léger Lighttpd et FreeBSD"> <meta name="author" content="Jérôme Mahuet"> <meta name="Copyright" content="Copyright Jérôme Mahuet 2013. All Rights Reserved."> <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY"> <meta name="twitter:card" content="summary"> <meta name="twitter:site" content="@phollow"> <meta name="twitter:creator" content="@phollow"> <meta property="og:url" value="http://phollow.fr/2010/06/serveur-web-leger-lighttpd-et-freebsd/"> <meta property="og:description" value="Dans cet article je vais vous parler de la configuration actuelle de ce serveur, celui qui permet d'afficher ces pages. J'en avais un peu parlé dans un billet précédent, ce serveur tourne sous FreeBSD 8.0. Pourquoi FreeBSD ? Parce qu'ava..."> <meta property="og:image" value="http://phollow.fr/images/phollow-logo3.png"> <meta property="og:type" content="phollow:post"> <meta property="og:site_name" content="Phollow.me"> <meta property="fb:admins" content="rydgel"> <meta property="fb:app_id" content="101739241646"> <meta itemprop="name" content="Serveur web léger Lighttpd et FreeBSD"> <meta property="og:title" value="Serveur web léger Lighttpd et FreeBSD"> <meta http-equiv="cleartype" content="on"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1"> <script type="text/javascript">
     (function() {
       var config = {
         kitId: 'jfp7vgn',
@@ -38,106 +6,7 @@
       };
       var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
     })();
-  </script>
-  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
-  <link rel="stylesheet" href="/css/compiled/global.css?v=105">
-  <!--[if lt IE 9]>
-  <script src="/js/compiled/modernizr.min.js"></script>
-  <![endif]-->
-</head>
-<body>
-  <div class="container" role="wrapper">
-    <header role="banner" id="header-site" class="sixteen columns">
-      <h1 id="logo" class="four columns alpha">
-        <a href="/" title="Phollow.me">
-          <img src="/images/phollow-logo3.png" alt="Phollow.me">
-        </a>
-      </h1>
-      <nav role="main-navigation" class="seven columns">
-        <ul>
-          <li>
-            <a href="/" title="blog">
-            <span class="ss-icon ss-write"></span>
-            <span>Blog</span>
-            </a>
-          </li>
-          <li>
-            <a href="/archives/" title="archives">
-            <span class="ss-icon ss-database"></span>
-            <span>Archives</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://jrm.li#projects" title="Projets">
-            <span class="ss-icon ss-notebook"></span>
-            <span>Projects</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://jrm.li/" title="À propos">
-            <span class="ss-icon ss-user"></span>
-            <span>Me</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://feeds2.feedburner.com/phollow/iuEO" title="RSS">
-            <span class="ss-icon ss-rss"></span>
-            <span>Rss</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <hr>
-    </header>
-
-<div id="container" class="sixteen columns">
-  <article class="post">
-      <header>
-    <h2 class="entry-title entry-single"><a href="/2010/06/serveur-web-leger-lighttpd-et-freebsd">Serveur web léger Lighttpd et FreeBSD</a></h2>
-    
-      </header>
-      <hr>
-      <div class="entry single-page thirteen columns alpha">
-        <p style="text-align: justify;">Dans cet article je vais vous parler de la configuration actuelle de ce serveur, celui qui permet d'afficher ces pages. J'en avais un peu parlé dans un billet précédent, ce serveur tourne sous FreeBSD 8.0. Pourquoi FreeBSD ? Parce qu'avant tout je voulais apprendre un système que je connaissais pas du tout, et l'arbre des ports permet de compiler mes logiciels facilement, tout en ayant une liberté maximale sur les options de compîlation.</p>
-<p style="text-align: justify;">Je vais traité ici l'installation d'un serveur PHP (en l'occurence lighty). Il y a en gros deux parties distinctes : premièrement l'installation de PHP à proprement parlé, puis ensuite du serveur et sa configuration. Je ne parlerai pas de l'installation d'un serveur de base de données, sauf si ça vous branche :)</p>
-<p style="text-align: justify;">Personnellement je n'installe mes logiciels que par compilation (ce n'est pas obligatoire sous FreeBSD). J'utilise pour cela des utilitaires tels que <strong>portmaster</strong> et <strong>portsnap</strong>. Si vous n'avez jamais utilisé les ports sur FreeBSD vous devez commencer par un petit :</p>
-
-<pre lang="bash">portsnap fetch extract</pre>
-<p style="text-align: justify;">Cette commande va tout simplement télécharger les ports et les extraire dans /usr/ports. À faire une fois seulement, après ce n'est plus nécessaire.</p>
-
-<h1>PHP 5.3</h1>
-<p style="text-align: justify;">On commence par mettre nos ports à jour :</p>
-
-<pre lang="bash">portsnap fetch update</pre>
-<p style="text-align: justify;">Et ensuite c'est partie pour compiler le coeur de PHP :</p>
-
-<pre lang="bash">portmaster lang/php5</pre>
-<p style="text-align: justify;">On vous proposera surement des choix pour la configuration de PHP, sélectionnez seulement ce qui vous est nécessaire. Le but de la compilation étant de pouvoir optimiser :)</p>
-<p style="text-align: justify;">Ensuite on va pouvoir construire les extensions de PHP. Comme par exemple curl ou gd pour les images. Idem, il y a forcément des extensions que vous n'utiliserai pas, donc ne cochez pas tout comme des bourrins (lol). Pensez à sélectionner celle de votre base de données (mysql, mysqli, postgre...)</p>
-
-<pre lang="bash">portmaster lang/php5-extensions</pre>
-Et hop c'est terminé. Vous pouvez vérifier que PHP est bien installé, en lançant un petit <em>php --version</em> dans le shell.
-<h1>Lighttpd</h1>
-<p style="text-align: justify;">Lighttpd ou Lighty est un serveur web très léger et assez flexible. Optimisé pour être soumis à de fortes demandes, il est de nature plus scalable qu'Apache. Il en a d'ailleurs rien à envier, et il est capable de pas mal de choses (FastCGI, CGI, Http Auth, Compression, Url rewriting...).</p>
-<p style="text-align: justify;">Donc installons le :</p>
-
-<pre lang="bash">portmaster www/lighttpd</pre>
-<p style="text-align: justify;">Maintenant on va dire à FreeBSD de le démarrer après le boot, pour cela on édite donc /etc/rc.conf : en ajoutant cette ligne :</p>
-
-<pre lang="bash">lighttpd_enable="YES"</pre>
-<p style="text-align: justify;">Et pour le démarrer/redémarrer/stoper :</p>
-
-<pre lang="bash">/usr/local/etc/rc.d/lighttpd start|restart|stop</pre>
-<h3>Fichiers de configurations de Lighttpd:</h3>
-<ul>
-	<li>Par défaut le webroot se trouve dans <strong>/usr/local/www/data</strong></li>
-	<li>L'utilisateur par défaut du serveur est <strong>www</strong></li>
-	<li>Et la configuration se fait dans ce fichier : <strong>/usr/local/etc/lighttpd.conf</strong></li>
-</ul>
-<p style="text-align: justify;">Nous allons configurer un virtual host, avec un nom de domaine et son propre répertoire dans le webroot. Nous allons aussi compresser les pages pour économiser de la bande passante et activer l'url rewriting pour faire fonctionner wordpress. Ouvrez le fichier de configuration. Nous allons modifier certaines lignes pour notre configuration.</p>
-<p style="text-align: justify;">Commençons par les modules à charger, pour ma part j'ai besoin de :</p>
-
-<pre lang="bash">server.modules              = (
+  </script> <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml"> <link rel="stylesheet" href="/css/screen.css?v=106"> <!--[if lt IE 9]><script src="/js/compiled/modernizr.min.js"></script><![endif]--> </head> <body> <header role="post"> <div class="container"> <h1 id="logo"> <a href="/" title="Phollow.me"> <img src="/images/phollow-logo3.png" alt="Phollow.me"> </a> </h1> </div> </header> <section role="articles"> <div class="container"> <article class="post"> <time datetime="2010-06-10 23:16:31 +0200">Jun 10, 2010</time> <h2 class="entry-title"> <a title="Serveur web léger Lighttpd et FreeBSD" href="/2010/06/serveur-web-leger-lighttpd-et-freebsd">Serveur web léger Lighttpd et FreeBSD</a> </h2> <section role="post-content"> <p style="text-align: justify;">Dans cet article je vais vous parler de la configuration actuelle de ce serveur, celui qui permet d'afficher ces pages. J'en avais un peu parlé dans un billet précédent, ce serveur tourne sous FreeBSD 8.0. Pourquoi FreeBSD ? Parce qu'avant tout je voulais apprendre un système que je connaissais pas du tout, et l'arbre des ports permet de compiler mes logiciels facilement, tout en ayant une liberté maximale sur les options de compîlation.</p> <p style="text-align: justify;">Je vais traité ici l'installation d'un serveur PHP (en l'occurence lighty). Il y a en gros deux parties distinctes : premièrement l'installation de PHP à proprement parlé, puis ensuite du serveur et sa configuration. Je ne parlerai pas de l'installation d'un serveur de base de données, sauf si ça vous branche :)</p> <p style="text-align: justify;">Personnellement je n'installe mes logiciels que par compilation (ce n'est pas obligatoire sous FreeBSD). J'utilise pour cela des utilitaires tels que <strong>portmaster</strong> et <strong>portsnap</strong>. Si vous n'avez jamais utilisé les ports sur FreeBSD vous devez commencer par un petit :</p> <pre lang="bash">portsnap fetch extract</pre> <p style="text-align: justify;">Cette commande va tout simplement télécharger les ports et les extraire dans /usr/ports. À faire une fois seulement, après ce n'est plus nécessaire.</p> <h1>PHP 5.3</h1> <p style="text-align: justify;">On commence par mettre nos ports à jour :</p> <pre lang="bash">portsnap fetch update</pre> <p style="text-align: justify;">Et ensuite c'est partie pour compiler le coeur de PHP :</p> <pre lang="bash">portmaster lang/php5</pre> <p style="text-align: justify;">On vous proposera surement des choix pour la configuration de PHP, sélectionnez seulement ce qui vous est nécessaire. Le but de la compilation étant de pouvoir optimiser :)</p> <p style="text-align: justify;">Ensuite on va pouvoir construire les extensions de PHP. Comme par exemple curl ou gd pour les images. Idem, il y a forcément des extensions que vous n'utiliserai pas, donc ne cochez pas tout comme des bourrins (lol). Pensez à sélectionner celle de votre base de données (mysql, mysqli, postgre...)</p> <pre lang="bash">portmaster lang/php5-extensions</pre> Et hop c'est terminé. Vous pouvez vérifier que PHP est bien installé, en lançant un petit <em>php --version</em> dans le shell. <h1>Lighttpd</h1> <p style="text-align: justify;">Lighttpd ou Lighty est un serveur web très léger et assez flexible. Optimisé pour être soumis à de fortes demandes, il est de nature plus scalable qu'Apache. Il en a d'ailleurs rien à envier, et il est capable de pas mal de choses (FastCGI, CGI, Http Auth, Compression, Url rewriting...).</p> <p style="text-align: justify;">Donc installons le :</p> <pre lang="bash">portmaster www/lighttpd</pre> <p style="text-align: justify;">Maintenant on va dire à FreeBSD de le démarrer après le boot, pour cela on édite donc /etc/rc.conf : en ajoutant cette ligne :</p> <pre lang="bash">lighttpd_enable="YES"</pre> <p style="text-align: justify;">Et pour le démarrer/redémarrer/stoper :</p> <pre lang="bash">/usr/local/etc/rc.d/lighttpd start|restart|stop</pre> <h3>Fichiers de configurations de Lighttpd:</h3> <ul> <li>Par défaut le webroot se trouve dans <strong>/usr/local/www/data</strong></li> <li>L'utilisateur par défaut du serveur est <strong>www</strong></li> <li>Et la configuration se fait dans ce fichier : <strong>/usr/local/etc/lighttpd.conf</strong></li> </ul> <p style="text-align: justify;">Nous allons configurer un virtual host, avec un nom de domaine et son propre répertoire dans le webroot. Nous allons aussi compresser les pages pour économiser de la bande passante et activer l'url rewriting pour faire fonctionner wordpress. Ouvrez le fichier de configuration. Nous allons modifier certaines lignes pour notre configuration.</p> <p style="text-align: justify;">Commençons par les modules à charger, pour ma part j'ai besoin de :</p> <pre lang="bash">server.modules              = (
                                "mod_rewrite",
                                "mod_redirect",
                                "mod_alias",
@@ -149,18 +18,8 @@ Et hop c'est terminé. Vous pouvez vérifier que PHP est bien installé, en lan�
                                "mod_expire",
                                "mod_accesslog",
 			       "mod_magnet"
-)</pre>
-<p style="text-align: justify;">On vérifie le webroot :</p>
-
-<pre lang="bash">server.document-root        = "/usr/local/www/data/"</pre>
-<p style="text-align: justify;">On active la compression :</p>
-
-<pre lang="bash">compress.cache-dir         = "/var/cache/lighttpd/compress/"
-compress.filetype          = ("text/plain", "text/html", "text/css", "text/xml", "text/javascript")</pre>
-<p style="text-align: justify;">www doit pouvoir écrire et lire dans ce répertoire bien sur.</p>
-<p style="text-align: justify;">Maintenant il faut dire à Lighty comment on veut qu'il gère les scripts PHP. Donc nous allons utiliser du FastCGI :</p>
-
-<pre lang="bash">fastcgi.server             = ( ".php" =>
+)</pre> <p style="text-align: justify;">On vérifie le webroot :</p> <pre lang="bash">server.document-root        = "/usr/local/www/data/"</pre> <p style="text-align: justify;">On active la compression :</p> <pre lang="bash">compress.cache-dir         = "/var/cache/lighttpd/compress/"
+compress.filetype          = ("text/plain", "text/html", "text/css", "text/xml", "text/javascript")</pre> <p style="text-align: justify;">www doit pouvoir écrire et lire dans ce répertoire bien sur.</p> <p style="text-align: justify;">Maintenant il faut dire à Lighty comment on veut qu'il gère les scripts PHP. Donc nous allons utiliser du FastCGI :</p> <pre lang="bash">fastcgi.server             = ( ".php" =>
                                ( "localhost" =>
                                  (
                                    "socket" => "/tmp/php-fastcgi.socket",
@@ -176,9 +35,7 @@ compress.filetype          = ("text/plain", "text/html", "text/css", "text/xml",
 				                           "broken-scriptfilename" => "enable"
                                  )
                                )
-                            )</pre>
-<p style="text-align: justify;">Et pour finir le virtual host :</p>
-<pre lang="bash">$HTTP["host"] == "phollow.fr" {
+                            )</pre> <p style="text-align: justify;">Et pour finir le virtual host :</p> <pre lang="bash">$HTTP["host"] == "phollow.fr" {
   server.document-root = "/usr/local/www/data/phollow.fr"
   compress.cache-dir = "/tmp/phollow.fr/"
   url.rewrite = (
@@ -188,74 +45,4 @@ compress.filetype          = ("text/plain", "text/html", "text/css", "text/xml",
         "^/(.+)/?$" => "/index.php/$1"
   )
 
-}</pre>
-<p style="text-align: justify;">Et voilà ça devrait suffire à faire tourner votre site web. Si vous avez des questions n'hésitez pas et surtout allez faire un tour sur la documentation officielle de <a href="http://redmine.lighttpd.net/wiki/1">lighttpd</a>.</p>
-      </div>
-      <cite class="omega three columns entry-meta">
-        <p>
-          <time datetime="2010-06-10 23:16:31 +0200" pubdate class="updated ss-clock">June 10, 2010</time>
-          <br>
-          <span class="ss-tag"><a href="/category/serveur" rel="category tag">serveur</a>, <a href="/category/web" rel="category tag">web</a></span>
-          <br>
-          
-        </p>
-        </cite>
-      <footer class="share alpha thirteen columns">
-      <a id="tweet" href="http://twitter.com/?status=Serveur%20web%20l%C3%A9ger%20Lighttpd%20et%20FreeBSD%20http%3A%2F%2Fphollow.fr/2010/06/serveur-web-leger-lighttpd-et-freebsd%20via%20%40phollow" class="ss-icon ss-social ss-twitter twitter-button"><span style="-webkit-font-smoothing: subpixel-antialiased;">share</span></a>
-      </footer>
-    </article>
-      <hr>
-      <div id="disqus_thread"></div>
-      <script>
-          var disqus_shortname = 'phollowfr';
-          var disqus_identifier = 'http://phollow.fr/2010/06/serveur-web-leger-lighttpd-et-freebsd/';
-          var disqus_url = 'http://phollow.fr/2010/06/serveur-web-leger-lighttpd-et-freebsd/';
-
-          (function() {
-              var dsq = document.createElement('script');
-              dsq.type = 'text/javascript'; 
-              dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-</div>
-
-
-<footer id="footer" role="contentinfo" class="sixteen columns">
-  <hr>
-  <nav role="navigation">
-    <ul>
-      <li><a href="/">Homepage</a></li>
-      <li><a href="http://twitter.com/phollow">Twitter</a></li>
-      <li><a href="https://www.facebook.com/Phollow.fr">Facebook</a></li>
-      <li><a href="http://dribbble.com/phollow">Dribbble</a></li>
-      <li><a href="mailto:rydgel@phollow.fr">Contact</a></li>
-    </ul>
-  </nav>
-  <span class="copyright">Copyright © 2012 <a rel="author"
-      href="https://plus.google.com/113221045987282389062?rel=author"
-      title="Jérôme Mahuet">+Jérôme Mahuet</a> All Rights Reserved.
-    Hosted by <a href="http://www.heroku.com/">Heroku.</a></span>
-<a title="Phollow.me" class="footer-logo-link" href="http://phollow.fr"><img src="/images/phollow-logo-footer.png" alt="Phollow.me"></a>
-</footer>
-
-</div>
-<script src="/js/compiled/global.js?v=9"></script>
-
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4ec64821f5a1f55c33000003');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-</body>
-</html>
-
+}</pre> <p style="text-align: justify;">Et voilà ça devrait suffire à faire tourner votre site web. Si vous avez des questions n'hésitez pas et surtout allez faire un tour sur la documentation officielle de <a href="http://redmine.lighttpd.net/wiki/1">lighttpd</a>.</p> </section> <section role="share"> <a href="https://twitter.com/share" class="twitter-share-button" data-via="phollow">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> </section> </article> </div> </section> <footer> <div class="container"> <p><a href="http://jrm.li" target="_blank">Jérôme Mahuet</a> - Hosted by <a href="http://heroku.com">Heroku</a> &amp; <a href="https://github.com/Rydgel/phollow">open-source</a>.</p> </div> </footer> </body> </html>

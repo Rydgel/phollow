@@ -1,29 +1,15 @@
 ---
-layout: layout
+layout: layout_posts
 ---
 
-<section id="claim" class="sixteen columns">
-  <h2 class="pagetitle"><em>Archives - CTRL-F, ????, <b>PROFIT!</b></em></h2>
-  <hr>
-</section>
-<div id="container" class="sixteen columns">
- <ul class="archives-list">
+<div class="container">
     {% for post in site.posts %}
-    <li>
-      <time class="archives-date three columns">
-        {{ post.date | date: "%B %e, %Y" }}
-      </time>
-      <section class="archives-perma seven columns">
-        <a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a>
-      </section>
-      <section class="archives-comments three columns">
-        <a href="{{ post.url }}#comments">Comments</a>
-      </section>
-      <section class="archives-permalink three columns">
-        <a href="{{ post.url }}">Link</a>
-      </section>
-      <div class="clearfix"></div>
-    </li>
+        <article>
+            <time datetime="{{ post.date }}">{{ post.date | date: "%b %e, %Y" }}</time>
+            <h2 class="entry-title">
+                <a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a>
+            </h2>
+        </article>
     {% endfor %}
- </ul>
 </div>
+

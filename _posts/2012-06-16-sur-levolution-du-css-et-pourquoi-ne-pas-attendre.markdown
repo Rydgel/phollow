@@ -17,12 +17,6 @@ tags:
 - stylus
 ---
 
-<div>
-<figure>
-<figcaption><img style="margin-top:0;" src="http://static.phollow.fr/2012/06/Compass.jpg" alt="" title="necroscope" width="580" height="773" class="alignnone size-full wp-image-3898"></figcaption>
-</figure>
-</div>
-
 Les variables CSS sont apparues il y a quelques jours dans le dépôt [Webkit](http://trac.webkit.org/changeset/120154) et devraient être utilisables dans les dernières _nightlies_ de Safari. La norme CSS continue de se doter de fonctionnalités permettant d’avoir un code plus facilement maintenable. 
 
 ### Don’t repeat yourself they said
@@ -89,5 +83,3 @@ J’ai décidé d’intégrer [Fake Images Please?](http://fakeimg.pl) en utilis
 ### TL;DR
 
 Je dirais juste à essayer (essayer concrètement) avant de dire que l’on aime pas. Ces fonctionnalités arriveront tôt ou tard dans la norme CSS. Et il y a beaucoup de temps à gagner si on sait utiliser les pré-processeurs.
-
-<p style="text-align:center;font-size: 2em;">❧</p>
