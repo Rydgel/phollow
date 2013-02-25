@@ -1,0 +1,27 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns: 6;
+//width of each column
+$column-width: 3.6em;
+//space between columns
+$gutter-width: 1em;
+//space on the right and left of the grid
+$grid-padding: $gutter-width;
+//alternative layout breakpoints
+$tablet: 8;
+$computer: 40em 8;
+
+$container-style: magic;
+
+$bg-color: #FFF;
+$text-color: #57534a;
+$text-light-color: #c7c2b8;
+$hl-color: #FF6000;
+
+$show-grid-backgrounds: false;

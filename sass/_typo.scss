@@ -1,0 +1,153 @@
+@import "compass/typography";
+
+$relative-font-sizing : true;
+$base-font-size       : 16px;
+$base-line-height     : 24px;
+
+$font-family: "freight-sans-pro", Helvetica, Arial, sans-serif;
+$code-font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+
+@include establish-baseline;
+
+body {
+    font-family: $font-family;
+    text-rendering: optimizeLegibility;
+    -moz-font-feature-settings: "liga=1, dlig=1, onum=1";
+    -moz-font-feature-settings: "liga","dlig","onum";
+    -ms-font-feature-settings: "liga","dlig","onum";
+    -o-font-feature-settings: "liga","dlig","onum";
+    -webkit-font-feature-settings: "liga","dlig","onum";
+    font-feature-settings: "liga","dlig","onum";
+    color: $text-color;
+    @include at-breakpoint($computer) {
+        @include adjust-font-size-to(20px);
+        line-height: 1.5;
+    }
+}
+
+p {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    @include margin-trailer(.75);
+}
+
+blockquote {
+  font-size: 1em;
+  border: none;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  color: #A19C91;
+  padding-right: 37px;
+  @include margin-trailer(.75);
+  font-style:italic;
+}
+
+blockquote:before {
+  content: "“";
+  position: relative;
+  left: -0.2em;
+  margin-left: -0.4em;
+  line-height: 1px;
+  font-size: 1.764em;
+  top: 0.2em;
+  font-style:italic;
+  font-weight: normal;
+}
+
+blockquote:after {
+  content: "”";
+  font-weight: normal;
+  position: relative;
+  left: 0.1em;
+  font-size: 1.764em;
+  line-height: 0;
+  top: 0.2em;
+  font-style:italic;
+  font-weight: normal;
+}
+
+body .hll{background-color:#fff}body .c,body .cm,body .cp,body .c1,body .cs{color:rgba(161,156,145,0.75);}body .k,body .kc,body .kd,body .kn,body .kp,body .kr,body .kt{color:#a0586c}body .kd,body .kn,body .kr{}body .o,body .ow{color:#427e80}body .ow{}body .w{color:#c7c2b8}body .m,body .mf,body .mh,body .mi,body .mo,body .il{color:#427e80}body .s,body .sb,body .sc,body .sd,body .se,body .s2,body .sh,body .sx,body .s1,body .ss{color:#4bbc7e}body .si,body .sr{color:#e14e0c}body .na{color:#9cba18}body .nb{color:#e14e0c}body .nc{color:#4bbc7e;}body .no{color:#e14e0c}body .nd{color:#5e4c63}body .ni{color:#a19c91;}body .ne{color:#e14e0c;}body .nf{color:#4bbc7e}body .nl{color:#edbf5a}body .nn{color:#4bbc7e;}body .nt{color:#e14e0c;}body .bp{color:#e14e0c}body .nv,body .vc,body .vg,body .vi{color:#4bbc7e}body .gd{color:#e14e0c}body .gr{color:#e14e0c}body .gh{color:#5e4c63;}body .gi{color:#9cba18}body .go{color:#a19c91}body .gp{color:#5e4c63;}body .gs{}body .gu{color:#a0586c;}body .gt{color:#427e80}
+
+
+span.code, article code {
+    font-family: $code-font-family;
+    background-color: #FAF8F2;
+    font-size: 0.724em;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    padding: 1px 3px;
+    color: #423F37;
+    line-height: 1em;
+}
+
+article pre > code {
+    font-family: $code-font-family;
+    background: #FAF8F2;
+    margin: 1.125em 0;
+    padding: 10px 25px;
+    display: block;
+    font-size: 0.724em;
+    word-wrap: break-word;
+    line-height: 1.7em;
+    color: #423F37;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 4px #F4E9D2,inset 0 0 2px #EFDEBE;
+    /*@include at-breakpoint(55em) {
+        margin: 1.125em -24px;
+    }*/
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+
+h3, h4, h5 {
+    @include adjust-font-size-to(19px);
+    margin: rhythm(1, 19px) auto rhythm(.25, 19px);
+}
+
+ul {
+    list-style: disc inside;
+    @include at-breakpoint($computer) {
+        list-style: disc outside;
+    }
+    @include margin-trailer(.75);
+}
+
+ol {
+    list-style: decimal inside;
+    @include at-breakpoint($computer) {
+        list-style: decimal outside;
+    }
+    @include margin-trailer(.75);
+}
+
+ul, ol {
+    &.footnotes {
+        list-style: none;
+    }
+    li {
+       @include margin-trailer(.75);
+    } 
+}
+
+.desc {
+    font-weight: normal;
+    @include adjust-font-size-to(21px);
+    @include margin-trailer(.75);
+    line-height: 1.3em;
+}
+
+figure {
+    @include at-breakpoint(55em) {
+        margin-right: -4.5rem;
+        margin-left: -4.5rem;
+    }
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
