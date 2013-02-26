@@ -168,6 +168,7 @@ section[role="404"] {
     }
     
     h2 {
+        @include margin-leader(1);
         @include margin-trailer(1);
     }
 }
@@ -194,8 +195,13 @@ section[role="share"] {
     }
 }
 
-section[role="user"] {
-    font-size: 0.8em;
+.archives {
+    .next {
+        float: right;
+    }
+    .prev {
+        float: left;
+    }
 }
 
 footer {
