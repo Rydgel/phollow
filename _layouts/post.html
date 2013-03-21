@@ -6,7 +6,7 @@ layout: layout_posts
   <article class="post">
     <time datetime="{{ page.date }}">{{ page.date | date: "%b %e, %Y" }}</time>
     <h2 class="entry-title">
-        <a title="{{ page.title }}" href="{{ page.url }}">{{ page.title }}</a>
+        <a title="{{ page.title }}" href="{{ page.url }}/">{{ page.title }}</a>
     </h2>
     {% if page.desc %}
       <p class="desc">{{ page.desc }}</p>

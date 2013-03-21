@@ -8,11 +8,11 @@ title: "Phollow.me"
         <article>
             <time datetime="{{ post.date }}">{{ post.date | date: "%b %e, %Y" }}</time>
             <h2 class="entry-title">
-                <a title="{{ post.title }}" href="{{ post.url }}">{{ post.title }}</a>
+                <a title="{{ post.title }}" href="{{ post.url }}/">{{ post.title }}</a>
             </h2>
         <p>{{ post.content | strip_html | truncate: 250 }}</p>
         <p>
-            <a title="{{ post.title }}" href="{{ post.url }}">Read post</a>
+            <a title="{{ post.title }}" href="{{ post.url }}/">Read post</a>
         </p>
         </article>
     {% endfor %}
