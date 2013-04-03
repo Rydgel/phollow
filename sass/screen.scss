@@ -124,7 +124,7 @@ section[role=articles] {
         }
         
         h2 {
-            @include adjust-font-size-to(32px);
+            @include adjust-font-size-to(30px);
             line-height: 1.3em;
             margin-bottom: 16px;
             a {
