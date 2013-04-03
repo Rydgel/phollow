@@ -4,7 +4,8 @@ $relative-font-sizing : true;
 $base-font-size       : 16px;
 $base-line-height     : 24px;
 
-$font-family: "freight-sans-pro", Helvetica, Arial, sans-serif;
+$font-family: "Whitney SSm A", "Whitney SSm B", Helvetica, Arial, sans-serif;
+$h-family: "Tungsten A", "Tungsten B", Helvetica, Arial, sans-serif;
 $code-font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
 @include establish-baseline;
@@ -20,7 +21,7 @@ body {
     font-feature-settings: "liga","dlig","onum";
     color: $text-color;
     @include at-breakpoint($computer) {
-        @include adjust-font-size-to(20px);
+        @include adjust-font-size-to(18px);
         line-height: 1.5;
     }
 }
@@ -102,13 +103,16 @@ article pre > code {
 
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-weight: 500;
+    font-family: $h-family;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 
 h3, h4, h5 {
-    @include adjust-font-size-to(19px);
-    margin: rhythm(1, 19px) auto rhythm(.25, 19px);
+    @include adjust-font-size-to(24px);
+    margin: rhythm(1, 24px) auto rhythm(.25, 24px);
 }
 
 ul {
@@ -138,9 +142,9 @@ ul, ol {
 
 .desc {
     font-weight: normal;
-    @include adjust-font-size-to(21px);
-    @include margin-trailer(.75);
     line-height: 1.3em;
+    color: $text-light-color;
+    @include margin-trailer(.75);
 }
 
 figure {

@@ -46,9 +46,9 @@ a {
     color: $text-color;
     text-decoration: underline;
     cursor: pointer;
-    -webkit-transition: all .25s;
-    -moz-transition: all .25s;
-    transition: all .25s;
+    -webkit-transition: color .25s;
+    -moz-transition: color .25s;
+    transition: color .25s;
     
     &:hover {
         color: $hl-color;
@@ -69,10 +69,6 @@ header {
         img {
             width: 40px;
         }
-    }
-    
-    h1 {
-        font-weight: normal;
     }
     
     ul {
@@ -128,7 +124,7 @@ section[role=articles] {
         }
         
         h2 {
-            @include adjust-font-size-to(24px);
+            @include adjust-font-size-to(32px);
             line-height: 1.3em;
             margin-bottom: 16px;
             a {
