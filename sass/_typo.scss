@@ -5,7 +5,6 @@ $base-font-size       : 16px;
 $base-line-height     : 24px;
 
 $font-family: "Whitney SSm A", "Whitney SSm B", Helvetica, Arial, sans-serif;
-$h-family: "Tungsten A", "Tungsten B", Helvetica, Arial, sans-serif;
 $code-font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
 @include establish-baseline;
@@ -103,16 +102,13 @@ article pre > code {
 
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
-    font-family: $h-family;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-weight: 600;
 }
 
 
 h3, h4, h5 {
-    @include adjust-font-size-to(24px);
-    margin: rhythm(1, 24px) auto rhythm(.25, 24px);
+    @include adjust-font-size-to(18px);
+    margin: rhythm(1, 18px) auto rhythm(.25, 18px);
 }
 
 ul {
