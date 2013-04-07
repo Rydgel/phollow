@@ -19,6 +19,7 @@ body {
     -webkit-font-feature-settings: "liga","dlig","onum";
     font-feature-settings: "liga","dlig","onum";
     color: $text-color;
+    -webkit-text-size-adjust: none;
     @include at-breakpoint($computer) {
         @include adjust-font-size-to(18px);
         line-height: 1.5;
