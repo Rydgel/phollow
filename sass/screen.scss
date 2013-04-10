@@ -154,6 +154,10 @@ section[role=articles] {
     }
 }
 
+#disqus_thread {
+    @include margin-leader(2);
+}
+
 section[role="404"] {
     h2, p {
         text-align: center;
