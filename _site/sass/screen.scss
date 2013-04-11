@@ -12,16 +12,15 @@
 /* Layout */
 
 .container {
-    @include susy-grid-background;
     @include container($total-columns, $tablet, $computer);
+}
+
+body {
+    
 }
 
 .clear {
     clear: both;
-}
-
-html, body {
-    height: 100%;
 }
 
 video, object, embed {
@@ -131,6 +130,18 @@ section[role=articles] {
                 color: $text-color;
                 text-decoration: none;
             }
+        }
+        
+        hr {
+            display: block;
+            border: none;
+            margin: 2em 20%;
+            height: 1px;
+            background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(227,224,216,0)), color-stop(5%, #e3e0d8), color-stop(95%, #e3e0d8), color-stop(100%, rgba(227,224,216,0)));
+            background: -webkit-linear-gradient(left, rgba(227,224,216,0) 0%,#e3e0d8 5%,#e3e0d8 95%,rgba(227,224,216,0) 100%);
+            background: -moz-linear-gradient(left, rgba(227,224,216,0) 0%,#e3e0d8 5%,#e3e0d8 95%,rgba(227,224,216,0) 100%);
+            background: -o-linear-gradient(left, rgba(227,224,216,0) 0%,#e3e0d8 5%,#e3e0d8 95%,rgba(227,224,216,0) 100%);
+            background: linear-gradient(left, rgba(227,224,216,0) 0%,#e3e0d8 5%,#e3e0d8 95%,rgba(227,224,216,0) 100%);
         }
     }
     

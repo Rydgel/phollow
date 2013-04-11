@@ -42,7 +42,7 @@ blockquote {
   color: #A19C91;
   padding-right: 37px;
   @include margin-trailer(.75);
-  font-style:italic;
+  font-style: italic;
 }
 
 blockquote:before {
@@ -53,7 +53,7 @@ blockquote:before {
   line-height: 1px;
   font-size: 1.764em;
   top: 0.2em;
-  font-style:italic;
+  font-style: italic;
   font-weight: normal;
 }
 
@@ -88,17 +88,12 @@ article pre > code {
     font-family: $code-font-family;
     background: #FAF8F2;
     margin: 1.125em 0;
-    padding: 10px 25px;
+    padding: 1.5em;
     display: block;
     font-size: 0.724em;
     word-wrap: break-word;
     line-height: 1.7em;
     color: #423F37;
-    border-radius: 3px;
-    box-shadow: inset 1px 1px 4px #F4E9D2,inset 0 0 2px #EFDEBE;
-    /*@include at-breakpoint(55em) {
-        margin: 1.125em -24px;
-    }*/
 }
 
 
@@ -112,28 +107,51 @@ h3, h4, h5 {
     margin: rhythm(1, 18px) auto rhythm(.25, 18px);
 }
 
-ul {
+article ul {
     list-style: disc inside;
     @include at-breakpoint($computer) {
         list-style: disc outside;
     }
     @include margin-trailer(.75);
+    margin-left: 2.5em;
+    
+    &>li::before {
+        content: "•";
+        font-weight: 600;
+        position: absolute;
+        right: 100%;
+        margin-right: 0.333em;
+    }
 }
 
-ol {
+article ol {
     list-style: decimal inside;
     @include at-breakpoint($computer) {
         list-style: decimal outside;
     }
     @include margin-trailer(.75);
+    margin-left: 2.5em;
+    
+    counter-reset: ol;
+    
+    &>li::before {
+        content: counter(ol) ".";
+        counter-increment: ol;
+        font-weight: 600;
+        position: absolute;
+        right: 100%;
+        margin-right: 0.333em;
+    }
 }
 
-ul, ol {
+article ul, article ol {
     &.footnotes {
         list-style: none;
     }
     li {
-       @include margin-trailer(.75);
+       @include margin-trailer(.375);
+       position: relative;
+       list-style: none;
     } 
 }
 
