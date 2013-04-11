@@ -2,6 +2,8 @@
 exec wine "C:/Program Files/Spotify/spotify.exe" /uri "$@"</pre> <p style="text-align: justify;">Ensuite à l'intérieur de Firefox, dans <em>about:config</em>, on met ces deux options :</p> <pre lang="bash">network.protocol-handler.external.spotify       True
 network.protocol-handler.app.spotify    ~/browser2spotify</pre> <p style="text-align: justify;">Mais ça n'a pas été suffisant pour moi, j'ai du aller ensuite dans <em>editer/préférences/applications</em> sous Firefox et lier manuellement spotify à mon script.</p> <h2>Les liens dans Wine</h2> <p style="text-align: justify;">Les liens qui étaient à l'intérieur de spotify ne fonctionnaient pas, voilà ce que j'ai changé :</p> <p style="text-align: justify;">Ouvrez regedit, puis faites une recherche avec le mot <em>winebrowser.exe</em>, et pour les quatre ou cinq valeurs de clefs, mettez :</p> <pre lang="bash">C:\windows\system32\winebrowser.exe -nohome %1</pre> <p style="text-align: justify;">Et là normalement les liens s'ouvrent maintenant dans votre navigateur.</p> </section> <section role="share"> <a href="https://twitter.com/share" class="twitter-share-button" data-via="phollow">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> </section> <div id="disqus_thread"></div> <script>
           var disqus_shortname = 'phollowfr';
+          var disqus_identifier = 'http://phollow.fr/2009/05/utiliser-spotify-a-100-sous-wine/';
+          var disqus_url = 'http://phollow.fr/2009/05/utiliser-spotify-a-100-sous-wine/';
 
           (function() {
               var dsq = document.createElement('script');
