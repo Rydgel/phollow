@@ -4,7 +4,7 @@
   <title>Phollow.me</title>
   <link href="http://phollow.fr/"/>
   <link type="application/atom+xml" rel="self" href="http://phollow.fr/atom.xml"/>
-  <updated>2013-04-12T01:39:15+02:00</updated>
+  <updated>2013-07-04T18:18:30+02:00</updated>
   <id>http://phollow.fr/</id>
   <author>
     <name>Jérôme Mahuet</name>
@@ -313,7 +313,7 @@ questions (no troll).&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Voilà en gros le principe. Dans l&#39;utilisation courante on utilisera pas ces méthodes, car on chargera plutôt un fichier .html. Mais c’est ce qui se passe, &lt;em&gt;à peu près&lt;/em&gt;, en arrière-plan.&lt;/p&gt;
+&lt;p&gt;Voilà en gros le principe. Dans l&#39;utilisation courante on utilisera pas ces méthodes, car on chargera plutôt un fichier .html. Mais c’est ce qui se passe, _à peu près_, en arrière-plan.&lt;/p&gt;
 
 &lt;h3&gt;Exemple concret avec Flask&lt;/h3&gt;
 
@@ -456,7 +456,7 @@ questions (no troll).&lt;/p&gt;
 
 &lt;h3&gt;Virtualenv&lt;/h3&gt;
 
-&lt;p&gt;Python possède une quantité incroyable d’extensions/bibliothèques que vous pouvez installer et utiliser dans vos projets. Mais quand on travaille sur plusieurs projets à la fois (et pas forcément que sur du web), on peut arriver à des problèmes de dépendances. &lt;em&gt;Mon projet A nécessite truc en version 1, mon projet B truc en version 2…&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Python possède une quantité incroyable d’extensions/bibliothèques que vous pouvez installer et utiliser dans vos projets. Mais quand on travaille sur plusieurs projets à la fois (et pas forcément que sur du web), on peut arriver à des problèmes de dépendances. _Mon projet A nécessite truc en version 1, mon projet B truc en version 2…_&lt;/p&gt;
 
 &lt;p&gt;Une bonne pratique consiste à créer un environnement virtuel pour nos packages, avec un outil comme &lt;a href=&quot;http://pypi.python.org/pypi/virtualenv&quot;&gt;virtualenv&lt;/a&gt;, de cette manière cet environnement sera complétement indépendant du reste du système.&lt;/p&gt;
 
@@ -605,9 +605,9 @@ font-size: $fontsize;
 &lt;h3&gt;Fausses idées et ignorance&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;“ J’ai pas envie de rajouter du JS pour interpréter LESS sur mes pages et les alourdir. Hurr durr derp. ”&lt;/em&gt; ← Aucun script .js n’est nécessaire en prod, tu compiles un .css et tu utilises le .css, point barre. Le .js est utile (dans le cas de Less) lors du développement pour ne pas avoir à compiler à la main à chaque changements. Et uniquement en développement.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;“ J’ai parfois envie de modifier le code .css en live en production ”&lt;/em&gt; ← Sérieusement ?&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;“ En équipe les autres doivent être aussi formés ”&lt;/em&gt; ← Je suis d’accord. Il n’y a pas grand chose à apprendre non plus, il suffit de jouer une petite après-midi avec.&lt;/li&gt;
+&lt;li&gt;_“ J’ai pas envie de rajouter du JS pour interpréter LESS sur mes pages et les alourdir. Hurr durr derp. ”_ ← Aucun script .js n’est nécessaire en prod, tu compiles un .css et tu utilises le .css, point barre. Le .js est utile (dans le cas de Less) lors du développement pour ne pas avoir à compiler à la main à chaque changements. Et uniquement en développement.&lt;/li&gt;
+&lt;li&gt;_“ J’ai parfois envie de modifier le code .css en live en production ”_ ← Sérieusement ?&lt;/li&gt;
+&lt;li&gt;_“ En équipe les autres doivent être aussi formés ”_ ← Je suis d’accord. Il n’y a pas grand chose à apprendre non plus, il suffit de jouer une petite après-midi avec.&lt;/li&gt;
 &lt;/ul&gt;
 
 
