@@ -2,7 +2,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s">&#39;umad {{ name }}?&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Jérôme&#39;</span><span class="p">)</span>
 <span class="s">u&#39;umad Jérôme?&#39;</span>
-</code></pre></div> <p>Voilà en gros le principe. Dans l'utilisation courante on utilisera pas ces méthodes, car on chargera plutôt un fichier .html. Mais c’est ce qui se passe, _à peu près_, en arrière-plan.</p> <h3>Exemple concret avec Flask</h3> <p>Il faut créer un dossier <code>templates/</code> à la racine du projet, c’est ici que Jinja2 ira chercher par défaut vos fichiers.</p> <div class="highlight"><pre><code class="html+jinja"><span class="c">{# projet/templates/layout.html: #}</span>
+</code></pre></div> <p>Voilà en gros le principe. Dans l'utilisation courante on utilisera pas ces méthodes, car on chargera plutôt un fichier .html. Mais c’est ce qui se passe, <em>à peu près</em>, en arrière-plan.</p> <h3>Exemple concret avec Flask</h3> <p>Il faut créer un dossier <code>templates/</code> à la racine du projet, c’est ici que Jinja2 ira chercher par défaut vos fichiers.</p> <div class="highlight"><pre><code class="html+jinja"><span class="c">{# projet/templates/layout.html: #}</span>
 <span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;fr&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;head&gt;</span>

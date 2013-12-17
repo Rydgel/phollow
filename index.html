@@ -22,12 +22,12 @@ title: "Phollow.me"
           {% if paginator.previous_page == 1 %}
           <a class="next" href="/" title="Recent posts">Recent&nbsp;posts&nbsp;&raquo;</a>
           {% else %}
-          <a class="next" href="/page{{ paginator.previous_page }}/" title="Recent posts">Recent&nbsp;posts&nbsp;&raquo;</a>
+          <a class="next" href="/page/{{ paginator.previous_page }}/" title="Recent posts">Recent&nbsp;posts&nbsp;&raquo;</a>
           {% endif %}
         {% endif %}
     
         {% if paginator.next_page %} 
-        <a class="prev" href="/page{{ paginator.next_page }}/" title="Older posts">&laquo;&nbsp;Older&nbsp;posts</a>
+        <a class="prev" href="/page/{{ paginator.next_page }}/" title="Older posts">&laquo;&nbsp;Older&nbsp;posts</a>
         {% endif %}
     </p>
 </div>

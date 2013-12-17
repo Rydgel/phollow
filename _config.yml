@@ -7,6 +7,7 @@ tag_dir: tag
 tag_title_prefix: "Posts tagged : "
 url: http://phollow.fr
 paginate: 6
+paginate_path: /page/:num
 exclude: ['Rakefile', 'readme.markdown', 'CNAME', 'app.rb', 'Gemfile', 'Procfile', 'config', 'config.ru', 'Gemfile.lock']
 rdiscount:
   extensions: [smart]
