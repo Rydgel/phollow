@@ -2,3 +2,8 @@
 drafts
 .DS_Store
 web
+
+.cabal-sandbox/
+cabal-dev/
+cabal.sandbox.config
+dist/
