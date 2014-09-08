@@ -55,7 +55,7 @@ a {
 }
 
 header {
-    font-size: 1.15em;
+    @include adjust-font-size-to(18px);
     padding: 0;
     @include padding-leader(1.5);
     @include padding-trailer(1.7);
