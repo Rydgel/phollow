@@ -6,7 +6,7 @@
   <link href="https://plus.google.com/116513653525162928064" rel="publisher">
   <meta name="title" content="{{ page.title }}">
   <meta name="author" content="Jérôme Mahuet">
-  <meta name="Copyright" content="Copyright Jérôme Mahuet 2013. All Rights Reserved.">
+  <meta name="Copyright" content="Copyright Jérôme Mahuet 2014. All Rights Reserved.">
   <meta name="google-site-verification" content="b3k5NRe5t9U-Pk1_CK_g5oN0U12YXuc55rUQWCHgbZY">
 
   <meta name="twitter:card" content="summary">
@@ -15,17 +15,23 @@
   {% if page.url == '/index.html' %}
   <meta property="og:url" value="http://phollow.fr">
   <meta property="og:description" value="Blog from a web &amp; iPhone developer with a soft spot for typography and responsive design.">
+  <meta property="twitter:description" value="Blog from a web &amp; iPhone developer with a soft spot for typography and responsive design.">
+  <meta name="description" value="Blog from a web &amp; iPhone developer with a soft spot for typography and responsive design.">
   {% else %}
   <meta property="og:url" value="{{ site.url }}{{ page.url }}/">
   <meta property="og:description" value="{{ page.content | strip_html | strip_newlines | truncate: 240 }}">
+  <meta property="twitter:description" value="{{ page.content | strip_html | strip_newlines | truncate: 240 }}">
+  <meta name="description" value="{{ page.content | strip_html | strip_newlines | truncate: 240 }}">
   {% endif %}
   <meta property="og:image" value="{% if page.ogp_image %}{{ page.ogp_image }}{% else %}http://phollow.fr/images/phollow-logo3.png{% endif %}">
+  <meta property="twitter:image:src" value="{% if page.ogp_image %}{{ page.ogp_image }}{% else %}http://phollow.fr/images/phollow-logo3.png{% endif %}">
   <meta property="og:type" content="phollow:post">
   <meta property="og:site_name" content="Phollow.me">
   <meta property="fb:admins" content="rydgel">
   <meta property="fb:app_id" content="101739241646">
   <meta itemprop="name" content="{{ page.title }}">
   <meta property="og:title" value="{{ page.title }}">
+  <meta property="twitter:title" value="{{ page.title }}">
 
 
   <meta http-equiv="cleartype" content="on">
@@ -35,7 +41,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/atom.xml">
   <link rel="stylesheet" href="//cloud.typography.com/7686232/694382/css/fonts.css">
-  <link rel="stylesheet" href="/css/screen.css?v=116">
+  <link rel="stylesheet" href="/css/screen.css?v=117">
   <!--[if lt IE 9]>
   <script src="/js/compiled/modernizr.min.js"></script>
   <![endif]-->
@@ -83,4 +89,3 @@
 </footer>
 </body>
 </html>
-

@@ -1,5 +1,5 @@
 markdown: rdiscount
-pygments: true
+highlighter: pygments
 permalink: /:year/:month/:title
 category_dir: category
 category_title_prefix: "Posts category : "

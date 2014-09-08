@@ -11,7 +11,7 @@ end
  
 desc 'Build and start server with --auto'
 task :server do
-  jekyll 'serve'
+  jekyll 'serve --watch'
 end
 
 def jekyll(opts = '')

@@ -21,8 +21,8 @@ body {
     color: $text-color;
     -webkit-text-size-adjust: none;
     @include at-breakpoint($computer) {
-        @include adjust-font-size-to(18px);
-        line-height: 1.5;
+        @include adjust-font-size-to(16px);
+        line-height: 1.6;
     }
 }
 
@@ -94,6 +94,7 @@ article pre > code {
     word-wrap: break-word;
     line-height: 1.7em;
     color: #423F37;
+    @include adjust-font-size-to(13px);
 }
 
 
@@ -103,8 +104,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h3, h4, h5 {
-    @include adjust-font-size-to(18px);
-    margin: rhythm(1, 18px) auto rhythm(.25, 18px);
+    @include adjust-font-size-to(22px);
+    margin: rhythm(1, 24px) auto rhythm(.25, 24px);
 }
 
 article ul {
